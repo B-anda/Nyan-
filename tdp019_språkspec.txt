@@ -1,0 +1,10 @@
+Nyan
+
+
+Nyan är ett objektorienterat språk. Språket ska inspireras av katter och ljuden de gör, exempel kan se ut som följande:
+
+mao ^While_print^
+     prrr ^i<0^
+     	  meow^"utskrift"^
+     	  ?nya? (i<0)>
+	  	
