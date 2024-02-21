@@ -1,10 +1,27 @@
 Nyan
+hemni276 julma873
 
 
-Nyan är ett objektorienterat språk. Språket ska inspireras av katter och ljuden de gör, exempel kan se ut som följande:
+Nyan är ett objektorienterat språk. Språket ska inspireras av katter och ljuden 
+de gör, exempel på koden kan se ut som följande:
 
-mao ^While_print^
-     prrr ^i<0^
-     	  meow^"utskrift"^
-     	  ?nya? (i<0)>
-	  	
+mao ^While_print^:								//function
+    prrr ^i < 0^:								//while-loop
+     	meow ^"utskrift"^						//print
+     	?nya? ^i < 0^:							//if-statement
+			meow ^"youve been meowed"^			//print
+		:3										//end
+	:3											//end
+:3												//end
+				
+list=[]
+
+Funktionaliteten ska likna python på vissa sätt, speciellt när man passerar 
+variabler in i en funktion, då de kommer agera som referenser. En skillnad är att
+vi planerar att ha statisk typning så att vi kan använda kattansikten för att 
+deklarera typer. Hur dessa ansikten används beskrivs här: 
+
+^w^ str
+^3^ int
+^.^ float
+^oo^ bool
