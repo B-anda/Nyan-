@@ -54,8 +54,8 @@ BNF grammatik:
 <airthmatic>::= <expr> <operator> <expr>
 
 <expr>::= <term> + <term> | <term> - <term> | <term
-<term>::= <factor> | <factor> * <factor> | <factor> / <factor>
+<term>::= <factor> | <factor> * <factor> | <factor> / <factor> | <factor> % <factor>
 <factor>::= number | identifier | (expr)
 
-<while>::= "prrr" "^" <logic_statment> "^:" <block> ":3"
+<while>::= "prrr" "^" <logic_statment> "^" <block>
 
