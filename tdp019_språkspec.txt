@@ -25,3 +25,37 @@ deklarera typer. Hur dessa ansikten används beskrivs här:
 ^3^ int
 ^.^ float
 ^oo^ bool
+
+
+BNF grammatik:
+
+<assignment>::= <variable> = <value>
+
+<block>::= <block> | ":" ":3"
+
+<statement>::=
+
+<condition>::= "?nya?" "^" <logic_statment> "^" <block> |
+			   "?nya?" "^" <logic_statment> "^" <block> "nyan?" <block>
+
+<logic_statment>::= <logic_statment> < <logic_statment> |
+					<logic_statment> > <logic_statment> |
+					<logic_statment> == <logic_statment> |
+					<logic_statment> != <logic_statment> |
+					<logic_statment> <= <logic_statment> |
+					<logic_statment> >= <logic_statment> |
+					<logic_statment> && <logic_statment> |
+					<logic_statment> || <logic_statment> |
+					<logic_statment> not <logic_statment> |
+					<logic_statment> and <logic_statment> |
+					<logic_statment> or <logic_statment> |
+					<true> | <false> | <value> | <variable>
+				    
+<airthmatic>::= <expr> <operator> <expr>
+
+<expr>::= <term> + <term> | <term> - <term> | <term
+<term>::= <factor> | <factor> * <factor> | <factor> / <factor>
+<factor>::= number | identifier | (expr)
+
+<while>::= "prrr" "^" <logic_statment> "^:" <block> ":3"
+
