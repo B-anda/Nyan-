@@ -1,0 +1,7 @@
+2024-02-26
+
+Idag skrev vi klar våran språkspecifikation. La till BNF-grammatiken för språket. Vi anser att den borde vara 
+tillräckligt utförlig. Vi bestämde oss också för att implementera ett dynamiskt scope då det anses vara teoretiskt sätt 
+lättare att implementera.
+Vi valde att skriva ett imperativt prorgrammeringspråk istället för
+ett objektorienterat vilket ses som en enklare impelentation. 

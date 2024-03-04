@@ -2,7 +2,7 @@ Nyan
 hemni276 julma873
 
 
-Nyan är ett objektorienterat språk. Språket ska inspireras av katter och ljuden 
+Nyan är ett imperativt språk. Språket ska inspireras av katter och ljuden 
 de gör, exempel på koden kan se ut som följande:
 
 mao ^While_print^:								//function
@@ -14,8 +14,6 @@ mao ^While_print^:								//function
 	:3											//end
 :3												//end
 				
-list=[]
-
 Funktionaliteten ska likna python på vissa sätt, speciellt när man passerar 
 variabler in i en funktion, då de kommer agera som referenser. En skillnad är att
 vi planerar att ha statisk typning så att vi kan använda kattansikten för att 
@@ -26,17 +24,44 @@ deklarera typer. Hur dessa ansikten används beskrivs här:
 ^.^ float
 ^oo^ bool
 
+list=[]
+
+Scope:
+
+Vi väljer att använda ett dynamiskt scope. Med detta vill vi säga att variablers 
+definitioner är baserade på vilket scope som funktionen ankallades i. 
 
 BNF grammatik:
 
-<assignment>::= <variable> = <value>
+<assignment>::= <datatype> <variable> = <value>
 
-<block>::= <block> | ":" ":3"
+<block>::= ":" <block> ":3" | <assignment> | <condition> | <while> | <blocks>
 
-<statement>::=
+<blocks>::= <blocks> <block> | <block>
+
+<function>::= "mao" <func_name> <params> <block>
+
+<params>::= "^" <params> "^" | 
+			<params> "," <datatype> <variable> |
+			<datatype> <variable>
+
+<variable>::= /[[:alpha:]\d_]+/
+
+<value> ::= <int> | <str> | <float> | <bool>
+
+<int>::= /\d+/
+
+<str>::= /[\s\S]/
+
+<float>::= /[\d]+\.[\d]+/
+
+<bool>::= True | False
+
+<func_name>::= /[:alpha:]+/
 
 <condition>::= "?nya?" "^" <logic_statment> "^" <block> |
-			   "?nya?" "^" <logic_statment> "^" <block> "nyan?" <block>
+			   "nye?" "^" <logic_statment> "^" <block> | 
+			   "nyan?" "^" <logic_statment> "^" <block>
 
 <logic_statment>::= <logic_statment> < <logic_statment> |
 					<logic_statment> > <logic_statment> |
@@ -59,3 +84,7 @@ BNF grammatik:
 
 <while>::= "prrr" "^" <logic_statment> "^" <block>
 
+<datatype>::= "^w^" |
+		   	  "^3^" |
+		      "^.^" |
+		      "^oo^" |
