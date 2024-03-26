@@ -86,7 +86,7 @@ BNF grammatik:
 <term>::= <factor> | <factor> * <factor> | <factor> / <factor> | <factor> % <factor>
 <factor>::= number | identifier | (expr)
 
-<while>::= "prrr" "^" <logic_statment> "^" <block>
+<while>::= "prrr" "^" <logic_stmt> "^" <block>
 
 <datatype>::= "^w^" |
 		   	  "^3^" |
