@@ -59,24 +59,28 @@ BNF grammatik:
 
 <func_name>::= /[:alpha:]+/
 
-<condition>::= "?nya?" "^" <logic_statment> "^" <block> |
-			   "nye?" "^" <logic_statment> "^" <block> | 
-			   "nyan?" "^" <logic_statment> "^" <block>
+<condition>::= "?nya?" "^" <logic_stmt> "^" <block> |
+			   "nye?" "^"  <logic_stmt> "^" <block> | 
+			   "nyan?" "^" <logic_stmt> "^" <block>
 
-<logic_statment>::= <logic_statment> < <logic_statment> |
-					<logic_statment> > <logic_statment> |
-					<logic_statment> == <logic_statment> |
-					<logic_statment> != <logic_statment> |
-					<logic_statment> <= <logic_statment> |
-					<logic_statment> >= <logic_statment> |
-					<logic_statment> && <logic_statment> |
-					<logic_statment> || <logic_statment> |
-					<logic_statment> not <logic_statment> |
-					<logic_statment> and <logic_statment> |
-					<logic_statment> or <logic_statment> |
-					<true> | <false> | <value> | <variable>
+<logic_stmt>::= not <logic_stmt> |
+					<logic_stmt> and <logic_stmt> |
+					<logic_stmt> or <logic_stmt> |
+					<comparison_stmt> | <logic_expr>
+
+<comparison_stmt> ::= <equal_op> | <value_comp>
+
+<equal_op> ::= <logic_stmt> '==' <logic_stmt> |
+			   <logic_stmt> '!=' <logic_stmt>
+
+<value_comp> ::= <logic_stmt> < <logic_stmt>  |
+				 <logic_stmt> > <logic_stmt>  |
+				 <logic_stmt> <= <logic_stmt> |
+				 <logic_stmt> >= <logic_stmt> |
+
+<logic_expr> ::= 'true' | 'false' | <variable> | <value>
 				    
-<airthmatic>::= <expr> <operator> <expr>
+<arithmetic>::= <expr> <operator> <expr>
 
 <expr>::= <term> + <term> | <term> - <term> | <term
 <term>::= <factor> | <factor> * <factor> | <factor> / <factor> | <factor> % <factor>
