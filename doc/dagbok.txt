@@ -5,3 +5,13 @@ tillräckligt utförlig. Vi bestämde oss också för att implementera ett dynam
 lättare att implementera.
 Vi valde att skriva ett imperativt prorgrammeringspråk istället för
 ett objektorienterat vilket ses som en enklare impelentation. 
+
+2024-03-25
+Idag har vi skrivit en detaljerad impelmentationsplan för hur och vad vi kommer jobba med under de näst kommande veckorna. Vi kommer ha ett återkopplings möte varje måndag för att se hur långt vi har kommit samt för att kunna planera arbete utifrån andra kurser. 
+BNF-gramatiken är också kompleterad.
+
+2024-03-26
+Skapat ett utkast för språkdokumentationen samt en filstruktur för projektet. I och med att vi utgår från rdparser.rb började vi med att försöka dela upp funktionaliteten i olika filer. En fil som parsar vårt språk, den tar allstå antingen in en fil eller så kan man köra det i interaktivt läge. (idag implementerade vi bara för iteraktivt läge). En fil för alla tokens och rules. Denna fil includerar rdparser.rb. La också till en fil för tester.  Vi bestämde oss för att implementera kod för parsning av strängar imorgon istället.
+
+2024-03-27
+Vi hade svårt att komma igång och veta hur vi skulle börja. Men tillslut lyckades vi få till scopehantering samt kunna parsa variabler.

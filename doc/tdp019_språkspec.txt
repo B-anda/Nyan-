@@ -19,10 +19,10 @@ variabler in i en funktion, då de kommer agera som referenser. En skillnad är 
 vi planerar att ha statisk typning så att vi kan använda kattansikten för att 
 deklarera typer. Hur dessa ansikten används beskrivs här: 
 
-^w^ str
-^3^ int
-^.^ float
-^oo^ bool
+^w^ "hello"		//str
+^3^ 42 			//int
+^.^ 3.14 		//float
+^oo^ false 		//bool
 
 list=[]
 
@@ -33,13 +33,21 @@ definitioner är baserade på vilket scope som funktionen ankallades i.
 
 BNF grammatik:
 
-<assignment>::= <datatype> <variable> = <value>
+<program>::= <component> | <components>
 
-<block>::= ":" <block> ":3" | <assignment> | <condition> | <while> | <blocks>
+<component>::= <component> <component> | <function> | <block> | <print>
+
+<function>::= "mao" <func_name> <params> <block> 
+
+<block>::= ":" <block> ":3" | <assignment> | <blocks> | <condition> | <while> | <return>
+
+<return>::= "return" 
+
+<assignment>::= <datatype> <variable> "=" <value>
+
+<print>::= "meow" "^" <value> "^"
 
 <blocks>::= <blocks> <block> | <block>
-
-<function>::= "mao" <func_name> <params> <block>
 
 <params>::= "^" <params> "^" | 
 			<params> "," <datatype> <variable> |
@@ -51,11 +59,11 @@ BNF grammatik:
 
 <int>::= /\d+/
 
-<str>::= /[\s\S]/
+<str>::= '"' /[^"]/ '"'
 
 <float>::= /[\d]+\.[\d]+/
 
-<bool>::= True | False
+<bool>::= "True" | "False"
 
 <func_name>::= /[:alpha:]+/
 
@@ -82,13 +90,13 @@ BNF grammatik:
 				    
 <arithmetic>::= <expr> <operator> <expr>
 
-<expr>::= <term> + <term> | <term> - <term> | <term
-<term>::= <factor> | <factor> * <factor> | <factor> / <factor> | <factor> % <factor>
-<factor>::= number | identifier | (expr)
+<expr>::= <arithmetic> | <value> | <variable>
+
+<operator>::= '+' | '-' | '*' | '/'
 
 <while>::= "prrr" "^" <logic_stmt> "^" <block>
 
-<datatype>::= "^w^" |
-		   	  "^3^" |
-		      "^.^" |
+<datatype>::= "^w^"  |
+		   	  "^3^"  |
+		      "^.^"  |
 		      "^oo^" |
