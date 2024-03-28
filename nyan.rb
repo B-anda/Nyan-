@@ -7,14 +7,17 @@ def done(str)
  end
 
 def run(input = 0)
-    print "~^nyan^~ "
-    input = gets
+    loop do
+        print "~^nyan^~ "
+        input = gets
 
-    if done(input) then
-        puts "Bye Bye~"
-    else
-        # @nyan.log false
-        puts "=> #{@nyan.nyanParser.parse input}"
+        if done(input) then
+            puts "Bye Bye~"
+            break
+        else
+            #@nyan.log false
+            puts "=> #{@nyan.nyanParser.parse input}"
+        end
     end
 end
 
