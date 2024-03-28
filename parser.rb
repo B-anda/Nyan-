@@ -1,6 +1,22 @@
 require './rdparse'
 require './syntaxtree'
 
+# regexet fungerade inte 
+# /"([^"]*)"/ funkar i rubular och matchar hela strängen innanför " " och för att komma åt
+#   ^     ^
+# bara strängen borde det vara: a[1] 
+# match(/"([^"]*)"/) {|a| ValueNode.new(a[1])} <-
+#
+# match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, ValueNode.new(c))} 
+# -> testade att lägga till ValueNode.new(c) för att skapa en ny node
+#                    _       _
+# varför det funka?   \('-')/ idk
+
+# pröva lägga till rule :print men fick parse error
+# `parse': Parse error. expected: '', found '^' (Parser::ParseError)
+
+
+
 class Nyan
 
     attr_accessor :nyanParser
@@ -54,7 +70,6 @@ class Nyan
                 match(/[[:alpha:]\d_]+/) {|a| VariableNode.new(a)}
             end
 
-            #expectar en int men hittar en sträng istället vilket ger error
             rule :value do
                 match(:str) 
                 match(:int) 
