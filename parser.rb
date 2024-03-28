@@ -14,47 +14,45 @@ class Nyan
             token(/\^.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
             token(/[[:alpha:]\d_]+/) {|m| m}
-            token(/(?<=")[[:alpha:]\s]*(?=")/) {|m| m}
+            token(/"[^"]*"/) {|m| m}
             token(/"/) 
             #token(/[^"]/) {|m| m}
             token(/./) {|m| m }
             
-            @a = Assignement.new()
-
             start :program do
-                match(:component)
+                match(:component) {|a| a.eval}
             end
 
             rule :component do
-                match(:assignment)
+                match(:assignment) {|a| a.eval}
             end
 
             rule :assignment do
-                match(:datatype, :variable, "=", :value) { |a,b,_,c| @a.assign(a, b, c)}
+                match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, c)}
             end
 
             rule :datatype do
-                match(/\^w\^/)  {|a| a}
-                match(/\^3\^/)  {|a| a}
-                match(/\^\.\^/) {|a| a}
-                match(/\^oo\^/) {|a| a}
+                match(/\^w\^/)  {|a| DatatypeNode.new(a)}
+                match(/\^3\^/)  {|a| DatatypeNode.new(a)}
+                match(/\^\.\^/) {|a| DatatypeNode.new(a)}
+                match(/\^oo\^/) {|a| DatatypeNode.new(a)}
             end
 
             rule :variable do
-                match(/[[:alpha:]\d_]+/) {|a| a}
+                match(/[[:alpha:]\d_]+/) {|a| VariableNode.new(a)}
             end
-
+            #expectar en int men hittar en sträng istället vilket ger error
             rule :value do
-                match(:int) 
                 match(:str) 
+                match(:int) 
             end 
             
             rule :str do
-                match(/[[:alpha:]\d\s]*/) {|a| a}
+                match(/"[^"]*"/) {|a| ValueNode.new(a)}
             end
 
             rule :int do
-                match(/\d+/) {|a| a.to_i}
+                match(/\d+/) {|a| ValueNode.new(a.to_i)}
             end
             # rule :arithmatic do
             #     match(:expr, :operator, :expr) {|a, b, c| Arithmatic_Node.new(a,b,c)}
