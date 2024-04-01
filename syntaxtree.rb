@@ -167,6 +167,7 @@ class PrintNode < SyntaxTreeNode
     end
 
     def eval
-        puts @value.eval
+        #puts @value.eval
+        @value
     end
 end

@@ -30,12 +30,13 @@ class Nyan
             token(/\^3\^/) { |m| m}
             token(/\^.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
-            token(/\^/) {|m| m}
+            #token(/\^/) {|m| m}
             token(/meow/) { |m| m }  
             token(/[[:alpha:]\d_]+/) {|m| m}
 #            token(/(?<=")[[:alpha:]\s]*(?=")/) {|m| m}
 #            token(/"/) 
             token(/./) {|m| m }
+            #token(/\n/)
             
             start :program do
                 match(:component) {|a| a.eval}
@@ -76,7 +77,8 @@ class Nyan
             end 
             
             rule :str do
-                match(/"([^"]*)"/) {|a| ValueNode.new(a[1])}
+                match(/".*"/) {|a| ValueNode.new(a)}
+                #match(/"([^"]*)"/) {|a| ValueNode.new(a)}
             end
 
             rule :int do

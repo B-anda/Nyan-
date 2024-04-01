@@ -15,3 +15,9 @@ Skapat ett utkast för språkdokumentationen samt en filstruktur för projektet.
 
 2024-03-27
 Vi hade svårt att komma igång och veta hur vi skulle börja. Men tillslut lyckades vi få till scopehantering samt kunna parsa variabler.
+
+2024-03-28
+Haft problem med parsning. Löstes genom att byta ut regexet. Går dock inte att hämta hela match gruppen men den returnerar korrekt.
+Lagt till en loop i run() i nyan.rb för att programmet ska fortsätta att köra efter varje parsning.
+Prövade att skapa en node för varje node iställe som representerar ett syntaxträd.
+component kallar eval igenom hela syntaxträdet. 
