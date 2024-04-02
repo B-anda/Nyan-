@@ -21,3 +21,6 @@ Haft problem med parsning. Löstes genom att byta ut regexet. Går dock inte att
 Lagt till en loop i run() i nyan.rb för att programmet ska fortsätta att köra efter varje parsning.
 Prövade att skapa en node för varje node iställe som representerar ett syntaxträd.
 component kallar eval igenom hela syntaxträdet. 
+
+2024-04-02
+print funkar någolunda. Det går att skriva ut strängar etc. men problem med att skriva ut variabler. Har också försökt att skapa någon form av simpel scopehantering.

@@ -37,22 +37,25 @@ class Nyan
 #            token(/"/) 
             token(/./) {|m| m }
             #token(/\n/)
+
             
             start :program do
-                match(:component) {|a| a.eval}
+                scope = Scope.new
+                match(:component) {|a| a.eval(scope)}
             end
 
             rule :component do
-                match(:assignment) {|a| a.eval}
-                match(:print) {|a| a.eval}
-            end
-
-            rule :print do
-                match("meow", "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
+                scope = Scope.new
+                match(:assignment) {|a| a.eval(scope)}
+                match(:print) {|a| a.eval(scope)}
             end
 
             rule :assignment do
                 match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, ValueNode.new(c))}
+            end
+
+            rule :print do
+                match("meow", "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
             end
 
             rule :output do 
@@ -84,7 +87,6 @@ class Nyan
             rule :int do
                 match(/\d+/) {|a| ValueNode.new(a.to_i)}
             end
-
         
             # rule :arithmatic do
             #     match(:expr, :operator, :expr) {|a, b, c| Arithmatic_Node.new(a,b,c)}

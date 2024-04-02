@@ -15,7 +15,7 @@ def run(input = 0)
             puts "Bye Bye~"
             break
         else
-            #@nyan.log false
+            @nyan.log false
             puts "=> #{@nyan.nyanParser.parse input}"
         end
     end
