@@ -1,31 +1,4 @@
-
-class Scope
-    attr_accessor :vars, :top_node
-
-    def initialize(top_node = nil)
-        @vars = {}
-        @top_node = top_node
-    end
-
-    def find_variable(name)
-        if @vars.key?(name)
-            return @vars[name]
-        elsif @top_node
-            return @top_node.find_variable(name) #look in the parent scope
-        else
-            puts "Variable #{name} not found"
-        end
-    end
-
-    def add_variable(name, value) 
-        if name.is_a? VariableNode
-            @vars[name.var] = value
-        else
-            @vars[name] = value
-        end
-    end
-end
-
+require './scope'
 
 class SyntaxTreeNode
     attr_accessor :nodes
@@ -40,7 +13,7 @@ class SyntaxTreeNode
 end
 
 class ProgramNode < SyntaxTreeNode
-    def eval(scope)(scope)
+    def eval(scope)
       @nodes.each { |n| n.eval(scope) }
     end
 end 
@@ -58,7 +31,7 @@ class Assignment < SyntaxTreeNode
     def eval(scope)
         value = @value.eval(scope)
 
-        scope.add_variable(@var, value)
+        scope.addVariable(@var, value)
         # if @value.respond_to?(:eval)
         #     @value = @value.eval
         # else
@@ -84,7 +57,7 @@ class VariableNode < SyntaxTreeNode
     end
 
     def eval(scope)
-        if scope.find_variable(@var)
+        if scope.findVariable(@var)
             @var
         end
     end
@@ -113,7 +86,7 @@ class PrintNode < SyntaxTreeNode
     def eval(scope)
         # puts @value.eval
         if @value.is_a?(VariableNode)
-            scope.find_variable(@value.var)
+            scope.findVariable(@value.var)
         else
             @value
         end

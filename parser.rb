@@ -1,5 +1,6 @@
 require './rdparse'
 require './syntaxtree'
+require './scope'
 
 # regexet fungerade inte 
 # /"([^"]*)"/ funkar i rubular och matchar hela strängen innanför " " och för att komma åt
@@ -23,6 +24,7 @@ class Nyan
     
     def initialize
         @nyanParser = Parser.new("nyan") do
+            
             token(/\s+/)
             token(/"([^"]*)"/) {|m| m}
             token(/\d+/) {|m| m }
@@ -30,31 +32,36 @@ class Nyan
             token(/\^3\^/) { |m| m}
             token(/\^.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
-            #token(/\^/) {|m| m}
             token(/meow/) { |m| m }  
             token(/[[:alpha:]\d_]+/) {|m| m}
-#            token(/(?<=")[[:alpha:]\s]*(?=")/) {|m| m}
-#            token(/"/) 
+            token(/\?nye\?/) {|_| :else}
+            token(/\?nyanye\?/) {|_| :elsif}
+            token(/\?nya\?/) { |_| :if}
             token(/./) {|m| m }
-            #token(/\n/)
-
             
+            @scope = GlobalScope.new
+            @currentScope = @scope.current
+
             start :program do
-                scope = Scope.new
-                puts "Scope created in program: #{scope.inspect}"
-                match(:component) {|a| a.eval(scope)}
+                puts "Scope created in program: #{@scope.inspect}"
+                match(:component) {|a| a.eval(@currentScope)}
             end
 
             rule :component do
-                scope = Scope.new
-                match(:assignment) do |a| 
-                    a.eval(scope)
-                    #puts "Scope created in component: #{scope.inspect}"
-                end
+                match(:block)
+            end
+
+            rule :stmts do
+                match(":", :block, ":3")
+            end
+
+            rule :block do
+                match(:assignment) { |a| a.eval(@currentScope) }
                 match(:print) do |a| 
-                    puts "Scope created in component: #{scope.inspect}"
-                    a.eval(scope)
+                    puts "Scope created in component: #{@scope.inspect}"
+                    a.eval(@currentScope)
                 end
+                match(:condition) { |a| a.eval(@currentScope) }
             end
 
             rule :assignment do
@@ -65,6 +72,45 @@ class Nyan
                 match("meow", "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
             end
 
+            rule :condition do
+                match(:else, "^", :logicStmt, "^", :stmts)  {|a,_,b,_,c| }
+                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| }
+                match(:if, "^", :logicStmt, "^", :stmts)    {|a,_,b,_,c| }
+            end
+
+            rule :logicStmt do 
+                match("not", :logicStmt)
+                match(:logicStmt, "and", :logicStmt) { |a,_,b| }
+                match(:logicStmt, "or", :logicStmt) { |a,_,b| }
+                match(:comparisonStmt) {}
+                match(:logicExpr) {}
+            end
+            
+            rule :comparisonStmt do
+                match(:equalOp) {}
+                match(:valueComp) {}
+            end
+
+
+            rule :equalOp do
+                match(:logicExpr, "==", :logicExpr) { |a,_,b| }
+                match(:logicExpr, "!=", :logicExpr) { |a,_,b| }
+            end
+
+            rule :valueComp do
+                match(:logicExpr, "<", :logicExpr) { |a,_,b| }
+                match(:logicExpr, ">", :logicExpr) { |a,_,b| }
+                match(:logicExpr, "<=", :logicExpr) { |a,_,b| }
+                match(:logicExpr, "<=", :logicExpr) { |a,_,b| }
+            end
+
+            rule :logicExpr do
+                match("true")
+                match("false")
+                match(:variable)
+                match(:value)
+            end
+                
             rule :output do 
                 match(:value)
                 match(:variable)
