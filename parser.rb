@@ -52,8 +52,8 @@ class Nyan
                     #puts "Scope created in component: #{scope.inspect}"
                 end
                 match(:print) do |a| 
-                    a.eval(scope)
                     puts "Scope created in component: #{scope.inspect}"
+                    a.eval(scope)
                 end
             end
 

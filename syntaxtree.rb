@@ -18,7 +18,7 @@ class Scope
     end
 
     def add_variable(name, value) 
-        @vars[name] = value
+        @vars[name.var] = value
     end
 end
 
@@ -105,7 +105,7 @@ class PrintNode < SyntaxTreeNode
     end
 
     def eval(scope)
-        #puts @value.eval
+        # puts @value.eval
         # if @value.is_a?(VariableNode)
         #     return scope.find_variable(@value)
         # else

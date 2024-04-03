@@ -54,6 +54,17 @@ class Assignment_test < Test::Unit::TestCase
         assert_equal("world", scope.find_variable("test_str"))
     end
 
+    def test_add_var
+        scope = Scope.new
+        value = ValueNode.new("world")
+        name = VariableNode.new("hello")
+
+        scope.add_variable(name, value)
+        assert_equal("world", scope.find_variable("hello"))
+        
+    end
+        
+
 end
 
 class Datatype_Test < Test::Unit::TestCase

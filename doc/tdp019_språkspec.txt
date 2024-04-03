@@ -33,13 +33,17 @@ definitioner är baserade på vilket scope som funktionen ankallades i.
 
 BNF grammatik:
 
-<program>::= <component> | <components>
+<program>::= <component> 
 
-<component>::= <component> <component> | <function> | <block> | <print>
+<component>::= <component> <component> | <function> | <block>
 
-<function>::= "mao" <func_name> <params> <block> 
+<function>::= "mao" <func_name> "^" <params> "^" <stmts>
 
-<block>::= ":" <block> ":3" | <assignment> | <blocks> | <condition> | <while> | <return>
+<function_call>::= <func_name> <params>
+
+<stmts>::= ":" <block> ":3"
+
+<block>::= <assignment> | <blocks> | <condition> | <while> | <return> | <arithmatic> | <print>
 
 <return>::= "return" 
 
@@ -49,13 +53,12 @@ BNF grammatik:
 
 <blocks>::= <blocks> <block> | <block>
 
-<params>::= "^" <params> "^" | 
-			<params> "," <datatype> <variable> |
+<params>::= <params> "," <datatype> <variable> |
 			<datatype> <variable>
 
 <variable>::= /[[:alpha:]\d_]+/
 
-<value> ::= <int> | <str> | <float> | <bool>
+<value> ::= <int> | <str> | <float> | <bool> | <arithmatic>
 
 <int>::= /\d+/
 
@@ -67,14 +70,14 @@ BNF grammatik:
 
 <func_name>::= /[:alpha:]+/
 
-<condition>::= "?nya?" "^" <logic_stmt> "^" <block> |
-			   "nye?" "^"  <logic_stmt> "^" <block> | 
-			   "nyan?" "^" <logic_stmt> "^" <block>
+<condition>::= "?nya?" "^" <logic_stmt> "^" <stmts> |
+			   "nye?" "^"  <logic_stmt> "^" <stmts> | 
+			   "nyan?" "^" <logic_stmt> "^" <stmts>
 
 <logic_stmt>::= not <logic_stmt> |
-					<logic_stmt> and <logic_stmt> |
-					<logic_stmt> or <logic_stmt> |
-					<comparison_stmt> | <logic_expr>
+				<logic_stmt> and <logic_stmt> |
+				<logic_stmt> or <logic_stmt>  |
+				<comparison_stmt> | <logic_expr>
 
 <comparison_stmt> ::= <equal_op> | <value_comp>
 
@@ -88,13 +91,17 @@ BNF grammatik:
 
 <logic_expr> ::= 'true' | 'false' | <variable> | <value>
 				    
-<arithmetic>::= <expr> <operator> <expr>
+<term>::= <expr> | <expr> <operator_lo> <expr>
 
-<expr>::= <arithmetic> | <value> | <variable>
+<expr>::= <factor> | <factor> <operator_hi> <factor>
 
-<operator>::= '+' | '-' | '*' | '/'
+<factor>::= "(" <term> ")" | <int> | <variable>
 
-<while>::= "prrr" "^" <logic_stmt> "^" <block>
+<operator_lo>::= '+' | '-'
+
+<operator_hi>::= '*' | '/' 
+
+<while>::= "prrr" "^" <logic_stmt> "^" <stmts>
 
 <datatype>::= "^w^"  |
 		   	  "^3^"  |
