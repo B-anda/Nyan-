@@ -30,14 +30,9 @@ class Nyan
             token(/\^3\^/) { |m| m}
             token(/\^.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
-            #token(/\^/) {|m| m}
             token(/meow/) { |m| m }  
             token(/[[:alpha:]\d_]+/) {|m| m}
-#            token(/(?<=")[[:alpha:]\s]*(?=")/) {|m| m}
-#            token(/"/) 
             token(/./) {|m| m }
-            #token(/\n/)
-
             
             start :program do
                 scope = Scope.new
@@ -47,14 +42,17 @@ class Nyan
 
             rule :component do
                 scope = Scope.new
-                match(:assignment) do |a| 
-                    a.eval(scope)
-                    #puts "Scope created in component: #{scope.inspect}"
-                end
+                match(:block)
+            end
+
+            rule :block do
+                scope = Scope.new
+                match(:assignment) { |a| a.eval(scope) }
                 match(:print) do |a| 
                     puts "Scope created in component: #{scope.inspect}"
                     a.eval(scope)
                 end
+                match(:condition) { |a| a.eval(scope) }
             end
 
             rule :assignment do
@@ -64,6 +62,9 @@ class Nyan
             rule :print do
                 match("meow", "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
             end
+
+            rule :condition do
+                match("?nya?", "^" :logic_stmt, "^" :)
 
             rule :output do 
                 match(:value)
