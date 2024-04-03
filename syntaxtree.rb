@@ -94,14 +94,52 @@ class PrintNode < SyntaxTreeNode
     end
 end
 
-class ConditionNode
+# class ConditionNode
     
-    def initialize(, condition, block)
+#     def initialize(statment, condition, block)
+#         @stat = statment
+#         @condition = condition
+#         @block = block
+#     end
 
+#     def eval
+
+#     end
+
+# end
+
+class ValueComp
+
+    def initialize(lhs, logicOp, rhs)
+        @lhs = lhs
+        @logicOp = logicOp
+        @rhs = rhs
     end
 
     def eval
+        #send calls method dynamically
+        # calls @logicOp on @lhs and passes @rhs
+        # which returns true or false
+        if @lhs.value.send(@logicOp, @rhs.value)
+           true
+        else
+            false
+        end
+    end
+end
 
+class LogicExpr
+
+    def initialize(bool)
+        @bool = bool
     end
 
+    def eval
+        case @bool
+        when "true"
+            true
+        when "false"
+            false
+        end
+    end
 end

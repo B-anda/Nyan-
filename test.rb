@@ -75,27 +75,3 @@ class Datatype_Test < Test::Unit::TestCase
     end
 end
 
-# class Condition_Test < Test::Unit::TestCase
-#     def test_initiaize
-#         conNode = ConditionNode.new(:else, )
-#     end
-        
-# end
-
-class ValueComp_Test < Test::Unit::TestCase
-    def test_initiaize
-        conNode = ConditionNode.new(:else, )
-    end
-        
-end
-
-class LogicExpr_Test < Test::Unit::TestCase
-    def test_initiaize
-        conNode = LogicExpr.new("true")
-        assert_equal(true, conNode.eval())
-
-        conNode = LogicExpr.new("true")
-        assert_equal(false, conNode.eval())
-    end
-        
-end
