@@ -60,7 +60,7 @@ class Assignment_test < Test::Unit::TestCase
         name = VariableNode.new("hello")
 
         scope.add_variable(name, value)
-        assert_equal("world", scope.find_variable("hello"))
+        assert_equal("world", scope.find_variable("hello").value)
         
     end
         

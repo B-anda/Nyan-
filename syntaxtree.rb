@@ -18,7 +18,11 @@ class Scope
     end
 
     def add_variable(name, value) 
-        @vars[name.var] = value
+        if name.is_a? VariableNode
+            @vars[name.var] = value
+        else
+            @vars[name] = value
+        end
     end
 end
 
@@ -80,7 +84,9 @@ class VariableNode < SyntaxTreeNode
     end
 
     def eval(scope)
-        scope.find_variable(@var)
+        if scope.find_variable(@var)
+            @var
+        end
     end
 end
 
@@ -90,7 +96,7 @@ class ValueNode < SyntaxTreeNode
     def initialize(value)
         @value = value
     end
-
+    
     def eval(scope)
       @value
     end
@@ -106,11 +112,11 @@ class PrintNode < SyntaxTreeNode
 
     def eval(scope)
         # puts @value.eval
-        # if @value.is_a?(VariableNode)
-        #     return scope.find_variable(@value)
-        # else
-        #     return @value
-        # end
-        @value
+        if @value.is_a?(VariableNode)
+            scope.find_variable(@value.var)
+        else
+            @value
+        end
+        #@value
     end
 end
