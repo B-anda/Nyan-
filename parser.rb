@@ -73,46 +73,39 @@ class Nyan
             end
 
             rule :condition do
-                match(:else, "^", :logicStmt, "^", :stmts)  {|a,_,b,_,c| }
-                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| }
-                match(:if, "^", :logicStmt, "^", :stmts)    {|a,_,b,_,c| }
+                match(:else, "^", :logicStmt, "^", :stmts)  {|a,_,b,_,c| ConditionNode.new(a,b,c)}
+                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a,b,c)}
+                match(:if, "^", :logicStmt, "^", :stmts)    {|a,_,b,_,c| ConditionNode.new(a,b,c)}
             end
 
             rule :logicStmt do 
                 match("not", :logicStmt)
-                match(:logicStmt, "and", :logicStmt) { |a,_,b| }
-                match(:logicStmt, "or", :logicStmt) { |a,_,b| }
-                match(:comparisonStmt) {}
-                match(:logicExpr) {}
-            end
-            
-            rule :comparisonStmt do
-                match(:equalOp) {}
-                match(:valueComp) {}
-            end
-
-
-            rule :equalOp do
-                match(:logicExpr, "==", :logicExpr) { |a,_,b| }
-                match(:logicExpr, "!=", :logicExpr) { |a,_,b| }
+                match(:logicStmt, "and", :logicStmt) { |a,_,b| LogicStmt.new(a, "and", b)}
+                match(:logicStmt, "&&", :logicStmt) { |a,_,b| LogicStmt.new(a, "and", b)}
+                match(:logicStmt, "or", :logicStmt) { |a,_,b| LogicStmt.new(a, "or", b)}
+                match(:logicStmt, "||", :logicStmt) { |a,_,b| LogicStmt.new(a, "or", b)}
+                match(:valueComp) 
+                match(:logicExpr) 
             end
 
             rule :valueComp do
-                match(:logicExpr, "<", :logicExpr) { |a,_,b| }
-                match(:logicExpr, ">", :logicExpr) { |a,_,b| }
-                match(:logicExpr, "<=", :logicExpr) { |a,_,b| }
-                match(:logicExpr, "<=", :logicExpr) { |a,_,b| }
+                match(:logicExpr, "<", :logicExpr) { |a,_,b| ValueComp.new(a, "<", b)}
+                match(:logicExpr, ">", :logicExpr) { |a,_,b| ValueComp.new(a, ">", b)}
+                match(:logicExpr, "<=", :logicExpr) { |a,_,b| ValueComp.new(a, "<=", b)}
+                match(:logicExpr, ">=", :logicExpr) { |a,_,b| ValueComp.new(a, ">=", b)}
+                match(:logicExpr, "==", :logicExpr) { |a,_,b| ValueComp.new(a, "==", b)}
+                match(:logicExpr, "!=", :logicExpr) { |a,_,b| ValueComp.new(a, "!=", b)}
             end
 
             rule :logicExpr do
-                match("true")
-                match("false")
+                match("true") { |a| LogicExpr.new(a) }
+                match("false") { |a| LogicExpr.new(a) }
                 match(:variable)
                 match(:value)
             end
                 
             rule :output do 
-                match(:value)sf
+                match(:value)
                 match(:variable)
             end
 

@@ -93,3 +93,15 @@ class PrintNode < SyntaxTreeNode
         #@value
     end
 end
+
+class ConditionNode
+    
+    def initialize(, condition, block)
+
+    end
+
+    def eval
+
+    end
+
+end
