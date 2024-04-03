@@ -67,7 +67,7 @@ class Nyan
                 match("?nya?", "^" :logic_stmt, "^" :)
 
             rule :output do 
-                match(:value)
+                match(:value)sf
                 match(:variable)
             end
 
