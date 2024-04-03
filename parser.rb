@@ -41,13 +41,20 @@ class Nyan
             
             start :program do
                 scope = Scope.new
+                puts "Scope created in program: #{scope.inspect}"
                 match(:component) {|a| a.eval(scope)}
             end
 
             rule :component do
                 scope = Scope.new
-                match(:assignment) {|a| a.eval(scope)}
-                match(:print) {|a| a.eval(scope)}
+                match(:assignment) do |a| 
+                    a.eval(scope)
+                    #puts "Scope created in component: #{scope.inspect}"
+                end
+                match(:print) do |a| 
+                    a.eval(scope)
+                    puts "Scope created in component: #{scope.inspect}"
+                end
             end
 
             rule :assignment do

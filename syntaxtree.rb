@@ -106,10 +106,11 @@ class PrintNode < SyntaxTreeNode
 
     def eval(scope)
         #puts @value.eval
-        if @value.is_a?(VariableNode)
-            scope.find_variable(@value.var)
-        else
-            @value
-        end
+        # if @value.is_a?(VariableNode)
+        #     return scope.find_variable(@value)
+        # else
+        #     return @value
+        # end
+        @value
     end
 end
