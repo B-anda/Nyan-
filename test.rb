@@ -1,37 +1,38 @@
 require 'test/unit'
+require './scope'
 require './syntaxtree'
 
 class Scope_test < Test::Unit::TestCase
     def test_scope
         scope = Scope.new
         assert_equal({}, scope.vars)
-        assert_nil(scope.top_node)
+        assert_nil(scope.prevScope)
     end
 
     def test_add_var
         scope = Scope.new
-        scope.add_variable("test_var", "some str")
-        assert_equal("some str", scope.find_variable("test_var"))
+        scope.addVariable("test_var", "some str")
+        assert_equal("some str", scope.findVariable("test_var"))
     end
-
 end
 
 class TestNestedScopes < Test::Unit::TestCase
     def test_nested_scopes
-        outer_scope = Scope.new
-        outer_scope.add_variable("outer_var", 10)
+        outerScope = GlobalScope.new
+        outerScope.addVariable("outer_var", 10)
 
-        inner_scope = Scope.new(outer_scope)
-        inner_scope.add_variable("inner_var", 20)
+        outerScope.addScope(outerScope.current)
+        outerScope.current.addVariable("inner_var", 20)
 
-        assert_equal(10, outer_scope.find_variable("outer_var"))
-        assert_equal(20, inner_scope.find_variable("inner_var"))
+        assert_equal(10, outerScope.findVariable("outer_var"))
+        assert_equal(outerScope.findVariable("outer_var"), outerScope.current.findVariable("outer_var"))
+        assert_equal(20, outerScope.current.findVariable("inner_var"))
 
         # Accessing variable from outer scope
-        assert_equal(10, inner_scope.find_variable("outer_var"))
+        assert_equal(10, outerScope.current.findVariable("outer_var"))
 
         # Trying to access variable from inner scope in outer scope
-        assert_nil(outer_scope.find_variable("inner_var"))
+        assert_nil(outerScope.findVariable("inner_var"))
     end
 end
 
@@ -51,7 +52,7 @@ class Assignment_test < Test::Unit::TestCase
 
         assignment = Assignment.new("^w^", "test_str", value)
         assert_equal("world", assignment.eval(scope))
-        assert_equal("world", scope.find_variable("test_str"))
+        assert_equal("world", scope.findVariable("test_str"))
     end
 
     def test_add_var
@@ -59,8 +60,8 @@ class Assignment_test < Test::Unit::TestCase
         value = ValueNode.new("world")
         name = VariableNode.new("hello")
 
-        scope.add_variable(name, value)
-        assert_equal("world", scope.find_variable("hello").value)
+        scope.addVariable(name, value)
+        assert_equal("world", scope.findVariable("hello").value)
         
     end
         
