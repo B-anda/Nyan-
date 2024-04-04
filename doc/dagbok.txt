@@ -24,3 +24,16 @@ component kallar eval igenom hela syntaxträdet.
 
 2024-04-02
 print funkar någolunda. Det går att skriva ut strängar etc. men problem med att skriva ut variabler. Har också försökt att skapa någon form av simpel scopehantering.
+
+2024-04-03
+Print funktionen fungerar och det går att skriva ut både string/int och variabler.
+La till scopehanteringen som fungerar. 
+På började skriva tester för conditions.
+Bör lägga till så att strings och chars hanteras samt att lägga till så att floats också går att 
+parsa. För tillfället skapas token inte korrekt för float.
+
+2024-04-04
+Ändrade LogicExpr classens för att hantera Variable- och Value noder som retunerar antingen true eller false.
+Även skrivit fler tester.
+La även till så att det går att skriva in nyan-kod i asserts för att testa dess output.
+

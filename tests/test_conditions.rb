@@ -3,6 +3,10 @@ require './scope'
 require './syntaxtree'
 
 # class Condition_Test < Test::Unit::TestCase
+    # def assert_output(result, code)
+    #     @nyan = Nyan.new 
+    #     assert_equal(result, @nyan.nyanParser.parse(code))
+    # end
 #     def test_initiaize
 #         conNode = ConditionNode.new(:else, )
 #         conNode = ConditionNode.new(:elsis, )
@@ -15,40 +19,58 @@ require './syntaxtree'
 
 class LogicStmt_Test < Test::Unit::TestCase
 
-
-    def assert_output(result, code)
-        @nyan = Nyan.new 
-        assert_equal(result, @nyan.nyanParser.parse(code))
-    end
-
     def test_not
-        input = "not a"
-        value = ValueComp.new(5, "<", 10)
-        value2 = ValueComp.new(10, "<", 4)
+        lhs = ValueNode.new(10)
+        rhs = ValueNode.new(2)
 
-        # :logicStmt
-        # if ^ 3 > 5 ^
-        # if ^ a == 4 and b == 3 ^
-        # if ^ var ^
+        value = ValueComp.new(rhs, "<", lhs)
+        value2 = ValueComp.new(lhs, "<", rhs)
 
-        temp_true = LogicStmt.new("not", value2, nil)
-        temp_false = LogicStmt.new("not", value, nil)
+        checkTrue = LogicStmt.new(nil, "not", value2)
+        checkFalse = LogicStmt.new(nil, "not", value)
 
-        assert(temp_true.eval())
-        assert_false(temp_false.eval())
-    
+        assert(checkTrue.eval())
+        assert_false(checkFalse.eval())
+
+        val = ValueNode.new(42)
+        expr1 = LogicExpr.new(val)
+
+        checkFalse = LogicStmt.new(nil, "not", expr1)
+        assert_false(checkFalse.eval())
     end
 
-    def test_and
+    # def test_and
+    #     scope = Scope.new
 
-    end
+    #     #TEST :valueComp "and" :valueComp
+    #     value1 = ValueComp.new(5, "<", 10)
+    #     value2 = ValueComp.new(10, ">", 4)
 
-    def test_or
+    #     checkTrue = LogicStmt.new(value1, "and", value2)
+    #     assert(checkTrue.eval())
 
-    end
+    #     #TEST :logicExpr "and" :LogicExpr
+    #     val = ValueNode.new(42)
+    #     expr1 = LogicExpr.new(val)
+        
+    #     varNode = VariableNode.new("temp")
+    #     scope.addVariable(varNode, 10)
+    #     expr2 = LogicExpr.new(varNode)
+
+    #     toBeOrNotToBe2 = LogicStmt.new(expr1, "and", expr2)
+    #     assert(toBeOrNotToBe2.eval())
+
+    #     #TEST :logicExpr "and" :logicExpr
+    #     toBeOrNotToBe3 = LogicStmt.new(value1, "and", expr1)
+    #     assert(toBeOrNotToBe3.eval())
+    # end
+
+    # def test_or
+
+    # end
 end
 
-class ValueComp_Test < Test::Unit::TestCase
+class ValueCompTest < Test::Unit::TestCase
     def test_greater_less
         lhs = ValueNode.new("5")
         rhs = ValueNode.new("2")

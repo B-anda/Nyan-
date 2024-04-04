@@ -84,10 +84,10 @@ class Nyan
 
             rule :logicStmt do 
                 match("not", :logicStmt) { | _,b | LogicStmt.new(nil, "not", b)}
-                match(:logicStmt, "and", :logicStmt) { |a,_,b| LogicStmt.new(a, "and", b)}
-                match(:logicStmt, "&&", :logicStmt) { |a,_,b| LogicStmt.new(a, "and", b)}
-                match(:logicStmt, "or", :logicStmt) { |a,_,b| LogicStmt.new(a, "or", b)}
-                match(:logicStmt, "||", :logicStmt) { |a,_,b| LogicStmt.new(a, "or", b)}
+                match(:logicStmt, "and", :logicStmt) { |a,_,b| LogicStmt.new(a, "&&", b)}
+                match(:logicStmt, "&&", :logicStmt) { |a,_,b| LogicStmt.new(a, "&&", b)}
+                match(:logicStmt, "or", :logicStmt) { |a,_,b| LogicStmt.new(a, "||", b)}
+                match(:logicStmt, "||", :logicStmt) { |a,_,b| LogicStmt.new(a, "||", b)}
                 match(:valueComp) 
                 match(:logicExpr) 
             end

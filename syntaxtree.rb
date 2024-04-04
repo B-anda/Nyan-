@@ -103,6 +103,33 @@ end
 
 # end
 
+class LogicStmt
+
+    def initialize(lhs, operator, rhs)
+        if lhs
+            @lhs = lhs.eval()
+        end
+        if rhs
+            @rhs = rhs.eval()
+        end
+        @operator = operator
+    end
+
+    def eval()
+        case @operator
+        when "not"
+            if @rhs
+                return false
+            else
+                return true
+            end
+        end
+
+        return @lhs.send(@operator, @rhs)
+                    
+    end 
+end
+
 class ValueComp
 
     def initialize(lhs, logicOp, rhs)
@@ -116,11 +143,8 @@ class ValueComp
         # calls @logicOp on @lhs and passes @rhs
         # which returns true or false
 
-        if @lhs.value.send(@logicOp, @rhs.value)
-            return true
-        else
-            return false
-        end
+        return @lhs.value.send(@logicOp, @rhs.value)
+     
     end
 end
 
