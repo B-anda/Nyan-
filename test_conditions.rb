@@ -2,12 +2,32 @@ require 'test/unit'
 require './scope'
 require './syntaxtree'
 
-# class Condition_Test < Test::Unit::TestCase
-#     def test_initiaize
-#         conNode = ConditionNode.new(:else, )
-#     end
+class Condition_Test < Test::Unit::TestCase
+    def test_initiaize
+        conNode = ConditionNode.new(:else, )
+        conNode = ConditionNode.new(:elsis, )
+        conNode = ConditionNode.new(:if, )
+
+        stmt = LogicStmt.new()
+    end
         
-# end
+end
+
+class LogicStmt_Test < Test::Unit::TestCase
+    def test_not
+        input = "not a"
+        test = LogicStmt.new("hello", "not", nil)
+        assert_equal
+    end
+
+    def test_and
+
+    end
+
+    def test_or
+
+    end
+end
 
 class ValueComp_Test < Test::Unit::TestCase
     def test_greater_less

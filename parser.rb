@@ -52,7 +52,7 @@ class Nyan
             end
 
             rule :stmts do
-                match(":", :block, ":3")
+                match(":", :block, ":3") { |_, block, _| BlockNode.new(block)}
             end
 
             rule :block do
@@ -73,9 +73,9 @@ class Nyan
             end
 
             rule :condition do
-                match(:else, "^", :logicStmt, "^", :stmts)  {|a,_,b,_,c| ConditionNode.new(a,b,c)}
-                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a,b,c)}
-                match(:if, "^", :logicStmt, "^", :stmts)    {|a,_,b,_,c| ConditionNode.new(a,b,c)}
+                match(:else, "^", :logicStmt, "^", :stmts)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:if, "^", :logicStmt, "^", :stmts)    {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
 
             rule :logicStmt do 
