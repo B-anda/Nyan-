@@ -2,22 +2,41 @@ require 'test/unit'
 require './scope'
 require './syntaxtree'
 
-class Condition_Test < Test::Unit::TestCase
-    def test_initiaize
-        conNode = ConditionNode.new(:else, )
-        conNode = ConditionNode.new(:elsis, )
-        conNode = ConditionNode.new(:if, )
+# class Condition_Test < Test::Unit::TestCase
+#     def test_initiaize
+#         conNode = ConditionNode.new(:else, )
+#         conNode = ConditionNode.new(:elsis, )
+#         conNode = ConditionNode.new(:if, )
 
-        stmt = LogicStmt.new()
-    end
+#         stmt = LogicStmt.new()
+#     end
         
-end
+# end
 
 class LogicStmt_Test < Test::Unit::TestCase
+
+
+    def assert_output(result, code)
+        @nyan = Nyan.new 
+        assert_equal(result, @nyan.nyanParser.parse(code))
+    end
+
     def test_not
         input = "not a"
-        test = LogicStmt.new("hello", "not", nil)
-        assert_equal
+        value = ValueComp.new(5, "<", 10)
+        value2 = ValueComp.new(10, "<", 4)
+
+        # :logicStmt
+        # if ^ 3 > 5 ^
+        # if ^ a == 4 and b == 3 ^
+        # if ^ var ^
+
+        temp_true = LogicStmt.new("not", value2, nil)
+        temp_false = LogicStmt.new("not", value, nil)
+
+        assert(temp_true.eval())
+        assert_false(temp_false.eval())
+    
     end
 
     def test_and
@@ -91,12 +110,32 @@ class ValueComp_Test < Test::Unit::TestCase
 end
 
 class LogicExpr_Test < Test::Unit::TestCase
-    def test_initiaize
-        conNode = LogicExpr.new("true")
-        assert_equal(true, conNode.eval())
 
-        conNode = LogicExpr.new("false")
-        assert_equal(false, conNode.eval())
-    end
+    def test_initiaize
+        scope = Scope.new
+
+        tempVal = ValueNode.new(10)
+        conNode = LogicExpr.new(tempVal)
+        assert(conNode.eval(scope))
+
+        tempVal1 = VariableNode.new("test")
+        conNode = LogicExpr.new(tempVal1)
+        assert_false(conNode.eval(scope))
+
+        value = ValueNode.new(19)
+        tempVal2 = VariableNode.new("testStr")
+        scope.addVariable(tempVal2,value)
+
+        conNode = LogicExpr.new(tempVal2)
+        assert(conNode.eval(scope))
         
+        boolTrue = ValueNode.new(true)
+        assert(boolTrue)
+
+        varNode = VariableNode.new("temp")
+        scope.addVariable(varNode, 10)
+        conNode = LogicExpr.new(varNode)
+        assert(conNode.eval(scope))
+
+    end
 end

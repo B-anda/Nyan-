@@ -2,6 +2,9 @@ require './parser'
 
 @nyan = Nyan.new
 
+
+
+#Exit 
 def done(str)
     ["quit","exit","bye","done",""].include?(str.chomp)
  end
@@ -21,10 +24,13 @@ def run(input = 0)
     end
 end
 
+
+#Start program
 if ARGV.length == 0
     run()
+else
+    run_file()
 end
-
 
 
 

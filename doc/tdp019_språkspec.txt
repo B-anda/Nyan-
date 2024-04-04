@@ -70,9 +70,9 @@ BNF grammatik:
 
 <func_name>::= /[:alpha:]+/
 
-<condition>::= "?nya?" "^" <logic_stmt> "^" <stmts> |
-			   "nye?" "^"  <logic_stmt> "^" <stmts> | 
-			   "nyan?" "^" <logic_stmt> "^" <stmts>
+<condition>::= "?nye?" "^" <logic_stmt> "^" <stmts> |
+			   "?nyanye?" "^"  <logic_stmt> "^" <stmts> | 
+			   "?nya?" "^" <logic_stmt> "^" <stmts>
 
 <logic_stmt>::= not <logic_stmt> |
 				<logic_stmt> and <logic_stmt> |
@@ -89,7 +89,7 @@ BNF grammatik:
 				 <logic_stmt> <= <logic_stmt> |
 				 <logic_stmt> >= <logic_stmt> |
 
-<logic_expr> ::= 'true' | 'false' | <variable> | <value>
+<logic_expr> ::= :bool | <variable> | <value>
 				    
 <term>::= <expr> | <expr> <operator_lo> <expr>
 

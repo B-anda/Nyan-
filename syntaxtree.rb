@@ -32,11 +32,6 @@ class Assignment < SyntaxTreeNode
         value = @value.eval(scope)
 
         scope.addVariable(@var, value)
-        # if @value.respond_to?(:eval)
-        #     @value = @value.eval
-        # else
-        #     puts "Error: Value cannot be evaluated"
-        # end
     end
 end
 
@@ -58,7 +53,7 @@ class VariableNode < SyntaxTreeNode
 
     def eval(scope)
         if scope.findVariable(@var)
-            @var
+            return @var
         end
     end
 end
@@ -120,26 +115,32 @@ class ValueComp
         #send calls method dynamically
         # calls @logicOp on @lhs and passes @rhs
         # which returns true or false
+
         if @lhs.value.send(@logicOp, @rhs.value)
-           true
+            return true
         else
-            false
+            return false
         end
     end
 end
 
 class LogicExpr
 
-    def initialize(bool)
-        @bool = bool
+    def initialize(value)
+        @value = value
     end
 
-    def eval
-        case @bool
-        when "true"
-            true
-        when "false"
-            false
+    def eval(scope)
+        trOrFa = false
+        if @value.is_a? VariableNode
+            if scope.findVariable(@value.eval(scope))
+                trOrFa = true
+            end
+        elsif @value.is_a? ValueNode
+            if @value.value
+                trOrFa = true
+            end
         end
+        return trOrFa
     end
 end

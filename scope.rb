@@ -28,18 +28,14 @@ class Scope
 end
 
 class GlobalScope < Scope
-
     def initialize
         super()
-        @current = self
-            
+        @current = self 
     end
 
     def addScope(previousScope)
-
         temp = Scope.new(previousScope)
         @current.scopes << temp
         @current = temp
-        
     end
 end
