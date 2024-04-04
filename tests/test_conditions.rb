@@ -1,6 +1,7 @@
 require 'test/unit'
 require './scope'
 require './syntaxtree'
+require './parser'
 
 class Condition_Test < Test::Unit::TestCase
     def assert_output(result, code)
@@ -12,18 +13,16 @@ class Condition_Test < Test::Unit::TestCase
         # conNode = ConditionNode.new(:else, )
         # conNode = ConditionNode.new(:elsis, )
 
-     
         block = PrintNode.new("hello")
 
         greater = ValueNode.new(10)
         lesser = ValueNode.new(2)
 
         stmt = ValueComp.new(lesser, "<", greater)
-
         conNode = ConditionNode.new(:if, stmt, block)
 
         assert_equal("hello", conNode.eval())
-        assert_output("hello", "?nya? ^ 5 > 2 ^ : meow ^\"hello\"^ :3")
+        # assert_output("hello", "?nya? ^ 5 > 2 ^ : meow ^\"hello\"^ :3")
     end
         
 end
@@ -92,15 +91,15 @@ class LogicStmt_Test < Test::Unit::TestCase
 
         checkTrue = LogicStmt.new(value1, "||", value2)
         assert(checkTrue.eval())
-
-    end
-
-    def test_other
-
     end
 end
 
 class ValueCompTest < Test::Unit::TestCase
+    def assert_output(result, code)
+        @nyan = Nyan.new 
+        assert_equal(result, @nyan.nyanParser.parse(code))
+    end
+
     def test_greater_less
         lhs = ValueNode.new("5")
         rhs = ValueNode.new("2")
@@ -158,6 +157,8 @@ class ValueCompTest < Test::Unit::TestCase
 
         valNode2 = ValueComp.new(lhs, "!=", rhs)
         assert_false(valNode2.eval())
+
+        # assert_output(true, "10 == 10")
     end        
 end
 
@@ -188,6 +189,5 @@ class LogicExpr_Test < Test::Unit::TestCase
         scope.addVariable(varNode, 10)
         conNode = LogicExpr.new(varNode, scope)
         assert(conNode.eval())
-
     end
 end

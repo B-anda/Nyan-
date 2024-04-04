@@ -29,7 +29,7 @@ class Assignment < SyntaxTreeNode
     end
 
     def eval(scope)
-        value = @value.eval()
+        value = @value.eval(scope)
         scope.addVariable(@var, value)
     end
 end
@@ -64,7 +64,7 @@ class ValueNode < SyntaxTreeNode
         @value = value
     end
     
-    def eval()
+    def eval(scope)
       @value
     end
 end
@@ -78,25 +78,31 @@ class PrintNode < SyntaxTreeNode
     end
 
     def eval(scope)
-        # puts @value.eval
         if @value.is_a?(VariableNode)
             scope.findVariable(@value.var)
         else
             @value
         end
-        #@value
     end
 end
 
 class ConditionNode
     
     def initialize(statment, condition, block)
-        @stat = statment
+        @statment = statment
         @condition = condition
         @block = block
     end
 
     def eval
+        case @statment
+        when :if
+            if @condition.eval()
+                output = @block.eval() #needs scope
+                puts output
+                return output
+            end
+        end
 
     end
 

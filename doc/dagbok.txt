@@ -38,3 +38,10 @@ parsa. För tillfället skapas token inte korrekt för float.
 La även till så att det går att skriva in nyan-kod i asserts för att testa dess output.
 
 initierade scope i initialize iställe för en mer generell lösning
+
+End of the day:
+Samma problem med scope för PrintNode
+Scope behöver läggas till i rules för LogicExpr också
+Det går inte att parsa nyan i test filen. Tokens skapas inte korrekt. 
+Går att parsa assignment och print men inte för de testfallen vi lagt till
+=> behöver lägga till tokens 

@@ -38,6 +38,7 @@ class Nyan
             token(/\?nye\?/) {|_| :else}
             token(/\?nyanye\?/) {|_| :elsif}
             token(/\?nya\?/) { |_| :if}
+            token(/\&\&|\|\||\=\=/)
             token(/./) {|m| m }
             
             @scope = GlobalScope.new
@@ -77,9 +78,13 @@ class Nyan
 
             ## IF-statment ##
             rule :condition do
-                match(:else, "^", :logicStmt, "^", :stmts)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
-                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
                 match(:if, "^", :logicStmt, "^", :stmts)    {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+            end
+
+            rule :condition_followup do
+                match(:stmts)
+                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:else, :condition_followup)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
 
             rule :logicStmt do 
