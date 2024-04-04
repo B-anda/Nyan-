@@ -29,8 +29,7 @@ class Assignment < SyntaxTreeNode
     end
 
     def eval(scope)
-        value = @value.eval(scope)
-
+        value = @value.eval()
         scope.addVariable(@var, value)
     end
 end
@@ -65,7 +64,7 @@ class ValueNode < SyntaxTreeNode
         @value = value
     end
     
-    def eval(scope)
+    def eval()
       @value
     end
 end
@@ -89,19 +88,19 @@ class PrintNode < SyntaxTreeNode
     end
 end
 
-# class ConditionNode
+class ConditionNode
     
-#     def initialize(statment, condition, block)
-#         @stat = statment
-#         @condition = condition
-#         @block = block
-#     end
+    def initialize(statment, condition, block)
+        @stat = statment
+        @condition = condition
+        @block = block
+    end
 
-#     def eval
+    def eval
 
-#     end
+    end
 
-# end
+end
 
 class LogicStmt
 
@@ -123,10 +122,11 @@ class LogicStmt
             else
                 return true
             end
+        when "&&"
+            return @rhs && @lhs
+        when "||"
+            return @rhs || @lhs
         end
-
-        return @lhs.send(@operator, @rhs)
-                    
     end 
 end
 
@@ -150,14 +150,15 @@ end
 
 class LogicExpr
 
-    def initialize(value)
+    def initialize(value, scope)
         @value = value
+        @scope = scope
     end
 
-    def eval(scope)
+    def eval()
         trOrFa = false
         if @value.is_a? VariableNode
-            if scope.findVariable(@value.eval(scope))
+            if @scope.findVariable(@value.eval(@scope))
                 trOrFa = true
             end
         elsif @value.is_a? ValueNode

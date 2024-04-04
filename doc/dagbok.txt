@@ -37,3 +37,4 @@ parsa. För tillfället skapas token inte korrekt för float.
 Även skrivit fler tester.
 La även till så att det går att skriva in nyan-kod i asserts för att testa dess output.
 
+initierade scope i initialize iställe för en mer generell lösning
