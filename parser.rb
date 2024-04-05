@@ -50,7 +50,7 @@ class Nyan
             end
 
             rule :component do
-                match(:block)
+                match(:block) {|a|ProgramNode.new(a)}
             end
 
             rule :stmts do

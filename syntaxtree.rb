@@ -1,22 +1,21 @@
 require './scope'
 
 class SyntaxTreeNode
-    attr_accessor :nodes
     
-    def initialize
-      @nodes = []
-    end
+    # def initialize(node)
+    #   @next_node = node
+    # end
     
-    def add_child(node)
-      @nodes << node
+    def eval(scope)
+        @next_node.eval(scope)
     end
 end
 
 class ProgramNode < SyntaxTreeNode
-    def eval(scope)
-      @nodes.each { |n| n.eval(scope) }
+    def initialize(node)
+        @next_node = node
     end
-end 
+end
 
 class Assignment < SyntaxTreeNode
     attr_accessor :datatype, :var, :value
