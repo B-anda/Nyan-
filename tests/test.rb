@@ -40,7 +40,7 @@ class Assignment_test < Test::Unit::TestCase
 
     def test_initiaize
         scope = Scope.new
-        a = Assignment.new("^w^", "hello", "world", scope)
+        a = Assignment.new("^w^", "hello", "world")
 
         assert_equal("^w^", a.datatype)
         assert_equal("hello", a.var)
@@ -51,7 +51,7 @@ class Assignment_test < Test::Unit::TestCase
         scope = Scope.new
         value = ValueNode.new("world")
 
-        assignment = Assignment.new("^w^", "test_str", value, scope)
+        assignment = Assignment.new("^w^", "test_str", value)
         assert_equal("world", assignment.eval())
         assert_equal("world", scope.findVariable("test_str"))
     end
@@ -59,7 +59,7 @@ class Assignment_test < Test::Unit::TestCase
     def test_add_var
         scope = Scope.new
         value = ValueNode.new("world")
-        name = VariableNode.new("hello", scope)
+        name = VariableNode.new("hello")
         scope.addVariable(name, value)
         assert_equal("world", scope.findVariable("hello").value)
         

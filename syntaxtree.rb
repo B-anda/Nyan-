@@ -3,10 +3,12 @@ require './scope'
 class SyntaxTreeNode
     @@scope = nil
 
+    #setter for @@scope
     def self.scope=(scope)
         @@scope=scope
     end
 
+    #getter for @@scope
     def self.scope
         @@scope
     end
@@ -27,7 +29,7 @@ class SyntaxTreeNode
 end
 
 class ProgramNode < SyntaxTreeNode
-    def eval(scope)
+    def eval()
       @nodes.each { |n| n.eval() }
     end
 end 
@@ -35,8 +37,8 @@ end
 class Assignment < SyntaxTreeNode
     attr_accessor :datatype, :var, :value
     
-    def initialize(datatype, var, value, scope)
-      super(scope)
+    def initialize(datatype, var, value)
+    
       @datatype = datatype
       @var = var
       @value = value
@@ -44,7 +46,7 @@ class Assignment < SyntaxTreeNode
 
     def eval()
         value = @value.eval()
-        SyntaxTreeNode.scope .addVariable(@var, value)
+        SyntaxTreeNode.scope.addVariable(@var, value)
     end
 end
 
@@ -60,8 +62,8 @@ end
 class VariableNode < SyntaxTreeNode
     attr_accessor :var
 
-    def initialize(var, scope)
-        super(scope)
+    def initialize(var)
+    
         @var = var
     end
 
@@ -88,14 +90,14 @@ end
 class PrintNode < SyntaxTreeNode
     attr_accessor :value
 
-    def initialize(val, scope)
-        super(scope)
+    def initialize(val)
+    
         @value = val
     end
 
     def eval()
         if @value.is_a?(VariableNode)
-            return @scope.findVariable(@value.var)
+            return SyntaxTreeNode.scope.findVariable(@value.var)
         else
             return @value
         end

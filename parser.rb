@@ -46,7 +46,7 @@ class Nyan
             SyntaxTreeNode.scope = GlobalScope.new
 
             start :program do
-                puts "scope created in program: #{@scope.inspect}"
+                puts "scope created in program: #{SyntaxTreeNode.scope.inspect}"
                 match(:component) {|a| a.eval}
             end
 
@@ -73,17 +73,17 @@ class Nyan
 
             ## Print ##
             rule :print do
-                match("meow", "^", :output, "^") {|_,_,v,_| PrintNode.new(v, @scope)}
+                match("meow", "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
             end
 
             ## IF-statment ##
             rule :condition do
-                match(:if, "^", :logicStmt, "^", :stmts)    {|a,_,b,_,c| ConditionNode.new(a, b, c, @scope).eval}
+                match(:if, "^", :logicStmt, "^", :stmts)    {|a,_,b,_,c| ConditionNode.new(a, b, c).eval}
             end
 
             rule :condition_followup do
                 match(:stmts)
-                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c, @scope).eval}
+                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c).eval}
                 match(:else, :condition_followup)  {|a,_,b,_,c| ConditionNode.new(a, b, c, @scope).eval}
             end
 
@@ -131,7 +131,7 @@ class Nyan
             end
 
             rule :variable do
-                match(/[[:alpha:]\d_]+/) {|a| VariableNode.new(a, @scope)}
+                match(/[[:alpha:]\d_]+/) {|a| VariableNode.new(a)}
             end
 
             rule :value do
