@@ -12,6 +12,7 @@ class Condition_Test < Test::Unit::TestCase
     def test_initiaize
         # conNode = ConditionNode.new(:else, )
         # conNode = ConditionNode.new(:elsis, )
+        scope = Scope.new
 
         block = PrintNode.new("hello")
 
@@ -21,7 +22,7 @@ class Condition_Test < Test::Unit::TestCase
         stmt = ValueComp.new(lesser, "<", greater)
         conNode = ConditionNode.new(:if, stmt, block)
 
-        assert_equal("hello", conNode.eval())
+        assert_equal("hello", conNode.eval(scope))
         # assert_output("hello", "?nya? ^ 5 > 2 ^ : meow ^\"hello\"^ :3")
     end
         
@@ -45,7 +46,7 @@ class LogicStmt_Test < Test::Unit::TestCase
         assert_false(checkFalse.eval())
 
         val = ValueNode.new(42)
-        expr1 = LogicExpr.new(val, scope)
+        expr1 = LogicExpr.new(val)
 
         checkFalse = LogicStmt.new(nil, "not", expr1)
         assert_false(checkFalse.eval())
@@ -66,18 +67,18 @@ class LogicStmt_Test < Test::Unit::TestCase
 
         #TEST :logicExpr "&&" :LogicExpr
         val = ValueNode.new(42)
-        expr1 = LogicExpr.new(val, scope)
+        expr1 = LogicExpr.new(val)
         
         varNode = VariableNode.new("temp")
         scope.addVariable(varNode, 10)
-        expr2 = LogicExpr.new(varNode, scope)
+        expr2 = LogicExpr.new(varNode)
 
         toBeOrNotToBe2 = LogicStmt.new(expr1, "&&", expr2)
-        assert(toBeOrNotToBe2.eval())
+        assert(toBeOrNotToBe2.eval(scope))
 
         #TEST :logicExpr "&&" :logicExpr
         toBeOrNotToBe3 = LogicStmt.new(value1, "&&", expr1)
-        assert(toBeOrNotToBe3.eval())
+        assert(toBeOrNotToBe3.eval(scope))
     end
 
     def test_or
@@ -168,26 +169,26 @@ class LogicExpr_Test < Test::Unit::TestCase
         scope = Scope.new
 
         tempVal = ValueNode.new(10)
-        conNode = LogicExpr.new(tempVal, scope)
-        assert(conNode.eval())
+        conNode = LogicExpr.new(tempVal)
+        assert(conNode.eval(scope))
 
         tempVal1 = VariableNode.new("test")
-        conNode = LogicExpr.new(tempVal1, scope)
-        assert_false(conNode.eval())
+        conNode = LogicExpr.new(tempVal1)
+        assert_false(conNode.eval(scope))
 
         value = ValueNode.new(19)
         tempVal2 = VariableNode.new("testStr")
         scope.addVariable(tempVal2,value)
 
-        conNode = LogicExpr.new(tempVal2, scope)
-        assert(conNode.eval())
+        conNode = LogicExpr.new(tempVal2)
+        assert(conNode.eval(scope))
         
         boolTrue = ValueNode.new(true)
         assert(boolTrue)
 
         varNode = VariableNode.new("temp")
         scope.addVariable(varNode, 10)
-        conNode = LogicExpr.new(varNode, scope)
-        assert(conNode.eval())
+        conNode = LogicExpr.new(varNode)
+        assert(conNode.eval(scope))
     end
 end

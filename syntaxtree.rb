@@ -2,12 +2,8 @@ require './scope'
 
 class SyntaxTreeNode
     
-    # def initialize(node)
-    #   @next_node = node
-    # end
-    
-    def eval(scope)
-        @next_node.eval(scope)
+    def eval(*scope)
+        @next_node.eval(scope[0])
     end
 end
 
@@ -21,15 +17,14 @@ class Assignment < SyntaxTreeNode
     attr_accessor :datatype, :var, :value
     
     def initialize(datatype, var, value)
-      super()
       @datatype = datatype
       @var = var
       @value = value
     end
 
-    def eval(scope)
-        value = @value.eval(scope)
-        scope.addVariable(@var, value)
+    def eval(*scope)
+        value = @value.eval()
+        scope[0].addVariable(@var, value)
     end
 end
 
@@ -37,7 +32,6 @@ class DatatypeNode < SyntaxTreeNode
     attr_accessor :datatype
     
     def initialize(datatype)
-      super()
       @datatype = datatype
     end
 end
@@ -49,8 +43,8 @@ class VariableNode < SyntaxTreeNode
         @var = var
     end
 
-    def eval(scope)
-        if scope.findVariable(@var)
+    def eval(*scope)
+        if scope[0].findVariable(@var)
             return @var
         end
     end
@@ -63,7 +57,7 @@ class ValueNode < SyntaxTreeNode
         @value = value
     end
     
-    def eval(scope)
+    def eval(*scope)
       @value
     end
 end
@@ -72,13 +66,12 @@ class PrintNode < SyntaxTreeNode
     attr_accessor :value
 
     def initialize(val)
-        super()
         @value = val
     end
 
-    def eval(scope)
+    def eval(*scope)
         if @value.is_a?(VariableNode)
-            scope.findVariable(@value.var)
+            scope[0].findVariable(@value.var)
         else
             @value
         end
@@ -93,11 +86,11 @@ class ConditionNode
         @block = block
     end
 
-    def eval
+    def eval(*scope)
         case @statment
         when :if
             if @condition.eval()
-                output = @block.eval() #needs scope
+                output = @block.eval(scope[0]) #needs scope
                 puts output
                 return output
             end
@@ -110,16 +103,19 @@ end
 class LogicStmt
 
     def initialize(lhs, operator, rhs)
-        if lhs
-            @lhs = lhs.eval()
-        end
-        if rhs
-            @rhs = rhs.eval()
-        end
+        @lhs = lhs
+        @rhs = rhs
         @operator = operator
     end
 
-    def eval()
+    def eval(*scope)
+        if @lhs
+            @lhs = @lhs.eval(scope[0])
+        end
+        if @rhs
+            @rhs = @rhs.eval(scope[0])
+        end
+        
         case @operator
         when "not"
             if @rhs
@@ -143,7 +139,7 @@ class ValueComp
         @rhs = rhs
     end
 
-    def eval
+    def eval(*scope)
         #send calls method dynamically
         # calls @logicOp on @lhs and passes @rhs
         # which returns true or false
@@ -155,15 +151,14 @@ end
 
 class LogicExpr
 
-    def initialize(value, scope)
+    def initialize(value)
         @value = value
-        @scope = scope
     end
 
-    def eval()
+    def eval(*scope)
         trOrFa = false
         if @value.is_a? VariableNode
-            if @scope.findVariable(@value.eval(@scope))
+            if scope[0].findVariable(@value.eval(scope[0]))
                 trOrFa = true
             end
         elsif @value.is_a? ValueNode
