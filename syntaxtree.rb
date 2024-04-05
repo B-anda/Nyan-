@@ -1,16 +1,29 @@
 require './scope'
 
 class SyntaxTreeNode
-    attr_accessor :nodes, :scope
-    
-    def initialize(scope = nil)
-      @nodes = []
-      @scope = scope
+    @@scope = nil
+
+    def self.scope=(scope)
+        @@scope=scope
     end
-    
-    def add_child(node)
-      @nodes << node
+
+    def self.scope
+        @@scope
     end
+
+    def eval
+        raise NotImplementedError, "Not implemented"
+    end
+    # attr_accessor :nodes, :scope
+    
+    # def initialize(scope = nil)
+    #   @nodes = []
+    #   @scope = scope
+    # end
+    
+    # def add_child(node)
+    #   @nodes << node
+    # end
 end
 
 class ProgramNode < SyntaxTreeNode
@@ -22,16 +35,16 @@ end
 class Assignment < SyntaxTreeNode
     attr_accessor :datatype, :var, :value
     
-    def initialize(datatype, var, value)
+    def initialize(datatype, var, value, scope)
       super(scope)
       @datatype = datatype
       @var = var
       @value = value
     end
 
-    def eval(scope)
+    def eval()
         value = @value.eval()
-        @scope.addVariable(@var, value)
+        SyntaxTreeNode.scope .addVariable(@var, value)
     end
 end
 
@@ -39,7 +52,7 @@ class DatatypeNode < SyntaxTreeNode
     attr_accessor :datatype
     
     def initialize(datatype)
-      super()
+     
       @datatype = datatype
     end
 end
@@ -63,7 +76,7 @@ class ValueNode < SyntaxTreeNode
     attr_accessor :value
 
     def initialize(value)
-        super()
+
         @value = value
     end
     
@@ -80,11 +93,11 @@ class PrintNode < SyntaxTreeNode
         @value = val
     end
 
-    def eval(scope)
+    def eval()
         if @value.is_a?(VariableNode)
-            @scope.findVariable(@value.var)
+            return @scope.findVariable(@value.var)
         else
-            @value
+            return @value
         end
     end
 end
@@ -98,7 +111,7 @@ class ConditionNode
         @block = block
     end
 
-    def eval
+    def eval()
         case @statment
         when :if
             if @condition.eval()

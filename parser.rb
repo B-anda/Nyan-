@@ -41,10 +41,11 @@ class Nyan
             token(/\&\&|\|\||\=\=/)
             token(/./) {|m| m }
             
-            # @current@scope = @scope.current
+            # @currentscope = @scope.current
+            #@scope = GlobalScope.new
+            SyntaxTreeNode.scope = GlobalScope.new
 
             start :program do
-                @scope = GlobalScope.new
                 puts "scope created in program: #{@scope.inspect}"
                 match(:component) {|a| a.eval}
             end
@@ -67,7 +68,7 @@ class Nyan
 
             ## Assign variables ##
             rule :assignment do
-                match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, ValueNode.new(c), @scope).eval}
+                match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, ValueNode.new(c)).eval}
             end
 
             ## Print ##

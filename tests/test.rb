@@ -39,7 +39,8 @@ end
 class Assignment_test < Test::Unit::TestCase
 
     def test_initiaize
-        a = Assignment.new("^w^", "hello", "world")
+        scope = Scope.new
+        a = Assignment.new("^w^", "hello", "world", scope)
 
         assert_equal("^w^", a.datatype)
         assert_equal("hello", a.var)
@@ -50,15 +51,15 @@ class Assignment_test < Test::Unit::TestCase
         scope = Scope.new
         value = ValueNode.new("world")
 
-        assignment = Assignment.new("^w^", "test_str", value)
-        assert_equal("world", assignment.eval(scope))
+        assignment = Assignment.new("^w^", "test_str", value, scope)
+        assert_equal("world", assignment.eval())
         assert_equal("world", scope.findVariable("test_str"))
     end
 
     def test_add_var
         scope = Scope.new
         value = ValueNode.new("world")
-        name = VariableNode.new("hello")
+        name = VariableNode.new("hello", scope)
         scope.addVariable(name, value)
         assert_equal("world", scope.findVariable("hello").value)
         
@@ -72,3 +73,10 @@ class Datatype_Test < Test::Unit::TestCase
     end
 end
 
+# class PrintNode < Test::Unit::TestCase
+#     def test_eval
+#         scope = Scope.new
+#         str = ValueNode.new("hello")
+#         p = PrintNode.new(str)
+#     end
+# end
