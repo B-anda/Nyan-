@@ -140,11 +140,17 @@ class ValueComp
     end
 
     def eval(*scope)
-        #send calls method dynamically
+        if @lhs
+            @lhs = @lhs.eval(scope[0])
+        end
+        if @rhs
+            @rhs = @rhs.eval(scope[0])
+        end
+        # send calls method dynamically
         # calls @logicOp on @lhs and passes @rhs
         # which returns true or false
-
-        return @lhs.value.send(@logicOp, @rhs.value)
+        puts @lhs.send(@logicOp, @rhs)
+        return @lhs.send(@logicOp, @rhs)
      
     end
 end
@@ -156,16 +162,28 @@ class LogicExpr
     end
 
     def eval(*scope)
-        trOrFa = false
-        if @value.is_a? VariableNode
-            if scope[0].findVariable(@value.eval(scope[0]))
-                trOrFa = true
-            end
-        elsif @value.is_a? ValueNode
-            if @value.value
-                trOrFa = true
+
+        if @value.is_a? ValueNode
+            return @value.value
+        elsif @value.is_a? VariableNode
+            find_variable = scope[0].findVariable(@value.eval(scope[0]))
+
+            if find_variable
+                return find_variable.value
             end
         end
-        return trOrFa
     end
+
+    # def eval(*scope)
+     
+    #     if @value.is_a? VariableNode
+    #         if scope[0].findVariable(@value.eval(scope[0]))
+                
+    #         end
+    #     elsif @value.is_a? ValueNode
+    #         if @value.value
+                
+    #         end
+    #     end
+    # end
 end

@@ -38,6 +38,7 @@ class Nyan
             token(/\?nye\?/) {|_| :else}
             token(/\?nyanye\?/) {|_| :elsif}
             token(/\?nya\?/) { |_| :if}
+            token(/\:3/) {|m| m}
             token(/\&\&|\|\||\=\=/)
             token(/./) {|m| m }
             
@@ -54,7 +55,7 @@ class Nyan
             end
 
             rule :stmts do
-                match(":", :block, ":3") { |_, block, _| BlockNode.new(block)}
+                match(":", :condition_followup, ":3") 
             end
 
             rule :block do
@@ -82,9 +83,9 @@ class Nyan
             end
 
             rule :condition_followup do
-                match(:stmts)
-                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
-                match(:else, :condition_followup)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:block)
+                match(:block, :elsif, "^", :logicStmt, "^", :condition_followup) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:block, :else, :stmts)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
 
             rule :logicStmt do 
@@ -107,9 +108,8 @@ class Nyan
             end
 
             rule :logicExpr do
-                match(:bool)    
-                match(:variable) { |a| LogicExpr.new(a) }
-                match(:value)    { |a| LogicExpr.new(a) }
+                match(:variable) {|a| LogicExpr.new(a)}
+                match(:value)    {|a| LogicExpr.new(a)}
             end
             
             ## Print either value or a variable ##

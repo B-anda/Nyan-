@@ -73,8 +73,8 @@ BNF grammatik:
 <condition>::= "?nye?" "^" <logic_stmt> "^"  <condition_followup> 
 			   
 <condition_followup>::= <stmts> |
-						"?nyanye?" <condition_followup> |
-						"?nye?" <stmt> 
+						<block> "?nyanye?" <condition_followup> |
+						<block> "?nye?" <stmt> 
 
 <logic_stmt>::= not <logic_stmt> |
 				<logic_stmt> and <logic_stmt> |
@@ -91,7 +91,7 @@ BNF grammatik:
 				 <logic_stmt> <= <logic_stmt> |
 				 <logic_stmt> >= <logic_stmt> |
 
-<logic_expr> ::= :bool | <variable> | <value>
+<logic_expr> ::= <variable> | <value>
 				    
 <term>::= <expr> | <expr> <operator_lo> <expr>
 
