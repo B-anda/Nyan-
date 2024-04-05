@@ -43,15 +43,15 @@ class Nyan
             
             # @currentscope = @scope.current
             #@scope = GlobalScope.new
-            SyntaxTreeNode.scope = GlobalScope.new
 
             start :program do
+                @scope = GlobalScope.new
                 puts "scope created in program: #{@scope.inspect}"
                 match(:component) {|a| a.eval}
             end
 
             rule :component do
-                match(:block)
+                match(:block) 
             end
 
             rule :stmts do
@@ -68,12 +68,12 @@ class Nyan
 
             ## Assign variables ##
             rule :assignment do
-                match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, ValueNode.new(c)).eval}
+                match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, ValueNode.new(c), @scope).eval}
             end
 
             ## Print ##
             rule :print do
-                match("meow", "^", :output, "^") {|_,_,v,_| PrintNode.new(v, @scope)}
+                match("meow", "^", :output, "^") {|_,_,v,_| PrintNode.new(v, @scope).eval}
             end
 
             ## IF-statment ##

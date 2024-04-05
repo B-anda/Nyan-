@@ -1,36 +1,37 @@
 require './scope'
 
 class SyntaxTreeNode
-    @@scope = nil
+    # @@scope = nil
 
-    def self.scope=(scope)
-        @@scope=scope
-    end
-
-    def self.scope
-        @@scope
-    end
-
-    def eval
-        raise NotImplementedError, "Not implemented"
-    end
-    # attr_accessor :nodes, :scope
-    
-    # def initialize(scope = nil)
-    #   @nodes = []
-    #   @scope = scope
+    # def self.scope=(scope)
+    #     @@scope=scope
     # end
-    
-    # def add_child(node)
-    #   @nodes << node
+
+    # def self.scope
+    #     @@scope
     # end
+
+    # def eval
+    #     raise NotImplementedError, "Not implemented"
+    # end
+
+    attr_accessor :nodes, :scope
+    
+    def initialize(scope = nil)
+      @nodes = []
+      @scope = scope
+    end
+    
+    def add_child(node)
+      @nodes << node
+    end
 end
 
-class ProgramNode < SyntaxTreeNode
-    def eval(scope)
-      @nodes.each { |n| n.eval() }
-    end
-end 
+# class ProgramNode < SyntaxTreeNode
+#     def eval()
+#       @nodes.each { |n| n.eval() }
+#     end
+# end 
 
 class Assignment < SyntaxTreeNode
     attr_accessor :datatype, :var, :value
@@ -44,7 +45,7 @@ class Assignment < SyntaxTreeNode
 
     def eval()
         value = @value.eval()
-        SyntaxTreeNode.scope .addVariable(@var, value)
+        @scope.addVariable(@var, value)
     end
 end
 
@@ -97,7 +98,8 @@ class PrintNode < SyntaxTreeNode
         if @value.is_a?(VariableNode)
             return @scope.findVariable(@value.var)
         else
-            return @value
+            puts "printnode returning value"
+            return @value.value
         end
     end
 end
@@ -120,9 +122,7 @@ class ConditionNode
                 return output
             end
         end
-
     end
-
 end
 
 class LogicStmt
@@ -167,9 +167,7 @@ class ValueComp
         #send calls method dynamically
         # calls @logicOp on @lhs and passes @rhs
         # which returns true or false
-
         return @lhs.value.send(@logicOp, @rhs.value)
-     
     end
 end
 

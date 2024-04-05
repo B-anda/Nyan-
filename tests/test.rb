@@ -73,10 +73,14 @@ class Datatype_Test < Test::Unit::TestCase
     end
 end
 
-# class PrintNode < Test::Unit::TestCase
-#     def test_eval
-#         scope = Scope.new
-#         str = ValueNode.new("hello")
-#         p = PrintNode.new(str)
-#     end
-# end
+class PrintNode_Test < Test::Unit::TestCase
+    def test_eval
+        scope = Scope.new
+        str = ValueNode.new("hello")
+        p = PrintNode.new(str, scope)
+        assert_equal("hello", p.eval)
+        puts p.eval
+    end
+end
+
+
