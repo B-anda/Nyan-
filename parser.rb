@@ -41,12 +41,12 @@ class Nyan
             token(/\&\&|\|\||\=\=/)
             token(/./) {|m| m }
             
-            @scope = GlobalScope.new
-            @currentScope = @scope.current
+            # @current@scope = @scope.current
 
             start :program do
-                puts "Scope created in program: #{@scope.inspect}"
-                match(:component) {|a| a.eval(@currentScope)}
+                @scope = GlobalScope.new
+                puts "scope created in program: #{@scope.inspect}"
+                match(:component) {|a| a.eval}
             end
 
             rule :component do
@@ -58,58 +58,57 @@ class Nyan
             end
 
             rule :block do
-                match(:assignment) { |a| a.eval(@currentScope) }
-                match(:print) do |a| 
-                    puts "Scope created in component: #{@scope.inspect}"
-                    a.eval(@currentScope)
+                match(:assignment)
+                match(:print) do |_| 
+                    puts "scope created in component: #{@scope.inspect}"
                 end
-                match(:condition) { |a| a.eval(@currentScope) }
+                match(:condition) 
             end
 
             ## Assign variables ##
             rule :assignment do
-                match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, ValueNode.new(c))}
+                match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, ValueNode.new(c), @scope).eval}
             end
 
             ## Print ##
             rule :print do
-                match("meow", "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
+                match("meow", "^", :output, "^") {|_,_,v,_| PrintNode.new(v, @scope)}
             end
 
             ## IF-statment ##
             rule :condition do
-                match(:if, "^", :logicStmt, "^", :stmts)    {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:if, "^", :logicStmt, "^", :stmts)    {|a,_,b,_,c| ConditionNode.new(a, b, c, @scope).eval}
             end
 
             rule :condition_followup do
                 match(:stmts)
-                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
-                match(:else, :condition_followup)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c, @scope).eval}
+                match(:else, :condition_followup)  {|a,_,b,_,c| ConditionNode.new(a, b, c, @scope).eval}
             end
 
             rule :logicStmt do 
-                match("not", :logicStmt) { | _,b | LogicStmt.new(nil, "not", b)}
-                match(:logicStmt, "and", :logicStmt) { |a,_,b| LogicStmt.new(a, "&&", b)}
-                match(:logicStmt, "&&", :logicStmt) { |a,_,b| LogicStmt.new(a, "&&", b)}
-                match(:logicStmt, "or", :logicStmt) { |a,_,b| LogicStmt.new(a, "||", b)}
-                match(:logicStmt, "||", :logicStmt) { |a,_,b| LogicStmt.new(a, "||", b)}
+                match("not", :logicStmt) { | _,b | LogicStmt.new(nil, "not", b, @scope)}
+                match(:logicStmt, "and", :logicStmt) { |a,_,b| LogicStmt.new(a, "&&", b, @scope)}
+                match(:logicStmt, "&&", :logicStmt) { |a,_,b| LogicStmt.new(a, "&&", b, @scope)}
+                match(:logicStmt, "or", :logicStmt) { |a,_,b| LogicStmt.new(a, "||", b, @scope)}
+                match(:logicStmt, "||", :logicStmt) { |a,_,b| LogicStmt.new(a, "||", b, @scope)}
                 match(:valueComp) 
                 match(:logicExpr) 
             end
 
             rule :valueComp do
-                match(:logicExpr, "<", :logicExpr) { |a,_,b| ValueComp.new(a, "<", b)}
-                match(:logicExpr, ">", :logicExpr) { |a,_,b| ValueComp.new(a, ">", b)}
-                match(:logicExpr, "<=", :logicExpr) { |a,_,b| ValueComp.new(a, "<=", b)}
-                match(:logicExpr, ">=", :logicExpr) { |a,_,b| ValueComp.new(a, ">=", b)}
-                match(:logicExpr, "==", :logicExpr) { |a,_,b| ValueComp.new(a, "==", b)}
-                match(:logicExpr, "!=", :logicExpr) { |a,_,b| ValueComp.new(a, "!=", b)}
+                match(:logicExpr, "<", :logicExpr) { |a,_,b| ValueComp.new(a, "<", b, @scope)}
+                match(:logicExpr, ">", :logicExpr) { |a,_,b| ValueComp.new(a, ">", b, @scope)}
+                match(:logicExpr, "<=", :logicExpr) { |a,_,b| ValueComp.new(a, "<=", b, @scope)}
+                match(:logicExpr, ">=", :logicExpr) { |a,_,b| ValueComp.new(a, ">=", b, @scope)}
+                match(:logicExpr, "==", :logicExpr) { |a,_,b| ValueComp.new(a, "==", b, @scope)}
+                match(:logicExpr, "!=", :logicExpr) { |a,_,b| ValueComp.new(a, "!=", b, @scope)}
             end
 
             rule :logicExpr do
                 match(:bool)    
-                match(:variable) { |a| LogicExpr.new(a) }
-                match(:value)    { |a| LogicExpr.new(a) }
+                match(:variable) { |a| LogicExpr.new(a, @scope)}
+                match(:value)    { |a| LogicExpr.new(a, @scope)}
             end
             
             ## Print either value or a variable ##
@@ -131,7 +130,7 @@ class Nyan
             end
 
             rule :variable do
-                match(/[[:alpha:]\d_]+/) {|a| VariableNode.new(a)}
+                match(/[[:alpha:]\d_]+/) {|a| VariableNode.new(a, @scope)}
             end
 
             rule :value do

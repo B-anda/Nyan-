@@ -1,10 +1,11 @@
 require './scope'
 
 class SyntaxTreeNode
-    attr_accessor :nodes
+    attr_accessor :nodes, :scope
     
-    def initialize
+    def initialize(scope = nil)
       @nodes = []
+      @scope = scope
     end
     
     def add_child(node)
@@ -14,7 +15,7 @@ end
 
 class ProgramNode < SyntaxTreeNode
     def eval(scope)
-      @nodes.each { |n| n.eval(scope) }
+      @nodes.each { |n| n.eval() }
     end
 end 
 
@@ -22,15 +23,15 @@ class Assignment < SyntaxTreeNode
     attr_accessor :datatype, :var, :value
     
     def initialize(datatype, var, value)
-      super()
+      super(scope)
       @datatype = datatype
       @var = var
       @value = value
     end
 
     def eval(scope)
-        value = @value.eval(scope)
-        scope.addVariable(@var, value)
+        value = @value.eval()
+        @scope.addVariable(@var, value)
     end
 end
 
@@ -46,12 +47,13 @@ end
 class VariableNode < SyntaxTreeNode
     attr_accessor :var
 
-    def initialize(var)
+    def initialize(var, scope)
+        super(scope)
         @var = var
     end
 
-    def eval(scope)
-        if scope.findVariable(@var)
+    def eval()
+        if @scope.findVariable(@var)
             return @var
         end
     end
@@ -61,10 +63,11 @@ class ValueNode < SyntaxTreeNode
     attr_accessor :value
 
     def initialize(value)
+        super()
         @value = value
     end
     
-    def eval(scope)
+    def eval()
       @value
     end
 end
@@ -72,14 +75,14 @@ end
 class PrintNode < SyntaxTreeNode
     attr_accessor :value
 
-    def initialize(val)
-        super()
+    def initialize(val, scope)
+        super(scope)
         @value = val
     end
 
     def eval(scope)
         if @value.is_a?(VariableNode)
-            scope.findVariable(@value.var)
+            @scope.findVariable(@value.var)
         else
             @value
         end
@@ -88,7 +91,8 @@ end
 
 class ConditionNode
     
-    def initialize(statment, condition, block)
+    def initialize(statment, condition, block, scope)
+        @scope
         @statment = statment
         @condition = condition
         @block = block
@@ -110,7 +114,7 @@ end
 
 class LogicStmt
 
-    def initialize(lhs, operator, rhs)
+    def initialize(lhs, operator, rhs, scope)
         if lhs
             @lhs = lhs.eval()
         end
@@ -118,6 +122,7 @@ class LogicStmt
             @rhs = rhs.eval()
         end
         @operator = operator
+        @scope = scope
     end
 
     def eval()
@@ -138,10 +143,11 @@ end
 
 class ValueComp
 
-    def initialize(lhs, logicOp, rhs)
+    def initialize(lhs, logicOp, rhs, scope)
         @lhs = lhs
         @logicOp = logicOp
         @rhs = rhs
+        @scope = scope
     end
 
     def eval
