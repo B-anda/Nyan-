@@ -1,6 +1,6 @@
 
 class Scope
-    attr_accessor :vars, :prevScope, :current, :scopes
+    attr_accessor :vars, :prevScope, :scopes
 
     def initialize(prevScope = nil)
         @vars = {}
@@ -26,11 +26,17 @@ class Scope
             @vars[name] = value
         end
     end
+
+    def addScope(previousScope)
+        @prevScope.addScope(previousScope)
+    end
+    
 end
 
 class GlobalScope < Scope
+    attr_accessor :current
     def initialize
-        super()
+        #super()
         @current = self 
     end
 

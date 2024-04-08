@@ -1,5 +1,5 @@
-require "syntaxtree.rb"
-require "scope.rb"
+require "./syntaxtree"
+require "./scope"
 
 class ConditionNode
     
@@ -10,14 +10,14 @@ class ConditionNode
     end
 
     def eval(*scope)
-        
-        case @statment
-        when :if
+        scope[0].addScope(scope[0])
+
+        if @statment == :if || @statment == :elsif
             if @condition.eval()
-  
-                output = @block.eval(scope[0]) #needs scope
-                return output
+                @block.eval(scope[0]) 
             end
+        elsif(@statment == :else)
+            @block.eval(scope[0])
         end
 
     end
@@ -75,7 +75,6 @@ class ValueComp
         # which returns true or false
         puts @lhs.send(@logicOp, @rhs)
         return @lhs.send(@logicOp, @rhs)
-     
     end
 end
 

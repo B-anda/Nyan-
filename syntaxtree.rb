@@ -46,6 +46,8 @@ class VariableNode < SyntaxTreeNode
     def eval(*scope)
         if scope[0].findVariable(@var)
             return @var
+        else 
+            return nil
         end
     end
 end
@@ -73,8 +75,11 @@ class PrintNode < SyntaxTreeNode
         if @value.is_a?(VariableNode)
             scope[0].findVariable(@value.var)
         else
-            @value = @value.value.delete "\""
-            @value
+            if @value.is_a? String
+                return @value.value.delete "\""
+            else
+                return @value
+            end
         end
     end
 end

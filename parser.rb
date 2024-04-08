@@ -1,5 +1,6 @@
 require './rdparse'
 require './syntaxtree'
+require './condition'
 require './scope'
 
 # regexet fungerade inte 
