@@ -26,7 +26,7 @@ class Nyan
         @nyanParser = Parser.new("nyan") do
             
             token(/\s+/)
-            token(/"([^"]*)"/) {|m| m}
+            token(/".*"/) {|m| m}
             token(/\d+/) {|m| m }
             token(/[\d]+\.[\d]+/) {|m| m}
             token(/\^w\^/) { |m| m}
@@ -49,7 +49,7 @@ class Nyan
 
             start :program do
                 puts "Scope created in program: #{@scope.inspect}"
-                match(:component) {|a| a.eval(@currentScope)}
+                match(:component) {|a| a.evaluate(@currentScope)}
             end
 
             rule :component do
@@ -57,16 +57,17 @@ class Nyan
             end
 
             rule :stmts do
-                match(":", :condition_followup, ":3") 
+                match(":", :condition_followup, ":3") {|_,a,_| a}
             end
 
             rule :block do
-                match(:assignment) { |a| a.eval(@currentScope) }
+                match(:assignment) { |a| a }
                 match(:print) do |a| 
                     puts "Scope created in component: #{@scope.inspect}"
-                    a.eval(@currentScope)
+                    a
+                    # a
                 end
-                match(:condition) { |a| a.eval(@currentScope) }
+                match(:condition) { |a| a }
             end
 
             ## Assign variables ##
@@ -81,7 +82,7 @@ class Nyan
 
             ## IF-statment ##
             rule :condition do
-                match(:if, "^", :logicStmt, "^", :stmts)    {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:if, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
 
             rule :condition_followup do
@@ -110,8 +111,8 @@ class Nyan
             end
 
             rule :logicExpr do
-                match(:variable) {|a| LogicExpr.new(a)}
                 match(:value)    {|a| LogicExpr.new(a)}
+                match(:variable) {|a| LogicExpr.new(a)}
             end
             
             ## Print either value or a variable ##
@@ -145,6 +146,7 @@ class Nyan
             
             rule :str do
                 match(/".*"/) {|a| ValueNode.new(a)}
+                # match(/(?<=").*(?=")/) {|a| ValueNode.new(a)}
             end
 
             rule :int do
@@ -152,12 +154,12 @@ class Nyan
             end
 
             rule :float do
-                match(/[\d]+\.[\d]+/) {|a| ValueNode.new(a.to_i)}
+                match(/[\d]+\.[\d]+/) {|a| ValueNode.new(a.to_f)}
             end
 
             rule :bool do
-                match("true") {|a| ValueNode.new(a)}
-                match("false") {|a| ValueNode.new(a)}
+                match(/true/) {|a| ValueNode.new(a)}
+                match(/false/) {|a| ValueNode.new(a)}
             end
         end
     end
