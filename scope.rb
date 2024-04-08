@@ -15,6 +15,7 @@ class Scope
             return @prevScope.findVariable(name) #look in the parent scope
         else
             puts "Variable #{name} not found"
+            return nil
         end
     end
 

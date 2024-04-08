@@ -86,12 +86,17 @@ class ConditionNode
         @block = block
     end
 
+    def convert_to_boolean_using_casecmp(string)
+        string.casecmp("true").zero?
+    end
+
     def eval(*scope)
         case @statment
         when :if
             if @condition.eval()
                 output = @block.eval(scope[0]) #needs scope
-                puts output
+                output = convert_to_boolean_using_casecmp(output)
+                #puts output.class
                 return output
             end
         end

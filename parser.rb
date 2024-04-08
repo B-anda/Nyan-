@@ -33,6 +33,8 @@ class Nyan
             token(/\^3\^/) { |m| m}
             token(/\^.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
+            token(/true/) { |m| m}
+            token(/false/) {|m| m}
             token(/meow/) { |m| m }  
             token(/[[:alpha:]\d_]+/) {|m| m}
             token(/\?nye\?/) {|_| :else}
@@ -154,8 +156,8 @@ class Nyan
             end
 
             rule :bool do
-                match(/true/) {|a| ValueNode.new(a)}
-                match(/false/) {|a| ValueNode.new(a)}
+                match("true") {|a| ValueNode.new(a)}
+                match("false") {|a| ValueNode.new(a)}
             end
         end
     end
