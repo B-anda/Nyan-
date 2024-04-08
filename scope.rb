@@ -37,6 +37,8 @@ class GlobalScope < Scope
     attr_accessor :current
     def initialize
         #super()
+        @vars = {}
+        @scopes = []
         @current = self 
     end
 
