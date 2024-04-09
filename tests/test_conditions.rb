@@ -30,7 +30,6 @@ class Condition_Test < Test::Unit::TestCase
     end
         
 end
-
 class LogicStmt_Test < Test::Unit::TestCase
 
     def test_not
