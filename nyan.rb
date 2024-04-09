@@ -8,9 +8,10 @@ require './commandLineArgs'
 #Exit 
 def done(str)
     ["quit","exit","bye","done",""].include?(str.chomp)
- end
+end
 
-def run(input = 0)
+def run(debugCon = true)
+    input = 0
     loop do
         print "~^nyan^~ "
         input = gets
@@ -19,18 +20,19 @@ def run(input = 0)
             puts "Bye Bye~"
             break
         else
-            #@nyan.log false
+            @nyan.log debugCon
             puts "=> #{@nyan.nyanParser.parse input}"
         end
     end
 end
 
 
+
 #Start program
-if ARGV.length == 0
+if ARGV.length == 0 
     run()
 else
-    run_file()
+    getOpts()
 end
 
 

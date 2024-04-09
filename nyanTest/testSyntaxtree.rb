@@ -22,9 +22,10 @@ class TestAssignment < Test::Unit::TestCase
   def test_eval
     scope = GlobalScope.new
     value_node = ValueNode.new(5)
-    assignment_node = Assignment.new("^3^", "x", value_node)
-    # assert_nothing_raised { assignment_node.eval(scope) }
-    assert_equal( 5, scope.findVariable("x"))
+    assignment_node = Assignment.new("^3^", "monogatari", value_node)
+    assert_raise(NyameNyerror.new()) {scope.findVariable("monogatari")}
+    assignment_node.eval(scope)
+    assert_equal( 5, scope.findVariable("monogatari"))
   end
 end
 
@@ -39,7 +40,7 @@ class TestVariableNode < Test::Unit::TestCase
   def test_nonexistent_variable
     scope = GlobalScope.new
     variable_node = VariableNode.new("y")
-    assert_nil(variable_node.eval(scope))
+    assert_raise(NyameNyerror.new("y nyot found")){variable_node.eval(scope)}
   end
 end
 
@@ -63,7 +64,7 @@ class TestPrintNode < Test::Unit::TestCase
     scope = GlobalScope.new
     value_node = ValueNode.new(42)
     print_node = PrintNode.new(value_node)
-    assert_equal(42,  print_node.eval(scope).value )
+    assert_equal(42,  print_node.eval(scope) )
   end
 end
 
@@ -130,6 +131,6 @@ class TestLogicExpr < Test::Unit::TestCase
     scope = GlobalScope.new
     variable_node = VariableNode.new("y")
     logic_expr = LogicExpr.new(variable_node)
-    assert_nil( logic_expr.eval(scope))
+    assert_raise(NyameNyerror.new("Logic Canyot nyevaluate Nyariable y")) {logic_expr.eval(scope)}
   end
 end

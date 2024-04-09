@@ -46,11 +46,10 @@ class Nyan
             token(/./) {|m| m }
             
             @scope = GlobalScope.new
-            @currentScope = @scope.current
 
             start :program do
                 puts "Scope created in program: #{@scope.inspect}"
-                match(:component) {|a| a.evaluate(@currentScope)}
+                match(:component) {|a| a.evaluate(@scope.current)}
             end
 
             rule :component do

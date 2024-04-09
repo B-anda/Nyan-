@@ -58,9 +58,15 @@ class ValueNode < SyntaxTreeNode
     def initialize(value)
         @value = value
     end
+
+    def convert_to_bool(string)
+        string.casecmp("true").zero?
+    end
     
     def eval(*scope)
-      @value
+        puts @value.class
+        @value == "true" || @value == "false" ? (convert_to_bool(@value)) : (@value)
+        #@value
     end
 end
 
@@ -75,10 +81,10 @@ class PrintNode < SyntaxTreeNode
         if @value.is_a?(VariableNode)
             scope[0].findVariable(@value.var)
         else
-            if @value.is_a? String
+            if @value.value.is_a? String
                 return @value.value.delete "\""
             else
-                return @value
+                return @value.value
             end
         end
     end

@@ -19,7 +19,7 @@ class ConditionNode
         elsif(@statment == :else)
             @block.eval(scope[0])
         end
-
+        scope[0].currToPrevScope
     end
 
 end
@@ -89,10 +89,13 @@ class LogicExpr
         if @value.is_a? ValueNode
             return @value.value
         elsif @value.is_a? VariableNode
-            find_variable = scope[0].findVariable(@value.eval(scope[0]))
-
-            if find_variable
-                return find_variable.value
+            begin
+                findVariable = @value.eval(scope[0])
+            rescue NyameNyerror => e
+                raise NyameNyerror.new("Logic Canyot nyevaluate Nyariable #{@value.var}")
+            end
+            if findVariable
+                return findVariable.value
             end
         end
     end

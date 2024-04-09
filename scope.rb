@@ -1,3 +1,4 @@
+require './errors'
 
 class Scope
     attr_accessor :vars, :prevScope, :scopes
@@ -13,9 +14,10 @@ class Scope
             return @vars[name]
         elsif @prevScope
             return @prevScope.findVariable(name) #look in the parent scope
+        elsif name == "monogatari"
+            raise NyameNyerror.new
         else
-            puts "Variable #{name} not found"
-            return nil
+            raise NyameNyerror.new( "#{name} nyot found")
         end
     end
 
@@ -27,8 +29,8 @@ class Scope
         end
     end
 
-    def addScope(previousScope)
-        @prevScope.addScope(previousScope)
+    def addScope(setPrevious)
+        @prevScope.addScope(setPrevious)
     end
     
 end
@@ -42,9 +44,21 @@ class GlobalScope < Scope
         @current = self 
     end
 
-    def addScope(previousScope)
-        temp = Scope.new(previousScope)
+    def addScope(setPrevious)
+        temp = Scope.new(setPrevious)
         @current.scopes << temp
         @current = temp
     end
+
+    # check previous scopes
+    def currToPrevScope
+        unless @current == self
+            @current = @current.prevScope
+        else
+            # already in global scope
+            raise NyantimeNyerror.new()
+        end
+        
+    end
+
 end

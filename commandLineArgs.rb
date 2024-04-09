@@ -22,9 +22,9 @@ def getOpts()
             EOF
         when '--debug'
             case arg
-            when "false"
+            when "off"
                 run(false)
-            when "true"
+            when "on"
                 run(true)
             end
         when '--version'
