@@ -71,3 +71,10 @@ felhantering samt en metod currToPrevScope som går tillbaka ett scope.
 
 Eftermiddag:
 Löste problemen för testSyntaxtree. Gick vidare och började testa nestlade conditions. Gick inte igenom, fortsätter med tester imorgon.
+
+
+
+To Do:
+implementera to_value()
+få aritmetik att funka
+få testerna och parsern att fungera

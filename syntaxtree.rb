@@ -5,6 +5,16 @@ class SyntaxTreeNode
     def evaluate(*scope)
         @next_node.eval(scope[0])
     end
+
+    def to_values(side, scope)
+        if side.is_a? ValueNode
+            return side.eval(scope)
+        elsif side.is_a? VariableNode
+            return scope.findVariable(side)
+        else 
+            raise NyameNyerror.new("nya nyo nya-nya #{side} nye nyanyan")
+        end
+    end 
 end
 
 class ProgramNode < SyntaxTreeNode
@@ -86,6 +96,20 @@ class PrintNode < SyntaxTreeNode
                 return @value.value
             end
         end
+    end
+end
+
+class ArithmaticNode < SyntaxTreeNode
+    
+    def initialize(lhs, operator, rhs)
+        @lhs = lhs
+        @operator = operator
+        @rhs = rhs
+        @sides = [@lhs, @rhs]
+    end
+
+    def eval(*scope)
+        return @lhs.value.send(@operator, @rhs.value)
     end
 end
 

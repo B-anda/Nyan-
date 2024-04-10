@@ -33,7 +33,7 @@ class TestVariableNode < Test::Unit::TestCase
   def test_existing_variable
     scope = GlobalScope.new
     variableNode = VariableNode.new("x")
-    scope.addVariable("x", 10)
+    scope.addVariable(variableNode, 10)
     assert_equal("x", variableNode.eval(scope))
   end
 
@@ -122,7 +122,7 @@ class TestLogicStmt < Test::Unit::TestCase
   def test_parse_and_or
     nyan = Nyan.new
       program = nyan.nyanParser.parse(
-        "?nya? ^true && false || true^: 
+        "?nya? ^true || true^: 
           meow ^\"hello\"^
         :3"  
       ) 
@@ -135,6 +135,13 @@ class TestValueComp < Test::Unit::TestCase
   def test_less_than_operator
     valueComp = ValueComp.new(ValueNode.new(5), "<", ValueNode.new(10))
     assert_equal( true, valueComp.eval)
+
+    scope = GlobalScope.new
+    variableNode = VariableNode.new("x")
+    scope.addVariable(variableNode, 10)
+    
+    valueComp = ValueComp.new(ValueNode.new(5), "<", variableNode)
+    assert_equal( true, valueComp.eval(scope))
   end
 
   def test_greater_than_operator

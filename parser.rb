@@ -28,8 +28,8 @@ class Nyan
             
             token(/\s+/)
             token(/".*"/) {|m| m}
-            token(/\d+/) {|m| m }
             token(/[\d]+\.[\d]+/) {|m| m}
+            token(/\d+/) {|m| m }
             token(/\^w\^/) { |m| m}
             token(/\^3\^/) { |m| m}
             token(/\^.\^/) { |m| m}
@@ -68,6 +68,7 @@ class Nyan
                     # a
                 end
                 match(:condition) { |a| a }
+                match(:term) {|a| a}
             end
 
             ## Assign variables ##
@@ -114,6 +115,25 @@ class Nyan
                 match(:value)    {|a| LogicExpr.new(a)}
                 match(:variable) {|a| LogicExpr.new(a)}
             end
+
+            rule :term do
+                match(:expr, "+", :expr) {|a,_,c| ArithmaticNode.new(a,"+",c)}
+                match(:expr, "-", :expr) {|a,_,c| ArithmaticNode.new(a,"-",c)}
+                match(:expr)
+            end
+
+            rule :expr do
+                match(:factor, "*", :factor) {|a,_,c|ArithmaticNode.new(a,"*",c)}
+                match(:factor, "/", :factor) {|a,_,c|ArithmaticNode.new(a,"/",c)}
+                match(:factor)
+            end
+
+            rule :factor do
+                match("(", :term, ")")
+                match(:float)
+                match(:int)
+                match(:variable)
+            end
             
             ## Print either value or a variable ##
             rule :output do 
@@ -139,8 +159,8 @@ class Nyan
 
             rule :value do
                 match(:str) 
-                match(:int) 
                 match(:float)
+                match(:int) 
                 match(:bool)
             end 
             

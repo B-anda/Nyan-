@@ -74,7 +74,6 @@ class ValueComp
         # send calls method dynamically
         # calls @logicOp on @lhs and passes @rhs
         # which returns true or false
-        puts @lhs.send(@logicOp, @rhs)
         return @lhs.send(@logicOp, @rhs)
     end
 end
