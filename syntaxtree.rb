@@ -81,9 +81,9 @@ class PrintNode < SyntaxTreeNode
             scope[0].findVariable(@value.var)
         else
             if @value.value.is_a? String
-                return @value.value.delete "\""
+                puts @value.value.delete "\""
             else
-                return @value.value
+                puts @value.value
             end
         end
     end

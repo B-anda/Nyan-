@@ -87,7 +87,7 @@ class Nyan
 
             rule :condition_followup do
                 match(:block, ":3")
-                match(:block, :elsif, "^", :logicStmt, "^", :condition_followup) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:block, :elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
                 match(:block, :else, :stmts)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
 

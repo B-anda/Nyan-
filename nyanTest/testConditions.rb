@@ -18,19 +18,31 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
 
   def test_complex_nested_conditions
     nyan = Nyan.new
-    program = nyan.nyanParser.parse(
-        "?nya? ^true^: 
-            ?nya? ^false^: 
-                meow ^1^ 
-            ?nyanye?: 
-                ?nya? ^true^: 
-                    meow ^2^
-                :3
+    # program = nyan.nyanParser.parse(
+    #     "?nya? ^true^: 
+    #         ?nya? ^false^: 
+    #             meow ^\"hello\"^ 
+    #         ?nyanye? ^true^: 
+    #             ?nya? ^true^: 
+    #                 meow ^\"world\"^
+    #             :3
+    #         :3
+    #     :3")
+    program = 
+    "?nya? ^true^: 
+        ?nya? ^false^: 
+            meow ^\"hello\"^ 
+        ?nyanye? ^true^: 
+            ?nya? ^true^: 
+                meow ^\"world\"^
             :3
-        :3")
-    puts program
-    # syntax_tree = program.eval(@current_scope)
-    assert_equal(2, program)
+        :3
+    :3"
+ 
+    # syntaxTree = program.eval(@current_scope)
+    # puts syntaxTree
+    assert_output("world") {nyan.nyanParser.parse(program)}
+    
   end
   # def test_complex_logical_expressions
   #   nyan = Nyan.new

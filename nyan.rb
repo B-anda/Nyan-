@@ -21,7 +21,7 @@ def run(debugCon = true)
             break
         else
             @nyan.log debugCon
-            puts "=> #{@nyan.nyanParser.parse input}"
+            @nyan.nyanParser.parse input
         end
     end
 end
