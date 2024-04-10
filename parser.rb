@@ -57,7 +57,7 @@ class Nyan
             end
 
             rule :stmts do
-                match(":", :condition_followup, ":3") {|_,a,_| a}
+                match(":", :condition_followup) {|_,a,_| a}
             end
 
             rule :block do
@@ -86,7 +86,7 @@ class Nyan
             end
 
             rule :condition_followup do
-                match(:block)
+                match(:block, ":3")
                 match(:block, :elsif, "^", :logicStmt, "^", :condition_followup) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
                 match(:block, :else, :stmts)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
