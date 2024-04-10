@@ -5,11 +5,9 @@ def getOpts()
     [ '--help', '-h', GetoptLong::NO_ARGUMENT ],
     [ '--debug', '-d', GetoptLong::OPTIONAL_ARGUMENT],
     [ '--version', '-v', GetoptLong::OPTIONAL_ARGUMENT]
-    # [ '-log true', GetoptLong::OPTIONAL_ARGUMENT ]
     )
 
     opts.each do |opt, arg|
-        puts arg
         case opt
         when '--help'
             puts <<-EOF

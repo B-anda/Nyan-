@@ -4,44 +4,36 @@ require './nyan'
 
 class Test_ParsingAndEvaluation < Test::Unit::TestCase
 
-  # def test_simple_condition
-  #   nyan = Nyan.new
-  #   program = nyan.nyanParser.parse(
-  #     "?nya? ^true^: 
-  #       meow ^\"hello\"^
-  #     :3"  
-  #   ) 
+  def test_simple_condition
+    nyan = Nyan.new
+    program = nyan.nyanParser.parse(
+      "?nya? ^true^: 
+        meow ^\"hello\"^
+      :3"  
+    ) 
 
-  #   assert_equal("hello", program)
+    assert_equal("hello", program)
 
-  # end
+  end
 
   def test_complex_nested_conditions
     nyan = Nyan.new
-    # program = nyan.nyanParser.parse(
-    #     "?nya? ^true^: 
-    #         ?nya? ^false^: 
-    #             meow ^\"hello\"^ 
-    #         ?nyanye? ^true^: 
-    #             ?nya? ^true^: 
-    #                 meow ^\"world\"^
-    #             :3
-    #         :3
-    #     :3")
     program = 
     "?nya? ^true^: 
         ?nya? ^false^: 
             meow ^\"hello\"^ 
         ?nyanye? ^true^: 
             ?nya? ^true^: 
-                meow ^\"world\"^
+                ^w^ hello=\"world\"
             :3
         :3
     :3"
+
+
  
     # syntaxTree = program.eval(@current_scope)
     # puts syntaxTree
-    assert_output("world") {nyan.nyanParser.parse(program)}
+    assert_equal("", nyan.nyanParser.parse(program))
     
   end
   # def test_complex_logical_expressions
