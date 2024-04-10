@@ -64,7 +64,7 @@ class ValueNode < SyntaxTreeNode
     end
     
     def eval(*scope)
-        puts @value.class
+        # puts @value.class
         @value == "true" || @value == "false" ? (convert_to_bool(@value)) : (@value)
         #@value
     end

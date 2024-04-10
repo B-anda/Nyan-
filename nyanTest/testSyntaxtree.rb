@@ -78,7 +78,7 @@ class TestConditionNode < Test::Unit::TestCase
   def test_if_false
     scope = GlobalScope.new
     condition_node = ConditionNode.new(:if, ValueNode.new(false), ValueNode.new("true"))
-    assert_nil condition_node.eval(scope)
+    assert_nil(condition_node.eval(scope))
   end
 end
 

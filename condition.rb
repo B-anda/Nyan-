@@ -14,12 +14,13 @@ class ConditionNode
 
         if @statment == :if || @statment == :elsif
             if @condition.eval()
-                @block.eval(scope[0]) 
+               return @block.eval(scope[0]) 
             end
         elsif(@statment == :else)
-            @block.eval(scope[0])
+            return @block.eval(scope[0])
         end
         scope[0].currToPrevScope
+        return nil
     end
 
 end
@@ -95,7 +96,7 @@ class LogicExpr
                 raise NyameNyerror.new("Logic Canyot nyevaluate Nyariable #{@value.var}")
             end
             if findVariable
-                return findVariable.value
+                return scope[0].findVariable(findVariable).value
             end
         end
     end
