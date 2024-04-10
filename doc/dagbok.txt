@@ -45,3 +45,29 @@ Scope behöver läggas till i rules för LogicExpr också
 Det går inte att parsa nyan i test filen. Tokens skapas inte korrekt. 
 Går att parsa assignment och print men inte för de testfallen vi lagt till
 => behöver lägga till tokens 
+
+2024-04-05
+Förmiddag:
+Problem med hantering av global scope. Skrev om syntaxTreeNode- och ProgramNode-classen. Insåg att programNode inte riktigt användes korrekt. 
+Eval tar scope som en parameter men det är bara vissa klasser som behöver ta ett scope. Detta löste vi genom att ta in "*scope" istället vilket betyder
+att eval tar in noll eller fler parametrar.
+
+Eftermiddag:
+Delade upp syntaxtree.rb filen. Nu ligger syntaxträdet och alla nod-klasser i syntaxtree.rb och alla klasser för att hantera conditions
+i conditions.rb
+Eftersom vi ändrade hur 
+
+2024-04-05
+Förmiddag:
+- (Föreläsning)
+
+Eftermiddag:
+Tester klara och påbörjade att lägga till fler scope + tester.
+
+2024-04-09
+Förmiddag:
+Fortsatte skrev klart tester för global scope. Körningen för testSyntaxtree.rb gick inte igenom. La även till custiom-made error meddelanden för 
+felhantering samt en metod currToPrevScope som går tillbaka ett scope. 
+
+Eftermiddag:
+Löste problemen för testSyntaxtree. Gick vidare och började testa nestlade conditions. Gick inte igenom, fortsätter med tester imorgon.
