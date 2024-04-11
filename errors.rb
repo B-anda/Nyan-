@@ -5,9 +5,18 @@ class NyantimeNyerror < StandardError
     end
 end
 
+class NyanZeroNyerror < ZeroDivisionError
+
+    def initialize(msg = "nyan nyan 0.")
+        super
+    end
+
+end
+
 class NyameNyerror < StandardError
 
     def initialize(msg = "Nyanyame nyanyajyuunyanya-do no nyarabi de nyakunyaku inyanyaku nyanyahan nyanyadai nyanynaku nyarabete nyaganyagame.")
         super
     end
+
 end

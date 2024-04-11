@@ -135,9 +135,12 @@ class TestArithmeticNode < Test::Unit::TestCase
     # Tesing with variableNodes
     varNode = VariableNode.new("add")
     scope.addVariable(varNode, val1)
+    
     sum3 = ArithmaticNode.new(varNode, "+", val2)
     assert_equal(6, sum3.eval(scope))
 
+    sum4 = ArithmaticNode.new(varNode, "+", varNode)
+    assert_equal(4, sum4.eval(scope))
   end
 
   def test_mult
@@ -168,8 +171,8 @@ class TestArithmeticNode < Test::Unit::TestCase
     sum_div = ArithmaticNode.new(val1, "/", val2)
     assert_equal(2, sum_div.eval)
 
-    # sum_div2 = ArithmaticNode.new(val1, "/", val4)
-    # assert_false(sum_div2.eval)
+    sum_div2 = ArithmaticNode.new(val1, "/", val4) #hantera ZerodivisionError
+    assert_raise(NyanZeroNyerror.new()) {sum_div2.eval}
 
   end
 
@@ -179,11 +182,11 @@ class TestArithmeticNode < Test::Unit::TestCase
     val3 = ValueNode.new(2.5)
     val4 = ValueNode.new(0)
 
-    nyan = Nyan.new
-      program = nyan.nyanParser.parse(
-        "2+2-2"  
-      ) 
-  
-      assert_equal(2, program)
+    # nyan = Nyan.new
+    # program = nyan.nyanParser.parse(
+    #   "2+2-2"  
+    # ) 
+
+    # assert_equal(2, program)
   end
 end

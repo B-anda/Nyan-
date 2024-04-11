@@ -1,4 +1,4 @@
-2024-02-26
+## 2024-02-26 ##
 
 Idag skrev vi klar våran språkspecifikation. La till BNF-grammatiken för språket. Vi anser att den borde vara 
 tillräckligt utförlig. Vi bestämde oss också för att implementera ett dynamiskt scope då det anses vara teoretiskt sätt 
@@ -6,33 +6,39 @@ lättare att implementera.
 Vi valde att skriva ett imperativt prorgrammeringspråk istället för
 ett objektorienterat vilket ses som en enklare impelentation. 
 
-2024-03-25
+## 2024-03-25 ##
+
 Idag har vi skrivit en detaljerad impelmentationsplan för hur och vad vi kommer jobba med under de näst kommande veckorna. Vi kommer ha ett återkopplings möte varje måndag för att se hur långt vi har kommit samt för att kunna planera arbete utifrån andra kurser. 
 BNF-gramatiken är också kompleterad.
 
-2024-03-26
+## 2024-03-26 ##
+
 Skapat ett utkast för språkdokumentationen samt en filstruktur för projektet. I och med att vi utgår från rdparser.rb började vi med att försöka dela upp funktionaliteten i olika filer. En fil som parsar vårt språk, den tar allstå antingen in en fil eller så kan man köra det i interaktivt läge. (idag implementerade vi bara för iteraktivt läge). En fil för alla tokens och rules. Denna fil includerar rdparser.rb. La också till en fil för tester.  Vi bestämde oss för att implementera kod för parsning av strängar imorgon istället.
 
-2024-03-27
+## 2024-03-27 ##
+
 Vi hade svårt att komma igång och veta hur vi skulle börja. Men tillslut lyckades vi få till scopehantering samt kunna parsa variabler.
 
-2024-03-28
+## 2024-03-28 ##
 Haft problem med parsning. Löstes genom att byta ut regexet. Går dock inte att hämta hela match gruppen men den returnerar korrekt.
 Lagt till en loop i run() i nyan.rb för att programmet ska fortsätta att köra efter varje parsning.
 Prövade att skapa en node för varje node iställe som representerar ett syntaxträd.
 component kallar eval igenom hela syntaxträdet. 
 
-2024-04-02
+## 2024-04-02 ##
+
 print funkar någolunda. Det går att skriva ut strängar etc. men problem med att skriva ut variabler. Har också försökt att skapa någon form av simpel scopehantering.
 
-2024-04-03
+## 2024-04-03 ##
+
 Print funktionen fungerar och det går att skriva ut både string/int och variabler.
 La till scopehanteringen som fungerar. 
 På började skriva tester för conditions.
 Bör lägga till så att strings och chars hanteras samt att lägga till så att floats också går att 
 parsa. För tillfället skapas token inte korrekt för float.
 
-2024-04-04
+## 2024-04-04 ##
+
 Ändrade LogicExpr classens för att hantera Variable- och Value noder som retunerar antingen true eller false.
 Även skrivit fler tester.
 La även till så att det går att skriva in nyan-kod i asserts för att testa dess output.
@@ -46,7 +52,8 @@ Det går inte att parsa nyan i test filen. Tokens skapas inte korrekt.
 Går att parsa assignment och print men inte för de testfallen vi lagt till
 => behöver lägga till tokens 
 
-2024-04-05
+## 2024-04-05 ##
+
 Förmiddag:
 Problem med hantering av global scope. Skrev om syntaxTreeNode- och ProgramNode-classen. Insåg att programNode inte riktigt användes korrekt. 
 Eval tar scope som en parameter men det är bara vissa klasser som behöver ta ett scope. Detta löste vi genom att ta in "*scope" istället vilket betyder
@@ -57,14 +64,16 @@ Delade upp syntaxtree.rb filen. Nu ligger syntaxträdet och alla nod-klasser i s
 i conditions.rb
 Eftersom vi ändrade hur 
 
-2024-04-05
+## 2024-04-05 ##
+
 Förmiddag:
 - (Föreläsning)
 
 Eftermiddag:
 Tester klara och påbörjade att lägga till fler scope + tester.
 
-2024-04-09
+## 2024-04-09 ##
+
 Förmiddag:
 Fortsatte skrev klart tester för global scope. Körningen för testSyntaxtree.rb gick inte igenom. La även till custiom-made error meddelanden för 
 felhantering samt en metod currToPrevScope som går tillbaka ett scope. 
@@ -72,22 +81,28 @@ felhantering samt en metod currToPrevScope som går tillbaka ett scope.
 Eftermiddag:
 Löste problemen för testSyntaxtree. Gick vidare och började testa nestlade conditions. Gick inte igenom, fortsätter med tester imorgon.
 
-2024-04-10
+## 2024-04-10 ##
+
 Förmiddag:
 Testskrivning. Lite osäkra på hur vi ska testa själva parsningen av nyan. Finns inte direkt en assert_output...
-
 
 Eftermiddag:
 Börjat implementera arithmatik. 
 
-2024-04-11
+## 2024-04-11 ##
+
 Förmiddag:
 Implementerat toValue() i arithmatik för att skilja på en ValueNode och en VariableNode. I och med att den funktionen är användbar 
 i flera klasser ligger toValue() i en getValue modul som kan inkluderas i de klasser som behöver åtkomst till den funtionen.
+La till så att det går att läsa in en fil. Om inget argumment är givet körs run() vilket startar det interaktiva läget.
+Annars körs getOpts() som antingen läser in en fil från ARGV[0] om filen existerar (med eller utan flagga). Annars körs programmet
+berodende på vilken flagga som angets.
 
 Eftermiddag:
 
-To Do:
-implementera to_value()
-få aritmetik att funka
-få testerna och parsern att fungera
+
+
+# To Do:
+    - implementera to_value()
+    - få aritmetik att funka
+    - få testerna och parsern att fungera

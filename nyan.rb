@@ -25,7 +25,7 @@ def run(setDebug = true)
     end
 end
 
-# Commandline argumnts
+# Commandline argumnts/flags
 def getOpts()
     opts = GetoptLong.new(
     [ '--help', '-h', GetoptLong::NO_ARGUMENT ],
@@ -68,7 +68,7 @@ end
 
 def readFile(fileName, debug)
     @nyan.log debug
-    File.foreach(fileName) { |line| puts @nyan.nyanParser.parse line.to_s }
+    File.foreach(fileName) { |line| puts @nyan.nyanParser.parse line }
 end
 
 ## Start program ##

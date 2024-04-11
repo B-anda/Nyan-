@@ -65,7 +65,6 @@ class Nyan
                 match(:print) do |a| 
                     puts "Scope created in component: #{@scope.inspect}"
                     a
-                    # a
                 end
                 match(:condition) { |a| a }
                 match(:term) {|a| a}
@@ -135,7 +134,7 @@ class Nyan
                 match("(", :term, ")")
             end
             
-            ## Print either value or a variable ##
+            ## Print either a value or a variable ##
             rule :output do 
                 match(:value)
                 match(:variable)
