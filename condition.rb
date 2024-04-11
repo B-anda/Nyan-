@@ -107,7 +107,7 @@ class LogicExpr
                 raise NyameNyerror.new("Logic Canyot nyevaluate Nyariable #{@value.var}")
             end
             if findVariable
-                return scope[0].findVariable(findVariable).value
+                return scope[0].findVariable(findVariable)
             end
         end
     end

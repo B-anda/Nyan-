@@ -59,9 +59,10 @@ class TestValueComp < Test::Unit::TestCase
 
     scope = GlobalScope.new
     variableNode = VariableNode.new("x")
+    logicExpr = LogicExpr.new(variableNode)
     scope.addVariable(variableNode, 10)
     
-    valueComp = ValueComp.new(ValueNode.new(5), "<", variableNode)
+    valueComp = ValueComp.new(ValueNode.new(5), "<", logicExpr)
     assert_equal( true, valueComp.eval(scope))
   end
 
@@ -87,7 +88,7 @@ class TestLogicExpr < Test::Unit::TestCase
     scope = GlobalScope.new
     scope.addVariable("x", ValueNode.new(10))
     logicExpr = LogicExpr.new(VariableNode.new("x"))
-    assert_equal(10, logicExpr.eval(scope))
+    assert_equal(10, logicExpr.eval(scope).value)
   end
 
   def test_nil

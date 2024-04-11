@@ -64,7 +64,7 @@ Delade upp syntaxtree.rb filen. Nu ligger syntaxträdet och alla nod-klasser i s
 i conditions.rb
 Eftersom vi ändrade hur 
 
-## 2024-04-05 ##
+## 2024-04-08 ##
 
 Förmiddag:
 - (Föreläsning)
