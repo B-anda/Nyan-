@@ -56,7 +56,7 @@ class LogicStmt
     end 
 end
 
-class ValueComp
+class ValueComp < SyntaxTreeNode
 
     def initialize(lhs, logicOp, rhs)
         @lhs = lhs

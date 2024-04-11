@@ -25,7 +25,7 @@ def run(debugCon = true)
 end
 
 def readFile(fileName)
-    File.foreach(fileName) { |line| puts line }
+    File.foreach(fileName) { |line| @nyan.nyanParser.parse line }
 end
 
 #Start program
