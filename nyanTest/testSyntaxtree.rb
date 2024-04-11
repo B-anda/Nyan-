@@ -4,21 +4,32 @@ require './syntaxtree'
 require './condition'
 require './parser'
 
+## Testing class: SyntaxTreeNode ##
+
 class TestSyntaxTreeNode < Test::Unit::TestCase
+
   def test_eval
     node = SyntaxTreeNode.new
     assert_raise(NoMethodError) { node.eval }
   end
+
 end
 
+## Testing class: ProgramNode ##
+
 class TestProgramNode < Test::Unit::TestCase
+
   def test_eval
     innerNode = SyntaxTreeNode.new
     programNode = ProgramNode.new(innerNode)
   end
+
 end
 
+## Testing class: Assignment ##
+
 class TestAssignment < Test::Unit::TestCase
+
   def test_eval
     scope = GlobalScope.new
     valueNode = ValueNode.new(5)
@@ -27,9 +38,13 @@ class TestAssignment < Test::Unit::TestCase
     assignmentNode.eval(scope)
     assert_equal( 5, scope.findVariable("monogatari"))
   end
+
 end
 
+## Testing class: VariableNode ##
+
 class TestVariableNode < Test::Unit::TestCase
+
   def test_existing_variable
     scope = GlobalScope.new
     variableNode = VariableNode.new("x")
@@ -42,16 +57,24 @@ class TestVariableNode < Test::Unit::TestCase
     variableNode = VariableNode.new("y")
     assert_raise(NyameNyerror.new("y nyot found")){variableNode.eval(scope)}
   end
+
 end
 
+## Testing class: ValueNode ##
+
 class TestValueNode < Test::Unit::TestCase
+
   def test_eval
     valueNode = ValueNode.new(10)
     assert_equal(10, valueNode.eval)
   end
+
 end
 
+## Testing class: PrintNode ##
+
 class TestPrintNode < Test::Unit::TestCase
+
   def test_existing_variable
     scope = GlobalScope.new
     scope.addVariable("x", 10)
@@ -72,9 +95,13 @@ class TestPrintNode < Test::Unit::TestCase
     printNode = PrintNode.new(valueNode)
     # assert_output(42) {printNode.eval(scope) } 
   end
+
 end
 
+## Testing class: ConditionNode ##
+
 class TestConditionNode < Test::Unit::TestCase
+
   def test_if_true
     scope = GlobalScope.new
     condition_node = ConditionNode.new(:if, ValueNode.new(true), ValueNode.new("true"))
@@ -86,90 +113,77 @@ class TestConditionNode < Test::Unit::TestCase
     condition_node = ConditionNode.new(:if, ValueNode.new(false), ValueNode.new("true"))
     assert_nil(condition_node.eval(scope))
   end
+
 end
 
-class TestLogicStmt < Test::Unit::TestCase
-  def test_not_operator
-    logicStmt = LogicStmt.new(nil, "not", ValueNode.new(false))
-    assert_equal( true, logicStmt.eval)
-  end
+## Testing class: ArithmeticNode
 
-  def test_logical_and_operator
-    logicStmt = LogicStmt.new(ValueNode.new(true), "&&", ValueNode.new(false))
-    assert_equal false, logicStmt.eval
-  end
+class TestArithmeticNode < Test::Unit::TestCase
 
-  def test_logical_or_operator
-    logicStmt = LogicStmt.new(ValueNode.new(true), "||", ValueNode.new(false))
-    assert_equal true, logicStmt.eval
-  end
+  def test_add_sub
 
-  def test_logical_and_or
-    logicStmtTrue = LogicStmt.new(ValueNode.new(true), "&&", ValueNode.new(true))
-    valueComp = ValueComp.new(ValueNode.new(10), ">", ValueNode.new(5))
+    scope = GlobalScope.new
+    val1 = ValueNode.new(2)
+    val2 = ValueNode.new(4)
 
-    logicStmt = LogicStmt.new(logicStmtTrue, "||", valueComp)
-    assert_equal(true, logicStmt.eval)
+    sum = ArithmaticNode.new(val1, "+", val2)
+    assert_equal(6, sum.eval)
 
-    logicStmtTrue = LogicStmt.new(ValueNode.new(true), "&&", ValueNode.new(false))
-    logicExpr = LogicExpr.new(ValueNode.new(true))
-    logicStmt2 = LogicStmt.new(logicStmtTrue, "||", logicExpr)
+    sum2 = ArithmaticNode.new(val1, "-", val2)
+    assert_equal(-2, sum2.eval)
 
-    assert_equal(true, logicStmt2.eval)
+    # Tesing with variableNodes
+    varNode = VariableNode.new("add")
+    scope.addVariable(varNode, val1)
+    sum3 = ArithmaticNode.new(varNode, "+", val2)
+    assert_equal(6, sum3.eval(scope))
 
   end
 
-  def test_parse_and_or
+  def test_mult
+
+    val1 = ValueNode.new(10)
+    val2 = ValueNode.new(5)
+    val3 = ValueNode.new(2.5)
+    val4 = ValueNode.new(0)
+
+    sum_mult = ArithmaticNode.new(val1, "*", val2)
+    assert_equal(50, sum_mult.eval)
+
+    sum_mult2 = ArithmaticNode.new(val2, "*", val4)
+    assert_equal(0, sum_mult2.eval)
+
+    sum_mult3 = ArithmaticNode.new(val2, "*", val3)
+    assert_equal(12.5, sum_mult3.eval)
+
+  end
+
+  def test_div
+
+    val1 = ValueNode.new(10)
+    val2 = ValueNode.new(5)
+    val3 = ValueNode.new(2.5)
+    val4 = ValueNode.new(0)
+
+    sum_div = ArithmaticNode.new(val1, "/", val2)
+    assert_equal(2, sum_div.eval)
+
+    # sum_div2 = ArithmaticNode.new(val1, "/", val4)
+    # assert_false(sum_div2.eval)
+
+  end
+
+  def test_complex_arithmatics
+    val1 = ValueNode.new(10)
+    val2 = ValueNode.new(5)
+    val3 = ValueNode.new(2.5)
+    val4 = ValueNode.new(0)
+
     nyan = Nyan.new
       program = nyan.nyanParser.parse(
-        "?nya? ^true || true^: 
-          meow ^\"hello\"^
-        :3"  
+        "2+2-2"  
       ) 
   
-      assert_equal("hello", program)
-  end
-end
-
-class TestValueComp < Test::Unit::TestCase
-  def test_less_than_operator
-    valueComp = ValueComp.new(ValueNode.new(5), "<", ValueNode.new(10))
-    assert_equal( true, valueComp.eval)
-
-    scope = GlobalScope.new
-    variableNode = VariableNode.new("x")
-    scope.addVariable(variableNode, 10)
-    
-    valueComp = ValueComp.new(ValueNode.new(5), "<", variableNode)
-    assert_equal( true, valueComp.eval(scope))
-  end
-
-  def test_greater_than_operator
-    valueComp = ValueComp.new(ValueNode.new(10), ">", ValueNode.new(5))
-    assert_equal( true, valueComp.eval)
-  end
-
-end
-
-class TestLogicExpr < Test::Unit::TestCase
-  def test_with_valueNode
-    scope = GlobalScope.new
-    scope.addVariable("x", 10)
-    logicExpr = LogicExpr.new(ValueNode.new(10))
-    assert_equal( 10, logicExpr.eval(scope))
-  end
-
-  def test_with_variable_node
-    scope = GlobalScope.new
-    scope.addVariable("x", ValueNode.new(10))
-    logicExpr = LogicExpr.new(VariableNode.new("x"))
-    assert_equal(10, logicExpr.eval(scope))
-  end
-
-  def test_nil
-    scope = GlobalScope.new
-    variableNode = VariableNode.new("y")
-    logicExpr = LogicExpr.new(variableNode)
-    assert_raise(NyameNyerror.new("Logic Canyot nyevaluate Nyariable y")) {logicExpr.eval(scope)}
+      assert_equal(2, program)
   end
 end

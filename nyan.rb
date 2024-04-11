@@ -1,14 +1,15 @@
 require './parser'
-require './commandLineArgs'
+require 'getoptlong'
 
 @nyan = Nyan.new
 
-#Exit 
+# Exit 
 def done(str)
     ["quit","exit","bye","done",""].include?(str.chomp)
 end
 
-def run(debugCon = true)
+# Parse
+def run(setDebug = true)
     input = 0
     loop do
         print "~^nyan^~ "
@@ -18,24 +19,63 @@ def run(debugCon = true)
             puts "Bye Bye~"
             break
         else
-            @nyan.log debugCon
+            @nyan.log setDebug
             puts @nyan.nyanParser.parse input
         end
     end
 end
 
-def readFile(fileName)
-    File.foreach(fileName) { |line| @nyan.nyanParser.parse line }
+# Commandline argumnts
+def getOpts()
+    opts = GetoptLong.new(
+    [ '--help', '-h', GetoptLong::NO_ARGUMENT ],
+    [ '--debug', '-d', GetoptLong::OPTIONAL_ARGUMENT],
+    [ '--version', '-v', GetoptLong::OPTIONAL_ARGUMENT],
+    )
+
+    fileName = ARGV[0]
+    setDebug = true
+
+    opts.each do |opt, arg|
+        case opt
+        when '--help'
+            puts <<-EOF
+            Nyan [OPTION] ... [flag | file] [arg]
+            Options:
+            -h, --help   : show help 
+            -d --debug   : Set debug mode on/off 
+            -v --version : show latest version 
+            file         : program read from script file
+            EOF
+        when '--debug'
+            case arg
+            when "off"
+                setDebug = false
+            when "on"
+                setDebug = true
+            end
+        when '--version'
+            puts "Nyan ≈^0.0^≈"
+        end 
+    end
+
+    if File.exist?(fileName)
+        readFile(fileName, setDebug)
+    else
+        run(setDebug)
+    end
 end
 
-#Start program
+def readFile(fileName, debug)
+    @nyan.log debug
+    File.foreach(fileName) { |line| puts @nyan.nyanParser.parse line.to_s }
+end
+
+## Start program ##
 if ARGV.length == 0 
     run()
 else
     getOpts()
-    if File.exists?(ARGV[0])
-        readFile(ARGV[0])
-    end
 end
 
 

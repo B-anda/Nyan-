@@ -72,7 +72,20 @@ felhantering samt en metod currToPrevScope som går tillbaka ett scope.
 Eftermiddag:
 Löste problemen för testSyntaxtree. Gick vidare och började testa nestlade conditions. Gick inte igenom, fortsätter med tester imorgon.
 
+2024-04-10
+Förmiddag:
+Testskrivning. Lite osäkra på hur vi ska testa själva parsningen av nyan. Finns inte direkt en assert_output...
 
+
+Eftermiddag:
+Börjat implementera arithmatik. 
+
+2024-04-11
+Förmiddag:
+Implementerat toValue() i arithmatik för att skilja på en ValueNode och en VariableNode. I och med att den funktionen är användbar 
+i flera klasser ligger toValue() i en getValue modul som kan inkluderas i de klasser som behöver åtkomst till den funtionen.
+
+Eftermiddag:
 
 To Do:
 implementera to_value()

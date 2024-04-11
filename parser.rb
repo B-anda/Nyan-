@@ -123,16 +123,16 @@ class Nyan
             end
 
             rule :expr do
+                match(:factor)
                 match(:factor, "*", :factor) {|a,_,c|ArithmaticNode.new(a,"*",c)}
                 match(:factor, "/", :factor) {|a,_,c|ArithmaticNode.new(a,"/",c)}
-                match(:factor)
             end
 
             rule :factor do
-                match("(", :term, ")")
                 match(:float)
                 match(:int)
                 match(:variable)
+                match("(", :term, ")")
             end
             
             ## Print either value or a variable ##

@@ -1,25 +1,28 @@
 require './scope'
 
-class SyntaxTreeNode
-    
-    def evaluate(*scope)
-        @next_node.eval(scope[0])
-    end
-
-    def to_values(side, scope)
+module GetValue
+    def toValues(side, scope)
         if side.is_a? ValueNode
             return side.eval(scope)
         elsif side.is_a? VariableNode
-            return scope.findVariable(side)
+            var = side.eval(scope)
+            return scope.findVariable(var).value
         else 
             raise NyameNyerror.new("nya nyo nya-nya #{side} nye nyanyan")
         end
     end 
 end
 
+class SyntaxTreeNode
+    
+    def evaluate(*scope)
+        @nextNode.eval(scope[0])
+    end
+end
+
 class ProgramNode < SyntaxTreeNode
     def initialize(node)
-        @next_node = node
+        @nextNode = node
     end
 end
 
@@ -69,13 +72,13 @@ class ValueNode < SyntaxTreeNode
         @value = value
     end
 
-    def convert_to_bool(string)
+    def convertToBool(string)
         string.casecmp("true").zero?
     end
     
     def eval(*scope)
         # puts @value.class
-        @value == "true" || @value == "false" ? (convert_to_bool(@value)) : (@value)
+        @value == "true" || @value == "false" ? (convertToBool(@value)) : (@value)
     end
 end
 
@@ -100,6 +103,7 @@ class PrintNode < SyntaxTreeNode
 end
 
 class ArithmaticNode < SyntaxTreeNode
+    include GetValue
     
     def initialize(lhs, operator, rhs)
         @lhs = lhs
@@ -109,7 +113,11 @@ class ArithmaticNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        return @lhs.value.send(@operator, @rhs.value)
+    
+        @lhs = toValues(@lhs, scope[0])
+        @rhs = toValues(@rhs, scope[0])
+
+        return @lhs.send(@operator, @rhs)
     end
 end
 
