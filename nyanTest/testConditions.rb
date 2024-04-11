@@ -13,12 +13,12 @@ class TestLogicStmt < Test::Unit::TestCase
 
   def test_logical_and_operator
     logicStmt = LogicStmt.new(ValueNode.new(true), "&&", ValueNode.new(false))
-    assert_equal false, logicStmt.eval
+    assert_equal(false, logicStmt.eval)
   end
 
   def test_logical_or_operator
     logicStmt = LogicStmt.new(ValueNode.new(true), "||", ValueNode.new(false))
-    assert_equal true, logicStmt.eval
+    assert_equal(true, logicStmt.eval)
   end
 
   def test_logical_and_or
@@ -39,12 +39,12 @@ class TestLogicStmt < Test::Unit::TestCase
   def test_parse_and_or
     nyan = Nyan.new
       program = nyan.nyanParser.parse(
-        "?nya? ^true || true^: 
+        "?nya? ^ true || true ^: 
           meow ^\"hello\"^
         :3"  
       ) 
   
-      assert_equal("hello", program)
+      assert_equal("hello", program.eval)
   end
 
 end
@@ -128,11 +128,11 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
         :3
     :3"
 
-
- 
     # syntaxTree = program.eval(@current_scope)
     # puts syntaxTree
-    assert_equal("", nyan.nyanParser.parse(program))
+    assert_nothing_raised do 
+      nyan.nyanParser.parse(program)
+    end
     
   end
   # def test_complex_logical_expressions

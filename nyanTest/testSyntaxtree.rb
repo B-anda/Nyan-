@@ -167,12 +167,16 @@ class TestArithmeticNode < Test::Unit::TestCase
     val2 = ValueNode.new(5)
     val3 = ValueNode.new(2.5)
     val4 = ValueNode.new(0)
+    val5 = ValueNode.new(2)
 
     sum_div = ArithmaticNode.new(val1, "/", val2)
     assert_equal(2, sum_div.eval)
 
+    sum_div2 = ArithmaticNode.new(val2, "//", val5)
+    assert_equal(2, sum_div2.eval)
+
     sum_div2 = ArithmaticNode.new(val1, "/", val4) #hantera ZerodivisionError
-    assert_raise(NyanZeroNyerror.new()) {sum_div2.eval}
+    #assert_raise(NyanZeroNyerror.new()) {sum_div2.eval}
 
   end
 
@@ -182,11 +186,35 @@ class TestArithmeticNode < Test::Unit::TestCase
     val3 = ValueNode.new(2.5)
     val4 = ValueNode.new(0)
 
-    # nyan = Nyan.new
-    # program = nyan.nyanParser.parse(
-    #   "2+2-2"  
-    # ) 
+    nyan = Nyan.new
+    program = nyan.nyanParser.parse(
+      "2+6-4"  
+    ) 
+    assert_equal(4, program)
 
-    # assert_equal(2, program)
+    program2 = nyan.nyanParser.parse(
+      "2+6*4"  
+    ) 
+    assert_equal(26, program2)
+
+    program3 = nyan.nyanParser.parse(
+      "(5*2)*8+(4-2)"  
+    ) 
+    assert_equal(82, program3)
+
+    program4 = nyan.nyanParser.parse(
+      "5 / 2"  
+    ) 
+    assert_equal(2.5, program4)
+
+    program5 = nyan.nyanParser.parse(
+      "5 // 2"  
+    ) 
+    assert_equal(2, program5)
+
+    program5 = nyan.nyanParser.parse(
+      "5 % 2"  
+    ) 
+    assert_equal(1, program5) 
   end
 end

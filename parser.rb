@@ -34,15 +34,15 @@ class Nyan
             token(/\^3\^/) { |m| m}
             token(/\^.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
-            token(/true/) { |m| m}
-            token(/false/) {|m| m}
+            # token(/^true/) { |m| m}
+            # token(/false/) {|m| m}
             token(/meow/) { |m| m }  
+            token(/\?nye\?/) {|_| "else"}
+            token(/\?nyanye\?/) {|_| "elsif"}
+            token(/\?nya\?/) { |_| "if"}
             token(/[[:alpha:]\d_]+/) {|m| m}
-            token(/\?nye\?/) {|_| :else}
-            token(/\?nyanye\?/) {|_| :elsif}
-            token(/\?nya\?/) { |_| :if}
             token(/\:3/) {|m| m}
-            token(/\&\&|\|\||\=\=/)
+            token(/\&\&|\|\||\=\=|\/\/|\%/) {|m| m}
             token(/./) {|m| m }
             
             @scope = GlobalScope.new
@@ -67,7 +67,7 @@ class Nyan
                     a
                 end
                 match(:condition) { |a| a }
-                match(:term) {|a| a}
+                match(:expr) {|a| a}
             end
 
             ## Assign variables ##
@@ -82,13 +82,13 @@ class Nyan
 
             ## IF-statment ##
             rule :condition do
-                match(:if, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match("if", "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
 
             rule :condition_followup do
                 match(:block, ":3")
-                match(:block, :elsif, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
-                match(:block, :else, :stmts)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:block, "elsif", "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:block, "else", :stmts)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
 
             rule :logicStmt do 
@@ -115,23 +115,29 @@ class Nyan
                 match(:variable) {|a| LogicExpr.new(a)}
             end
 
-            rule :term do
-                match(:expr, "+", :expr) {|a,_,c| ArithmaticNode.new(a,"+",c)}
-                match(:expr, "-", :expr) {|a,_,c| ArithmaticNode.new(a,"-",c)}
-                match(:expr)
-            end
+            # rule :arithmatic do
+            #     match(:expr, :op, :expr) {|a, b, c| ArithmaticNode.new(a, b, c)}
 
             rule :expr do
+                match(:expr, "+", :term) {|a,_,c| ArithmaticNode.new(a,"+",c)}
+                match(:expr, "-", :term) {|a,_,c| ArithmaticNode.new(a,"-",c)}
+                match(:term)
+            end
+
+            rule :term do
+                match(:term, "%", :factor) {|a,_,c|ArithmaticNode.new(a,"%",c)}
+                match(:term, "//", :factor) {|a,_,c|ArithmaticNode.new(a,"//",c)}
+                match(:term, "*", :factor) {|a,_,c|ArithmaticNode.new(a,"*",c)}
+                match(:term, "/", :factor) {|a,_,c|ArithmaticNode.new(a,"/",c)}
                 match(:factor)
-                match(:factor, "*", :factor) {|a,_,c|ArithmaticNode.new(a,"*",c)}
-                match(:factor, "/", :factor) {|a,_,c|ArithmaticNode.new(a,"/",c)}
             end
 
             rule :factor do
                 match(:float)
                 match(:int)
                 match(:variable)
-                match("(", :term, ")")
+                match("(", :expr, ")") {|_, a, _| a}
+                match(:expr)
             end
             
             ## Print either a value or a variable ##
@@ -177,8 +183,8 @@ class Nyan
             end
 
             rule :bool do
-                match(/true/) {|a| ValueNode.new(a)}
-                match(/false/) {|a| ValueNode.new(a)}
+                match('true') {|a| ValueNode.new(a)}
+                match('false') {|a| ValueNode.new(a)}
             end
         end
     end

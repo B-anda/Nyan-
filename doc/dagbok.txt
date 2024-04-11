@@ -99,6 +99,8 @@ Annars körs getOpts() som antingen läser in en fil från ARGV[0] om filen exis
 berodende på vilken flagga som angets.
 
 Eftermiddag:
+Felsökt tester och fastnat på att tokens inte konsumeras.
+Aritmetiken är färdigskriven, det ska funka som tänkt.
 
 
 

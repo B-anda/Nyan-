@@ -12,11 +12,11 @@ class ConditionNode
     def eval(*scope)
         scope[0].addScope(scope[0])
 
-        if @statment == :if || @statment == :elsif
+        if @statment == "if" || @statment == "elsif"
             if @condition.eval()
                return @block.eval(scope[0]) 
             end
-        elsif(@statment == :else)
+        elsif(@statment == "else")
             return @block.eval(scope[0])
         end
         scope[0].currToPrevScope
@@ -26,6 +26,7 @@ class ConditionNode
 end
 
 class LogicStmt
+    include GetValue
 
     def initialize(lhs, operator, rhs)
         @lhs = lhs
@@ -34,12 +35,18 @@ class LogicStmt
     end
 
     def eval(*scope)
+        # if @lhs
+        #     @lhs = @lhs.eval(scope[0])
+        # end
+        # if @rhs
+        #     @rhs = @rhs.eval(scope[0])
+        # end
+        # @lhs = nodeToValue(@lhs, scope[0])
+        # @rhs = nodeToValue(@rhs, scope[0])
         if @lhs
             @lhs = @lhs.eval(scope[0])
         end
-        if @rhs
-            @rhs = @rhs.eval(scope[0])
-        end
+        @rhs = @rhs.eval(scope[0])
         
         case @operator
         when "not"
@@ -65,12 +72,17 @@ class ValueComp < SyntaxTreeNode
     end
 
     def eval(*scope)
-        if @lhs
-            @lhs = @lhs.eval(scope[0])
-        end
-        if @rhs
-            @rhs = @rhs.eval(scope[0])
-        end
+        # if @lhs
+        #     @lhs = @lhs.eval(scope[0])
+        # end
+        # if @rhs
+        #     @rhs = @rhs.eval(scope[0])
+        # end
+        # @lhs = nodeToValue(@lhs, scope[0])
+        # @rhs = nodeToValue(@rhs, scope[0])
+        
+        @lhs = @lhs.eval(scope[0])
+        @rhs = @rhs.eval(scope[0])
         # send calls method dynamically
         # calls @logicOp on @lhs and passes @rhs
         # which returns true or false

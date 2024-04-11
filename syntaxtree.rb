@@ -1,14 +1,15 @@
 require './scope'
 
 module GetValue
-    def toValues(side, scope)
-        if side.is_a? ValueNode
+    def nodeToValue(side, scope)
+        if (side.is_a? ValueNode) || (side.is_a? ArithmaticNode) #|| (side.is_a? LogicStmt) || (side.is_a? ValueComp)
             return side.eval(scope)
         elsif side.is_a? VariableNode
             var = side.eval(scope)
             return scope.findVariable(var).value
         else 
-            raise NyameNyerror.new("nya nyo nya-nya #{side} nye nyanyan")
+            
+            raise NyameNyerror.new("#{side} is incorrect class type")
         end
     end 
 end
@@ -113,11 +114,16 @@ class ArithmaticNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-    
-        @lhs = toValues(@lhs, scope[0])
-        @rhs = toValues(@rhs, scope[0])
+        @lhs = nodeToValue(@lhs, scope[0])
+        @rhs = nodeToValue(@rhs, scope[0])
 
-        return @lhs.send(@operator, @rhs)
+        if @operator == "/"
+            return@lhs.to_f.send(@operator, @rhs.to_f)
+        elsif @operator == "//"
+            return @lhs.send("/", @rhs).to_i
+        else
+            return @lhs.send(@operator, @rhs)
+        end
     end
 end
 
