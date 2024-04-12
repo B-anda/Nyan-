@@ -27,6 +27,7 @@ class Nyan
         @nyanParser = Parser.new("nyan") do
             
             token(/\s+/)
+            token(/\^/) {|m| m}
             token(/".*"/) {|m| m}
             token(/[\d]+\.[\d]+/) {|m| m}
             token(/\d+/) {|m| m }
@@ -42,7 +43,7 @@ class Nyan
             token(/\?nya\?/) { |_| "if"}
             token(/[[:alpha:]\d_]+/) {|m| m}
             token(/\:3/) {|m| m}
-            token(/\&\&|\|\||\=\=|\/\/|\%/) {|m| m}
+            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>/) {|m| m}
             token(/./) {|m| m }
             
             @scope = GlobalScope.new

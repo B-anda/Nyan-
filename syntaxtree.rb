@@ -8,7 +8,6 @@ module GetValue
             var = side.eval(scope)
             return scope.findVariable(var).value
         else 
-            
             raise NyameNyerror.new("#{side} is incorrect class type")
         end
     end 

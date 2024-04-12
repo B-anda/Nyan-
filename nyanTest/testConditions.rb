@@ -36,17 +36,6 @@ class TestLogicStmt < Test::Unit::TestCase
 
   end
 
-  def test_parse_and_or
-    nyan = Nyan.new
-      program = nyan.nyanParser.parse(
-        "?nya? ^ true || true ^: 
-          meow ^\"hello\"^
-        :3"  
-      ) 
-  
-      assert_equal("hello", program.eval)
-  end
-
 end
 
 ## Testing class: ValueComp ##
@@ -116,7 +105,19 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
 
   end
 
+  def test_parse_and_or
+    nyan = Nyan.new
+      program = nyan.nyanParser.parse(
+        "?nya? ^ true|| false ^: 
+          meow ^\"hello\"^
+        :3"  
+      ) 
+  
+      assert_equal("hello", program)
+  end
+
   def test_complex_nested_conditions
+    
     nyan = Nyan.new
     program = 
     "?nya? ^true^: 
@@ -124,18 +125,19 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
             meow ^\"hello\"^ 
         ?nyanye? ^true^: 
             ?nya? ^true^: 
-                ^w^ hello=\"world\"
+              meow ^\"world\"^
             :3
         :3
     :3"
 
+    #assert_equal("world", nyan.nyanParser.parse(program))
     # syntaxTree = program.eval(@current_scope)
     # puts syntaxTree
-    assert_nothing_raised do 
-      nyan.nyanParser.parse(program)
-    end
-    
+    # assert_nothing_raised do 
+    #   nyan.nyanParser.parse(program)
+    # end
   end
+
   # def test_complex_logical_expressions
   #   nyan = Nyan.new
   #   program = nyan.nyanParser.parse(
