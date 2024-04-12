@@ -99,3 +99,13 @@ Lade till filinläsning för programmet, om ingen fil anges vid körning startar
 Felsökt tester men fastnade på att tokens inte konsumeras.
 
 Aritmetiken är färdigskriven, det ska funka som det ska.
+
+# 2024-04-12
+
+Vi började lösa felmeddelande för conditions, det ledde till att vi skrev så mycket oproduktiv kod att vi git restorade tre filer.
+
+Vi lade till en linje kod i scopehantering för att ta bort gamla scope efter att vi konstaterade att man aldrig ville in i tidigare scope.
+
+vi hittade ett stort fel med condition match casen där inparametern för elseif satsen tog in en för lite parametrar, detta ledde till att match caset skickade med "^" istället för block och conditions.
+
+Vi började lösa problemet men hade kort om tid så v skrev kommentarer och gick till en föreläsning.
