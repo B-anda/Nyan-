@@ -1,6 +1,6 @@
 require 'test/unit'
 require './scope'
-require './nyan'
+require './parser'
 
 ## Testing class: LogicStmt ##
 
@@ -133,9 +133,9 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
     #assert_equal("world", nyan.nyanParser.parse(program))
     # syntaxTree = program.eval(@current_scope)
     # puts syntaxTree
-    # assert_nothing_raised do 
-    #   nyan.nyanParser.parse(program)
-    # end
+    assert_nothing_raised do 
+      nyan.nyanParser.parse(program)
+    end
   end
 
   # def test_complex_logical_expressions

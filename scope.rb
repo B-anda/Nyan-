@@ -53,7 +53,9 @@ class GlobalScope < Scope
     # check previous scopes
     def currToPrevScope
         unless @current == self
+            
             @current = @current.prevScope
+            @current.scopes = []
         else
             # already in global scope
             raise NyantimeNyerror.new()

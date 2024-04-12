@@ -38,9 +38,9 @@ class Nyan
             # token(/^true/) { |m| m}
             # token(/false/) {|m| m}
             token(/meow/) { |m| m }  
-            token(/\?nye\?/) {|_| "else"}
-            token(/\?nyanye\?/) {|_| "elsif"}
-            token(/\?nya\?/) { |_| "if"}
+            token(/\?nye\?/) {|_| :else}
+            token(/\?nyanye\?/) {|_| :elseif}
+            token(/\?nya\?/) { |_| :if}
             token(/[[:alpha:]\d_]+/) {|m| m}
             token(/\:3/) {|m| m}
             token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>/) {|m| m}
@@ -83,13 +83,15 @@ class Nyan
 
             ## IF-statment ##
             rule :condition do
-                match("if", "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:if, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
-
+            #else if takes too few args (|a,_,b,_,c|)
             rule :condition_followup do
                 match(:block, ":3")
-                match(:block, "elsif", "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
-                match(:block, "else", :stmts)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:block, :elseif, "^", :logicStmt, "^", :stmts) do |prevBlock, a,_,b,_,c| 
+                    return prevBlock, ConditionNode.new(a, b, c)
+                end
+                match(:block, :else, :stmts)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
 
             rule :logicStmt do 

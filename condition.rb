@@ -3,7 +3,7 @@ require "./scope"
 
 class ConditionNode
     
-    def initialize(statment, condition, block)
+    def initialize(statment, condition, *block)
         @statment = statment
         @condition = condition
         @block = block
@@ -11,16 +11,18 @@ class ConditionNode
 
     def eval(*scope)
         scope[0].addScope(scope[0])
-
-        if @statment == "if" || @statment == "elsif"
+        to_return = nil
+        if @statment == :if || @statment == :elseif
             if @condition.eval()
-               return @block.eval(scope[0]) 
+                to_return = @block[0].eval(scope[0])
+            elsif @block.size() > 1                                    
+                to_return = @block.eval(scope[0]) 
             end
-        elsif(@statment == "else")
-            return @block.eval(scope[0])
+        elsif(@statment == :else)
+            to_return = @block.eval(scope[0])
         end
         scope[0].currToPrevScope
-        return nil
+        return to_return
     end
 
 end

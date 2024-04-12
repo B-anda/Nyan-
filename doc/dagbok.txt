@@ -102,7 +102,8 @@ Eftermiddag:
 Felsökt tester och fastnat på att tokens inte konsumeras.
 Aritmetiken är färdigskriven, det ska funka som tänkt.
 
-
+insåg att ifelse to fel antal parametrar. påbörjat att skriva om i eval för conditionnode
+fortsätter på måndag.
 
 # To Do:
     - implementera to_value()
