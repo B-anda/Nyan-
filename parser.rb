@@ -88,9 +88,7 @@ class Nyan
             #else if takes too few args (|a,_,b,_,c|)
             rule :condition_followup do
                 match(:block, ":3")
-                match(:block, :elseif, "^", :logicStmt, "^", :stmts) do |prevBlock, a,_,b,_,c| 
-                    return prevBlock, ConditionNode.new(a, b, c)
-                end
+                match(:block, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, a,_,b,_,c| ConditionNode.new(a, b, c) }
                 match(:block, :else, :stmts)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
 

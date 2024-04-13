@@ -52,13 +52,20 @@ class GlobalScope < Scope
 
     # check previous scopes
     def currToPrevScope
-        unless @current == self
+        # unless @current == self
             
+        #     @current = @current.prevScope
+        #     @current.scopes = []
+        # else
+        #     # already in global scope
+        #     raise NyantimeNyerror.new()
+        # end
+
+        if @current.prevScope.nil?
+            raise NyantimeNyerror.new()
+        else
             @current = @current.prevScope
             @current.scopes = []
-        else
-            # already in global scope
-            raise NyantimeNyerror.new()
         end
         
     end
