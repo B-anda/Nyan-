@@ -1,0 +1,13 @@
+image: ruby:latest
+
+stages:
+  - test
+
+before_script:
+  - gem install bundler
+  - bundle install --jobs $(nproc) --path vendor
+
+rspec:
+  stage: test
+  script:
+    - ruby -Itest nyanTest/testSyntaxtree.rb
