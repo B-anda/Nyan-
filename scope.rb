@@ -62,7 +62,8 @@ class GlobalScope < Scope
         # end
 
         if @current.prevScope.nil?
-            raise NyantimeNyerror.new()
+            # raise NyantimeNyerror.new()
+            return
         else
             @current = @current.prevScope
             @current.scopes = []
