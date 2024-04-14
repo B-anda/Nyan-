@@ -48,26 +48,29 @@ class GlobalScope < Scope
         temp = Scope.new(setPrevious)
         @current.scopes << temp
         @current = temp
+        @current.scopes = []
+        
     end
 
     # check previous scopes
     def currToPrevScope
-        # unless @current == self
+        unless @current == self
             
-        #     @current = @current.prevScope
-        #     @current.scopes = []
-        # else
-        #     # already in global scope
-        #     raise NyantimeNyerror.new()
-        # end
-
-        if @current.prevScope.nil?
+            @current = @current.prevScope
+            # @current.scopes = []
+        else
+            # already in global scope
             # raise NyantimeNyerror.new()
             return
-        else
-            @current = @current.prevScope
-            @current.scopes = []
         end
+
+        # if @current.prevScope.nil?
+        #     # raise NyantimeNyerror.new()
+        #     return
+        # else
+        #     @current = @current.prevScope
+        #     @current.scopes = []
+        # end
         
     end
 

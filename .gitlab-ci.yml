@@ -1,13 +1,18 @@
 image: ruby:2.7.4
 
+before_script:
+  - gem install bundler -v 2.4.22
+
 stages:
   - test
 
-before_script:
-  - gem install bundler -v 2.4.22
-  - bundle install --jobs $(nproc) --path vendor
-
-rspec:
+test:
   stage: test
   script:
-    - ruby -Itest nyanTest/testSyntaxtree.rb
+    - bundle install --jobs $(nproc) --path vendor
+    - ruby -v  # Print Ruby version for debugging purposes
+    - find . -type f -name "nyanTest/test*.rb" | while read test_file; do
+        echo "Running tests in $test_file";
+        ruby -Itest $test_file || exit 1;
+      done
+    # - ruby -Itest nyanTest/*.rb
