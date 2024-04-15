@@ -49,7 +49,6 @@ class Nyan
             @scope = GlobalScope.new
 
             start :program do
-                puts "Scope created in program: #{@scope.inspect}"
                 match(:component) {|a| a.evaluate(@scope.current)}
             end
 
@@ -63,10 +62,7 @@ class Nyan
 
             rule :block do
                 match(:assignment) { |a| a }
-                match(:print) do |a| 
-                    puts "Scope created in component: #{@scope.inspect}"
-                    a
-                end
+                match(:print) { |a| a }
                 match(:condition) { |a| a }
                 match(:expr) {|a| a}
             end

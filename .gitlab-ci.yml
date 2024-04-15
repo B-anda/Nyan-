@@ -17,6 +17,14 @@ build:
   script:
     - bundle install --jobs $(nproc) --path vendor
 
+flags:
+  stage: test
+  script:
+    - ruby nyan.rb -h
+    - ruby nyan.rb -v
+    - ruby nyan.rb $TEST_FILES/simpleTest.rb
+    - ruby nyan.rb $TEST_FILES/simpleTest.rb -d on
+
 conditions:
   stage: test
   script:

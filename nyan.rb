@@ -9,7 +9,7 @@ def done(str)
 end
 
 # Parse
-def run(setDebug = true)
+def run(setDebug)
     input = 0
     loop do
         print "~^nyan^~ "
@@ -34,7 +34,7 @@ def getOpts()
     )
 
     fileName = ARGV[0]
-    setDebug = true
+    setDebug = false
 
     opts.each do |opt, arg|
         case opt
@@ -70,14 +70,13 @@ end
 
 def readFile(fileName, debug)
     @nyan.log debug
-    # File.foreach(fileName) { |line| puts @nyan.nyanParser.parse line.chomp }
-    File.foreach(fileName) do |line|
-        begin
-          result = @nyan.nyanParser.parse(line.chomp)
-          puts "Parsed result: #{result.inspect}"
-        rescue Parser::ParseError => e
-          puts "Parsing error on line '#{line.chomp}': #{e.message}"
-        end
+    begin
+        file = File.open(fileName)
+        lines = file.readlines.join
+        puts @nyan.nyanParser.parse(lines)
+        
+    rescue Parser::ParseError => e
+        puts "Parsing error on line '#{line.chomp}': #{e.message}"
     end
 end
 

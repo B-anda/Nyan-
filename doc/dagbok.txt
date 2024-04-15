@@ -102,8 +102,15 @@ Eftermiddag:
 Felsökt tester och fastnat på att tokens inte konsumeras.
 Aritmetiken är färdigskriven, det ska funka som tänkt.
 
+## 2024-04-12 ##
+Förmiddag: 
+
+Eftermiddag:
 insåg att ifelse to fel antal parametrar. påbörjat att skriva om i eval för conditionnode
 fortsätter på måndag.
+
+## 2024-04-15 ##
+löste currToPrevScope problemet med att bara retunera istället för att skicka en raise.
 
 # To Do:
     - implementera to_value()
