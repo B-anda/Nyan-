@@ -35,7 +35,7 @@ syntaxtree:
 nyan_conditions:
   stage: deploy
   script:
-    - ruby
+    - ruby nyan.rb $TEST_FILES/test.nyan
 
 
 # test:

@@ -9,26 +9,26 @@ ruby nyan.rb
 ruby nyan.rb [file] [flags]
 
 #### Flags
--h, --help: Display help information.
--d, --debug: Set debug mode on or off.
--v, --version: Display the latest version.
-
-file         : program read from script file
+-h, --help: Display help information.\
+-d, --debug: Set debug mode on or off. \
+-v, --version: Display the latest version.\
+\
+file         : program read from script file 
 
 ### Features
-Parses Nyan syntax.
-Provides debugging mode for verbose output.
-Handles command-line arguments and file parsing.
+Parses Nyan syntax. \
+Provides debugging mode for verbose output. \
+Handles command-line arguments and file parsing. 
 
 ### Dependencies
-parser.rb: This script is required for the Nyan parser functionality.
-getoptlong: Ruby library for parsing command-line options.
+parser.rb: This script is required for the Nyan parser functionality. \
+getoptlong: Ruby library for parsing command-line options. 
 
 ### Example usage
 
-// Run the script with debug mode on (debug is set to true by default)
+// Run the script with debug mode on (debug is set to true by default) \
 ruby nyan.rb 
 
-//Parse a file with debug mode off
+//Parse a file with debug mode off \
 ruby nyan.rb my_file.nyan -d off
 
