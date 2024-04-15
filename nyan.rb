@@ -47,6 +47,7 @@ def getOpts()
             -v --version : show latest version 
             file         : program read from script file
             EOF
+            return
         when '--debug'
             case arg
             when "off"
@@ -56,6 +57,7 @@ def getOpts()
             end
         when '--version'
             puts "Nyan ≈^0.0^≈"
+            return
         end 
     end
 
@@ -68,7 +70,15 @@ end
 
 def readFile(fileName, debug)
     @nyan.log debug
-    File.foreach(fileName) { |line| puts @nyan.nyanParser.parse line }
+    # File.foreach(fileName) { |line| puts @nyan.nyanParser.parse line.chomp }
+    File.foreach(fileName) do |line|
+        begin
+          result = @nyan.nyanParser.parse(line.chomp)
+          puts "Parsed result: #{result.inspect}"
+        rescue Parser::ParseError => e
+          puts "Parsing error on line '#{line.chomp}': #{e.message}"
+        end
+    end
 end
 
 ## Start program ##

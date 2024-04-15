@@ -37,7 +37,7 @@ class Nyan
             token(/\^oo\^/) { |m| m}
             # token(/^true/) { |m| m}
             # token(/false/) {|m| m}
-            token(/meow/) { |m| m }  
+            token(/meow/) { |_| :meow }  
             token(/\?nye\?/) {|_| :else}
             token(/\?nyanye\?/) {|_| :elseif}
             token(/\?nya\?/) { |_| :if}
@@ -78,7 +78,7 @@ class Nyan
 
             ## Print ##
             rule :print do
-                match("meow", "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
+                match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
             end
 
             ## IF-statment ##
