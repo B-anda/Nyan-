@@ -13,7 +13,7 @@ class ConditionNode
         scope[0].addScope(scope[0])
         to_return = nil
         if @statment == :if || @statment == :elseif
-            if @condition.eval()
+            if @condition.eval(scope[0])
                 to_return = @block[0].eval(scope[0])
             elsif @block.size() > 1                                    
                 to_return = @block.eval(scope[0]) 
@@ -85,9 +85,11 @@ class ValueComp < SyntaxTreeNode
         
         @lhs = @lhs.eval(scope[0])
         @rhs = @rhs.eval(scope[0])
+
         # send calls method dynamically
         # calls @logicOp on @lhs and passes @rhs
         # which returns true or false
+        
         return @lhs.send(@logicOp, @rhs)
     end
 end

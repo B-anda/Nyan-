@@ -27,14 +27,14 @@ class Nyan
         @nyanParser = Parser.new("nyan") do
             
             token(/\s+/)
-            token(/\^/) {|m| m}
-            token(/".*"/) {|m| m}
             token(/[\d]+\.[\d]+/) {|m| m}
             token(/\d+/) {|m| m }
+            token(/".*"/) {|m| m}
             token(/\^w\^/) { |m| m}
             token(/\^3\^/) { |m| m}
             token(/\^.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
+            token(/\^/) {|m| m}
             # token(/^true/) { |m| m}
             # token(/false/) {|m| m}
             token(/meow/) { |_| :meow }  
@@ -42,7 +42,7 @@ class Nyan
             token(/\?nyanye\?/) {|_| :elseif}
             token(/\?nya\?/) { |_| :if}
             token(/[[:alpha:]\d_]+/) {|m| m}
-            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\(|\)/) {|m| m}
+            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\(|\)/) {|m| m}
             token(/\:3/) {|m| m}
             token(/./) {|m| m }
             
@@ -57,7 +57,7 @@ class Nyan
             end
 
             rule :stmts do
-                match(":", :condition_followup) {|_,a,_| a}
+                match(":", :condition_followup) {|_,a| a}
             end
 
             rule :block do
@@ -82,11 +82,11 @@ class Nyan
             rule :condition do
                 match(:if, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
-            #else if takes too few args (|a,_,b,_,c|)
+
             rule :condition_followup do
                 match(:block, ":3")
                 match(:block, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, a,_,b,_,c| ConditionNode.new(a, b, c) }
-                match(:block, :else, :stmts)  {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:block, :else, :stmts)  {|a,b,c| ConditionNode.new(a, b, c)}
             end
 
             rule :logicStmt do 
@@ -111,11 +111,8 @@ class Nyan
             rule :logicExpr do
                 match(:value)    {|a| LogicExpr.new(a)}
                 match(:variable) {|a| LogicExpr.new(a)}
-                match("(", :logicStmt, ")") {|_, a, _| a}
+                match("(", :logicStmt, ")") {|_,a,_| a}
             end
-
-            # rule :arithmatic do
-            #     match(:expr, :op, :expr) {|a, b, c| ArithmaticNode.new(a, b, c)}
 
             rule :expr do
                 match(:expr, "+", :term) {|a,_,c| ArithmaticNode.new(a,"+",c)}
@@ -166,10 +163,10 @@ class Nyan
             end
 
             rule :value do
-                match(:str) 
                 match(:float)
                 match(:int) 
                 match(:bool)
+                match(:str) 
             end 
             
             rule :str do

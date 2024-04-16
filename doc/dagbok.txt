@@ -113,6 +113,14 @@ fortsätter på måndag.
 löste currToPrevScope problemet med att bara retunera istället för att skicka en raise. 
 När vi läser in filer bytte vi till readlines och join istället för File.each.
 
+## 2024-04-16 ##
+hittade parsningsproblemet. Om vi t.ex. kör:
+^3^ x = 10 
+      ?nya? ^x > 5^: 
+        meow ^true^
+      :3
+så parsas bara ^3^ x = 10. Det behövs en newline eller tecken för att kunna gå vidare
+
 # To Do:
     - implementera to_value()
     - få aritmetik att funka
