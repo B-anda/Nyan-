@@ -109,3 +109,11 @@ Vi lade till en linje kod i scopehantering för att ta bort gamla scope efter at
 vi hittade ett stort fel med condition match casen där inparametern för elseif satsen tog in en för lite parametrar, detta ledde till att match caset skickade med "^" istället för block och conditions.
 
 Vi började lösa problemet men hade kort om tid så v skrev kommentarer och gick till en föreläsning.
+
+# 2024-04-16
+
+Vi satt en stor del av dagen med problemet att parenteser inte vill registrera. Efter vi löste det fann vi ett parse error.
+
+Vi fann att parse error beror på att programmet inte kan separera på values och efterföljande kod, något som inte är ett problem i det interaktiva läget eftersom det hanterar varje rad för sig. Om man läser in en fil eller en längre sträng försöker den hantera allt på en gång. 
+
+Vi tänkte att en möjlig lösning är att lägga till en markör för end-of-line, en kandidat till detta är ";)".
