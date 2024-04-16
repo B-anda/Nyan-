@@ -1,3 +1,14 @@
+
 ?nya? ^true^: 
     meow ^"hello"^
+:3
+
+?nya? ^true^: 
+    ?nya? ^false^: 
+        meow ^"hello"^ 
+    ?nyanye? ^true^: 
+        ?nya? ^true^: 
+            meow ^"world"^
+        :3
+    :3
 :3

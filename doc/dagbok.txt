@@ -110,7 +110,8 @@ insåg att ifelse to fel antal parametrar. påbörjat att skriva om i eval för 
 fortsätter på måndag.
 
 ## 2024-04-15 ##
-löste currToPrevScope problemet med att bara retunera istället för att skicka en raise.
+löste currToPrevScope problemet med att bara retunera istället för att skicka en raise. 
+När vi läser in filer bytte vi till readlines och join istället för File.each.
 
 # To Do:
     - implementera to_value()

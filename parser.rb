@@ -42,8 +42,8 @@ class Nyan
             token(/\?nyanye\?/) {|_| :elseif}
             token(/\?nya\?/) { |_| :if}
             token(/[[:alpha:]\d_]+/) {|m| m}
-            token(/\:3/) {|m| m}
             token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>/) {|m| m}
+            token(/\:3/) {|m| m}
             token(/./) {|m| m }
             
             @scope = GlobalScope.new
@@ -61,10 +61,11 @@ class Nyan
             end
 
             rule :block do
-                match(:assignment) { |a| a }
-                match(:print) { |a| a }
-                match(:condition) { |a| a }
-                match(:expr) {|a| a}
+                match(:assignment)  { |a| a }
+                match(:print)       { |a| a }
+                match(:condition)   { |a| a }
+                match(:expr)        { |a| a }
+                match(:while)       { |a| a }
             end
 
             ## Assign variables ##
@@ -91,9 +92,9 @@ class Nyan
             rule :logicStmt do 
                 match("not", :logicStmt) { | _,b | LogicStmt.new(nil, "not", b)}
                 match(:logicStmt, "and", :logicStmt) { |a,_,b| LogicStmt.new(a, "&&", b)}
-                match(:logicStmt, "&&", :logicStmt) { |a,_,b| LogicStmt.new(a, "&&", b)}
-                match(:logicStmt, "or", :logicStmt) { |a,_,b| LogicStmt.new(a, "||", b)}
-                match(:logicStmt, "||", :logicStmt) { |a,_,b| LogicStmt.new(a, "||", b)}
+                match(:logicStmt, "&&", :logicStmt)  { |a,_,b| LogicStmt.new(a, "&&", b)}
+                match(:logicStmt, "or", :logicStmt)  { |a,_,b| LogicStmt.new(a, "||", b)}
+                match(:logicStmt, "||", :logicStmt)  { |a,_,b| LogicStmt.new(a, "||", b)}
                 match(:valueComp) 
                 match(:logicExpr) 
             end
@@ -122,10 +123,10 @@ class Nyan
             end
 
             rule :term do
-                match(:term, "%", :factor) {|a,_,c|ArithmaticNode.new(a,"%",c)}
+                match(:term, "%", :factor)  {|a,_,c|ArithmaticNode.new(a,"%",c)}
                 match(:term, "//", :factor) {|a,_,c|ArithmaticNode.new(a,"//",c)}
-                match(:term, "*", :factor) {|a,_,c|ArithmaticNode.new(a,"*",c)}
-                match(:term, "/", :factor) {|a,_,c|ArithmaticNode.new(a,"/",c)}
+                match(:term, "*", :factor)  {|a,_,c|ArithmaticNode.new(a,"*",c)}
+                match(:term, "/", :factor)  {|a,_,c|ArithmaticNode.new(a,"/",c)}
                 match(:factor)
             end
 
@@ -135,6 +136,10 @@ class Nyan
                 match(:variable)
                 match("(", :expr, ")") {|_, a, _| a}
                 match(:expr)
+            end
+
+            rule :while do
+                match("prrr", "^", :logic_stmt, "^", :stmts) { |_, _, a, _, b| Loop.new(a, b)}
             end
             
             ## Print either a value or a variable ##

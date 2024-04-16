@@ -61,11 +61,17 @@ def getOpts()
         end 
     end
 
-    if File.exist?(fileName)
-        readFile(fileName, setDebug)
-    else
-        run(setDebug)
+    begin 
+        if File.exist?(fileName)
+            readFile(fileName, setDebug)
+        else
+            run(setDebug)
+        end
+    rescue Errno::ENOENT => e
+        puts e.message
+        puts "File was not found"
     end
+   
 end
 
 def readFile(fileName, debug)
@@ -74,9 +80,8 @@ def readFile(fileName, debug)
         file = File.open(fileName)
         lines = file.readlines.join
         puts @nyan.nyanParser.parse(lines)
-        
     rescue Parser::ParseError => e
-        puts "Parsing error on line '#{line.chomp}': #{e.message}"
+        puts "#{e.message}"
     end
 end
 
