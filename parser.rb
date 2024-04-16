@@ -42,7 +42,7 @@ class Nyan
             token(/\?nyanye\?/) {|_| :elseif}
             token(/\?nya\?/) { |_| :if}
             token(/[[:alpha:]\d_]+/) {|m| m}
-            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>/) {|m| m}
+            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\(|\)/) {|m| m}
             token(/\:3/) {|m| m}
             token(/./) {|m| m }
             
@@ -96,7 +96,6 @@ class Nyan
                 match(:logicStmt, "or", :logicStmt)  { |a,_,b| LogicStmt.new(a, "||", b)}
                 match(:logicStmt, "||", :logicStmt)  { |a,_,b| LogicStmt.new(a, "||", b)}
                 match(:valueComp) 
-                match(:logicExpr) 
             end
 
             rule :valueComp do
@@ -106,11 +105,13 @@ class Nyan
                 match(:logicExpr, ">=", :logicExpr) { |a,_,b| ValueComp.new(a, ">=", b)}
                 match(:logicExpr, "==", :logicExpr) { |a,_,b| ValueComp.new(a, "==", b)}
                 match(:logicExpr, "!=", :logicExpr) { |a,_,b| ValueComp.new(a, "!=", b)}
+                match(:logicExpr)
             end
 
             rule :logicExpr do
                 match(:value)    {|a| LogicExpr.new(a)}
                 match(:variable) {|a| LogicExpr.new(a)}
+                match("(", :logicStmt, ")") {|_, a, _| a}
             end
 
             # rule :arithmatic do

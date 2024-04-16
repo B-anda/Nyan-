@@ -1,3 +1,10 @@
+# HowTo
+
+### Create alias
+[editior] ~/.bashrc
+
+alias nyan="ruby $1 $2 $3"
+
 # Nyan.rb
 
 Nyan.rb is a Ruby script that provides a command-line interface for interacting with the Nyan parser. It allows users to parse Nyan syntax and provides options for debugging and version information.

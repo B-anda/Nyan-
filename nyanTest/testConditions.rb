@@ -141,6 +141,7 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
 
   def test_complex_logical_expressions
     nyan = Nyan.new
+    nyan.log false
     program = nyan.nyanParser.parse(
         "^3^ x = 10
          ?nya? ^(x > 5 && x < 15) || x == 20^: 

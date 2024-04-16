@@ -9,7 +9,7 @@ def done(str)
 end
 
 # Parse
-def run(setDebug)
+def run(*setDebug)
     input = 0
     loop do
         print "~^nyan^~ "
@@ -19,6 +19,7 @@ def run(setDebug)
             puts "Bye Bye~"
             break
         else
+            puts input
             @nyan.log setDebug
             puts @nyan.nyanParser.parse input
         end
@@ -34,7 +35,7 @@ def getOpts()
     )
 
     fileName = ARGV[0]
-    setDebug = false
+    setDebug = true
 
     opts.each do |opt, arg|
         case opt
@@ -77,6 +78,9 @@ end
 def readFile(fileName, debug)
     @nyan.log debug
     begin
+        # File.readlines(fileName).each do |line|
+        #     puts @nyan.nyanParser.parse(line)
+        # end
         file = File.open(fileName)
         lines = file.readlines.join
         puts @nyan.nyanParser.parse(lines)
