@@ -35,6 +35,7 @@ class Nyan
             token(/\^3\^/) { |m| m}
             token(/\^\.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
+            token(/prrr/) {|_| :while}
             token(/\^/) {|m| m}
             # token(/^true/) { |m| m}
             # token(/false/) {|m| m}
@@ -54,11 +55,13 @@ class Nyan
             end
 
             rule :component do
-                match(:block) {|a|ProgramNode.new(a)}
+                match(:blocks, '~') {|a|ProgramNode.new(a)}
+                match(:blocks, '') {|a|ProgramNode.new(a)}
             end
 
-            rule :stmts do
-                match(":", :condition_followup) {|_,a| a}
+            rule :blocks do
+                match(:blocks, :block) {|a, b| BlocksNode.new(a, b)}
+                match(:block)          {|a| a}
             end
 
             rule :block do
@@ -75,21 +78,32 @@ class Nyan
                 match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
             end
 
+             ## Reassign variables ##
+             rule :reassignment do
+                match(:variable, "+=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a,"+", b)}
+                match(:variable, "-=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a,"-", b)}
+                match(:variable, "=", :value, "~")  { |a,_,b,_| ReassignmentNode.new(a,"=", b)}
+            end
             
             ## Print ##
             rule :print do
                 match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
             end
 
+            rule :stmts do
+                match(":", :condition_followup) {|_,a| a}
+            end
+
             ## IF-statment ##
+
             rule :condition do
                 match(:if, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
-
+            
             rule :condition_followup do
-                match(:block, ":3")
-                match(:block, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, a,_,b,_,c| ConditionNode.new(a, b, c) }
-                match(:block, :else, :stmts)  {|a,b,c| ConditionNode.new(a, b, c)}
+                match(:blocks, ":3")
+                match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, a,_,b,_,c| ConditionNode.new(a, b, c) }
+                match(:blocks, :else, :stmts)  {|a,b,c| ConditionNode.new(a, b, c)}
             end
 
             rule :logicStmt do 
@@ -139,16 +153,8 @@ class Nyan
                 match(:expr)
             end
 
-            ## Reassign variables ##
-            rule :reassignment do
-                match(:variable, "+=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a,"+", b)}
-                match(:variable, "-=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a,"-", b)}
-                match(:variable, "=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a,"=", b)}
-            end
-
-
             rule :while do
-                match("prrr", "^", :logic_stmt, "^", :block) { |_, _, a, _, b| WhileNode.new(a, b)}
+                match("prrr", "^", :logic_stmt, "^", :blocks) { |_, _, a, _, b| WhileNode.new(a, b)}
             end
             
             ## Print either a value or a variable ##

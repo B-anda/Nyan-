@@ -26,6 +26,18 @@ class ProgramNode < SyntaxTreeNode
     end
 end
 
+class BlocksNode < SyntaxTreeNode
+    def initialize(nextBlock, block)
+        @nextBlock = nextBlock
+        @toEval = block
+    end
+
+    def eval(*scope)
+        @nextBlock.eval(scope[0])
+        @toEval.eval(scope[0])
+    end
+end
+
 class AssignmentNode < SyntaxTreeNode
     attr_accessor :datatype, :var, :value
     

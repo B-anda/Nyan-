@@ -1,4 +1,5 @@
 require 'test/unit'
+
 require './scope'
 require './syntaxtree'
 require './condition'
@@ -44,8 +45,23 @@ end
 ## Testing class: Reassignment ##
 
 class TestRessignment < Test::Unit::TestCase
+  
+  
   def test_eval
+  
+    scope = GlobalScope.new
+    variableNode = VariableNode.new("x")
+    scope.addVariable(variableNode, ValueNode.new(10))
 
+    reassign = ReassignmentNode.new(variableNode, "+", ValueNode.new(1)).eval(scope)
+    assert_equal(11, reassign.eval(scope))
+  
+    reassign1 = ReassignmentNode.new(variableNode, "-", ValueNode.new(1)).eval(scope)
+    assert_equal(10, reassign1.eval(scope))
+  
+    reassign2 = ReassignmentNode.new(variableNode, "=", ValueNode.new(1)).eval(scope)
+    assert_equal(1, reassign2.eval(scope))
+  
   end
 end
 
@@ -53,7 +69,9 @@ end
 
 class TestVariableNode < Test::Unit::TestCase
 
+  
   def test_existing_variable
+  
     scope = GlobalScope.new
     variableNode = VariableNode.new("x")
     scope.addVariable(variableNode, 10)
@@ -85,7 +103,7 @@ class TestPrintNode < Test::Unit::TestCase
 
   def test_existing_variable
     scope = GlobalScope.new
-    scope.addVariable("x", 10)
+    scope.addVariable("x", ValueNode.new(10))
     variableNode = VariableNode.new("x")
     printNode = PrintNode.new(variableNode)
 
