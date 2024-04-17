@@ -148,8 +148,8 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
     #     :3")
     program = nyan.nyanParser.parse(
       '^3^ x = 10 
-      ?nya? ^x > 5^: 
-        meow ^true^
+       ?nya? ^x > 5^: 
+          meow ^true^
       :3
       ')
     puts program

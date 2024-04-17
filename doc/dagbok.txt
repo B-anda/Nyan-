@@ -119,7 +119,7 @@ hittade parsningsproblemet. Om vi t.ex. kör:
       ?nya? ^x > 5^: 
         meow ^true^
       :3
-så parsas bara ^3^ x = 10. Det behövs en newline eller tecken för att kunna gå vidare
+så parsas bara ^3^ x = 10. Det behövs en newline eller tecken för att kunna gå vidare.
 
 # To Do:
     - implementera to_value()
