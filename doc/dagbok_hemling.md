@@ -117,3 +117,13 @@ Vi satt en stor del av dagen med problemet att parenteser inte vill registrera. 
 Vi fann att parse error beror på att programmet inte kan separera på values och efterföljande kod, något som inte är ett problem i det interaktiva läget eftersom det hanterar varje rad för sig. Om man läser in en fil eller en längre sträng försöker den hantera allt på en gång. 
 
 Vi tänkte att en möjlig lösning är att lägga till en markör för end-of-line, en kandidat till detta är ";)".
+
+# 2024-04-17
+
+Vi skickade mejl om assistans kring ett problem med parsning av flera block.
+
+Efter det började vi arbeta med while loopar.
+
+För att använda while looparna på ett effektivt sätt behövde kunna öka tidigare etablerade variabler så vi skapade en ny klass och match case, "ReassignmentNode" Denna tog "+=", "-=" och "=" för att ändra på tidigare variabler.
+
+Efter det insåg vi vad problemet var för att flera block inte kunde parsas. Vi hade inte implementerat funktionalitet för flera blocks existens i programmet förutom i if, ifelse och else satserna som alla bara kunde ta ett block åt gången. Vi började lösa detta problem men fastnade i felmeddelandet "stack level too deep" utan mer motivering. Vi bestämde oss för att skriva tester för den nya klassen, "BlocksNode". På det sättet kan vi isolera vart felet uppstår.
