@@ -2,7 +2,7 @@ image: ruby:2.7.4
 
 variables:
   TEST_PATH: "nyanTest"
-  TEST_FILES: "nyanTest/testCode"
+  TEST_FILES: "nyanTest/testFiles"
 
 stages:
   - build
@@ -22,8 +22,8 @@ flags:
   script:
     - ruby nyan.rb -h
     - ruby nyan.rb -v
-    - ruby nyan.rb $TEST_FILES/simpleTest.nyan
-    - ruby nyan.rb $TEST_FILES/simpleTest.nyan -d on
+    - ruby nyan.rb $TEST_FILES/simplePrint.nyan
+    - ruby nyan.rb $TEST_FILES/simplePrint.nyan -d on
   rules:
     - when: manual
 
@@ -48,10 +48,16 @@ syntaxtree:
   rules:
     - when: manual
 
+parser:
+  stage: test
+  script: 
+    - ruby -Itest $TEST_PATH/testParser.rb
+
 nyan_conditions:
   stage: deploy
   script:
-    - ruby nyan.rb $TEST_FILES/testIf.nyan
+    - ruby nyan.rb $TEST_FILES/conditions.nyan
+    #- ruby nyan.rb $TEST_FILES/functions.nyan
   rules:
     - when: manual
 

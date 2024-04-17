@@ -27,6 +27,7 @@ class Nyan
         @nyanParser = Parser.new("nyan") do
             
             token(/\s+/)
+            token(/\(/) {|m| m}
             token(/[\d]+\.[\d]+/) {|m| m}
             token(/\d+/) {|m| m }
             token(/".*"/) {|m| m}
@@ -42,7 +43,7 @@ class Nyan
             token(/\?nyanye\?/) {|_| :elseif}
             token(/\?nya\?/) { |_| :if}
             token(/[[:alpha:]\d_]+/) {|m| m}
-            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\(|\)/) {|m| m}
+            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\~/) {|m| m}
             token(/\:3/) {|m| m}
             token(/./) {|m| m }
             
@@ -70,7 +71,7 @@ class Nyan
 
             ## Assign variables ##
             rule :assignment do
-                match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, ValueNode.new(c))}
+                match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| Assignment.new(a, b, ValueNode.new(c))}
             end
 
             ## Print ##

@@ -62,14 +62,15 @@ def getOpts()
     end
 
     begin 
-        if File.exist?(fileName)
+        if File.exist?(fileName) && File.extname(fileName) == ".nyan"
             readFile(fileName, setDebug)
         else
             run(setDebug)
         end
+        
     rescue Errno::ENOENT => e
         puts e.message
-        puts "File was not found"
+        puts "File does not exist"
     end
    
 end
