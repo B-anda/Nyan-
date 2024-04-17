@@ -33,12 +33,20 @@ class TestAssignment < Test::Unit::TestCase
   def test_eval
     scope = GlobalScope.new
     valueNode = ValueNode.new(5)
-    assignmentNode = Assignment.new("^3^", "monogatari", valueNode)
+    assignmentNode = AssignmentNode.new("^3^", "monogatari", valueNode)
     assert_raise(NyameNyerror.new()) {scope.findVariable("monogatari")}
     assignmentNode.eval(scope)
-    assert_equal( 5, scope.findVariable("monogatari"))
+    assert_equal( valueNode, scope.findVariable("monogatari"))
   end
 
+end
+
+## Testing class: Reassignment ##
+
+class TestRessignment < Test::Unit::TestCase
+  def test_eval
+
+  end
 end
 
 ## Testing class: VariableNode ##
@@ -94,24 +102,6 @@ class TestPrintNode < Test::Unit::TestCase
     valueNode = ValueNode.new(42)
     printNode = PrintNode.new(valueNode)
     # assert_output(42) {printNode.eval(scope) } 
-  end
-
-end
-
-## Testing class: ConditionNode ##
-
-class TestConditionNode < Test::Unit::TestCase
-
-  def test_if_true
-    scope = GlobalScope.new
-    condition_node = ConditionNode.new(:if, ValueNode.new(true), ValueNode.new("true"))
-    assert_equal(true, condition_node.eval(scope) )
-  end
-
-  def test_if_false
-    scope = GlobalScope.new
-    condition_node = ConditionNode.new(:if, ValueNode.new(false), ValueNode.new("true"))
-    assert_nil(condition_node.eval(scope))
   end
 
 end

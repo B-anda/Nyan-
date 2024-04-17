@@ -33,7 +33,7 @@ class Nyan
             token(/".*"/) {|m| m}
             token(/\^w\^/) { |m| m}
             token(/\^3\^/) { |m| m}
-            token(/\^.\^/) { |m| m}
+            token(/\^\.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
             token(/\^/) {|m| m}
             # token(/^true/) { |m| m}
@@ -43,7 +43,7 @@ class Nyan
             token(/\?nyanye\?/) {|_| :elseif}
             token(/\?nya\?/) { |_| :if}
             token(/[[:alpha:]\d_]+/) {|m| m}
-            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\~/) {|m| m}
+            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~/) {|m| m}
             token(/\:3/) {|m| m}
             token(/./) {|m| m }
             
@@ -63,6 +63,7 @@ class Nyan
 
             rule :block do
                 match(:assignment)  { |a| a }
+                match(:reassignment){ |a| a }
                 match(:print)       { |a| a }
                 match(:condition)   { |a| a }
                 match(:expr)        { |a| a }
@@ -71,9 +72,10 @@ class Nyan
 
             ## Assign variables ##
             rule :assignment do
-                match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| Assignment.new(a, b, ValueNode.new(c))}
+                match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
             end
 
+            
             ## Print ##
             rule :print do
                 match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
@@ -100,8 +102,8 @@ class Nyan
             end
 
             rule :valueComp do
-                match(:logicExpr, "<", :logicExpr) { |a,_,b| ValueComp.new(a, "<", b)}
-                match(:logicExpr, ">", :logicExpr) { |a,_,b| ValueComp.new(a, ">", b)}
+                match(:logicExpr, "<", :logicExpr)  { |a,_,b| ValueComp.new(a, "<", b)}
+                match(:logicExpr, ">", :logicExpr)  { |a,_,b| ValueComp.new(a, ">", b)}
                 match(:logicExpr, "<=", :logicExpr) { |a,_,b| ValueComp.new(a, "<=", b)}
                 match(:logicExpr, ">=", :logicExpr) { |a,_,b| ValueComp.new(a, ">=", b)}
                 match(:logicExpr, "==", :logicExpr) { |a,_,b| ValueComp.new(a, "==", b)}
@@ -137,8 +139,16 @@ class Nyan
                 match(:expr)
             end
 
+            ## Reassign variables ##
+            rule :reassignment do
+                match(:variable, "+=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a,"+", b)}
+                match(:variable, "-=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a,"-", b)}
+                match(:variable, "=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a,"=", b)}
+            end
+
+
             rule :while do
-                match("prrr", "^", :logic_stmt, "^", :stmts) { |_, _, a, _, b| Loop.new(a, b)}
+                match("prrr", "^", :logic_stmt, "^", :block) { |_, _, a, _, b| WhileNode.new(a, b)}
             end
             
             ## Print either a value or a variable ##

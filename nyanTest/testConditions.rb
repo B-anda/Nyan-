@@ -1,6 +1,25 @@
 require 'test/unit'
 require './scope'
-require './parser'
+require './condition'
+require './syntaxtree'
+
+## Testing class: ConditionNode ##
+
+class TestConditionNode < Test::Unit::TestCase
+
+  def test_if_true
+    scope = GlobalScope.new
+    condition_node = ConditionNode.new(:if, ValueNode.new(true), ValueNode.new("true"))
+    assert_equal(true, condition_node.eval(scope) )
+  end
+
+  def test_if_false
+    scope = GlobalScope.new
+    condition_node = ConditionNode.new(:if, ValueNode.new(false), ValueNode.new("true"))
+    assert_nil(condition_node.eval(scope))
+  end
+
+end
 
 ## Testing class: LogicStmt ##
 

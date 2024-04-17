@@ -26,7 +26,7 @@ class ProgramNode < SyntaxTreeNode
     end
 end
 
-class Assignment < SyntaxTreeNode
+class AssignmentNode < SyntaxTreeNode
     attr_accessor :datatype, :var, :value
     
     def initialize(datatype, var, value)
@@ -36,8 +36,32 @@ class Assignment < SyntaxTreeNode
     end
 
     def eval(*scope)
-        value = @value.eval()
-        scope[0].addVariable(@var, value)
+        # value = @value.eval()
+        return scope[0].addVariable(@var, @value)
+    end
+end
+
+class ReassignmentNode < SyntaxTreeNode
+
+    def initialize(name, operator, value)
+        @name = name
+        @operator = operator
+        @value = value
+    end
+
+    def eval(*scope)
+        found = scope[0].findVariable(@name.var)
+        
+        if found
+            newValue = nil
+            if @operator != "="
+                newValue = found.eval().send(@operator, @value.eval())
+            else
+                newValue = @value.eval()
+            end
+            scope[0].addVariable(@name, ValueNode.new(newValue))
+        end
+            
     end
 end
 
@@ -90,8 +114,12 @@ class PrintNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        if @value.is_a?(VariableNode)
-            scope[0].findVariable(@value.var)
+        if @value.is_a?(VariableNode)            
+            temp = scope[0].findVariable(@value.var).eval
+            if temp.is_a? String
+                return temp.delete "\""
+            end
+            return temp
         else
             if @value.value.is_a? String
                 return @value.value.delete "\""
@@ -117,7 +145,7 @@ class ArithmaticNode < SyntaxTreeNode
         @rhs = nodeToValue(@rhs, scope[0])
 
         if @operator == "/"
-            return@lhs.to_f.send(@operator, @rhs.to_f)
+            return @lhs.to_f.send(@operator, @rhs.to_f)
         elsif @operator == "//"
             return @lhs.send("/", @rhs).to_i
         else

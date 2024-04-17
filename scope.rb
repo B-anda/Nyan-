@@ -10,6 +10,7 @@ class Scope
     end
 
     def findVariable(name)
+
         if @vars.key?(name)
             return @vars[name]
         elsif @prevScope

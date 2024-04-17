@@ -83,14 +83,14 @@ class ValueComp < SyntaxTreeNode
         # @lhs = nodeToValue(@lhs, scope[0])
         # @rhs = nodeToValue(@rhs, scope[0])
         
-        @lhs = @lhs.eval(scope[0])
-        @rhs = @rhs.eval(scope[0])
+        # @lhs = @lhs.eval(scope[0])
+        # @rhs = @rhs.eval(scope[0])
 
         # send calls method dynamically
         # calls @logicOp on @lhs and passes @rhs
         # which returns true or false
         
-        return @lhs.send(@logicOp, @rhs)
+        return @lhs.eval(scope[0]).send(@logicOp, @rhs.eval(scope[0]))
     end
 end
 
@@ -103,15 +103,15 @@ class LogicExpr
     def eval(*scope)
 
         if @value.is_a? ValueNode
-            return @value.value
+            return @value.eval()
         elsif @value.is_a? VariableNode
             begin
-                findVariable = @value.eval(scope[0])
+                foundVariable = @value.eval(scope[0])
             rescue NyameNyerror => e
                 raise NyameNyerror.new("Logic Canyot nyevaluate Nyariable #{@value.var}")
             end
-            if findVariable
-                return scope[0].findVariable(findVariable)
+            if foundVariable
+                return scope[0].findVariable(foundVariable).eval()
             end
         end
     end
@@ -128,4 +128,22 @@ class LogicExpr
     #         end
     #     end
     # end
+end
+
+class WhileNode 
+
+    def initialize(condition, block)
+        @condition = condition
+        @block = block
+    end
+    
+    def eval(*scope)
+        if @condition.eval(scope[0])
+            scope[0].addScope(scope[0])
+            @block.eval(scope[0])
+            scope[0].currToPrevScope()
+            self.eval(scope[0])
+        end
+    end
+
 end

@@ -9,8 +9,9 @@ def done(str)
 end
 
 # Parse
-def run(*setDebug)
+def run(setDebug = false)
     input = 0
+    
     loop do
         print "~^nyan^~ "
         input = gets
@@ -34,7 +35,7 @@ def getOpts()
     )
 
     fileName = ARGV[0]
-    setDebug = true
+    setDebug = false
 
     opts.each do |opt, arg|
         case opt
