@@ -9,8 +9,8 @@ class TestConditionNode < Test::Unit::TestCase
 
   def test_if_true
     scope = GlobalScope.new
-    condition_node = ConditionNode.new(:if, ValueNode.new(true), ValueNode.new("true"))
-    assert_equal(true, condition_node.eval(scope) )
+    conditionNode = ConditionNode.new(:if, ValueNode.new(true), ValueNode.new("true"))
+    assert_equal(true, conditionNode.eval(scope) )
   end
 
   def test_if_false

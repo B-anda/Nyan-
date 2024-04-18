@@ -60,16 +60,16 @@ class Nyan
             end
 
             rule :blocks do
-                match(:blocks, :block) {|a, b| BlocksNode.new(a, b)}
                 match(:block)          {|a| a}
+                match(:blocks, :block) {|a, b| BlocksNode.new(a, b)}
             end
 
             rule :block do
                 match(:assignment)  { |a| a }
-                match(:reassignment){ |a| a }
                 match(:print)       { |a| a }
                 match(:condition)   { |a| a }
                 match(:expr)        { |a| a }
+                match(:reassignment){ |a| a }
                 match(:while)       { |a| a }
             end
 
@@ -90,20 +90,19 @@ class Nyan
                 match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
             end
 
+            ## IF-statment ##
             rule :stmts do
                 match(":", :condition_followup) {|_,a| a}
             end
-
-            ## IF-statment ##
-
+            
             rule :condition do
                 match(:if, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
             
             rule :condition_followup do
                 match(:blocks, ":3")
-                match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, a,_,b,_,c| ConditionNode.new(a, b, c) }
-                match(:blocks, :else, :stmts)  {|a,b,c| ConditionNode.new(a, b, c)}
+                match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, a,_,b,_,c| BlocksNode.new(prevBlock, ConditionNode.new(a, b, c)) }
+                match(:blocks, :else, ":", :blocks, ":3")  {|prevBlock,a,_,b,_| BlocksNode.new(prevBlock, ConditionNode.new(a, ValueNode.new(true), b))}
             end
 
             rule :logicStmt do 

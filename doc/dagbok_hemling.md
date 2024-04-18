@@ -127,3 +127,15 @@ Efter det började vi arbeta med while loopar.
 För att använda while looparna på ett effektivt sätt behövde kunna öka tidigare etablerade variabler så vi skapade en ny klass och match case, "ReassignmentNode" Denna tog "+=", "-=" och "=" för att ändra på tidigare variabler.
 
 Efter det insåg vi vad problemet var för att flera block inte kunde parsas. Vi hade inte implementerat funktionalitet för flera blocks existens i programmet förutom i if, ifelse och else satserna som alla bara kunde ta ett block åt gången. Vi började lösa detta problem men fastnade i felmeddelandet "stack level too deep" utan mer motivering. Vi bestämde oss för att skriva tester för den nya klassen, "BlocksNode". På det sättet kan vi isolera vart felet uppstår.
+
+# 2024-04-18
+
+Vi började dagen med att skriva tester för BlocksNode, Något som sedan ledde oss till att analysera ConditionNode matchningar och själva klasserna.
+
+När vi analyserade ConditionNode insåg vi att matchningarna helt ignorerade de block som fanns emellan if satsen och else if statements ifall sådana fanns med. Detta löste vi genom att matchningarna returnerar BlocksNode objekt istället för ConditionNodes, något som förhoppningsvis funkar som tänkt nu. 
+
+Vi fann också att BlocksNode klassen funkade rätt bra. 
+
+I ConditionNode klassen insåg vi att scopehanteringen inte funkade som tänkt. Även om @current ändrades när man lade till ett nytt scope så glömde vi göra så att ConditionNode hanterar det nya scopet, något som gjorde att vi hanterade variabler i GlobalScope istället för det lokala scopet. Vi fixade detta genom att skapa en funktion för Scope och GlobalScope som hittar @current. Sedan lade vi till funktionalitet för scope att kalla på currToPrev, något som bara GlobalScope kan göra något för.
+
+Efter allt detta gick våra test igenom.

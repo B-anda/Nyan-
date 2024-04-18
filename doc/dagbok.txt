@@ -121,6 +121,20 @@ hittade parsningsproblemet. Om vi t.ex. kör:
       :3
 så parsas bara ^3^ x = 10. Det behövs en newline eller tecken för att kunna gå vidare.
 
+## 2024-04-17 ##
+
+Fixade klart while-loopar. Hade problem med att parsa flera block.
+
+## 2024-04-28 ##
+
+Började med att skriva tester för blocks tills vi insåg att vi behövde ändra ConditionNode samt functioner i Scope.
+Eftersom vi la till blocks och ändrade i BNF:en för condition_followup rulen insåg vi att
+matningarna för ConditionNode ignorerade blocks i else if och else statsen.
+Vi löste detta genom att retunera en blocksnode istället för conditionnode.
+
+I ConditionNode klassen fungerade heller inte riktigt som den skulle. @current ändrades men vi flyttade aldrig till det scopet
+vilket gjorde att 
+
 # To Do:
     - implementera to_value()
     - få aritmetik att funka

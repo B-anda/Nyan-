@@ -1,5 +1,4 @@
 require 'test/unit'
-
 require './scope'
 require './syntaxtree'
 require './condition'
@@ -27,17 +26,66 @@ class TestProgramNode < Test::Unit::TestCase
 
 end
 
-## Testing class: Assignment ##
+## Testing class: BlocksNode ##
+
+class TestBlocksNode < Test::Unit::TestCase
+  def test_blocks
+    scope = GlobalScope.new
+    valueNode = ValueNode.new(5)
+    varNode = VariableNode.new("monogatari")
+    assignmentNode = AssignmentNode.new("^3^", varNode, valueNode)
+    
+    block = BlocksNode.new(assignmentNode, ReassignmentNode.new(varNode, "=", ValueNode.new(2) ))
+    block.eval(scope)
+    assert_equal(2, scope.findVariable(varNode).eval)    
+  end
+
+  def test_nested_blockNodes
+    scope = GlobalScope.new
+
+    valueNode = ValueNode.new(5)
+    varNode = VariableNode.new("monogatari")
+    assignmentNode = AssignmentNode.new("^3^", varNode, valueNode)
+    
+    block = BlocksNode.new(assignmentNode, ReassignmentNode.new(varNode, "=", ValueNode.new(2)))
+    block2 = BlocksNode.new(block, ReassignmentNode.new(varNode, "+", ValueNode.new(2)))
+    block2.eval(scope)
+    assert_equal(4, scope.findVariable(varNode).eval) 
+  end
+
+  def test_nested_blocks
+    scope = GlobalScope.new
+
+    valueNode = ValueNode.new(5)
+    newValue = ValueNode.new(2)
+
+    varNode = VariableNode.new("monogatari")
+
+    assignmentNode = AssignmentNode.new("^3^", varNode, valueNode)
+    assignmentNode2 = AssignmentNode.new("^3^", varNode, newValue)
+    conditionNode = ConditionNode.new(:if, ValueNode.new(true), assignmentNode2)
+    
+    block = BlocksNode.new(assignmentNode, conditionNode)
+    block.eval(scope.current)
+
+    assert_equal(scope, scope.current)
+    assert_equal(5, scope.current.findVariable(varNode).eval)
+
+  end
+end
+
+## Testing class: AssignmentNode ##
 
 class TestAssignment < Test::Unit::TestCase
 
   def test_eval
     scope = GlobalScope.new
     valueNode = ValueNode.new(5)
-    assignmentNode = AssignmentNode.new("^3^", "monogatari", valueNode)
-    assert_raise(NyameNyerror.new()) {scope.findVariable("monogatari")}
+    varNode = VariableNode.new("monogatari")
+    assignmentNode = AssignmentNode.new("^3^", varNode, valueNode)
+    assert_raise(NyameNyerror.new()) {scope.findVariable(varNode)}
     assignmentNode.eval(scope)
-    assert_equal( valueNode, scope.findVariable("monogatari"))
+    assert_equal( valueNode, scope.findVariable(varNode))
   end
 
 end
@@ -112,14 +160,14 @@ class TestPrintNode < Test::Unit::TestCase
     valueNode = ValueNode.new(10)
     printNode2 = PrintNode.new(valueNode)
 
-    # assert_equal(10, printNode2.eval(scope))
+    assert_equal(10, printNode2.eval(scope))
   end
 
   def test_valueNode
     scope = GlobalScope.new
     valueNode = ValueNode.new(42)
     printNode = PrintNode.new(valueNode)
-    # assert_output(42) {printNode.eval(scope) } 
+    assert_equal(42, printNode.eval(scope))
   end
 
 end
@@ -195,6 +243,7 @@ class TestArithmeticNode < Test::Unit::TestCase
     val4 = ValueNode.new(0)
 
     nyan = Nyan.new
+
     program = nyan.nyanParser.parse(
       "2+6-4"  
     ) 

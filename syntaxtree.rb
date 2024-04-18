@@ -5,8 +5,7 @@ module GetValue
         if (side.is_a? ValueNode) || (side.is_a? ArithmaticNode) #|| (side.is_a? LogicStmt) || (side.is_a? ValueComp)
             return side.eval(scope)
         elsif side.is_a? VariableNode
-            var = side.eval(scope)
-            return scope.findVariable(var).value
+            return scope.findVariable(side).value
         else 
             raise NyameNyerror.new("#{side} is incorrect class type")
         end
@@ -27,14 +26,14 @@ class ProgramNode < SyntaxTreeNode
 end
 
 class BlocksNode < SyntaxTreeNode
-    def initialize(nextBlock, block)
-        @nextBlock = nextBlock
+    def initialize(block, nextBlock)
         @toEval = block
+        @nextBlock = nextBlock
     end
 
     def eval(*scope)
-        @nextBlock.eval(scope[0])
         @toEval.eval(scope[0])
+        @nextBlock.eval(scope[0])
     end
 end
 
@@ -62,7 +61,7 @@ class ReassignmentNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        found = scope[0].findVariable(@name.var)
+        found = scope[0].findVariable(@name)
         
         if found
             newValue = nil
@@ -93,7 +92,7 @@ class VariableNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        if scope[0].findVariable(@var)
+        if scope[0].findVariable(self)
             return @var
         else 
             return nil
@@ -127,7 +126,7 @@ class PrintNode < SyntaxTreeNode
 
     def eval(*scope)
         if @value.is_a?(VariableNode)            
-            temp = scope[0].findVariable(@value.var).eval
+            temp = scope[0].findVariable(@value).eval
             if temp.is_a? String
                 return temp.delete "\""
             end
