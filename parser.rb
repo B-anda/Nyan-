@@ -27,7 +27,6 @@ class Nyan
         @nyanParser = Parser.new("nyan") do
             
             token(/\s+/)
-            token(/\(/) {|m| m}
             token(/[\d]+\.[\d]+/) {|m| m}
             token(/\d+/) {|m| m }
             token(/".*"/) {|m| m}
@@ -35,20 +34,19 @@ class Nyan
             token(/\^3\^/) { |m| m}
             token(/\^\.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
-            token(/\bprrr\b/) {|m|m}
+            token(/\bprrr\b/) {:whiloop}
             token(/\^/) {|m| m}
             token(/\)/) {|m| m}
-            # token(/^true/) { |m| m}
-            # token(/false/) {|m| m}
-            token(/meow/) { |_| :meow }  
-            token(/\?nye\?/) {|_| :else}
-            token(/\?nyanye\?/) {|_| :elseif}
-            token(/\?nya\?/) { |_| :if}
+            token(/\(/) {|m| m}
+            token(/meow/) {:meow }  
+            token(/\b\?nye\?\b/) {:else}
+            token(/\?nyanye\?/) {:elseif}
+            token(/\?nya\?/) {:if}
             token(/[[:alpha:]\d_]+/) {|m| m}
-            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~|\:/) {|m| m}
             token(/\:3/) {|_| ';'}
+            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~|\:/) {|m| m}
             token(/./) {|m| m }
-            
+
             @scope = GlobalScope.new
 
             start :program do
@@ -67,10 +65,10 @@ class Nyan
             rule :block do
                 match(:while)       { |a| a }
                 match(:condition)   { |a| a }
+                match(:reassignment){ |a| a }
                 match(:assignment)  { |a| a }
                 match(:print)       { |a| a }
                 match(:expr)        { |a| a }
-                match(:reassignment){ |a| a }
             end
 
             ## Assign variables ##
@@ -100,14 +98,15 @@ class Nyan
             end
             
             rule :condition_followup do
+                puts "inne i CF"
+                match(:blocks, :else, ":", :blocks, ";")              {|prevBlock, _, _, b, _|  BlocksNode.new(prevBlock, ConditionNode.new(ValueNode.new(true), b)) }
+                match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, _, _, b, _, c| BlocksNode.new(prevBlock, ConditionNode.new(b, c)) }
                 match(:blocks, ";") {|a,_| a}
-                match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, _, _, b, _,c| BlocksNode.new(prevBlock, ConditionNode.new(b, c)) }
-                match(:blocks, :else, ":", :blocks, ";") {|prevBlock, _, _, b, _| BlocksNode.new(prevBlock, ConditionNode.new(ValueNode.new(true), b)) }
             end
 
             ## While-loop ##
             rule :while do
-                match("prrr", "^", :logicStmt, "^" , ":", :blocks, ";") { |_, _, a, _,_, b,_| WhileNode.new(a, b)}
+                match(:whiloop, "^", :logicStmt, "^" , ":", :blocks, ";") { |_, _, a, _,_, b,_| WhileNode.new(a, b)}
             end
 
             rule :logicStmt do 
@@ -188,7 +187,7 @@ class Nyan
             end 
             
             rule :str do
-                match(/".*"/) {|a| ValueNode.new(a)}
+                match(/".+"/) {|a| ValueNode.new(a)}
                 # match(/(?<=").*(?=")/) {|a| ValueNode.new(a)}
             end
 
