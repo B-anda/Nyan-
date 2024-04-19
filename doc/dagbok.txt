@@ -125,7 +125,7 @@ så parsas bara ^3^ x = 10. Det behövs en newline eller tecken för att kunna g
 
 Fixade klart while-loopar. Hade problem med att parsa flera block.
 
-## 2024-04-28 ##
+## 2024-04-18 ##
 
 Började med att skriva tester för blocks tills vi insåg att vi behövde ändra ConditionNode samt functioner i Scope.
 Eftersom vi la till blocks och ändrade i BNF:en för condition_followup rulen insåg vi att
@@ -133,7 +133,13 @@ matningarna för ConditionNode ignorerade blocks i else if och else statsen.
 Vi löste detta genom att retunera en blocksnode istället för conditionnode.
 
 I ConditionNode klassen fungerade heller inte riktigt som den skulle. @current ändrades men vi flyttade aldrig till det scopet
-vilket gjorde att 
+vilket gjorde att variabler hanterades i det globala scopet och inte i det locala.
+
+## 2024-04-19 ##
+Förmiddag:
+Glömde köra testConditions igår. Igår ändrade vi i findVariable functionen så att den alltid tar in en VaribleNode. Vilket gjorde att viss tester i 
+testConditions failade men det var enkelt att lösa.
+Problem med att parsa if-statser. ?nya? matchar som en variabel.
 
 # To Do:
     - implementera to_value()

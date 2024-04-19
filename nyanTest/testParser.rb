@@ -31,19 +31,19 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
   
 #     def test_complex_nested_conditions
       
-      nyan = Nyan.new
-      program = 
-      "?nya? ^true^: 
+      # nyan = Nyan.new
+      # program = 
+      # "?nya? ^true^: 
 
-          ?nya? ^false^: 
-              meow ^\"hello\"^ 
-          ?nyanye? ^true^: 
+      #     ?nya? ^false^: 
+      #         meow ^\"hello\"^ 
+      #     ?nyanye? ^true^: 
 
-              ?nya? ^true^: 
-                meow ^\"world\"^
-              :3
-          :3
-      :3"
+      #         ?nya? ^true^: 
+      #           meow ^\"world\"^
+      #         :3
+      #     :3
+      # :3"
   
 #       assert_equal("world", nyan.nyanParser.parse(program))
 #       # syntaxTree = program.eval(@current_scope)
@@ -65,7 +65,7 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
       ' ^3^ x = 10~
 
         ?nya? ^(x > 5)^: 
-          meow ^true^
+          meow ^"hello"^
         :3
       ')
     puts program
@@ -75,14 +75,9 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
 #     def test_printing_complex_expressions
 #       nyan = Nyan.new
 #       program = nyan.nyanParser.parse("
-#             int x = 10
+#             int x = 10~
 #             meow ^(x > 5 && x < 15) || x == 20^
-#         ")
-#       syntax_tree = program.eval(@current_scope)
-  
-#       assert_equal 2, syntax_tree.scopes.length
-      
-#       assert_output("true\n") { syntax_tree.scopes[1].eval(@current_scope) }
+#         ")  
 #     end
 end
 

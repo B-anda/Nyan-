@@ -65,8 +65,8 @@ class Nyan
 
             rule :block do
                 match(:assignment)  { |a| a }
-                match(:print)       { |a| a }
                 match(:condition)   { |a| a }
+                match(:print)       { |a| a }
                 match(:expr)        { |a| a }
                 match(:reassignment){ |a| a }
                 match(:while)       { |a| a }
@@ -79,9 +79,9 @@ class Nyan
 
              ## Reassign variables ##
              rule :reassignment do
-                match(:variable, "+=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a,"+", b)}
-                match(:variable, "-=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a,"-", b)}
-                match(:variable, "=", :value, "~")  { |a,_,b,_| ReassignmentNode.new(a,"=", b)}
+                match(:variable, "+=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "+", b)}
+                match(:variable, "-=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "-", b)}
+                match(:variable, "=", :value, "~")  { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
             end
             
             ## Print ##
@@ -95,13 +95,13 @@ class Nyan
             end
 
             rule :condition do
-                match(:if, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
+                match(:if, "^", :logicStmt, "^", :stmts) {|_, _, b, _,c| ConditionNode.new(b, c)}
             end
             
             rule :condition_followup do
                 match(:blocks, ":3")
-                match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, a,_,b,_,c| BlocksNode.new(prevBlock, ConditionNode.new(a, b, c)) }
-                match(:blocks, :else, ":", :blocks, ":3")  {|prevBlock,a,_,b,_| BlocksNode.new(prevBlock, ConditionNode.new(a, ValueNode.new(true), b))}
+                match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, _, _, b, _,c| BlocksNode.new(prevBlock, ConditionNode.new(b, c)) }
+                match(:blocks, :else, ":", :blocks, ":3")  {|prevBlock, _, _, b,_| BlocksNode.new(prevBlock, ConditionNode.new(ValueNode.new(true), b))}
             end
 
             rule :logicStmt do 
@@ -148,7 +148,7 @@ class Nyan
                 match(:int)
                 match(:variable)
                 match("(", :expr, ")") {|_, a, _| a}
-                match(:expr)
+                # match(:expr)
             end
 
             rule :while do

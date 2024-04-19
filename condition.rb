@@ -3,22 +3,24 @@ require "./scope"
 
 class ConditionNode
     
-    def initialize(statment, condition, block)
-        @statment = statment
+    def initialize( condition, block)
         @condition = condition
         @block = block
     end
 
     def eval(*scope)
         scope[0].addScope(scope[0])
+
         toReturn = nil
         curScope = scope[0].findCurScope()
+
         if @condition.eval(curScope)
             toReturn = @block.eval(curScope)
         end
         
         curScope.currToPrevScope
         curScope = nil
+        
         return toReturn
     end
 
@@ -103,13 +105,15 @@ class LogicExpr
             return @value.eval()
         elsif @value.is_a? VariableNode
             begin
-                foundVariable = @value.eval(scope[0])
+            #     foundVariable = @value.eval(scope[0])
+            
+            # if foundVariable
+                # puts foundVariable
+                return scope[0].findVariable(@value).eval()
             rescue NyameNyerror => e
                 raise NyameNyerror.new("Logic Canyot nyevaluate Nyariable #{@value.var}")
             end
-            if foundVariable
-                return scope[0].findVariable(foundVariable).eval()
-            end
+            # end
         end
     end
 

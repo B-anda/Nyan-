@@ -4,10 +4,7 @@ require './condition'
 require './syntaxtree'
 
 class TestWhileNode < Test::Unit::TestCase
-
-    
     def test_loop
-
         bigScope = GlobalScope.new
         variable = VariableNode.new('x')
         value = ValueNode.new(0)
@@ -19,7 +16,7 @@ class TestWhileNode < Test::Unit::TestCase
         
         WhileNode.new(valueComparison, block).eval(bigScope)
         
-        assert_equal(5, bigScope.findVariable(variable.eval(bigScope)).eval())
+        assert_equal(5, bigScope.findVariable(variable).value)
     end
     
 end

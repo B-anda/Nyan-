@@ -44,16 +44,16 @@ def getOpts()
             Nyan [OPTION] ... [flag | file] [arg]
             Options:
             -h, --help   : show help 
-            -d --debug   : Set debug mode on/off 
+            -d --debug   : Set debug mode true/false 
             -v --version : show latest version 
             file         : program read from script file
             EOF
             return
         when '--debug'
             case arg
-            when "off"
+            when "false"
                 setDebug = false
-            when "on"
+            when "true"
                 setDebug = true
             end
         when '--version'

@@ -9,16 +9,42 @@ class TestConditionNode < Test::Unit::TestCase
 
   def test_if_true
     scope = GlobalScope.new
-    conditionNode = ConditionNode.new(:if, ValueNode.new(true), ValueNode.new("true"))
+    conditionNode = ConditionNode.new( ValueNode.new(true), ValueNode.new("true"))
     assert_equal(true, conditionNode.eval(scope) )
   end
 
   def test_if_false
     scope = GlobalScope.new
-    condition_node = ConditionNode.new(:if, ValueNode.new(false), ValueNode.new("true"))
+    condition_node = ConditionNode.new( ValueNode.new(false), ValueNode.new("true"))
     assert_nil(condition_node.eval(scope))
   end
 
+  def test_if_true_print
+    scope = GlobalScope.new
+    scope.addVariable("x", ValueNode.new(10))
+    variableNode = VariableNode.new("x")
+    printNode = PrintNode.new(variableNode)
+
+    logicStmt = LogicStmt.new(ValueNode.new(true), "||", ValueNode.new(false))
+
+    conditionNode = ConditionNode.new(logicStmt, printNode)
+    assert_equal(10, conditionNode.eval(scope))
+  end
+
+  def test_nested_if
+    scope = GlobalScope.new
+    scope.addVariable("x", ValueNode.new(10))
+    variableNode = VariableNode.new("x")
+    printNode = PrintNode.new(variableNode)
+
+    logicStmt = LogicStmt.new(ValueNode.new(true), "||", ValueNode.new(false))
+    logicStmt2 = LogicStmt.new(ValueNode.new(true), "||", ValueNode.new(false))
+
+    innerConditionNode = ConditionNode.new(logicStmt, printNode)
+    conditionNode = ConditionNode.new( logicStmt2, innerConditionNode)
+
+    assert_equal(10, conditionNode.eval(scope))
+  end
 end
 
 ## Testing class: LogicStmt ##
@@ -67,8 +93,10 @@ class TestValueComp < Test::Unit::TestCase
 
     scope = GlobalScope.new
     variableNode = VariableNode.new("x")
+    valueNode = ValueNode.new(10)
+
+    scope.addVariable(variableNode, valueNode)
     logicExpr = LogicExpr.new(variableNode)
-    scope.addVariable(variableNode, 10)
     
     valueComp = ValueComp.new(ValueNode.new(5), "<", logicExpr)
     assert_equal( true, valueComp.eval(scope))
@@ -87,7 +115,9 @@ class TestLogicExpr < Test::Unit::TestCase
 
   def test_with_valueNode
     scope = GlobalScope.new
-    scope.addVariable("x", 10)
+    valueNode = ValueNode.new(10)
+    scope.addVariable("x", valueNode)
+
     logicExpr = LogicExpr.new(ValueNode.new(10))
     assert_equal( 10, logicExpr.eval(scope))
   end
@@ -95,8 +125,9 @@ class TestLogicExpr < Test::Unit::TestCase
   def test_with_variable_node
     scope = GlobalScope.new
     scope.addVariable("x", ValueNode.new(10))
+
     logicExpr = LogicExpr.new(VariableNode.new("x"))
-    assert_equal(10, logicExpr.eval(scope).value)
+    assert_equal(10, logicExpr.eval(scope))
   end
 
   def test_nil

@@ -36,13 +36,15 @@ class Test_Scopes < Test::Unit::TestCase
         conditionScope = GlobalScope.new
         variable = VariableNode.new("big")
         value = ValueNode.new("small") 
+
         conditionScope.addScope(conditionScope.current)
         conditionScope.current.addVariable(variable, value)
+        
         conditionScope.currToPrevScope()
         conditionScope.addScope(conditionScope.current)
 
         assert_equal(1, conditionScope.scopes.size)
         assert_equal(nil, conditionScope.scopes[1])
-        assert_raise(NyameNyerror.new("#{variable} nyot found")) {conditionScope.current.findVariable(variable)}
+        assert_raise(NyameNyerror.new("#{variable.var} nyot found")) {conditionScope.current.findVariable(variable)}
     end
 end
