@@ -55,8 +55,7 @@ class Nyan
             end
 
             rule :component do
-                match(:blocks, '~') {|a|ProgramNode.new(a)}
-                match(:blocks, '') {|a|ProgramNode.new(a)}
+                match(:blocks) {|a|ProgramNode.new(a)}
             end
 
             rule :blocks do
@@ -94,7 +93,7 @@ class Nyan
             rule :stmts do
                 match(":", :condition_followup) {|_,a| a}
             end
-            
+
             rule :condition do
                 match(:if, "^", :logicStmt, "^", :stmts) {|a,_,b,_,c| ConditionNode.new(a, b, c)}
             end
