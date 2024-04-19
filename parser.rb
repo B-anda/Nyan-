@@ -37,6 +37,7 @@ class Nyan
             token(/\^oo\^/) { |m| m}
             token(/prrr/) {|_| :while}
             token(/\^/) {|m| m}
+            token(/\)/) {|m| m}
             # token(/^true/) { |m| m}
             # token(/false/) {|m| m}
             token(/meow/) { |_| :meow }  
@@ -45,7 +46,7 @@ class Nyan
             token(/\?nya\?/) { |_| :if}
             token(/[[:alpha:]\d_]+/) {|m| m}
             token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~/) {|m| m}
-            token(/\:3/) {|m| m}
+            token(/\:3/) {|_| ';'}
             token(/./) {|m| m }
             
             @scope = GlobalScope.new
@@ -90,18 +91,18 @@ class Nyan
             end
 
             ## IF-statment ##
-            rule :stmts do
-                match(":", :condition_followup) {|_,a| a}
-            end
-
             rule :condition do
                 match(:if, "^", :logicStmt, "^", :stmts) {|_, _, b, _,c| ConditionNode.new(b, c)}
             end
+
+            rule :stmts do
+                match(":", :condition_followup) {|_,a| a}
+            end
             
             rule :condition_followup do
-                match(:blocks, ":3")
+                match(:blocks, ";") {|a,_| a}
                 match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, _, _, b, _,c| BlocksNode.new(prevBlock, ConditionNode.new(b, c)) }
-                match(:blocks, :else, ":", :blocks, ":3")  {|prevBlock, _, _, b,_| BlocksNode.new(prevBlock, ConditionNode.new(ValueNode.new(true), b))}
+                match(:blocks, :else, ":", :blocks, ";")  {|prevBlock, _, _, b,_| BlocksNode.new(prevBlock, ConditionNode.new(ValueNode.new(true), b))}
             end
 
             rule :logicStmt do 

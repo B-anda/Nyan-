@@ -139,7 +139,9 @@ vilket gjorde att variabler hanterades i det globala scopet och inte i det local
 Förmiddag:
 Glömde köra testConditions igår. Igår ändrade vi i findVariable functionen så att den alltid tar in en VaribleNode. Vilket gjorde att viss tester i 
 testConditions failade men det var enkelt att lösa.
-Problem med att parsa if-statser. ?nya? matchar som en variabel.
+Problem med att parsa if-statser. '?nya?' och ':3' matchar som en variabel.
+löste '?nya? genom att vi insåg att vi körde nyan.nyanParser.parse(program) 2 ggr.
+':3' löste vi genom att i tokens retunera ';'
 
 # To Do:
     - implementera to_value()

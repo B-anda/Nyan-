@@ -63,7 +63,7 @@ class TestBlocksNode < Test::Unit::TestCase
 
     assignmentNode = AssignmentNode.new("^3^", varNode, valueNode)
     assignmentNode2 = AssignmentNode.new("^3^", varNode, newValue)
-    conditionNode = ConditionNode.new(:if, ValueNode.new(true), assignmentNode2)
+    conditionNode = ConditionNode.new(ValueNode.new(true), assignmentNode2)
     
     block = BlocksNode.new(assignmentNode, conditionNode)
     block.eval(scope.current)
