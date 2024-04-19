@@ -35,7 +35,7 @@ class Nyan
             token(/\^3\^/) { |m| m}
             token(/\^\.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
-            token(/prrr/) {|_| :while}
+            token(/\bprrr\b/) {|m|m}
             token(/\^/) {|m| m}
             token(/\)/) {|m| m}
             # token(/^true/) { |m| m}
@@ -45,7 +45,7 @@ class Nyan
             token(/\?nyanye\?/) {|_| :elseif}
             token(/\?nya\?/) { |_| :if}
             token(/[[:alpha:]\d_]+/) {|m| m}
-            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~/) {|m| m}
+            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~|\:/) {|m| m}
             token(/\:3/) {|_| ';'}
             token(/./) {|m| m }
             
@@ -65,12 +65,12 @@ class Nyan
             end
 
             rule :block do
-                match(:assignment)  { |a| a }
+                match(:while)       { |a| a }
                 match(:condition)   { |a| a }
+                match(:assignment)  { |a| a }
                 match(:print)       { |a| a }
                 match(:expr)        { |a| a }
                 match(:reassignment){ |a| a }
-                match(:while)       { |a| a }
             end
 
             ## Assign variables ##
@@ -102,7 +102,12 @@ class Nyan
             rule :condition_followup do
                 match(:blocks, ";") {|a,_| a}
                 match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, _, _, b, _,c| BlocksNode.new(prevBlock, ConditionNode.new(b, c)) }
-                match(:blocks, :else, ":", :blocks, ";")  {|prevBlock, _, _, b,_| BlocksNode.new(prevBlock, ConditionNode.new(ValueNode.new(true), b))}
+                match(:blocks, :else, ":", :blocks, ";") {|prevBlock, _, _, b, _| BlocksNode.new(prevBlock, ConditionNode.new(ValueNode.new(true), b)) }
+            end
+
+            ## While-loop ##
+            rule :while do
+                match("prrr", "^", :logicStmt, "^" , ":", :blocks, ";") { |_, _, a, _,_, b,_| WhileNode.new(a, b)}
             end
 
             rule :logicStmt do 
@@ -130,6 +135,7 @@ class Nyan
                 match("(", :logicStmt, ")") {|_,a,_| a}
             end
 
+            ## Arithmatic ##
             rule :expr do
                 match(:expr, "+", :term) {|a,_,c| ArithmaticNode.new(a,"+",c)}
                 match(:expr, "-", :term) {|a,_,c| ArithmaticNode.new(a,"-",c)}
@@ -150,10 +156,6 @@ class Nyan
                 match(:variable)
                 match("(", :expr, ")") {|_, a, _| a}
                 # match(:expr)
-            end
-
-            rule :while do
-                match("prrr", "^", :logic_stmt, "^", :blocks) { |_, _, a, _, b| WhileNode.new(a, b)}
             end
             
             ## Print either a value or a variable ##

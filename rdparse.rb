@@ -82,7 +82,7 @@ class Rule
             result = nil
             break
           end
-          @logger.debug("Matched '#{@name} = #{match.pattern[index..-1].inspect}'")
+          # @logger.debug("Matched '#{@name} = #{match.pattern[index..-1].inspect}'")
         else
           # Otherwise, we consume the token as part of applying this rule
           nt = @parser.expect(token)
@@ -147,7 +147,7 @@ class Parser
         match = tok.pattern.match(string)
         # The regular expression of a token has matched the beginning of 'string'
         if match
-          @logger.debug("Token #{match[0]} consumed")
+          # @logger.debug("Token #{match[0]} consumed")
           # Also, evaluate this expression by using the block
           # associated with the token
           @tokens << tok.block.call(match.to_s) if tok.block
