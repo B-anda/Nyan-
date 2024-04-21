@@ -1,6 +1,13 @@
 require "./syntaxtree"
 require "./scope"
 
+# when the first if-stmt is evaluated it returns false which when assarted returns nil.
+# which means that it doesn't move on and evaluates the next block 
+# probobly need to rewrite condition_followup
+
+# if the 'if @condition.eval(curScope)' is remove, nested if-stmts work
+# but wont solve the problem 
+
 class ConditionNode
     
     def initialize( condition, block)

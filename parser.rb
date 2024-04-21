@@ -31,7 +31,7 @@ class Nyan
             token(/\d+/) {|m| m }
             token(/".*"/) {|m| m}
             token(/\^w\^/) { |m| m}
-            token(/\^3\^/) { |m| m}
+            token(/\^3\^/) {:integer}
             token(/\^\.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
             token(/\bprrr\b/) {:whiloop}
@@ -39,13 +39,12 @@ class Nyan
             token(/\)/) {|m| m}
             token(/\(/) {|m| m}
             token(/meow/) {:meow }  
-            token(/\?\bnye\b\?/) {:else}
-            token(/\?nyanye\?/) {:elseif}
             token(/\?nya\?/) {:if}
-            token(/[[:alpha:]\d_]+/) {|m| m}
+            token(/\?nye\?/) {:else}
+            token(/\?nyanye\?/) {:elseif}
+            token(/[[a-zA-Z]\d_]+/) {|m| m}
             token(/\:3/) {|_| ';'}
-            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~/) {|m| m}
-            token(/\:/) {|m|m}
+            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~|\:/) {|m| m}
             token(/./) {|m| m }
 
             @scope = GlobalScope.new
@@ -171,13 +170,20 @@ class Nyan
             # ^oo^ Boolean
             rule :datatype do
                 match(/\^w\^/)  {|a| DatatypeNode.new(a)}
-                match(/\^3\^/)  {|a| DatatypeNode.new(a)}
+                match(:integer)  {|a| DatatypeNode.new(a)}
                 match(/\^\.\^/) {|a| DatatypeNode.new(a)}
                 match(/\^oo\^/) {|a| DatatypeNode.new(a)}
             end
 
             rule :variable do
-                match(/[a-zA-Z]_*-*\d+/) {|a| VariableNode.new(a)}
+                #Key words that are not variables
+                match(:integer) {}
+                match(:meow) {}
+                match(:whiloop) {}
+                match(:elseif) {}
+                match(:else) {}
+                #Otherwise
+                match(/[[:alpha:]\d_^\?]+/) {|a| VariableNode.new(a)}
             end
 
             rule :value do
