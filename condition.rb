@@ -8,6 +8,19 @@ require "./scope"
 # if the 'if @condition.eval(curScope)' is remove, nested if-stmts work
 # but wont solve the problem 
 
+
+# module SharedVaribles
+#     @test_var="Hello, World"
+  
+#     def self.test_var
+#       return @test_var
+#     end
+  
+#     def self.test_var=(val)
+#       @test_val=val;
+#     end
+#   end
+
 class ConditionNode
     
     def initialize(condition, block, conditionBool = true)
