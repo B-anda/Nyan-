@@ -10,21 +10,30 @@ require "./scope"
 
 class ConditionNode
     
-    def initialize( condition, block)
+    def initialize(condition, block, conditionBool = true)
         @condition = condition
         @block = block
+        @conditionBool = conditionBool
     end
 
     def eval(*scope)
+        puts @conditionBool
+
         scope[0].addScope(scope[0])
 
         toReturn = nil
         curScope = scope[0].findCurScope()
 
-        if @condition.eval(curScope)
-            toReturn = @block.eval(curScope)
+        if @conditionBool
+            if @condition.eval(curScope)
+                toReturn = @block.eval(curScope)
+                @conditionBool = false
+            end
         end
-        
+
+        puts @conditionBool
+
+
         curScope.currToPrevScope
         curScope = nil
         

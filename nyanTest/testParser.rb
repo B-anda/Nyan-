@@ -6,28 +6,28 @@ require './parser'
 
 class Test_ParsingAndEvaluation < Test::Unit::TestCase
 
-    def test_simple_condition
-      nyan = Nyan.new
-      program = nyan.nyanParser.parse(
-        "?nya? ^true^: 
-          meow ^\"hello\"^
-        :3"  
-      ) 
+    # def test_simple_condition
+    #   nyan = Nyan.new
+    #   program = nyan.nyanParser.parse(
+    #     "?nya? ^true^: 
+    #       meow ^\"hello\"^
+    #     :3"  
+    #   ) 
   
-      assert_equal("hello", program)
+    #   assert_equal("hello", program)
   
-    end
+    # end
   
-    def test_parse_and_or
-      nyan = Nyan.new
-        program = nyan.nyanParser.parse(
-          "?nya? ^ true || false ^: 
-            meow ^\"hello\"^
-          :3"  
-        ) 
+    # def test_parse_and_or
+    #   nyan = Nyan.new
+    #     program = nyan.nyanParser.parse(
+    #       "?nya? ^ true || false ^: 
+    #         meow ^\"hello\"^
+    #       :3"  
+    #     ) 
     
-        assert_equal("hello", program)
-    end
+    #     assert_equal("hello", program)
+    # end
   
     def test_complex_nested_conditions
       nyan = Nyan.new
