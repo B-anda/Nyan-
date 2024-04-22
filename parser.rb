@@ -44,7 +44,8 @@ class Nyan
             token(/\?nya\?/) {:if}
             token(/[[:alpha:]\d_]+/) {|m| m}
             token(/\:3/) {|_| ';'}
-            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~|\:/) {|m| m}
+            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~/) {|m| m}
+            token(/\:/) {|m|m}
             token(/./) {|m| m }
 
             @scope = GlobalScope.new
@@ -176,7 +177,7 @@ class Nyan
             end
 
             rule :variable do
-                match(/[[:alpha:]\d_]+/) {|a| VariableNode.new(a)}
+                match(/[a-zA-Z]_*-*\d+/) {|a| VariableNode.new(a)}
             end
 
             rule :value do

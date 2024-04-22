@@ -6,3 +6,8 @@ if True:
             print("world")
         else:
             print("hello world")
+
+if False:
+    print("hello")
+else: 
+    print("world")
