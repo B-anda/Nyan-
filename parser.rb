@@ -39,7 +39,7 @@ class Nyan
             token(/\)/) {|m| m}
             token(/\(/) {|m| m}
             token(/meow/) {:meow }  
-            token(/\b\?nye\?\b/) {:else}
+            token(/\?nye\?/) {:else}
             token(/\?nyanye\?/) {:elseif}
             token(/\?nya\?/) {:if}
             token(/[[:alpha:]\d_]+/) {|m| m}
