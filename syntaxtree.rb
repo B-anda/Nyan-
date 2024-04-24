@@ -130,12 +130,14 @@ class PrintNode < SyntaxTreeNode
             if temp.is_a? String
                 return temp.delete "\""
             end
+            puts temp
             return temp
         else
             temp = @value.eval(scope[0])
             if temp.is_a? String
                 temp =temp.delete "\""
             end
+            puts temp
             return temp
             # if @value.value.is_a? String
             #     return @value.value.delete "\""

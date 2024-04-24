@@ -21,7 +21,7 @@ def run(setDebug = false)
             break
         else
             @nyan.log setDebug
-            puts @nyan.nyanParser.parse(input)
+            @nyan.nyanParser.parse(input)
         end
     end
 end
@@ -84,7 +84,7 @@ def readFile(fileName, debug)
         # end
         file = File.open(fileName)
         lines = file.readlines.join
-        puts @nyan.nyanParser.parse(lines)
+        @nyan.nyanParser.parse(lines)
 
     rescue Parser::ParseError => e
         puts "#{e.message}"
