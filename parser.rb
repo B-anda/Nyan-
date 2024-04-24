@@ -202,7 +202,7 @@ class Nyan
                 match(:elseif)  {}
                 match(:else)    {}
                 #Otherwise
-                match(/[[:alpha:]\d_^\?]+/) {|a| VariableNode.new(a)}
+                match(/[[:alpha:]\d\_]+/) {|a| VariableNode.new(a)}
             end
 
             rule :value do

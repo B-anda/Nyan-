@@ -34,9 +34,9 @@ class ConditionNode
         toReturn = nil
         curScope = scope[0].findCurScope()
 
-        # if @condition.eval(curScope)
+        if @condition.eval(curScope)
             toReturn = @block.eval(curScope)
-        # end
+        end
 
         curScope.currToPrevScope
         curScope = nil
