@@ -23,29 +23,20 @@ require "./scope"
 
 class ConditionNode
     
-    def initialize(condition, block, conditionBool = true)
+    def initialize(condition, block)
         @condition = condition
         @block = block
-        @conditionBool = conditionBool
     end
 
     def eval(*scope)
-        puts @conditionBool
-
         scope[0].addScope(scope[0])
 
         toReturn = nil
         curScope = scope[0].findCurScope()
 
-        if @conditionBool
-            if @condition.eval(curScope)
-                toReturn = @block.eval(curScope)
-                @conditionBool = false
-            end
-        end
-
-        puts @conditionBool
-
+        # if @condition.eval(curScope)
+            toReturn = @block.eval(curScope)
+        # end
 
         curScope.currToPrevScope
         curScope = nil
@@ -53,6 +44,19 @@ class ConditionNode
         return toReturn
     end
 
+end
+
+class ElseCondition
+   def initialize(condition, block)
+        @prevBlock = prevBlock
+        @condition = condition
+        @block
+   end
+   
+   def eval(*scope)
+        puts "#{@prevBlock } hellooo"
+    
+   end
 end
 
 class LogicStmt

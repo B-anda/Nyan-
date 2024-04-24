@@ -48,7 +48,6 @@ class Nyan
             token(/./) {|m| m }
 
             @scope = GlobalScope.new
-            @conditionBool = true
 
             start :program do
                 match(:component) {|a| a.evaluate(@scope.current)}
@@ -65,7 +64,7 @@ class Nyan
 
             rule :block do
                 match(:while)       { |a| a }
-                match(:condition)   { |a| a }
+                match(:condition, ";")   { |a| a }
                 match(:reassignment){ |a| a }
                 match(:assignment)  { |a| a }
                 match(:print)       { |a| a }
@@ -100,13 +99,9 @@ class Nyan
             
             rule :condition_followup do
                 puts "inne i CF"
-                match(:blocks, :else, ":", :blocks, ";") do |prevBlock, _, _, b, _|
-                    BlocksNode.new(prevBlock, ConditionNode.new(ValueNode.new(true), b, @conditionBool))
-                    @conditionBool = true 
-                end
-                match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, _, _, b, _, c| BlocksNode.new(prevBlock, ConditionNode.new(b, c, conditionBool)) }
+                match(:blocks, :else, ":", :blocks, ";")              { |prevBlock, _, _, b, _| BlocksNode.new(prevBlock, ElseCondition.new(nil, b))}
+                match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) { |prevBlock, _, _, b, _, c| BlocksNode.new(prevBlock, ElseCondition.new(b, c)) }
                 match(:blocks, ";") do |a,_|
-                    @conditionBool = true
                     return a
                 end
             end
