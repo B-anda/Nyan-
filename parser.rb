@@ -218,7 +218,7 @@ class Nyan
             end
 
             rule :int do
-                match(/\d+/) {|a| ValueNode.new(a.to_i)}
+                match(/\b\d+\b/) {|a| ValueNode.new(a.to_i)}
             end
 
             rule :float do
