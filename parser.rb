@@ -34,7 +34,7 @@ class Nyan
             token(/\^3\^/) {:integer}
             token(/\^\.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
-            token(/\bprrr\b/) {:whiloop}
+            token(/\bprrr\b/) {:whileloop}
             token(/\^/) {|m| m}
             token(/\)/) {|m| m}
             token(/\(/) {|m| m}
@@ -64,7 +64,7 @@ class Nyan
 
             rule :block do
                 match(:while)       { |a| a }
-                match(:condition, ";")   { |a| a }
+                match(:condition)   { |a| a }
                 match(:reassignment){ |a| a }
                 match(:assignment)  { |a| a }
                 match(:print)       { |a| a }
@@ -89,43 +89,46 @@ class Nyan
             end
 
             ## IF-statment ##
-            rule :condition do
-                match(:if, "^", :logicStmt, "^", ":", :blocks, :else, ":", :blocks) { |_, _, a, _, _, prevBlock, _, _, b| BlocksNode.new(ConditionNode.new(a, prevBlock), ElseCondition.new(a, ValueNode.new(true), b)) }
-                match(:if, "^", :logicStmt, "^", ":", :blocks, :elseif, "^", :logicStmt, "^", ":", :blocks) { |_, _, a, _, _, prevBlock, _, _, b, _, _, c| BlocksNode.new(ConditionNode.new(a, prevBlock), ElseCondition.new(a, b, c)) }
-                match(:if, "^", :logicStmt, "^", ":", :blocks) { |_, _, b, _, _,c| ConditionNode.new(b, c) }
-            end
-
-            # if
-            # elseif
-            # if
-            # elseif
-
-
-            # if
-            # elsif
-            # elsif
-            # elsif
-
             # rule :condition do
-            #     match(:if, "^", :logicStmt, "^", :stmts) {|_, _, b, _,c| ConditionNode.new(b, c)}
+            #     match(:if, "^", :logicStmt, "^", ":", :blocks, :else, ":", :blocks) { |_, _, a, _, _, prevBlock, _, _, b| BlocksNode.new(ConditionNode.new(a, prevBlock), ElseCondition.new(a, ValueNode.new(true), b)) }
+            #     match(:if, "^", :logicStmt, "^", ":", :blocks, :elseif, "^", :logicStmt, "^", ":", :blocks) { |_, _, a, _, _, prevBlock, _, _, b, _, _, c| BlocksNode.new(ConditionNode.new(a, prevBlock), ElseCondition.new(a, b, c)) }
+            #     match(:if, "^", :logicStmt, "^", ":", :blocks) { |_, _, b, _, _,c| ConditionNode.new(b, c) }
             # end
 
-            # rule :stmts do
-            #     match(":", :condition_followup) {|_,a| a}
-            # end
+            # if
+            # elseif
+            # if
+            # elseif
+
+
+            # if
+            # elsif
+            # elsif
+            # elsif
+
+            rule :condition do
+                match(:if, "^", :logicStmt, "^", ":", :blocks, :condition_followup, ";") do |_, _, a, _, _, b, c, _|
+                    SharedVariables.ifBoolPush
+                    BlocksNode.new(ConditionNode.new(a, b), c)
+                    
+                end
+                match(:if, "^", :logicStmt, "^", ":", :blocks, ";") do |_, _, a, _, _, b, _|
+                    SharedVariables.ifBoolPush
+                    ConditionNode.new(a, b, "lone")
+                    
+                end
+            end
             
-            # rule :condition_followup do
-            #     puts "inne i CF"
-            #     match(:blocks, :else, ":", :blocks, ";")              { |prevBlock, _, _, b, _| BlocksNode.new(prevBlock, ElseCondition.new(nil, b))}
-            #     match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) { |prevBlock, _, _, b, _, c| BlocksNode.new(prevBlock, ElseCondition.new(b, c)) }
-            #     match(:blocks, ";") do |a,_|
-            #         return a
-            #     end
-            # end
+            rule :condition_followup do
+                # puts "inne i CF"
+                match( :else, ":", :blocks)                                     { |_,_, a| ConditionNode.new(ValueNode.new(true), a)}
+                match( :elseif, "^", :logicStmt, "^", ":", :blocks, :condition_followup) { |_, _, a, _, _, b, c| BlocksNode.new(ConditionNode.new(a, b), c) }
+                match( :elseif, "^", :logicStmt, "^", ":", :blocks) { |_, _, a, _, _, b| ConditionNode.new(a, b) }
+            end
 
             ## While-loop ##
             rule :while do
-                match(:whiloop, "^", :logicStmt, "^" , ":", :blocks, ";") { |_, _, a, _,_, b,_| WhileNode.new(a, b)}
+                match(:whileloop, "^", :logicStmt, "^" , ":", :blocks, ";") { |_, _, a, _,_, b,_| WhileNode.new(a, b)}
             end
 
             rule :logicStmt do 

@@ -6,60 +6,124 @@ require './parser'
 
 class Test_ParsingAndEvaluation < Test::Unit::TestCase
 
-    def test_simple_condition
-      nyan = Nyan.new
+  def test_simple_condition
+    nyan = Nyan.new
+    program = nyan.nyanParser.parse(
+      '?nya? ^true^: 
+        meow ^"hello"^
+      :3' 
+    ) 
+
+    assert_equal("hello", program)
+
+  end
+
+  def test_parse_or
+    nyan = Nyan.new
       program = nyan.nyanParser.parse(
-        '?nya? ^true^: 
-          meow ^"hello"^
-        :3' 
+        "?nya? ^true || false ^: 
+          meow ^\"hello\"^
+        :3"  
       ) 
   
       assert_equal("hello", program)
+  end
+
+  def test_complex_nested_conditions
+    nyan = Nyan.new
+    program = nyan.nyanParser.parse('
+    ?nya? ^true^: 
+        ?nya? ^false^: 
+            meow ^"hello"^ 
+        ?nyanye? ^true^: 
+            ?nya? ^true^: 
+              meow ^"world"^
+            :3
+        :3
+    :3')
+    assert_equal("world", program)
+
+    program1 = nyan.nyanParser.parse(
   
-    end
-  
-    def test_parse_or
-      nyan = Nyan.new
-        program = nyan.nyanParser.parse(
-          "?nya? ^true || false ^: 
-            meow ^\"hello\"^
-          :3"  
-        ) 
-    
-        assert_equal("hello", program)
-    end
-  
-    def test_complex_nested_conditions
-      nyan = Nyan.new
-      program1 = nyan.nyanParser.parse('
-      ?nya? ^true^: 
-          ?nya? ^false^: 
-              meow ^"hello"^ 
-          ?nyanye? ^true^: 
-              ?nya? ^true^: 
-                meow ^"world"^
-              :3
-          :3
+    ' ^3^ x = 10~
+      ?nya? ^false^:
+        meow ^"world"^ 
+      ?nye?:
+        x = 2~
+        meow ^"hello"^
       :3')
-      assert_equal("world", program1)
+      # ?nya? ^false^: meow ^"world"^ ?nye?: meow ^"hello"^ :3
+      
+    assert_equal("hello", program1)
 
-      program = nyan.nyanParser.parse(
-    
-      ' ^3^ x = 10~
-        ?nya? ^false^:
+    program2 = nyan.nyanParser.parse(
+    '
+      ?nya? ^true^:
+        meow ^"world"^ 
+
+      ?nyanye? ^false^:
+        meow ^"hello"^
+
+      ?nyanye? ^false^:
+        meow ^"hello world"^
+      :3')
+      # ?nya? ^false^: meow ^"world"^ ?nye?: meow ^"hello"^ :3
+      
+    assert_equal("world", program2)
+
+    # assert_nothing_raised do 
+    #   nyan.nyanParser.parse(program)
+    # end
+  end
+
+  def test_nested_elseif
+    nyan = Nyan.new
+    nyan.log false
+
+    assert_nothing_raised NyameNyerror do
+    program = nyan.nyanParser.parse(
+      '?nya? ^true^:
           meow ^"world"^ 
-        ?nye?:
-          x = 2~
-          meow ^"hello"^
-        :3')
-        puts program
-        # ?nya? ^false^: meow ^"world"^ ?nye?: meow ^"hello"^ :3
-        
-      assert_equal("hello", program)
 
-      # assert_nothing_raised do 
-      #   nyan.nyanParser.parse(program)
-      # end
+        ?nyanye? ^false^:
+          meow ^"hello"^
+
+        ?nyanye? ^false^:
+          meow ^"hello world"^
+        :3')
+    end
+        
+    program = nyan.nyanParser.parse(
+    '?nya? ^false^:
+        meow ^"world"^ 
+
+      ?nyanye? ^false^:
+        meow ^"hello"^
+
+      ?nyanye? ^true^:
+        meow ^"hello world"^
+      :3')
+          
+    program = nyan.nyanParser.parse(
+      '?nya? ^true^:
+        ?nya? ^true^:
+          meow ^"hello"^
+        ?nye?:
+          meow ^"world"^
+        :3
+      :3'
+    )
+
+    program = nyan.nyanParser.parse(
+      '?nya? ^true^:
+        ?nya? ^false^:
+          meow ^"world"^
+        :3
+        ?nye?:
+        meow ^"hello"^
+        :3'
+    )
+
     end
   
   def test_complex_logical_expressions

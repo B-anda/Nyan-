@@ -12,6 +12,26 @@ module GetValue
     end 
 end
 
+module SharedVariables
+    @ifBool = [true]
+  
+    def self.ifBool
+      return @ifBool[-1]
+    end
+  
+    def self.ifBool=(val)
+      @ifBool[-1]=val
+    end
+
+    def self.ifBoolPush
+        @ifBool.push(true)
+    end
+
+    def self.ifBoolPop
+        @ifBool.pop()
+    end
+end
+
 class SyntaxTreeNode
     
     def evaluate(*scope)
@@ -26,14 +46,21 @@ class ProgramNode < SyntaxTreeNode
 end
 
 class BlocksNode < SyntaxTreeNode
+    include SharedVariables
+    
     def initialize(block, nextBlock)
         @toEval = block
         @nextBlock = nextBlock
     end
 
     def eval(*scope)
+        SharedVariables.ifBool = true
         @toEval.eval(scope[0])
         @nextBlock.eval(scope[0])
+        
+        if @toEval.is_a? ConditionNode
+            SharedVariables.ifBoolPop
+        end
     end
 end
 

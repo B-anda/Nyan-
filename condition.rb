@@ -9,23 +9,13 @@ require "./scope"
 # but wont solve the problem 
 
 
-# module SharedVaribles
-#     @test_var="Hello, World"
-  
-#     def self.test_var
-#       return @test_var
-#     end
-  
-#     def self.test_var=(val)
-#       @test_val=val;
-#     end
-#   end
-
 class ConditionNode
-    
-    def initialize(condition, block)
+    include SharedVariables
+
+    def initialize(condition, block, lone=nil)
         @condition = condition
         @block = block
+        @lone = lone
     end
 
     def eval(*scope)
@@ -34,37 +24,43 @@ class ConditionNode
         toReturn = nil
         curScope = scope[0].findCurScope()
 
-        if @condition.eval(curScope)
-            toReturn = @block.eval(curScope)
+        if SharedVariables.ifBool
+            if @condition.eval(curScope)
+                
+                toReturn = @block.eval(curScope)
+                SharedVariables.ifBool = false
+            end
         end
 
         curScope.currToPrevScope
         curScope = nil
         
+        if @lone
+            SharedVariables.ifBoolPop
+        end
         return toReturn
     end
 
 end
 
-class ElseCondition
-   def initialize(ifCondition, elseCondition, block)
-        @ifCon = ifCondition
-        @elseCon = elseCondition
-        @block = block
-   end
+# class ElseCondition
+#    def initialize(ifCondition, elseCondition, block)
+#         @ifCon = ifCondition
+#         @elseCon = elseCondition
+#         @block = block
+#    end
    
-   def eval(*scope)
-        unless @ifCon.eval(scope[0])
-            if @elseCon.eval(scope[0])
-                return @block.eval(scope[0])
-            end
-        end
+#    def eval(*scope)
+#         unless @ifCon.eval(scope[0])
+#             if @elseCon.eval(scope[0])
+#                 return @block.eval(scope[0])
+#             end
+#         end
     
-   end
-end
+#    end
+# end
 
 class LogicStmt
-    include GetValue
 
     def initialize(lhs, operator, rhs)
         @lhs = lhs
