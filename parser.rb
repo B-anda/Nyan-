@@ -90,21 +90,38 @@ class Nyan
 
             ## IF-statment ##
             rule :condition do
-                match(:if, "^", :logicStmt, "^", :stmts) {|_, _, b, _,c| ConditionNode.new(b, c)}
+                match(:if, "^", :logicStmt, "^", ":", :blocks, :else, ":", :blocks) { |_, _, a, _, _, prevBlock, _, _, b| BlocksNode.new(ConditionNode.new(a, prevBlock), ElseCondition.new(a, ValueNode.new(true), b)) }
+                match(:if, "^", :logicStmt, "^", ":", :blocks, :elseif, "^", :logicStmt, "^", ":", :blocks) { |_, _, a, _, _, prevBlock, _, _, b, _, _, c| BlocksNode.new(ConditionNode.new(a, prevBlock), ElseCondition.new(a, b, c)) }
+                match(:if, "^", :logicStmt, "^", ":", :blocks) { |_, _, b, _, _,c| ConditionNode.new(b, c) }
             end
 
-            rule :stmts do
-                match(":", :condition_followup) {|_,a| a}
-            end
+            # if
+            # elseif
+            # if
+            # elseif
+
+
+            # if
+            # elsif
+            # elsif
+            # elsif
+
+            # rule :condition do
+            #     match(:if, "^", :logicStmt, "^", :stmts) {|_, _, b, _,c| ConditionNode.new(b, c)}
+            # end
+
+            # rule :stmts do
+            #     match(":", :condition_followup) {|_,a| a}
+            # end
             
-            rule :condition_followup do
-                puts "inne i CF"
-                match(:blocks, :else, ":", :blocks, ";")              { |prevBlock, _, _, b, _| BlocksNode.new(prevBlock, ElseCondition.new(nil, b))}
-                match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) { |prevBlock, _, _, b, _, c| BlocksNode.new(prevBlock, ElseCondition.new(b, c)) }
-                match(:blocks, ";") do |a,_|
-                    return a
-                end
-            end
+            # rule :condition_followup do
+            #     puts "inne i CF"
+            #     match(:blocks, :else, ":", :blocks, ";")              { |prevBlock, _, _, b, _| BlocksNode.new(prevBlock, ElseCondition.new(nil, b))}
+            #     match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) { |prevBlock, _, _, b, _, c| BlocksNode.new(prevBlock, ElseCondition.new(b, c)) }
+            #     match(:blocks, ";") do |a,_|
+            #         return a
+            #     end
+            # end
 
             ## While-loop ##
             rule :while do
@@ -180,10 +197,10 @@ class Nyan
             rule :variable do
                 #Key words that are not variables
                 match(:integer) {}
-                match(:meow) {}
+                match(:meow)    {}
                 match(:whiloop) {}
-                match(:elseif) {}
-                match(:else) {}
+                match(:elseif)  {}
+                match(:else)    {}
                 #Otherwise
                 match(/[[:alpha:]\d_^\?]+/) {|a| VariableNode.new(a)}
             end

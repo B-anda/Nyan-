@@ -47,14 +47,18 @@ class ConditionNode
 end
 
 class ElseCondition
-   def initialize(condition, block)
-        @prevBlock = prevBlock
-        @condition = condition
-        @block
+   def initialize(ifCondition, elseCondition, block)
+        @ifCon = ifCondition
+        @elseCon = elseCondition
+        @block = block
    end
    
    def eval(*scope)
-        puts "#{@prevBlock } hellooo"
+        unless @ifCon.eval(scope[0])
+            if @elseCon.eval(scope[0])
+                return @block.eval(scope[0])
+            end
+        end
     
    end
 end
@@ -169,15 +173,17 @@ class WhileNode
     def initialize(condition, block)
         @condition = condition
         @block = block
+        @toReturn = nil
     end
     
     def eval(*scope)
         if @condition.eval(scope[0])
             scope[0].addScope(scope[0])
-            @block.eval(scope[0])
+            @toReturn = @block.eval(scope[0])
             scope[0].currToPrevScope()
             self.eval(scope[0])
         end
+        return @toReturn
     end
 
 end

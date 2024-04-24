@@ -1,143 +1,142 @@
 Loaded suite nyanTest/testParser
 Started
-inne i CF
-D, [2024-04-22T09:01:55.129669 #343705] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
-D, [2024-04-22T09:01:55.129727 #343705] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
-D, [2024-04-22T09:01:55.129742 #343705] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
-D, [2024-04-22T09:01:55.129771 #343705] DEBUG -- : Matched token 'integer' as part of rule 'datatype <= [:integer]'
-D, [2024-04-22T09:01:55.129790 #343705] DEBUG -- : ' ' matched 'datatype' and generated '#<DatatypeNode:0x000055cdd73afa48 @datatype=:integer>'
-D, [2024-04-22T09:01:55.129814 #343705] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d_^\?]+/]'
-D, [2024-04-22T09:01:55.129829 #343705] DEBUG -- : '^' matched 'variable' and generated '#<VariableNode:0x000055cdd73ae648 @var="x">'
-D, [2024-04-22T09:01:55.129844 #343705] DEBUG -- : Matched token '=' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
-D, [2024-04-22T09:01:55.129861 #343705] DEBUG -- : Matched token '10' as part of rule 'int <= [/\d+/]'
-D, [2024-04-22T09:01:55.129876 #343705] DEBUG -- : '^' matched 'int' and generated '#<ValueNode:0x000055cdd73ad428 @value=10>'
-D, [2024-04-22T09:01:55.129887 #343705] DEBUG -- : '^' matched 'value' and generated '#<ValueNode:0x000055cdd73ad428 @value=10>'
-D, [2024-04-22T09:01:55.129900 #343705] DEBUG -- : Matched token '~' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
-D, [2024-04-22T09:01:55.129921 #343705] DEBUG -- : ' ^3^ ' matched 'assignment' and generated '#<AssignmentNode:0x000055cdd73ac690 @datatype=#<DatatypeNode:0x000055cdd73afa48 @datatype=:integer>, @var=#<VariableNode:0x000055cdd73ae648 @var="x">, @value=#<ValueNode:0x000055cdd73ad428 @value=10>>'
-D, [2024-04-22T09:01:55.129958 #343705] DEBUG -- : ' ^3^ ' matched 'block' and generated '#<AssignmentNode:0x000055cdd73ac690 @datatype=#<DatatypeNode:0x000055cdd73afa48 @datatype=:integer>, @var=#<VariableNode:0x000055cdd73ae648 @var="x">, @value=#<ValueNode:0x000055cdd73ad428 @value=10>>'
-D, [2024-04-22T09:01:55.129976 #343705] DEBUG -- : ' ^3^ ' matched 'blocks' and generated '#<AssignmentNode:0x000055cdd73ac690 @datatype=#<DatatypeNode:0x000055cdd73afa48 @datatype=:integer>, @var=#<VariableNode:0x000055cdd73ae648 @var="x">, @value=#<ValueNode:0x000055cdd73ad428 @value=10>>'
-D, [2024-04-22T09:01:55.129993 #343705] DEBUG -- : Matched token 'if' as part of rule 'condition <= [:if, "^", :logicStmt, "^", :stmts]'
-D, [2024-04-22T09:01:55.130005 #343705] DEBUG -- : Matched token '^' as part of rule 'condition <= [:if, "^", :logicStmt, "^", :stmts]'
-D, [2024-04-22T09:01:55.130034 #343705] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
-D, [2024-04-22T09:01:55.130046 #343705] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055cdd73a5c00 @value="false">'
-D, [2024-04-22T09:01:55.130057 #343705] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055cdd73a5c00 @value="false">'
-D, [2024-04-22T09:01:55.130072 #343705] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055cdd73a55e8 @value=#<ValueNode:0x000055cdd73a5c00 @value="false">>'
-D, [2024-04-22T09:01:55.130102 #343705] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
-D, [2024-04-22T09:01:55.130115 #343705] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055cdd73a4828 @value="false">'
-D, [2024-04-22T09:01:55.130139 #343705] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055cdd73a4828 @value="false">'
-D, [2024-04-22T09:01:55.130152 #343705] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055cdd73679f0 @value=#<ValueNode:0x000055cdd73a4828 @value="false">>'
-D, [2024-04-22T09:01:55.130173 #343705] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
-D, [2024-04-22T09:01:55.130184 #343705] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055cdd7366988 @value="false">'
-D, [2024-04-22T09:01:55.130194 #343705] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055cdd7366988 @value="false">'
-D, [2024-04-22T09:01:55.130207 #343705] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055cdd7364bb0 @value=#<ValueNode:0x000055cdd7366988 @value="false">>'
-D, [2024-04-22T09:01:55.130228 #343705] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
-D, [2024-04-22T09:01:55.130259 #343705] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055cdd7364098 @value="false">'
-D, [2024-04-22T09:01:55.130270 #343705] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055cdd7364098 @value="false">'
-D, [2024-04-22T09:01:55.130283 #343705] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055cdd7353a40 @value=#<ValueNode:0x000055cdd7364098 @value="false">>'
-D, [2024-04-22T09:01:55.130304 #343705] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
-D, [2024-04-22T09:01:55.130314 #343705] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055cdd7352e10 @value="false">'
-D, [2024-04-22T09:01:55.130325 #343705] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055cdd7352e10 @value="false">'
-D, [2024-04-22T09:01:55.130337 #343705] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055cdd7352898 @value=#<ValueNode:0x000055cdd7352e10 @value="false">>'
-D, [2024-04-22T09:01:55.130357 #343705] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
-D, [2024-04-22T09:01:55.130368 #343705] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055cdd7351d80 @value="false">'
-D, [2024-04-22T09:01:55.130378 #343705] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055cdd7351d80 @value="false">'
-D, [2024-04-22T09:01:55.130391 #343705] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055cdd7351600 @value=#<ValueNode:0x000055cdd7351d80 @value="false">>'
-D, [2024-04-22T09:01:55.130411 #343705] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
-D, [2024-04-22T09:01:55.130433 #343705] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055cdd7343eb0 @value="false">'
-D, [2024-04-22T09:01:55.130443 #343705] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055cdd7343eb0 @value="false">'
-D, [2024-04-22T09:01:55.130456 #343705] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055cdd7343988 @value=#<ValueNode:0x000055cdd7343eb0 @value="false">>'
-D, [2024-04-22T09:01:55.130468 #343705] DEBUG -- : '=' matched 'valueComp' and generated '#<LogicExpr:0x000055cdd7343988 @value=#<ValueNode:0x000055cdd7343eb0 @value="false">>'
-D, [2024-04-22T09:01:55.130480 #343705] DEBUG -- : '=' matched 'logicStmt' and generated '#<LogicExpr:0x000055cdd7343988 @value=#<ValueNode:0x000055cdd7343eb0 @value="false">>'
-D, [2024-04-22T09:01:55.130500 #343705] DEBUG -- : Matched token '^' as part of rule 'condition <= [:if, "^", :logicStmt, "^", :stmts]'
-D, [2024-04-22T09:01:55.130512 #343705] DEBUG -- : Matched token ':' as part of rule 'stmts <= [":", :condition_followup]'
-D, [2024-04-22T09:01:55.130531 #343705] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
-D, [2024-04-22T09:01:55.130544 #343705] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
-D, [2024-04-22T09:01:55.130556 #343705] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
-D, [2024-04-22T09:01:55.130582 #343705] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :output, "^"]'
-D, [2024-04-22T09:01:55.130592 #343705] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
-D, [2024-04-22T09:01:55.130631 #343705] DEBUG -- : Matched token '"world"' as part of rule 'str <= [/".+"/]'
-D, [2024-04-22T09:01:55.130643 #343705] DEBUG -- : '
-' matched 'str' and generated '#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">'
-D, [2024-04-22T09:01:55.130654 #343705] DEBUG -- : '
-' matched 'value' and generated '#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">'
-D, [2024-04-22T09:01:55.130665 #343705] DEBUG -- : '
-' matched 'output' and generated '#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">'
-D, [2024-04-22T09:01:55.130709 #343705] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
-D, [2024-04-22T09:01:55.130732 #343705] DEBUG -- : '0~
- ' matched 'print' and generated '#<PrintNode:0x000055cdd72fdb90 @value=#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">>'
-D, [2024-04-22T09:01:55.130746 #343705] DEBUG -- : '0~
- ' matched 'block' and generated '#<PrintNode:0x000055cdd72fdb90 @value=#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">>'
-D, [2024-04-22T09:01:55.130759 #343705] DEBUG -- : '0~
- ' matched 'blocks' and generated '#<PrintNode:0x000055cdd72fdb90 @value=#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">>'
-D, [2024-04-22T09:01:55.130790 #343705] DEBUG -- : Matched token 'else' as part of rule 'variable <= [:else]'
-D, [2024-04-22T09:01:55.130816 #343705] DEBUG -- : Matched token 'else' as part of rule 'variable <= [:else]'
-D, [2024-04-22T09:01:55.130831 #343705] DEBUG -- : Matched token 'else' as part of rule 'variable <= [:else]'
-D, [2024-04-22T09:01:55.130884 #343705] DEBUG -- : Matched token 'else' as part of rule 'variable <= [:else]'
-D, [2024-04-22T09:01:55.130901 #343705] DEBUG -- : Matched token 'else' as part of rule 'condition_followup <= [:blocks, :else, ":", :blocks, ";"]'
-D, [2024-04-22T09:01:55.130913 #343705] DEBUG -- : Matched token ':' as part of rule 'condition_followup <= [:blocks, :else, ":", :blocks, ";"]'
-D, [2024-04-22T09:01:55.130938 #343705] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d_^\?]+/]'
-D, [2024-04-22T09:01:55.130949 #343705] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x000055cdd704deb8 @var="x">'
-D, [2024-04-22T09:01:55.130968 #343705] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d_^\?]+/]'
-D, [2024-04-22T09:01:55.130979 #343705] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x000055cdd704d328 @var="x">'
-D, [2024-04-22T09:01:55.131004 #343705] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d_^\?]+/]'
-D, [2024-04-22T09:01:55.131014 #343705] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x000055cdd737bae0 @var="x">'
-D, [2024-04-22T09:01:55.131026 #343705] DEBUG -- : Matched token '=' as part of rule 'reassignment <= [:variable, "=", :value, "~"]'
-D, [2024-04-22T09:01:55.131040 #343705] DEBUG -- : Matched token '2' as part of rule 'int <= [/\d+/]'
-D, [2024-04-22T09:01:55.131052 #343705] DEBUG -- : ' ' matched 'int' and generated '#<ValueNode:0x000055cdd737a870 @value=2>'
-D, [2024-04-22T09:01:55.131062 #343705] DEBUG -- : ' ' matched 'value' and generated '#<ValueNode:0x000055cdd737a870 @value=2>'
-D, [2024-04-22T09:01:55.131074 #343705] DEBUG -- : Matched token '~' as part of rule 'reassignment <= [:variable, "=", :value, "~"]'
-D, [2024-04-22T09:01:55.131092 #343705] DEBUG -- : '    ' matched 'reassignment' and generated '#<ReassignmentNode:0x000055cdd7379c68 @name=#<VariableNode:0x000055cdd737bae0 @var="x">, @operator="=", @value=#<ValueNode:0x000055cdd737a870 @value=2>>'
-D, [2024-04-22T09:01:55.131108 #343705] DEBUG -- : '    ' matched 'block' and generated '#<ReassignmentNode:0x000055cdd7379c68 @name=#<VariableNode:0x000055cdd737bae0 @var="x">, @operator="=", @value=#<ValueNode:0x000055cdd737a870 @value=2>>'
-D, [2024-04-22T09:01:55.131124 #343705] DEBUG -- : '    ' matched 'blocks' and generated '#<ReassignmentNode:0x000055cdd7379c68 @name=#<VariableNode:0x000055cdd737bae0 @var="x">, @operator="=", @value=#<ValueNode:0x000055cdd737a870 @value=2>>'
-D, [2024-04-22T09:01:55.131151 #343705] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
-D, [2024-04-22T09:01:55.131163 #343705] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
-D, [2024-04-22T09:01:55.131175 #343705] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
-D, [2024-04-22T09:01:55.131199 #343705] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :output, "^"]'
-D, [2024-04-22T09:01:55.131210 #343705] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
-D, [2024-04-22T09:01:55.131233 #343705] DEBUG -- : Matched token '"hello"' as part of rule 'str <= [/".+"/]'
-D, [2024-04-22T09:01:55.131245 #343705] DEBUG -- : 'n' matched 'str' and generated '#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">'
-D, [2024-04-22T09:01:55.131256 #343705] DEBUG -- : 'n' matched 'value' and generated '#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">'
-D, [2024-04-22T09:01:55.131267 #343705] DEBUG -- : 'n' matched 'output' and generated '#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">'
-D, [2024-04-22T09:01:55.131294 #343705] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
-D, [2024-04-22T09:01:55.131307 #343705] DEBUG -- : ' ?ny' matched 'print' and generated '#<PrintNode:0x000055cdd7333c90 @value=#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">>'
-D, [2024-04-22T09:01:55.131319 #343705] DEBUG -- : ' ?ny' matched 'block' and generated '#<PrintNode:0x000055cdd7333c90 @value=#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">>'
-D, [2024-04-22T09:01:55.131344 #343705] DEBUG -- : ' ?ny' matched 'blocks' and generated '#<BlocksNode:0x000055cdd73335b0 @toEval=#<ReassignmentNode:0x000055cdd7379c68 @name=#<VariableNode:0x000055cdd737bae0 @var="x">, @operator="=", @value=#<ValueNode:0x000055cdd737a870 @value=2>>, @nextBlock=#<PrintNode:0x000055cdd7333c90 @value=#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">>>'
-D, [2024-04-22T09:01:55.131428 #343705] DEBUG -- : Matched token ';' as part of rule 'condition_followup <= [:blocks, :else, ":", :blocks, ";"]'
-D, [2024-04-22T09:01:55.131467 #343705] DEBUG -- : '0~
-        ?nya' matched 'condition_followup' and generated '#<BlocksNode:0x000055cdd7330680 @toEval=#<PrintNode:0x000055cdd72fdb90 @value=#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">>, @nextBlock=#<ConditionNode:0x000055cdd73306a8 @condition=#<ValueNode:0x000055cdd73306d0 @value=true>, @block=#<BlocksNode:0x000055cdd73335b0 @toEval=#<ReassignmentNode:0x000055cdd7379c68 @name=#<VariableNode:0x000055cdd737bae0 @var="x">, @operator="=", @value=#<ValueNode:0x000055cdd737a870 @value=2>>, @nextBlock=#<PrintNode:0x000055cdd7333c90 @value=#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">>>>>'
-D, [2024-04-22T09:01:55.131515 #343705] DEBUG -- : '10~
-        ?nya' matched 'stmts' and generated '#<BlocksNode:0x000055cdd7330680 @toEval=#<PrintNode:0x000055cdd72fdb90 @value=#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">>, @nextBlock=#<ConditionNode:0x000055cdd73306a8 @condition=#<ValueNode:0x000055cdd73306d0 @value=true>, @block=#<BlocksNode:0x000055cdd73335b0 @toEval=#<ReassignmentNode:0x000055cdd7379c68 @name=#<VariableNode:0x000055cdd737bae0 @var="x">, @operator="=", @value=#<ValueNode:0x000055cdd737a870 @value=2>>, @nextBlock=#<PrintNode:0x000055cdd7333c90 @value=#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">>>>>'
-D, [2024-04-22T09:01:55.131557 #343705] DEBUG -- : 'x = 10~
-        ?nya' matched 'condition' and generated '#<ConditionNode:0x000055cdd730b628 @condition=#<LogicExpr:0x000055cdd7343988 @value=#<ValueNode:0x000055cdd7343eb0 @value="false">>, @block=#<BlocksNode:0x000055cdd7330680 @toEval=#<PrintNode:0x000055cdd72fdb90 @value=#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">>, @nextBlock=#<ConditionNode:0x000055cdd73306a8 @condition=#<ValueNode:0x000055cdd73306d0 @value=true>, @block=#<BlocksNode:0x000055cdd73335b0 @toEval=#<ReassignmentNode:0x000055cdd7379c68 @name=#<VariableNode:0x000055cdd737bae0 @var="x">, @operator="=", @value=#<ValueNode:0x000055cdd737a870 @value=2>>, @nextBlock=#<PrintNode:0x000055cdd7333c90 @value=#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">>>>>>'
-D, [2024-04-22T09:01:55.131597 #343705] DEBUG -- : 'x = 10~
-        ?nya' matched 'block' and generated '#<ConditionNode:0x000055cdd730b628 @condition=#<LogicExpr:0x000055cdd7343988 @value=#<ValueNode:0x000055cdd7343eb0 @value="false">>, @block=#<BlocksNode:0x000055cdd7330680 @toEval=#<PrintNode:0x000055cdd72fdb90 @value=#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">>, @nextBlock=#<ConditionNode:0x000055cdd73306a8 @condition=#<ValueNode:0x000055cdd73306d0 @value=true>, @block=#<BlocksNode:0x000055cdd73335b0 @toEval=#<ReassignmentNode:0x000055cdd7379c68 @name=#<VariableNode:0x000055cdd737bae0 @var="x">, @operator="=", @value=#<ValueNode:0x000055cdd737a870 @value=2>>, @nextBlock=#<PrintNode:0x000055cdd7333c90 @value=#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">>>>>>'
-D, [2024-04-22T09:01:55.131664 #343705] DEBUG -- : 'x = 10~
-        ?nya' matched 'blocks' and generated '#<BlocksNode:0x000055cdd730a4d0 @toEval=#<AssignmentNode:0x000055cdd73ac690 @datatype=#<DatatypeNode:0x000055cdd73afa48 @datatype=:integer>, @var=#<VariableNode:0x000055cdd73ae648 @var="x">, @value=#<ValueNode:0x000055cdd73ad428 @value=10>>, @nextBlock=#<ConditionNode:0x000055cdd730b628 @condition=#<LogicExpr:0x000055cdd7343988 @value=#<ValueNode:0x000055cdd7343eb0 @value="false">>, @block=#<BlocksNode:0x000055cdd7330680 @toEval=#<PrintNode:0x000055cdd72fdb90 @value=#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">>, @nextBlock=#<ConditionNode:0x000055cdd73306a8 @condition=#<ValueNode:0x000055cdd73306d0 @value=true>, @block=#<BlocksNode:0x000055cdd73335b0 @toEval=#<ReassignmentNode:0x000055cdd7379c68 @name=#<VariableNode:0x000055cdd737bae0 @var="x">, @operator="=", @value=#<ValueNode:0x000055cdd737a870 @value=2>>, @nextBlock=#<PrintNode:0x000055cdd7333c90 @value=#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">>>>>>>'
-D, [2024-04-22T09:01:55.131818 #343705] DEBUG -- : ' ^3^ x = 10~
-        ?nya' matched 'component' and generated '#<ProgramNode:0x000055cdd7252268 @nextNode=#<BlocksNode:0x000055cdd730a4d0 @toEval=#<AssignmentNode:0x000055cdd73ac690 @datatype=#<DatatypeNode:0x000055cdd73afa48 @datatype=:integer>, @var=#<VariableNode:0x000055cdd73ae648 @var="x">, @value=#<ValueNode:0x000055cdd73ad428 @value=10>>, @nextBlock=#<ConditionNode:0x000055cdd730b628 @condition=#<LogicExpr:0x000055cdd7343988 @value=#<ValueNode:0x000055cdd7343eb0 @value="false">>, @block=#<BlocksNode:0x000055cdd7330680 @toEval=#<PrintNode:0x000055cdd72fdb90 @value=#<ValueNode:0x000055cdd72fe8d8 @value="\"world\"">>, @nextBlock=#<ConditionNode:0x000055cdd73306a8 @condition=#<ValueNode:0x000055cdd73306d0 @value=true>, @block=#<BlocksNode:0x000055cdd73335b0 @toEval=#<ReassignmentNode:0x000055cdd7379c68 @name=#<VariableNode:0x000055cdd737bae0 @var="x">, @operator="=", @value=#<ValueNode:0x000055cdd737a870 @value=2>>, @nextBlock=#<PrintNode:0x000055cdd7333c90 @value=#<ValueNode:0x000055cdd733ccf0 @value="\"hello\"">>>>>>>>'
-
-F
+D, [2024-04-24T09:31:54.079974 #432334] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-04-24T09:31:54.080068 #432334] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-04-24T09:31:54.080104 #432334] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-04-24T09:31:54.080149 #432334] DEBUG -- : Matched token 'integer' as part of rule 'datatype <= [:integer]'
+D, [2024-04-24T09:31:54.080196 #432334] DEBUG -- : ' ' matched 'datatype' and generated '#<DatatypeNode:0x000055b799e3d298 @datatype=:integer>'
+D, [2024-04-24T09:31:54.080271 #432334] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d_^\?]+/]'
+D, [2024-04-24T09:31:54.080308 #432334] DEBUG -- : '^' matched 'variable' and generated '#<VariableNode:0x000055b799e3c960 @var="x">'
+D, [2024-04-24T09:31:54.080345 #432334] DEBUG -- : Matched token '=' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-04-24T09:31:54.080439 #432334] DEBUG -- : Matched token '10' as part of rule 'int <= [/\d+/]'
+D, [2024-04-24T09:31:54.080474 #432334] DEBUG -- : '^' matched 'int' and generated '#<ValueNode:0x000055b799e3bdf8 @value=10>'
+D, [2024-04-24T09:31:54.080505 #432334] DEBUG -- : '^' matched 'value' and generated '#<ValueNode:0x000055b799e3bdf8 @value=10>'
+D, [2024-04-24T09:31:54.080537 #432334] DEBUG -- : Matched token '~' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-04-24T09:31:54.080589 #432334] DEBUG -- : ' ^3^ ' matched 'assignment' and generated '#<AssignmentNode:0x000055b799e3b088 @datatype=#<DatatypeNode:0x000055b799e3d298 @datatype=:integer>, @var=#<VariableNode:0x000055b799e3c960 @var="x">, @value=#<ValueNode:0x000055b799e3bdf8 @value=10>>'
+D, [2024-04-24T09:31:54.080638 #432334] DEBUG -- : ' ^3^ ' matched 'block' and generated '#<AssignmentNode:0x000055b799e3b088 @datatype=#<DatatypeNode:0x000055b799e3d298 @datatype=:integer>, @var=#<VariableNode:0x000055b799e3c960 @var="x">, @value=#<ValueNode:0x000055b799e3bdf8 @value=10>>'
+D, [2024-04-24T09:31:54.080682 #432334] DEBUG -- : ' ^3^ ' matched 'blocks' and generated '#<AssignmentNode:0x000055b799e3b088 @datatype=#<DatatypeNode:0x000055b799e3d298 @datatype=:integer>, @var=#<VariableNode:0x000055b799e3c960 @var="x">, @value=#<ValueNode:0x000055b799e3bdf8 @value=10>>'
+D, [2024-04-24T09:31:54.080731 #432334] DEBUG -- : Matched token 'if' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, :else, ":", :blocks]'
+D, [2024-04-24T09:31:54.080763 #432334] DEBUG -- : Matched token '^' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, :else, ":", :blocks]'
+D, [2024-04-24T09:31:54.080835 #432334] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
+D, [2024-04-24T09:31:54.080865 #432334] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055b799e38d10 @value="false">'
+D, [2024-04-24T09:31:54.080894 #432334] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055b799e38d10 @value="false">'
+D, [2024-04-24T09:31:54.080931 #432334] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055b799e386d0 @value=#<ValueNode:0x000055b799e38d10 @value="false">>'
+D, [2024-04-24T09:31:54.081044 #432334] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
+D, [2024-04-24T09:31:54.081074 #432334] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055b799e37a28 @value="false">'
+D, [2024-04-24T09:31:54.081101 #432334] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055b799e37a28 @value="false">'
+D, [2024-04-24T09:31:54.081135 #432334] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055b799e37488 @value=#<ValueNode:0x000055b799e37a28 @value="false">>'
+D, [2024-04-24T09:31:54.081186 #432334] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
+D, [2024-04-24T09:31:54.081212 #432334] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055b799e368a8 @value="false">'
+D, [2024-04-24T09:31:54.081239 #432334] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055b799e368a8 @value="false">'
+D, [2024-04-24T09:31:54.081272 #432334] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055b799e352c8 @value=#<ValueNode:0x000055b799e368a8 @value="false">>'
+D, [2024-04-24T09:31:54.081325 #432334] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
+D, [2024-04-24T09:31:54.081353 #432334] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055b799e34620 @value="false">'
+D, [2024-04-24T09:31:54.081425 #432334] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055b799e34620 @value="false">'
+D, [2024-04-24T09:31:54.081462 #432334] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055b799dffd30 @value=#<ValueNode:0x000055b799e34620 @value="false">>'
+D, [2024-04-24T09:31:54.081515 #432334] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
+D, [2024-04-24T09:31:54.081542 #432334] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055b799dfedb8 @value="false">'
+D, [2024-04-24T09:31:54.081569 #432334] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055b799dfedb8 @value="false">'
+D, [2024-04-24T09:31:54.081601 #432334] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055b799dfe7a0 @value=#<ValueNode:0x000055b799dfedb8 @value="false">>'
+D, [2024-04-24T09:31:54.081652 #432334] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
+D, [2024-04-24T09:31:54.081678 #432334] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055b799dfd5a8 @value="false">'
+D, [2024-04-24T09:31:54.081705 #432334] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055b799dfd5a8 @value="false">'
+D, [2024-04-24T09:31:54.081736 #432334] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055b799dfcf40 @value=#<ValueNode:0x000055b799dfd5a8 @value="false">>'
+D, [2024-04-24T09:31:54.081816 #432334] DEBUG -- : Matched token 'false' as part of rule 'bool <= ["false"]'
+D, [2024-04-24T09:31:54.081842 #432334] DEBUG -- : '=' matched 'bool' and generated '#<ValueNode:0x000055b799e26868 @value="false">'
+D, [2024-04-24T09:31:54.081870 #432334] DEBUG -- : '=' matched 'value' and generated '#<ValueNode:0x000055b799e26868 @value="false">'
+D, [2024-04-24T09:31:54.081902 #432334] DEBUG -- : '=' matched 'logicExpr' and generated '#<LogicExpr:0x000055b799e25ff8 @value=#<ValueNode:0x000055b799e26868 @value="false">>'
+D, [2024-04-24T09:31:54.081933 #432334] DEBUG -- : '=' matched 'valueComp' and generated '#<LogicExpr:0x000055b799e25ff8 @value=#<ValueNode:0x000055b799e26868 @value="false">>'
+D, [2024-04-24T09:31:54.082001 #432334] DEBUG -- : '=' matched 'logicStmt' and generated '#<LogicExpr:0x000055b799e25ff8 @value=#<ValueNode:0x000055b799e26868 @value="false">>'
+D, [2024-04-24T09:31:54.082057 #432334] DEBUG -- : Matched token '^' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, :else, ":", :blocks]'
+D, [2024-04-24T09:31:54.082088 #432334] DEBUG -- : Matched token ':' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, :else, ":", :blocks]'
+D, [2024-04-24T09:31:54.082142 #432334] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-04-24T09:31:54.082230 #432334] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-04-24T09:31:54.082260 #432334] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-04-24T09:31:54.082322 #432334] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-04-24T09:31:54.082350 #432334] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-04-24T09:31:54.082409 #432334] DEBUG -- : Matched token '"world"' as part of rule 'str <= [/".+"/]'
+D, [2024-04-24T09:31:54.082440 #432334] DEBUG -- : '
+' matched 'str' and generated '#<ValueNode:0x000055b799e0d9f8 @value="\"world\"">'
+D, [2024-04-24T09:31:54.082469 #432334] DEBUG -- : '
+' matched 'value' and generated '#<ValueNode:0x000055b799e0d9f8 @value="\"world\"">'
+D, [2024-04-24T09:31:54.082558 #432334] DEBUG -- : '
+' matched 'output' and generated '#<ValueNode:0x000055b799e0d9f8 @value="\"world\"">'
+D, [2024-04-24T09:31:54.082590 #432334] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-04-24T09:31:54.082672 #432334] DEBUG -- : '0~
+ ' matched 'print' and generated '#<PrintNode:0x000055b799e0c210 @value=#<ValueNode:0x000055b799e0d9f8 @value="\"world\"">>'
+D, [2024-04-24T09:31:54.082706 #432334] DEBUG -- : '0~
+ ' matched 'block' and generated '#<PrintNode:0x000055b799e0c210 @value=#<ValueNode:0x000055b799e0d9f8 @value="\"world\"">>'
+D, [2024-04-24T09:31:54.082738 #432334] DEBUG -- : '0~
+ ' matched 'blocks' and generated '#<PrintNode:0x000055b799e0c210 @value=#<ValueNode:0x000055b799e0d9f8 @value="\"world\"">>'
+D, [2024-04-24T09:31:54.082802 #432334] DEBUG -- : Matched token 'else' as part of rule 'variable <= [:else]'
+D, [2024-04-24T09:31:54.082843 #432334] DEBUG -- : Matched token 'else' as part of rule 'variable <= [:else]'
+D, [2024-04-24T09:31:54.082882 #432334] DEBUG -- : Matched token 'else' as part of rule 'variable <= [:else]'
+D, [2024-04-24T09:31:54.082981 #432334] DEBUG -- : Matched token 'else' as part of rule 'variable <= [:else]'
+D, [2024-04-24T09:31:54.083045 #432334] DEBUG -- : Matched token 'else' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, :else, ":", :blocks]'
+D, [2024-04-24T09:31:54.083114 #432334] DEBUG -- : Matched token ':' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, :else, ":", :blocks]'
+D, [2024-04-24T09:31:54.083182 #432334] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d_^\?]+/]'
+D, [2024-04-24T09:31:54.083213 #432334] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x000055b799dded60 @var="x">'
+D, [2024-04-24T09:31:54.083260 #432334] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d_^\?]+/]'
+D, [2024-04-24T09:31:54.083287 #432334] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x000055b799dddcf8 @var="x">'
+D, [2024-04-24T09:31:54.083332 #432334] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d_^\?]+/]'
+D, [2024-04-24T09:31:54.083359 #432334] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x000055b799ddd168 @var="x">'
+D, [2024-04-24T09:31:54.083388 #432334] DEBUG -- : Matched token '=' as part of rule 'reassignment <= [:variable, "=", :value, "~"]'
+D, [2024-04-24T09:31:54.083426 #432334] DEBUG -- : Matched token '2' as part of rule 'int <= [/\d+/]'
+D, [2024-04-24T09:31:54.083455 #432334] DEBUG -- : ' ' matched 'int' and generated '#<ValueNode:0x000055b799ddc240 @value=2>'
+D, [2024-04-24T09:31:54.083538 #432334] DEBUG -- : ' ' matched 'value' and generated '#<ValueNode:0x000055b799ddc240 @value=2>'
+D, [2024-04-24T09:31:54.083567 #432334] DEBUG -- : Matched token '~' as part of rule 'reassignment <= [:variable, "=", :value, "~"]'
+D, [2024-04-24T09:31:54.083614 #432334] DEBUG -- : '    ' matched 'reassignment' and generated '#<ReassignmentNode:0x000055b799dd55a8 @name=#<VariableNode:0x000055b799ddd168 @var="x">, @operator="=", @value=#<ValueNode:0x000055b799ddc240 @value=2>>'
+D, [2024-04-24T09:31:54.083654 #432334] DEBUG -- : '    ' matched 'block' and generated '#<ReassignmentNode:0x000055b799dd55a8 @name=#<VariableNode:0x000055b799ddd168 @var="x">, @operator="=", @value=#<ValueNode:0x000055b799ddc240 @value=2>>'
+D, [2024-04-24T09:31:54.083694 #432334] DEBUG -- : '    ' matched 'blocks' and generated '#<ReassignmentNode:0x000055b799dd55a8 @name=#<VariableNode:0x000055b799ddd168 @var="x">, @operator="=", @value=#<ValueNode:0x000055b799ddc240 @value=2>>'
+D, [2024-04-24T09:31:54.083777 #432334] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-04-24T09:31:54.083810 #432334] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-04-24T09:31:54.083840 #432334] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-04-24T09:31:54.083900 #432334] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-04-24T09:31:54.083927 #432334] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-04-24T09:31:54.083998 #432334] DEBUG -- : Matched token '"hello"' as part of rule 'str <= [/".+"/]'
+D, [2024-04-24T09:31:54.084028 #432334] DEBUG -- : 'n' matched 'str' and generated '#<ValueNode:0x000055b799dd12a0 @value="\"hello\"">'
+D, [2024-04-24T09:31:54.084057 #432334] DEBUG -- : 'n' matched 'value' and generated '#<ValueNode:0x000055b799dd12a0 @value="\"hello\"">'
+D, [2024-04-24T09:31:54.084102 #432334] DEBUG -- : 'n' matched 'output' and generated '#<ValueNode:0x000055b799dd12a0 @value="\"hello\"">'
+D, [2024-04-24T09:31:54.084131 #432334] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-04-24T09:31:54.084163 #432334] DEBUG -- : ' ?ny' matched 'print' and generated '#<PrintNode:0x000055b799dd05d0 @value=#<ValueNode:0x000055b799dd12a0 @value="\"hello\"">>'
+D, [2024-04-24T09:31:54.084194 #432334] DEBUG -- : ' ?ny' matched 'block' and generated '#<PrintNode:0x000055b799dd05d0 @value=#<ValueNode:0x000055b799dd12a0 @value="\"hello\"">>'
+D, [2024-04-24T09:31:54.084274 #432334] DEBUG -- : ' ?ny' matched 'blocks' and generated '#<BlocksNode:0x000055b799d97e10 @toEval=#<ReassignmentNode:0x000055b799dd55a8 @name=#<VariableNode:0x000055b799ddd168 @var="x">, @operator="=", @value=#<ValueNode:0x000055b799ddc240 @value=2>>, @nextBlock=#<PrintNode:0x000055b799dd05d0 @value=#<ValueNode:0x000055b799dd12a0 @value="\"hello\"">>>'
+D, [2024-04-24T09:31:54.084619 #432334] DEBUG -- : 'x = 10~
+        ?ny' matched 'condition' and generated '#<BlocksNode:0x000055b799d94418 @toEval=#<ConditionNode:0x000055b799d94490 @condition=#<LogicExpr:0x000055b799e25ff8 @value=#<ValueNode:0x000055b799e26868 @value="false">>, @block=#<PrintNode:0x000055b799e0c210 @value=#<ValueNode:0x000055b799e0d9f8 @value="\"world\"">>>, @nextBlock=#<ElseCondition:0x000055b799d94440 @ifCon=#<LogicExpr:0x000055b799e25ff8 @value=#<ValueNode:0x000055b799e26868 @value="false">>, @elseCon=nil, @block=#<BlocksNode:0x000055b799d97e10 @toEval=#<ReassignmentNode:0x000055b799dd55a8 @name=#<VariableNode:0x000055b799ddd168 @var="x">, @operator="=", @value=#<ValueNode:0x000055b799ddc240 @value=2>>, @nextBlock=#<PrintNode:0x000055b799dd05d0 @value=#<ValueNode:0x000055b799dd12a0 @value="\"hello\"">>>>>'
+D, [2024-04-24T09:31:54.084654 #432334] DEBUG -- : Matched token ';' as part of rule 'block <= [:condition, ";"]'
+D, [2024-04-24T09:31:54.084761 #432334] DEBUG -- : 'x = 10~
+        ?nya' matched 'block' and generated '#<BlocksNode:0x000055b799d94418 @toEval=#<ConditionNode:0x000055b799d94490 @condition=#<LogicExpr:0x000055b799e25ff8 @value=#<ValueNode:0x000055b799e26868 @value="false">>, @block=#<PrintNode:0x000055b799e0c210 @value=#<ValueNode:0x000055b799e0d9f8 @value="\"world\"">>>, @nextBlock=#<ElseCondition:0x000055b799d94440 @ifCon=#<LogicExpr:0x000055b799e25ff8 @value=#<ValueNode:0x000055b799e26868 @value="false">>, @elseCon=nil, @block=#<BlocksNode:0x000055b799d97e10 @toEval=#<ReassignmentNode:0x000055b799dd55a8 @name=#<VariableNode:0x000055b799ddd168 @var="x">, @operator="=", @value=#<ValueNode:0x000055b799ddc240 @value=2>>, @nextBlock=#<PrintNode:0x000055b799dd05d0 @value=#<ValueNode:0x000055b799dd12a0 @value="\"hello\"">>>>>'
+D, [2024-04-24T09:31:54.084900 #432334] DEBUG -- : 'x = 10~
+        ?nya' matched 'blocks' and generated '#<BlocksNode:0x000055b799d86ac0 @toEval=#<AssignmentNode:0x000055b799e3b088 @datatype=#<DatatypeNode:0x000055b799e3d298 @datatype=:integer>, @var=#<VariableNode:0x000055b799e3c960 @var="x">, @value=#<ValueNode:0x000055b799e3bdf8 @value=10>>, @nextBlock=#<BlocksNode:0x000055b799d94418 @toEval=#<ConditionNode:0x000055b799d94490 @condition=#<LogicExpr:0x000055b799e25ff8 @value=#<ValueNode:0x000055b799e26868 @value="false">>, @block=#<PrintNode:0x000055b799e0c210 @value=#<ValueNode:0x000055b799e0d9f8 @value="\"world\"">>>, @nextBlock=#<ElseCondition:0x000055b799d94440 @ifCon=#<LogicExpr:0x000055b799e25ff8 @value=#<ValueNode:0x000055b799e26868 @value="false">>, @elseCon=nil, @block=#<BlocksNode:0x000055b799d97e10 @toEval=#<ReassignmentNode:0x000055b799dd55a8 @name=#<VariableNode:0x000055b799ddd168 @var="x">, @operator="=", @value=#<ValueNode:0x000055b799ddc240 @value=2>>, @nextBlock=#<PrintNode:0x000055b799dd05d0 @value=#<ValueNode:0x000055b799dd12a0 @value="\"hello\"">>>>>>'
+D, [2024-04-24T09:31:54.085333 #432334] DEBUG -- : ' ^3^ x = 10~
+        ?nya' matched 'component' and generated '#<ProgramNode:0x000055b799d6abe0 @nextNode=#<BlocksNode:0x000055b799d86ac0 @toEval=#<AssignmentNode:0x000055b799e3b088 @datatype=#<DatatypeNode:0x000055b799e3d298 @datatype=:integer>, @var=#<VariableNode:0x000055b799e3c960 @var="x">, @value=#<ValueNode:0x000055b799e3bdf8 @value=10>>, @nextBlock=#<BlocksNode:0x000055b799d94418 @toEval=#<ConditionNode:0x000055b799d94490 @condition=#<LogicExpr:0x000055b799e25ff8 @value=#<ValueNode:0x000055b799e26868 @value="false">>, @block=#<PrintNode:0x000055b799e0c210 @value=#<ValueNode:0x000055b799e0d9f8 @value="\"world\"">>>, @nextBlock=#<ElseCondition:0x000055b799d94440 @ifCon=#<LogicExpr:0x000055b799e25ff8 @value=#<ValueNode:0x000055b799e26868 @value="false">>, @elseCon=nil, @block=#<BlocksNode:0x000055b799d97e10 @toEval=#<ReassignmentNode:0x000055b799dd55a8 @name=#<VariableNode:0x000055b799ddd168 @var="x">, @operator="=", @value=#<ValueNode:0x000055b799ddc240 @value=2>>, @nextBlock=#<PrintNode:0x000055b799dd05d0 @value=#<ValueNode:0x000055b799dd12a0 @value="\"hello\"">>>>>>>'
+ifCon: false
+E
 ===============================================================================
-Failure: test_complex_nested_conditions(Test_ParsingAndEvaluation)
-nyanTest/testParser.rb:58:in `test_complex_nested_conditions'
-     55:         puts program
-     56:         # ?nya? ^false^: meow ^"world"^ ?nye?: meow ^"hello"^ :3
-     57:         
-  => 58:       assert_equal("hello", program)
-     59: 
-     60:       # assert_nothing_raised do 
-     61:       #   nyan.nyanParser.parse(program)
-<"hello"> expected but was
-<nil>
-
-diff:
-? "hello"
-? ni     
+Error: test_complex_nested_conditions(Test_ParsingAndEvaluation): NoMethodError: private method `eval' called for nil:NilClass
+/home/julma873/tdp019/condition.rb:58:in `eval'
+/home/julma873/tdp019/syntaxtree.rb:36:in `eval'
+/home/julma873/tdp019/syntaxtree.rb:36:in `eval'
+/home/julma873/tdp019/syntaxtree.rb:18:in `evaluate'
+/home/julma873/tdp019/parser.rb:53:in `block (3 levels) in initialize'
+/home/julma873/tdp019/rdparse.rb:105:in `block in try_matches'
+/home/julma873/tdp019/rdparse.rb:69:in `each'
+/home/julma873/tdp019/rdparse.rb:69:in `try_matches'
+/home/julma873/tdp019/rdparse.rb:53:in `parse'
+/home/julma873/tdp019/rdparse.rb:176:in `parse'
+nyanTest/testParser.rb:46:in `test_complex_nested_conditions'
+     43:       # :3')
+     44:       # assert_equal("world", program1)
+     45: 
+  => 46:       program = nyan.nyanParser.parse(
+     47:     
+     48:       ' ^3^ x = 10~
+     49:         ?nya? ^false^:
 ===============================================================================
 
-Finished in 0.010813396 seconds.
+Finished in 0.013425798 seconds.
 -------------------------------------------------------------------------------
-1 tests, 1 assertions, 1 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+1 tests, 0 assertions, 0 failures, 1 errors, 0 pendings, 0 omissions, 0 notifications
 0% passed
 -------------------------------------------------------------------------------
-92.48 tests/s, 92.48 assertions/s
+74.48 tests/s, 0.00 assertions/s
