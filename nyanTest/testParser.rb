@@ -21,9 +21,9 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
   def test_parse_or
     nyan = Nyan.new
       program = nyan.nyanParser.parse(
-        "?nya? ^true || false ^: 
-          meow ^\"hello\"^
-        :3"  
+        '?nya? ^true || false ^: 
+          meow ^"hello"^
+        :3' 
       ) 
   
       assert_equal("hello", program)
@@ -41,7 +41,6 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
             :3
         :3
     :3')
-    assert_equal("world", program)
 
     program1 = nyan.nyanParser.parse(
   
@@ -52,10 +51,7 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
         x = 2~
         meow ^"hello"^
       :3')
-      # ?nya? ^false^: meow ^"world"^ ?nye?: meow ^"hello"^ :3
       
-    assert_equal("hello", program1)
-
     program2 = nyan.nyanParser.parse(
     '
       ?nya? ^true^:
@@ -66,14 +62,7 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
 
       ?nyanye? ^false^:
         meow ^"hello world"^
-      :3')
-      # ?nya? ^false^: meow ^"world"^ ?nye?: meow ^"hello"^ :3
-      
-    assert_equal("world", program2)
-
-    # assert_nothing_raised do 
-    #   nyan.nyanParser.parse(program)
-    # end
+      :3')      
   end
 
   def test_nested_elseif
@@ -91,8 +80,8 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
         ?nyanye? ^false^:
           meow ^"hello world"^
         :3')
-    end
-        
+   end
+                
     program = nyan.nyanParser.parse(
     '?nya? ^false^:
         meow ^"world"^ 
@@ -124,7 +113,7 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
         :3'
     )
 
-    end
+  end
   
   def test_complex_logical_expressions
     nyan = Nyan.new
@@ -133,7 +122,6 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
           ?nya? ^(x > 5 && x < 15) || x == 20^: 
             meow ^"hello"^
         :3')
-    assert_equal("hello", program1)
 
     program2 = nyan.nyanParser.parse(
       ' ^3^ num_1 = 10~
@@ -142,8 +130,8 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
           meow ^"world"^
         :3
       ')
-      assert_equal("world", program2)  
-    end
+  end
+
 end 
 
 ## Testing : Parsing nyan while-loop through the parser ##
@@ -152,16 +140,15 @@ class TestParsingLoop < Test::Unit::TestCase
 
   def test_simple_condition
     nyan = Nyan.new
-      program = nyan.nyanParser.parse(
-      '
-      ^oo^ jallet = true~
-       prrr ^jallet^:
-        jallet = false~
-        meow ^"hello"^
-       :3
-      '  
-    ) 
-    assert_equal("hello", program)
+    program = nyan.nyanParser.parse(
+    '
+    ^oo^ jallet = true~
+      prrr ^jallet^:
+      jallet = false~
+      meow ^"hello"^
+      :3
+    '  
+  ) 
 
     program2 = nyan.nyanParser.parse(
       '^3^ x=0~

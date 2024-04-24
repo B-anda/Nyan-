@@ -16,11 +16,12 @@ module SharedVariables
     @ifBool = [true]
   
     def self.ifBool
-      return @ifBool[-1]
+      return @ifBool.last
     end
   
     def self.ifBool=(val)
-      @ifBool[-1]=val
+        @ifBool.pop()
+        @ifBool.push(val)
     end
 
     def self.ifBoolPush

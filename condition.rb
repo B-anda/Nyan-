@@ -175,11 +175,10 @@ class WhileNode
     def eval(*scope)
         if @condition.eval(scope[0])
             scope[0].addScope(scope[0])
-            @toReturn = @block.eval(scope[0])
+            @block.eval(scope[0])
             scope[0].currToPrevScope()
             self.eval(scope[0])
         end
-        return @toReturn
     end
 
 end
