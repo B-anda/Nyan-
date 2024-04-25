@@ -3,7 +3,6 @@ require './scope'
 require './parser'
 
 class Test_Function < Test::Unit::TestCase
-
     def test_basic_function
         scope = GlobalScope.new()
         name = VariableNode.new("test")

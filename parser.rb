@@ -38,6 +38,7 @@ class Nyan
             token(/\^/) {|m| m}
             token(/\)/) {|m| m}
             token(/\(/) {|m| m}
+            token(/mao/) {:def}
             token(/meow/) {:meow }  
             token(/\?nya\?/) {:if}
             token(/\?nye\?/) {:else}
@@ -91,8 +92,8 @@ class Nyan
             end
 
             rule :function do
-                match("mao", :variable, "^", :params, "^", ":", :blocks, ";" ) {|_, a, _, b, _, _, c, _| FunctionNode.new(a, c, b)}
-                match("mao", :variable, "^", "^", ":", :blocks, ";" )          {|_, a, _, _, _, c, _| FunctionNode.new(a, c, nil)}
+                match(:def, :variable, "^", :params, "^", ":", :blocks, ";" ) {|_, a, _, b, _, _, c, _| FunctionNode.new(a, c, b)}
+                match(:def, :variable, "^", "^", ":", :blocks, ";" )          {|_, a, _, _, _, c, _| FunctionNode.new(a, c, nil)}
             end
 
             rule :functionCall do
