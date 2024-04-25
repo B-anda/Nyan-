@@ -39,11 +39,6 @@ class Nyan
             token(/\)/) {|m| m}
             token(/\(/) {|m| m}
             token(/meow/) {:meow }  
-<<<<<<< HEAD
-            token(/\?nye\?/) {:else}
-            token(/\?nyanye\?/) {:elseif}
-=======
->>>>>>> a31a0491c2816ae941373fd0d6fd946667736f92
             token(/\?nya\?/) {:if}
             token(/\?nye\?/) {:else}
             token(/\?nyanye\?/) {:elseif}
@@ -96,17 +91,20 @@ class Nyan
             end
 
             rule :function do
-                match("mao", :variable, "^", :params, "^", :blocks, ";" ) {|_, a, _, b, _, c, _| FunctionNode.new(a, b, c)}
+                match("mao", :variable, "^", :params, "^", ":", :blocks, ";" ) {|_, a, _, b, _, _, c, _| FunctionNode.new(a, c, b)}
+                match("mao", :variable, "^", "^", ":", :blocks, ";" )          {|_, a, _, _, _, c, _| FunctionNode.new(a, c, nil)}
             end
 
             rule :functionCall do
-                match("mao", :params) {|_, a| } 
+                match(:variable, "^", :params, "^") {|a, _, b,_| FunctionCall.new(a, b)} 
+                match(:variable, "^", "^") {|a, _, _| FunctionCall.new(a, nil)}
             end
 
             rule :params do
-                match(:params, ",", :datatype, :variable) {|a, _, b, c| }
-                match(:datatype, :variable)               {|a, b| }
+                match(:variable)               {|a| a}
+                match(:params, ",", :variable) {|a, _, b| ParamsNode.new(a, b)}
             end
+
             ## If-statements ##
             rule :condition do
                 match(:if, "^", :logicStmt, "^", ":", :blocks, :condition_followup, ";") do |_, _, a, _, _, b, c, _|
@@ -117,7 +115,6 @@ class Nyan
                 match(:if, "^", :logicStmt, "^", ":", :blocks, ";") do |_, _, a, _, _, b, _|
                     SharedVariables.ifBoolPush
                     ConditionNode.new(a, b, "lone")
-                    
                 end
             end
             

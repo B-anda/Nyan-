@@ -139,3 +139,19 @@ Vi fann också att BlocksNode klassen funkade rätt bra.
 I ConditionNode klassen insåg vi att scopehanteringen inte funkade som tänkt. Även om @current ändrades när man lade till ett nytt scope så glömde vi göra så att ConditionNode hanterar det nya scopet, något som gjorde att vi hanterade variabler i GlobalScope istället för det lokala scopet. Vi fixade detta genom att skapa en funktion för Scope och GlobalScope som hittar @current. Sedan lade vi till funktionalitet för scope att kalla på currToPrev, något som bara GlobalScope kan göra något för.
 
 Efter allt detta gick våra test igenom.
+
+# 2024-04-22
+
+Jag fick magproblem så vi fick inte mycket gjort.
+
+# 2024-04-23
+
+Under tisdagen hade jag fortfarande problem med tidigare nämnda problem men vi arbetade med en annan kurs. 
+
+# 2024-04-24
+
+På onsdagen arbetade vi med testerna och skrev om lite på conditionNode. Vi lade till en boolean för if satser i en modul SharedVariables. Vi ändrade match caset för conditions också så att vi kunde matcha elseif satser i rad så många gånger som vi ville. Sedan skrev vi parse tester utan asserts mest för att se att parsningen gick igenom utan problem.
+
+# 2024-04-25
+
+Vi skriver funktioner.

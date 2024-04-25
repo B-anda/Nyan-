@@ -159,3 +159,17 @@ class TestParsingLoop < Test::Unit::TestCase
   end
 
 end
+
+## Testing: Functions ##
+
+class Test_Function < Test::Unit::TestCase
+
+  def test_basic_function
+      nyan = Nyan.new
+      nyan.nyanParser.parse(
+      'mao test^^:
+          meow^"hello"^
+        :3' 
+      ) 
+  end
+end

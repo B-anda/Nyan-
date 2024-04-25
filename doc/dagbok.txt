@@ -147,3 +147,28 @@ löste '?nya? genom att vi insåg att vi körde nyan.nyanParser.parse(program) 2
     - implementera to_value()
     - få aritmetik att funka
     - få testerna och parsern att fungera
+
+## 2024-04-22 ##
+Kom ingenstans med if-conditions.
+
+## 2024-04-23 ##
+Förmiddag:
+Matte lektion och arbete
+
+Eftermiddag:
+Matte-labb
+
+## 2024-04-24 ##
+Förmiddag & eftermiddag
+Skrev om rulsen för conditions samt ConditionNoden vilket vi fick testerna till att fungera.
+Vi insåg att efter att if-conditions evaluerats behövde vi sätta en bool för att avgöra om
+nästa block ska köras eller inte. Vi skapade en module som höllkoll på det.
+
+## 2024-04-25 ##
+Förmiddag:
+Lektion på morgonen.
+Började att skriva regler för functioner
+
+Eftermiddag:
+Började implementera klasser för functioner och function calls
+

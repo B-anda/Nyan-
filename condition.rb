@@ -8,7 +8,6 @@ require "./scope"
 # if the 'if @condition.eval(curScope)' is remove, nested if-stmts work
 # but wont solve the problem 
 
-
 class ConditionNode
     include SharedVariables
 

@@ -75,7 +75,6 @@ class AssignmentNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        # value = @value.eval()
         return scope[0].addVariable(@var, @value)
     end
 end
@@ -200,16 +199,88 @@ class ArithmaticNode < SyntaxTreeNode
     end
 end
 
+class ParamsNode < SyntaxTreeNode
+
+    def initialize(param, nextParam=nil)
+        @param = param
+        @nextParam = nextParam
+    end
+
+    def eval(funcNode, *scope)
+
+        if @nextParam == nil
+            funcNode.paramList.push(@param)
+        # if param.is_a? VariableNode
+        #     funcNode.paramList.push(param)
+        else
+            @param.eval(funcNode, scope[0])
+            funcNode.paramList.push(@nextParam)
+        end
+        # param.eval(scope[0])
+        # scope[0].addVariable(nextParam, scope[0].findVariable(nextParam))
+    end
+
+    def vars()
+        if @param.is_a? VariableNode
+            return [@param]
+        else
+            return @param.vars().push(@nextParam)
+        end
+    # def assign(scope, varList, counter = 0)
+    #     if param.is_a? ParamsNode
+    #         param.assign(scope, varList, counter+1)
+    #     end
+    # end
+    end
+end
+
 class FunctionNode
 
-    def initialize(name, *params, block)
+    attr_accessor :paramList, :paramSize, :block
+
+    def initialize(name, block, params)
         @name = name
-        @params = params
         @block = block
+        @params = params
+        @paramList = []
     end
     
     def eval(*scope)
+        if @params.is_a? ParamsNode
+            @params.eval(self, scope[0])
+        else
+            @paramList.push(@params)
+        end
+        scope[0].addVariable(@name, self, true)
+    end
+end
 
+class FunctionCall
+    def initialize(name, params)
+        @name = name
+        @params = params
     end
 
+    def eval(*scope)
+
+        func = scope[0].findVariable(@name, true)
+        scope[0].addScope(scope[0])
+        curScope = scope[0].findCurScope()
+        
+        # if setParams.length() != func.paramList.length()
+        #     raise YouAHoe
+        # end
+        if @params            
+            setParams = @params.vars()
+            for x in 0...setParams.length()
+                value = scope[0].findVariable(setParams[x])
+                curScope.addVariable(func.paramList[x], value)
+            end
+        end
+        
+        toReturn = func.block.eval(curScope)
+        curScope.currToPrevScope()
+        return toReturn
+    end
 end
+

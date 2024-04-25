@@ -10,11 +10,18 @@ class Scope
         @prevScope = prevScope
     end
 
-    def findVariable(name)
-        if @vars.key?(name.var)
-            return @vars[name.var]
+    # Find variable or function name in scope
+    def findVariable(name, funcs=false)
+
+        container = @vars
+        if funcs
+            container = @funcs
+        end
+
+        if container.key?(name.var)
+            return container[name.var]
         elsif @prevScope
-            return @prevScope.findVariable(name) #look in the parent scope
+            return @prevScope.findVariable(name, funcs) #look in the parent scope
         elsif name.var == "monogatari"
             raise NyameNyerror.new
         else
@@ -30,25 +37,27 @@ class Scope
         @prevScope.currToPrevScope()
     end
     
-    def addVariable(name, value) 
+    # Add variable or function name to scope
+    def addVariable(name, value, funcs = false) 
+        container = @vars
+        if funcs
+            container = @funcs
+        end
         if name.is_a? VariableNode
-            @vars[name.var] = value
+            container[name.var] = value
         else
-            @vars[name] = value
+            container[name] = value
         end
     end
 
     def addScope(setPrevious)
         @prevScope.addScope(setPrevious)
     end
-
-    
 end
 
 class GlobalScope < Scope
     attr_accessor :current
     def initialize
-        # super()
         @vars = {}
         @funcs = {}
         @scopes = []
@@ -77,15 +86,5 @@ class GlobalScope < Scope
             # raise NyantimeNyerror.new()
             return
         end
-
-        # if @current.prevScope.nil?
-        #     # raise NyantimeNyerror.new()
-        #     return
-        # else
-        #     @current = @current.prevScope
-        #     @current.scopes = []
-        # end
-        
     end
-
 end
