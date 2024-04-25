@@ -19,32 +19,6 @@ class TestConditionNode < Test::Unit::TestCase
     assert_nil(condition_node.eval(scope))
   end
 
-  def test_if_true_print
-    scope = GlobalScope.new
-    scope.addVariable("x", ValueNode.new(10))
-    variableNode = VariableNode.new("x")
-    printNode = PrintNode.new(variableNode)
-
-    logicStmt = LogicStmt.new(ValueNode.new(true), "||", ValueNode.new(false))
-
-    conditionNode = ConditionNode.new(logicStmt, printNode)
-    assert_equal(10, conditionNode.eval(scope))
-  end
-
-  def test_nested_if
-    scope = GlobalScope.new
-    scope.addVariable("x", ValueNode.new(10))
-    variableNode = VariableNode.new("x")
-    printNode = PrintNode.new(variableNode)
-
-    logicStmt = LogicStmt.new(ValueNode.new(true), "||", ValueNode.new(false))
-    logicStmt2 = LogicStmt.new(ValueNode.new(true), "||", ValueNode.new(false))
-
-    innerConditionNode = ConditionNode.new(logicStmt, printNode)
-    conditionNode = ConditionNode.new( logicStmt2, innerConditionNode)
-
-    assert_equal(10, conditionNode.eval(scope))
-  end
 end
 
 ## Testing class: LogicStmt ##

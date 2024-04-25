@@ -5,6 +5,7 @@ class Scope
 
     def initialize(prevScope = nil)
         @vars = {}
+        @funcs = {}
         @scopes = []
         @prevScope = prevScope
     end
@@ -49,6 +50,7 @@ class GlobalScope < Scope
     def initialize
         # super()
         @vars = {}
+        @funcs = {}
         @scopes = []
         @current = self 
     end

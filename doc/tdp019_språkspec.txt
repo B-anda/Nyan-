@@ -28,7 +28,7 @@ list=[]
 
 Scope:
 
-Vi väljer att använda ett dynamiskt scope. Med detta vill vi säga att variablers 
+Vi väljer att använda ett statiskt scope. Med detta vill vi säga att variablers 
 definitioner är baserade på vilket scope som funktionen ankallades i. 
 
 BNF grammatik:
