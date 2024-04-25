@@ -12,6 +12,27 @@ module GetValue
     end 
 end
 
+module SharedVariables
+    @ifBool = [true]
+  
+    def self.ifBool
+      return @ifBool.last
+    end
+  
+    def self.ifBool=(val)
+        @ifBool.pop()
+        @ifBool.push(val)
+    end
+
+    def self.ifBoolPush
+        @ifBool.push(true)
+    end
+
+    def self.ifBoolPop
+        @ifBool.pop()
+    end
+end
+
 class SyntaxTreeNode
     
     def evaluate(*scope)
@@ -26,14 +47,21 @@ class ProgramNode < SyntaxTreeNode
 end
 
 class BlocksNode < SyntaxTreeNode
+    include SharedVariables
+    
     def initialize(block, nextBlock)
         @toEval = block
         @nextBlock = nextBlock
     end
 
     def eval(*scope)
+        SharedVariables.ifBool = true
         @toEval.eval(scope[0])
         @nextBlock.eval(scope[0])
+        
+        if @toEval.is_a? ConditionNode
+            SharedVariables.ifBoolPop
+        end
     end
 end
 
@@ -130,13 +158,20 @@ class PrintNode < SyntaxTreeNode
             if temp.is_a? String
                 return temp.delete "\""
             end
+            puts temp
             return temp
         else
-            if @value.value.is_a? String
-                return @value.value.delete "\""
-            else
-                return @value.value
+            temp = @value.eval(scope[0])
+            if temp.is_a? String
+                temp =temp.delete "\""
             end
+            puts temp
+            return temp
+            # if @value.value.is_a? String
+            #     return @value.value.delete "\""
+            # else
+            #     return @value.value
+            # end
         end
     end
 end
@@ -165,3 +200,16 @@ class ArithmaticNode < SyntaxTreeNode
     end
 end
 
+class FunctionNode
+
+    def initialize(name, *params, block)
+        @name = name
+        @params = params
+        @block = block
+    end
+    
+    def eval(*scope)
+
+    end
+
+end

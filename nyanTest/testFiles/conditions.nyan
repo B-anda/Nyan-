@@ -1,13 +1,21 @@
-meow ^"hello world"^
+meow ^"Simple if: "^
 
 ?nya? ^true^: 
     meow ^"hello"^
 :3
 
-?nya? ^true^: 
+^3^ x = 2~
+^3^ y = 3~
+
+^w^ str1 = "test"~
+^w^ str2 = "test"~
+
+meow ^"Nested if: "^
+
+?nya? ^x < y^: 
     ?nya? ^false^: 
         meow ^"hello"^ 
-    ?nyanye? ^true^: 
+    ?nyanye? ^str1 == str2^: 
         ?nya? ^true^: 
             meow ^"world"^
         :3

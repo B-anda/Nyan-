@@ -33,7 +33,7 @@ getoptlong: Ruby library for parsing command-line options.
 
 ### Example usage
 
-// Run the script with debug mode off (debug is set to false by default)
+// Run the script with debug mode off (debug is set to false by default) \
 ruby nyan.rb \
 
 //Parse a file with debug mode on \

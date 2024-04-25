@@ -28,7 +28,7 @@ list=[]
 
 Scope:
 
-Vi väljer att använda ett dynamiskt scope. Med detta vill vi säga att variablers 
+Vi väljer att använda ett statiskt scope. Med detta vill vi säga att variablers 
 definitioner är baserade på vilket scope som funktionen ankallades i. 
 
 BNF grammatik:
@@ -37,9 +37,9 @@ BNF grammatik:
 
 <component>::= <component> <component> | <function> | <block>
 
-<function>::= "mao" <func_name> "^" <params> "^" <stmts>
+<function>::= "mao" <variable> "^" <params> "^" <stmts>
 
-<function_call>::= <func_name> <params>
+<function_call>::= <variable> <params>
 
 <stmts>::= ":" <block> ":3"
 
@@ -68,7 +68,6 @@ BNF grammatik:
 
 <bool>::= "True" | "False"
 
-<func_name>::= /[:alpha:]+/
 
 <condition>::= "?nye?" "^" <logic_stmt> "^"  <condition_followup> 
 			   

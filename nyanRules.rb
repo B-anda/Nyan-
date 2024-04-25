@@ -31,20 +31,21 @@ class Nyan
             token(/\d+/) {|m| m }
             token(/".*"/) {|m| m}
             token(/\^w\^/) { |m| m}
-            token(/\^3\^/) {:integer}
+            token(/\^3\^/) { |m| m}
             token(/\^\.\^/) { |m| m}
             token(/\^oo\^/) { |m| m}
-            token(/\bprrr\b/) {:whileloop}
+            token(/\bprrr\b/) {:whiloop}
             token(/\^/) {|m| m}
             token(/\)/) {|m| m}
             token(/\(/) {|m| m}
             token(/meow/) {:meow }  
-            token(/\?nya\?/) {:if}
-            token(/\?nye\?/) {:else}
+            token(/\?\bnye\b\?/) {:else}
             token(/\?nyanye\?/) {:elseif}
-            token(/[[a-zA-Z]\d_]+/) {|m| m}
+            token(/\?nya\?/) {:if}
+            token(/[[:alpha:]\d_]+/) {|m| m}
             token(/\:3/) {|_| ';'}
-            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~|\:/) {|m| m}
+            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~/) {|m| m}
+            token(/\:/) {|m|m}
             token(/./) {|m| m }
 
             @scope = GlobalScope.new
@@ -65,9 +66,7 @@ class Nyan
             rule :block do
                 match(:while)       { |a| a }
                 match(:condition)   { |a| a }
-                match(:functionCall){ |a| a }
                 match(:reassignment){ |a| a }
-                match(:function)    { |a| a }
                 match(:assignment)  { |a| a }
                 match(:print)       { |a| a }
                 match(:expr)        { |a| a }
@@ -90,44 +89,27 @@ class Nyan
                 match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
             end
 
-            rule :function do
-                match("mao", :variable, "^", :params, "^", :blocks, ";" ) {|_, a, _, b, _, c, _| FunctionNode.new(a, b, c)}
-            end
-
-            rule :functionCall do
-                match("mao", :params) {|_, a| } 
-            end
-
-            rule :params do
-                match(:params, ",", :datatype, :variable) {|a, _, b, c| }
-                match(:datatype, :variable)               {|a, b| }
-            end
-            ## If-statements ##
+            ## IF-statment ##
             rule :condition do
-                match(:if, "^", :logicStmt, "^", ":", :blocks, :condition_followup, ";") do |_, _, a, _, _, b, c, _|
-                    SharedVariables.ifBoolPush
-                    BlocksNode.new(ConditionNode.new(a, b), c)
-                    
-                end
-                match(:if, "^", :logicStmt, "^", ":", :blocks, ";") do |_, _, a, _, _, b, _|
-                    SharedVariables.ifBoolPush
-                    ConditionNode.new(a, b, "lone")
-                    
-                end
+                match(:if, "^", :logicStmt, "^", :stmts) {|_, _, b, _,c| ConditionNode.new(b, c)}
+            end
+
+            rule :stmts do
+                match(":", :condition_followup) {|_,a| a}
             end
             
             rule :condition_followup do
-                match( :else, ":", :blocks)                                     { |_,_, a| ConditionNode.new(ValueNode.new(true), a)}
-                match( :elseif, "^", :logicStmt, "^", ":", :blocks, :condition_followup) { |_, _, a, _, _, b, c| BlocksNode.new(ConditionNode.new(a, b), c) }
-                match( :elseif, "^", :logicStmt, "^", ":", :blocks) { |_, _, a, _, _, b| ConditionNode.new(a, b) }
+                puts "inne i CF"
+                match(:blocks, :else, ":", :blocks, ";")              {|prevBlock, _, _, b, _|  BlocksNode.new(prevBlock, ConditionNode.new(ValueNode.new(true), b)) }
+                match(:blocks, :elseif, "^", :logicStmt, "^", :stmts) {|prevBlock, _, _, b, _, c| BlocksNode.new(prevBlock, ConditionNode.new(b, c)) }
+                match(:blocks, ";") {|a,_| a}
             end
 
             ## While-loop ##
             rule :while do
-                match(:whileloop, "^", :logicStmt, "^" , ":", :blocks, ";") { |_, _, a, _,_, b,_| WhileNode.new(a, b)}
+                match(:whiloop, "^", :logicStmt, "^" , ":", :blocks, ";") { |_, _, a, _,_, b,_| WhileNode.new(a, b)}
             end
 
-            ## Logic ##
             rule :logicStmt do 
                 match("not", :logicStmt) { | _,b | LogicStmt.new(nil, "not", b)}
                 match(:logicStmt, "and", :logicStmt) { |a,_,b| LogicStmt.new(a, "&&", b)}
@@ -189,20 +171,13 @@ class Nyan
             # ^oo^ Boolean
             rule :datatype do
                 match(/\^w\^/)  {|a| DatatypeNode.new(a)}
-                match(:integer)  {|a| DatatypeNode.new(a)}
+                match(/\^3\^/)  {|a| DatatypeNode.new(a)}
                 match(/\^\.\^/) {|a| DatatypeNode.new(a)}
                 match(/\^oo\^/) {|a| DatatypeNode.new(a)}
             end
 
             rule :variable do
-                #Key words that are not variables
-                match(:integer) {}
-                match(:meow)    {}
-                match(:whiloop) {}
-                match(:elseif)  {}
-                match(:else)    {}
-                #Otherwise
-                match(/[[:alpha:]\d\_]+/) {|a| VariableNode.new(a)}
+                match(/[a-zA-Z]_*-*\d+/) {|a| VariableNode.new(a)}
             end
 
             rule :value do
@@ -218,7 +193,7 @@ class Nyan
             end
 
             rule :int do
-                match(/\b\d+\b/) {|a| ValueNode.new(a.to_i)}
+                match(/\d+/) {|a| ValueNode.new(a.to_i)}
             end
 
             rule :float do

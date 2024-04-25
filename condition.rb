@@ -1,11 +1,21 @@
 require "./syntaxtree"
 require "./scope"
 
+# when the first if-stmt is evaluated it returns false which when assarted returns nil.
+# which means that it doesn't move on and evaluates the next block 
+# probobly need to rewrite condition_followup
+
+# if the 'if @condition.eval(curScope)' is remove, nested if-stmts work
+# but wont solve the problem 
+
+
 class ConditionNode
-    
-    def initialize( condition, block)
+    include SharedVariables
+
+    def initialize(condition, block, lone=nil)
         @condition = condition
         @block = block
+        @lone = lone
     end
 
     def eval(*scope)
@@ -14,20 +24,43 @@ class ConditionNode
         toReturn = nil
         curScope = scope[0].findCurScope()
 
-        if @condition.eval(curScope)
-            toReturn = @block.eval(curScope)
+        if SharedVariables.ifBool
+            if @condition.eval(curScope)
+                
+                toReturn = @block.eval(curScope)
+                SharedVariables.ifBool = false
+            end
         end
-        
+
         curScope.currToPrevScope
         curScope = nil
         
+        if @lone
+            SharedVariables.ifBoolPop
+        end
         return toReturn
     end
 
 end
 
+# class ElseCondition
+#    def initialize(ifCondition, elseCondition, block)
+#         @ifCon = ifCondition
+#         @elseCon = elseCondition
+#         @block = block
+#    end
+   
+#    def eval(*scope)
+#         unless @ifCon.eval(scope[0])
+#             if @elseCon.eval(scope[0])
+#                 return @block.eval(scope[0])
+#             end
+#         end
+    
+#    end
+# end
+
 class LogicStmt
-    include GetValue
 
     def initialize(lhs, operator, rhs)
         @lhs = lhs
@@ -136,6 +169,7 @@ class WhileNode
     def initialize(condition, block)
         @condition = condition
         @block = block
+        @toReturn = nil
     end
     
     def eval(*scope)
