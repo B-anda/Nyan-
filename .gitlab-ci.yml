@@ -25,28 +25,24 @@ flags:
     - ruby nyan.rb $TEST_FILES/simplePrint.nyan
     - ruby nyan.rb $TEST_FILES/simplePrint.nyan -d on
   rules:
-    - when: manual
 
 conditions:
   stage: test
   script:
     - ruby -Itest $TEST_PATH/testConditions.rb
   rules:
-    - when: manual
 
 scope:
   stage: test
   script:
     - ruby -Itest $TEST_PATH/testScope.rb
   rules:
-    - when: manual
 
 syntaxtree:
   stage: test
   script:
     - ruby -Itest $TEST_PATH/testSyntaxtree.rb
   rules:
-    - when: manual
 
 parser:
   stage: test
@@ -57,9 +53,8 @@ nyan_conditions:
   stage: deploy
   script:
     - ruby nyan.rb $TEST_FILES/conditions.nyan
-    #- ruby nyan.rb $TEST_FILES/functions.nyan
+    - ruby nyan.rb $TEST_FILES/functions.nyan
   rules:
-    - when: manual
 
 
 # test:
