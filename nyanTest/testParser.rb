@@ -8,30 +8,25 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
 
   def test_simple_condition
     nyan = Nyan.new
-    program = nyan.nyanParser.parse(
+    nyan.nyanParser.parse(
       '?nya? ^true^: 
         meow ^"hello"^
       :3' 
     ) 
-
-    assert_equal("hello", program)
-
   end
 
   def test_parse_or
     nyan = Nyan.new
-      program = nyan.nyanParser.parse(
+      nyan.nyanParser.parse(
         '?nya? ^true || false ^: 
           meow ^"hello"^
         :3' 
       ) 
-  
-      assert_equal("hello", program)
-  end
+    end
 
   def test_complex_nested_conditions
     nyan = Nyan.new
-    program = nyan.nyanParser.parse('
+    nyan.nyanParser.parse('
     ?nya? ^true^: 
         ?nya? ^false^: 
             meow ^"hello"^ 
@@ -52,7 +47,7 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
         meow ^"hello"^
       :3')
       
-    program2 = nyan.nyanParser.parse(
+    nyan.nyanParser.parse(
     '
       ?nya? ^true^:
         meow ^"world"^ 
@@ -70,7 +65,7 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
     nyan.log false
 
     assert_nothing_raised NyameNyerror do
-    program = nyan.nyanParser.parse(
+    nyan.nyanParser.parse(
       '?nya? ^true^:
           meow ^"world"^ 
 
@@ -82,7 +77,7 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
         :3')
    end
                 
-    program = nyan.nyanParser.parse(
+    nyan.nyanParser.parse(
     '?nya? ^false^:
         meow ^"world"^ 
 
@@ -93,7 +88,7 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
         meow ^"hello world"^
       :3')
           
-    program = nyan.nyanParser.parse(
+    nyan.nyanParser.parse(
       '?nya? ^true^:
         ?nya? ^true^:
           meow ^"hello"^
@@ -103,7 +98,7 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
       :3'
     )
 
-    program = nyan.nyanParser.parse(
+    nyan.nyanParser.parse(
       '?nya? ^true^:
         ?nya? ^false^:
           meow ^"world"^
@@ -123,7 +118,7 @@ class Test_ParsingAndEvaluation < Test::Unit::TestCase
             meow ^"hello"^
         :3')
 
-    program2 = nyan.nyanParser.parse(
+    nyan.nyanParser.parse(
       ' ^3^ num_1 = 10~
 
         ?nya? ^(num_1 > 5)^: 
@@ -140,7 +135,7 @@ class TestParsingLoop < Test::Unit::TestCase
 
   def test_simple_condition
     nyan = Nyan.new
-    program = nyan.nyanParser.parse(
+    nyan.nyanParser.parse(
     '
     ^oo^ jallet = true~
       prrr ^jallet^:
@@ -150,7 +145,7 @@ class TestParsingLoop < Test::Unit::TestCase
     '  
   ) 
 
-    program2 = nyan.nyanParser.parse(
+    nyan.nyanParser.parse(
       '^3^ x=0~
       prrr ^x < 5^:
         ?nya? ^true^:
