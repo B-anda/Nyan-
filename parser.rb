@@ -235,7 +235,7 @@ class Nyan
         end
     end
 
-    def log(state = true)
+    def log(state = false)
         if state
             @nyanParser.logger.level = Logger::DEBUG
         else

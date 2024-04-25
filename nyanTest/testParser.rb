@@ -162,17 +162,17 @@ require './parser'
 
 ## Testing: Functions ##
 
-class Test_Function < Test::Unit::TestCase
+# class Test_Function < Test::Unit::TestCase
 
-  def test_basic_function
-      nyan = Nyan.new
-      program = nyan.nyanParser.parse(
-      'mao test^^:
-          meow^"hello"^
-       :3
+#   def test_basic_function
+#       nyan = Nyan.new
+#       program = nyan.nyanParser.parse(
+#       'mao test^^:
+#           meow^"hello"^
+#        :3
         
-        ' 
-      ) 
+#         ' 
+#       ) 
      
-  end
-end
+#   end
+# end

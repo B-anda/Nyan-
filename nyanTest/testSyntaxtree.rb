@@ -243,6 +243,7 @@ class TestArithmeticNode < Test::Unit::TestCase
     val4 = ValueNode.new(0)
 
     nyan = Nyan.new
+    nyan.log false
 
     program = nyan.nyanParser.parse(
       "2+6-4"  

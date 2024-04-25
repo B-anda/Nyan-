@@ -154,4 +154,4 @@ På onsdagen arbetade vi med testerna och skrev om lite på conditionNode. Vi la
 
 # 2024-04-25
 
-Vi skriver funktioner.
+Vi skriver funktioner. Efter vi skrev funktioner var vi i stort sett klara med språket, nu var det mer dokumentskrivning kvar som språkspecen och språkdokumentationen.
