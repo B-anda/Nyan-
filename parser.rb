@@ -65,7 +65,9 @@ class Nyan
             rule :block do
                 match(:while)       { |a| a }
                 match(:condition)   { |a| a }
+                match(:functionCall){ |a| a }
                 match(:reassignment){ |a| a }
+                match(:function)    { |a| a }
                 match(:assignment)  { |a| a }
                 match(:print)       { |a| a }
                 match(:expr)        { |a| a }
@@ -88,24 +90,19 @@ class Nyan
                 match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
             end
 
-            ## IF-statment ##
-            # rule :condition do
-            #     match(:if, "^", :logicStmt, "^", ":", :blocks, :else, ":", :blocks) { |_, _, a, _, _, prevBlock, _, _, b| BlocksNode.new(ConditionNode.new(a, prevBlock), ElseCondition.new(a, ValueNode.new(true), b)) }
-            #     match(:if, "^", :logicStmt, "^", ":", :blocks, :elseif, "^", :logicStmt, "^", ":", :blocks) { |_, _, a, _, _, prevBlock, _, _, b, _, _, c| BlocksNode.new(ConditionNode.new(a, prevBlock), ElseCondition.new(a, b, c)) }
-            #     match(:if, "^", :logicStmt, "^", ":", :blocks) { |_, _, b, _, _,c| ConditionNode.new(b, c) }
-            # end
+            rule :function do
+                match("mao", :variable, "^", :params, "^", :blocks, ";" ) {|_, a, _, b, _, c, _| FunctionNode.new(a, b, c)}
+            end
 
-            # if
-            # elseif
-            # if
-            # elseif
+            rule :functionCall do
+                match("mao", :params) {|_, a| } 
+            end
 
-
-            # if
-            # elsif
-            # elsif
-            # elsif
-
+            rule :params do
+                match(:params, ",", :datatype, :variable) {|a, _, b, c| }
+                match(:datatype, :variable)               {|a, b| }
+            end
+            ## If-statements ##
             rule :condition do
                 match(:if, "^", :logicStmt, "^", ":", :blocks, :condition_followup, ";") do |_, _, a, _, _, b, c, _|
                     SharedVariables.ifBoolPush
@@ -120,7 +117,6 @@ class Nyan
             end
             
             rule :condition_followup do
-                # puts "inne i CF"
                 match( :else, ":", :blocks)                                     { |_,_, a| ConditionNode.new(ValueNode.new(true), a)}
                 match( :elseif, "^", :logicStmt, "^", ":", :blocks, :condition_followup) { |_, _, a, _, _, b, c| BlocksNode.new(ConditionNode.new(a, b), c) }
                 match( :elseif, "^", :logicStmt, "^", ":", :blocks) { |_, _, a, _, _, b| ConditionNode.new(a, b) }
@@ -131,6 +127,7 @@ class Nyan
                 match(:whileloop, "^", :logicStmt, "^" , ":", :blocks, ";") { |_, _, a, _,_, b,_| WhileNode.new(a, b)}
             end
 
+            ## Logic ##
             rule :logicStmt do 
                 match("not", :logicStmt) { | _,b | LogicStmt.new(nil, "not", b)}
                 match(:logicStmt, "and", :logicStmt) { |a,_,b| LogicStmt.new(a, "&&", b)}

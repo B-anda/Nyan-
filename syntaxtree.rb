@@ -200,3 +200,16 @@ class ArithmaticNode < SyntaxTreeNode
     end
 end
 
+class FunctionNode
+
+    def initialize(name, *params, block)
+        @name = name
+        @params = params
+        @block = block
+    end
+    
+    def eval(*scope)
+
+    end
+
+end
