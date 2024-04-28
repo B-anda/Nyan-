@@ -54,6 +54,7 @@ nyan_conditions:
   script:
     - ruby nyan.rb $TEST_FILES/conditions.nyan
     - ruby nyan.rb $TEST_FILES/functions.nyan
+    - ruby nyan.rb $TEST_FILES/loop.nyan
   rules:
 
 
