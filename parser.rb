@@ -36,13 +36,13 @@ class Nyan
             token(/\^oo\^/) { |m| m}
             token(/\bprrr\b/) {:whileloop}
             token(/\^/) {|m| m}
-            token(/\)/) {|m| m}
             token(/\(/) {|m| m}
+            token(/\)/) {|m| m}
             token(/mao/) {:def}
             token(/meow/) {:meow }
-            token(/push/) {:push}  
-            token(/pop/) {:pop}  
-            token(/size/) {:size}  
+            token(/push/) {:arrayPush}  
+            token(/pop/) {:arrayPop}  
+            token(/size/) {:arraySize}  
             token(/\?nya\?/) {:if}
             token(/\?nye\?/) {:else}
             token(/\?nyanye\?/) {:elseif}
@@ -50,7 +50,7 @@ class Nyan
             token(/,/) {|m| m}
             token(/\[/) {|m| m}
             token(/\:3/) {|_| ';'}
-            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\]|\~|\:/) {|m| m}
+            token(/\[|\]|\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\]|\~|\:/) {|m| m}
             # token(/\]/) {|m| m}
             token(/./) {|m| m }
 
@@ -81,7 +81,7 @@ class Nyan
                 match(:arrayOp)     { |a| a }
             end
 
-            ## Assign variables ##
+            ## Assignment ##
             rule :assignment do
                 match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
                 match(:datatype, :variable, "=", :array, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
@@ -95,6 +95,7 @@ class Nyan
                 match(:variable, "=", :value, "~")  { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
             end
 
+            ## Array ##
             rule :array do
                 match("[", :elements, "]") {|_, a, _| a}
             end
@@ -108,14 +109,15 @@ class Nyan
             end
             
             rule :arrayOp do
-                match(:index)   { |a| a }
-                match(:push)    { |a| a }
-                match(:pop)     { |a| a }
-                match(:size)    { |a| a }
+                match(:arrayIndex)   { |a| a }
+                match(:arrayPush)    { |a| a }
+                match(:arrayPop)     { |a| a }
+                match(:arraySize)    { |a| a }
+                #should match variable[0]
             end
 
-            rule :index do
-                match(:variable, "[", :int, "]") { |variable, _, index, _| ArrayOperationNode.new(:index, variable, index) }
+            rule :arrayIndex do
+                match(:variable, "[", :int, "]") { |variable, _, index, _| ArrayOpNode.new(:index, variable, index) }
             end
 
             rule :arrayPush do

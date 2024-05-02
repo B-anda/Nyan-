@@ -151,7 +151,7 @@ class ArrayNode < SyntaxTreeNode
     end
 
     def eval
-        return @array
+        return @array.reverse()
     end
 end
 
@@ -209,16 +209,21 @@ class PrintNode < SyntaxTreeNode
         #     puts temp
         #     return temp
         # end
-        if @value.is_a?(VariableNode)
-            temp = scope[0].findVariable(@value).eval
-        else
-            temp = @value.eval(scope[0])
-        end
+        temp = temp = scope[0].findVariable(@value).eval
         if temp.is_a?(Array)
             puts temp.inspect
-        else
-            temp = temp.to_s.delete("\"")
+        elsif @value.is_a?(VariableNode)
+            temp = scope[0].findVariable(@value).eval
+            if temp.is_a? String
+                puts temp.delete "\""
+            end
             puts temp
+        else
+            temp = @value.eval(scope[0])
+            if temp.is_a? String
+                temp = temp.delete "\""
+                puts temp
+            end           
         end
         return temp
 
