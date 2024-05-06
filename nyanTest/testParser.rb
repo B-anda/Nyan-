@@ -133,31 +133,31 @@ end
 
 class TestParsingLoop < Test::Unit::TestCase
 
-#   def test_simple_condition
-#     nyan = Nyan.new
-#     nyan.nyanParser.parse(
-#     '
-#     ^oo^ jallet = true~
-#       prrr ^jallet^:
-#       jallet = false~
-#       meow ^"hello"^
-#     :3
-#     '  
-#   ) 
+  def test_simple_condition
+    nyan = Nyan.new
+    nyan.nyanParser.parse(
+    '
+    ^oo^ jallet = true~
+      prrr ^jallet^:
+      jallet = false~
+      meow ^"hello"^
+    :3
+    '  
+  ) 
 
-#     nyan.nyanParser.parse(
-#       ' ^3^ x=0~
-#         prrr ^x < 5^:
-#           ?nya? ^true^:
-#             meow ^"meowed"^
-#             meow ^x^
-#           :3
-#           x+=1~
-#         :3
-#       '
-#     )
-#   end
-# end
+    nyan.nyanParser.parse(
+      ' ^3^ x=0~
+        prrr ^x < 5^:
+          ?nya? ^true^:
+            meow ^"meowed"^
+            meow ^x^
+          :3
+          x+=1~
+        :3
+      '
+    )
+  end
+end
 
 ## Testing: Functions ##
 
@@ -172,15 +172,15 @@ class Test_Function < Test::Unit::TestCase
       ) 
   end
 
-  def test_recrusiv_func
-    nyan = Nyan.new
-      program = nyan.nyanParser.parse(
-      ' mao test^x^:
+  # def test_recrusiv_func
+  #   nyan = Nyan.new
+  #     program = nyan.nyanParser.parse(
+  #     ' mao test^x^:
       
-        :3
-      ' 
-      ) 
-  end
+  #       :3
+  #     ' 
+  #     ) 
+  # end
 end
 
 ## Testing: Arrays ##
