@@ -1,0 +1,9 @@
+^3^ x=0~
+
+prrr ^x < 5^:
+    ?nya? ^true^:
+        meow ^"meowed"^
+        meow ^x^
+    :3
+    x+=1~
+:3

@@ -147,6 +147,49 @@ class ValueNode < SyntaxTreeNode
     end
 end
 
+class ArrayNode < SyntaxTreeNode
+    attr_accessor :array
+    def initialize(arr)
+        @array = [arr]
+    end
+
+    def eval
+        return @array.reverse()
+    end
+end
+
+class ArrayOpNode 
+    attr_accessor :operation, :variable, :args
+
+    def initialize(operation, *args)
+        @operation = operation
+        # @variable = variable
+        @args = args
+    end
+
+    def eval(*scope)
+        case @operation
+        when :index
+            var, index = @args
+            array = scope[0].findVariable(var).eval(scope[0])
+            idx = index.eval(scope[0])
+            array[indx]
+        when :push
+            variable, value = @args
+            arr = scope.findVariable(variable).eval(scope)
+            arr.push(value.eval(scope))
+        when :pop
+            variable = @args[0]
+            arr = scope.findVariable(variable).eval(scope)
+            arr.pop
+        when :size
+            variable = @args[0]
+            arr = scope.findVariable(variable).eval(scope)
+            arr.size
+        end
+    end
+end
+
 class PrintNode < SyntaxTreeNode
     attr_accessor :value
 
@@ -155,21 +198,38 @@ class PrintNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        if @value.is_a?(VariableNode)            
+        # if @value.is_a?(VariableNode)            
+        #     temp = scope[0].findVariable(@value).eval
+        #     if temp.is_a? String
+        #         return temp.delete "\""
+        #     end
+        #     return temp
+        # else
+        #     temp = @value.eval(scope[0])
+        #     if temp.is_a? String
+        #         temp =temp.delete "\""
+        #     end
+        #     puts temp
+        #     return temp
+        # end
+        temp = temp = scope[0].findVariable(@value).eval
+        if temp.is_a?(Array)
+            puts temp.inspect
+        elsif @value.is_a?(VariableNode)
             temp = scope[0].findVariable(@value).eval
             if temp.is_a? String
-                return temp.delete "\""
+                puts temp.delete "\""
             end
             puts temp
-            return temp
         else
             temp = @value.eval(scope[0])
             if temp.is_a? String
-                temp =temp.delete "\""
-            end
-            puts temp
-            return temp
+                temp = temp.delete "\""
+                puts temp
+            end           
         end
+        return temp
+
     end
 end
 
