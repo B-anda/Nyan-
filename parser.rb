@@ -3,22 +3,6 @@ require './syntaxtree'
 require './condition'
 require './scope'
 
-# regexet fungerade inte 
-# /"([^"]*)"/ funkar i rubular och matchar hela strängen innanför " " och för att komma åt
-#   ^     ^
-# bara strängen borde det vara: a[1] 
-# match(/"([^"]*)"/) {|a| ValueNode.new(a[1])} <-
-#
-# match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, ValueNode.new(c))} 
-# -> testade att lägga till ValueNode.new(c) för att skapa en ny node
-#                    _       _
-# varför det funka?   \('-')/ idk
-
-# pröva lägga till rule :print men fick parse error
-# `parse': Parse error. expected: '', found '^' (Parser::ParseError)
-
-
-
 class Nyan
 
     attr_accessor :nyanParser
@@ -107,6 +91,7 @@ class Nyan
             end
 
             ## If-statements ##
+
             rule :condition do
                 match(:if, "^", :logicStmt, "^", ":", :blocks, :condition_followup, ";") do |_, _, a, _, _, b, c, _|
                     SharedVariables.ifBoolPush
@@ -120,7 +105,7 @@ class Nyan
             end
             
             rule :condition_followup do
-                match( :else, ":", :blocks)                                     { |_,_, a| ConditionNode.new(ValueNode.new(true), a)}
+                match( :else, ":", :blocks)                                              { |_,_, a| ConditionNode.new(ValueNode.new(true), a)}
                 match( :elseif, "^", :logicStmt, "^", ":", :blocks, :condition_followup) { |_, _, a, _, _, b, c| BlocksNode.new(ConditionNode.new(a, b), c) }
                 match( :elseif, "^", :logicStmt, "^", ":", :blocks) { |_, _, a, _, _, b| ConditionNode.new(a, b) }
             end
