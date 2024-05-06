@@ -141,9 +141,23 @@ class TestValueNode < Test::Unit::TestCase
   def test_eval
     valueNode = ValueNode.new(10)
     assert_equal(10, valueNode.eval)
+
+    valueNode2 = ValueNode.new("hello")
+    assert_equal("hello", valueNode2.eval)
+
+    valueNode3 = ValueNode.new(true)
+    assert_equal(true, valueNode3.eval)
   end
 
 end
+
+## Testing class: ArrayNode ##
+
+class TestArrayNode < Test::Unit::TestCase
+  def test_array
+    # arr = ArrayNode.new()
+  end
+end 
 
 ## Testing class: PrintNode ##
 

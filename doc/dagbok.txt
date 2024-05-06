@@ -149,7 +149,18 @@ löste '?nya? genom att vi insåg att vi körde nyan.nyanParser.parse(program) 2
     - få testerna och parsern att fungera
 
 ## 2024-04-22 ##
-Kom ingenstans med if-conditions.
+Kom ingenstans med if-conditions. Men insåg att om man la till följande in variable rulen:
+rule :variable do
+    #Key words that are not variables
+    match(:integer) {}
+    match(:meow)    {}
+    match(:whiloop) {}
+    match(:elseif)  {}
+    match(:else)    {}
+    #Otherwise
+    match(/[[:alpha:]\d\_]+/) {|a| VariableNode.new(a)}
+end
+så matchade de inte längre på variable
 
 ## 2024-04-23 ##
 Förmiddag:
@@ -171,4 +182,8 @@ Började att skriva regler för functioner
 
 Eftermiddag:
 Började implementera klasser för functioner och function calls
+Blev helt klara och testerna gick igenom. Behöver bara testa rekrusion också.
 
+## 2024-04-26 ##
+Förmiddag:
+Började skriva i språkdokumentationen samt skrev om bnf-grammatiken.

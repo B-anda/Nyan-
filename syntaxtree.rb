@@ -1,8 +1,9 @@
 require './scope'
 
+# module used to handle different types of nodes
 module GetValue
     def nodeToValue(side, scope)
-        if (side.is_a? ValueNode) || (side.is_a? ArithmaticNode) #|| (side.is_a? LogicStmt) || (side.is_a? ValueComp)
+        if (side.is_a? ValueNode) || (side.is_a? ArithmaticNode) 
             return side.eval(scope)
         elsif side.is_a? VariableNode
             return scope.findVariable(side).value
@@ -12,6 +13,7 @@ module GetValue
     end 
 end
 
+# module used to determine if the next block should be executed
 module SharedVariables
     @ifBool = [true]
   
@@ -32,6 +34,8 @@ module SharedVariables
         @ifBool.pop()
     end
 end
+
+## Synatax tree nodes ##
 
 class SyntaxTreeNode
     
@@ -139,7 +143,6 @@ class ValueNode < SyntaxTreeNode
     end
     
     def eval(*scope)
-        # puts @value.class
         @value == "true" || @value == "false" ? (convertToBool(@value)) : (@value)
     end
 end
@@ -166,11 +169,6 @@ class PrintNode < SyntaxTreeNode
             end
             puts temp
             return temp
-            # if @value.value.is_a? String
-            #     return @value.value.delete "\""
-            # else
-            #     return @value.value
-            # end
         end
     end
 end
@@ -210,14 +208,10 @@ class ParamsNode < SyntaxTreeNode
 
         if @nextParam == nil
             funcNode.paramList.push(@param)
-        # if param.is_a? VariableNode
-        #     funcNode.paramList.push(param)
         else
             @param.eval(funcNode, scope[0])
             funcNode.paramList.push(@nextParam)
         end
-        # param.eval(scope[0])
-        # scope[0].addVariable(nextParam, scope[0].findVariable(nextParam))
     end
 
     def vars()
@@ -226,11 +220,6 @@ class ParamsNode < SyntaxTreeNode
         else
             return @param.vars().push(@nextParam)
         end
-    # def assign(scope, varList, counter = 0)
-    #     if param.is_a? ParamsNode
-    #         param.assign(scope, varList, counter+1)
-    #     end
-    # end
     end
 end
 
@@ -267,9 +256,6 @@ class FunctionCall
         scope[0].addScope(scope[0])
         curScope = scope[0].findCurScope()
         
-        # if setParams.length() != func.paramList.length()
-        #     raise YouAHoe
-        # end
         if @params            
             setParams = @params.vars()
             for x in 0...setParams.length()

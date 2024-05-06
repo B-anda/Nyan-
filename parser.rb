@@ -3,22 +3,6 @@ require './syntaxtree'
 require './condition'
 require './scope'
 
-# regexet fungerade inte 
-# /"([^"]*)"/ funkar i rubular och matchar hela strängen innanför " " och för att komma åt
-#   ^     ^
-# bara strängen borde det vara: a[1] 
-# match(/"([^"]*)"/) {|a| ValueNode.new(a[1])} <-
-#
-# match(:datatype, :variable, "=", :value) { |a,b,_,c| Assignment.new(a, b, ValueNode.new(c))} 
-# -> testade att lägga till ValueNode.new(c) för att skapa en ny node
-#                    _       _
-# varför det funka?   \('-')/ idk
-
-# pröva lägga till rule :print men fick parse error
-# `parse': Parse error. expected: '', found '^' (Parser::ParseError)
-
-
-
 class Nyan
 
     attr_accessor :nyanParser
@@ -36,16 +20,22 @@ class Nyan
             token(/\^oo\^/) { |m| m}
             token(/\bprrr\b/) {:whileloop}
             token(/\^/) {|m| m}
-            token(/\)/) {|m| m}
             token(/\(/) {|m| m}
-            token(/\bmao\b/) {:def}
-            token(/meow/) {:meow }  
+            token(/\)/) {|m| m}
+            token(/mao/) {:def}
+            token(/meow/) {:meow }
+            token(/push/) {:arrayPush}  
+            token(/pop/) {:arrayPop}  
+            token(/size/) {:arraySize}  
             token(/\?nya\?/) {:if}
             token(/\?nye\?/) {:else}
             token(/\?nyanye\?/) {:elseif}
             token(/[[a-zA-Z]\d_]+/) {|m| m}
+            token(/,/) {|m| m}
+            token(/\[/) {|m| m}
             token(/\:3/) {|_| ';'}
-            token(/\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\~|\:/) {|m| m}
+            token(/\[|\]|\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\]|\~|\:/) {|m| m}
+            # token(/\]/) {|m| m}
             token(/./) {|m| m }
 
             @scope = GlobalScope.new
@@ -72,11 +62,14 @@ class Nyan
                 match(:assignment)  { |a| a }
                 match(:print)       { |a| a }
                 match(:expr)        { |a| a }
+                match(:arrayOp)     { |a| a }
             end
 
-            ## Assign variables ##
+            ## Assignment ##
             rule :assignment do
                 match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
+                match(:datatype, :variable, "=", :array, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
+                match(:variable, ".", :arrayOp)               { |a, _, b| ArrayOpNode.new(a, b)}
             end
 
              ## Reassign variables ##
@@ -85,10 +78,48 @@ class Nyan
                 match(:variable, "-=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "-", b)}
                 match(:variable, "=", :value, "~")  { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
             end
+
+            ## Array ##
+            rule :array do
+                match("[", :elements, "]") {|_, a, _| a}
+            end
+
+            rule :elements do
+                match(:value, ",", :elements) do |a, _, b| 
+                    b.array << a.eval
+                    b
+                end
+                match(:value) {|a| ArrayNode.new(a.eval)}
+            end
             
+            rule :arrayOp do
+                match(:arrayIndex)   { |a| a }
+                match(:arrayPush)    { |a| a }
+                match(:arrayPop)     { |a| a }
+                match(:arraySize)    { |a| a }
+                #should match variable[0]
+            end
+
+            rule :arrayIndex do
+                match(:variable, "[", :int, "]") { |variable, _, index, _| ArrayOpNode.new(:index, variable, index) }
+            end
+
+            rule :arrayPush do
+                match(:variable, ".", :push, "(", :value, ")") { |variable, _, _, _, value, _| ArrayOpNode.new(:push, variable, value) }
+            end
+            
+            rule :arrayPop do
+                match(:variable, ".", :pop, "(", ")") { |variable, _, _, _, _| ArrayOpNode.new(:pop, variable) }
+            end
+            
+            rule :arraySize do
+                match(:variable, ".", :size, "(", ")") { |variable, _, _, _, _| ArrayOpNode.new(:size, variable) }
+            end
+
             ## Print ##
             rule :print do
                 match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
+                match(:meow, "^", :array_operation, "^") { |_, _, op, _| PrintNode.new(op) }
             end
 
             rule :function do
@@ -107,8 +138,9 @@ class Nyan
             end
 
             ## If-statements ##
+
             rule :condition do
-                match(:if, "^", :logicStmt, "^", ":", :blocks, :condition_followup, ";") do |_, _, a, _, _, b, c, _|
+                match(:if, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup, ";") do |_, _, a, _, _, b, c, _|
                     SharedVariables.ifBoolPush
                     BlocksNode.new(ConditionNode.new(a, b), c)
                     
@@ -119,9 +151,9 @@ class Nyan
                 end
             end
             
-            rule :condition_followup do
-                match( :else, ":", :blocks)                                     { |_,_, a| ConditionNode.new(ValueNode.new(true), a)}
-                match( :elseif, "^", :logicStmt, "^", ":", :blocks, :condition_followup) { |_, _, a, _, _, b, c| BlocksNode.new(ConditionNode.new(a, b), c) }
+            rule :conditionFollowup do
+                match( :else, ":", :blocks)                                              { |_,_, a| ConditionNode.new(ValueNode.new(true), a)}
+                match( :elseif, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup) { |_, _, a, _, _, b, c| BlocksNode.new(ConditionNode.new(a, b), c) }
                 match( :elseif, "^", :logicStmt, "^", ":", :blocks) { |_, _, a, _, _, b| ConditionNode.new(a, b) }
             end
 
@@ -213,6 +245,7 @@ class Nyan
                 match(:int) 
                 match(:bool)
                 match(:str) 
+                match(:array)
             end 
             
             rule :str do

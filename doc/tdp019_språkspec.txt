@@ -68,7 +68,6 @@ BNF grammatik:
 
 <bool>::= "True" | "False"
 
-
 <condition>::= "?nye?" "^" <logic_stmt> "^"  <condition_followup> 
 			   
 <condition_followup>::= <stmts> |
