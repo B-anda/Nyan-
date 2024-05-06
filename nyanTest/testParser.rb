@@ -162,17 +162,30 @@ require './parser'
 
 ## Testing: Functions ##
 
-# class Test_Function < Test::Unit::TestCase
+class Test_Function < Test::Unit::TestCase
 
-#   def test_basic_function
-#       nyan = Nyan.new
-#       program = nyan.nyanParser.parse(
-#       'mao test^^:
-#           meow^"hello"^
-#        :3
+  def test_basic_function
+      nyan = Nyan.new
+      program = nyan.nyanParser.parse(
+      'mao test^^:
+          meow^"hello"^
+       :3
         
-#         ' 
-#       ) 
+        ' 
+      ) 
      
-#   end
-# end
+  end
+    # def test_recursion
+    #     nyan = Nyan.new
+    #     program = nyan.nyanParser.parse(
+    #         'mao recurs^^3^ x^:
+    #             ?nya? ^x < 3^:
+    #                 meow ^x^
+    #                 recurs^x + 1^
+    #             :3
+    #         :3
+            
+    #         recurs^0^'
+    #     )
+    # end
+end

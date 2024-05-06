@@ -38,7 +38,7 @@ class Nyan
             token(/\^/) {|m| m}
             token(/\)/) {|m| m}
             token(/\(/) {|m| m}
-            token(/mao/) {:def}
+            token(/\bmao\b/) {:def}
             token(/meow/) {:meow }  
             token(/\?nya\?/) {:if}
             token(/\?nye\?/) {:else}
@@ -67,8 +67,8 @@ class Nyan
                 match(:while)       { |a| a }
                 match(:condition)   { |a| a }
                 match(:functionCall){ |a| a }
-                match(:reassignment){ |a| a }
                 match(:function)    { |a| a }
+                match(:reassignment){ |a| a }
                 match(:assignment)  { |a| a }
                 match(:print)       { |a| a }
                 match(:expr)        { |a| a }
