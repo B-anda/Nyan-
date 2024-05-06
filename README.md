@@ -13,11 +13,11 @@ Nyan.rb is a Ruby script that provides a command-line interface for interacting 
 ruby nyan.rb
 
 ### To run the script without any command-line arguments:
-ruby nyan.rb [file] [flags]
+ruby nyan.rb [file] | [flags]
 
 #### Flags
 -h, --help: Display help information.\
--d, --debug: Set debug mode on or off. \
+-d, --debug: Set debug mode true or false. \
 -v, --version: Display the latest version.\
 \
 file         : program read from script file 
@@ -37,5 +37,5 @@ getoptlong: Ruby library for parsing command-line options.
 ruby nyan.rb \
 
 //Parse a file with debug mode on \
-ruby nyan.rb my_file.nyan -d on
+ruby nyan.rb my_file.nyan -d true
 
