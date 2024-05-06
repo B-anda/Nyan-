@@ -1,4 +1,0 @@
-Simple if: 
-hello
-Nested if: 
-world
