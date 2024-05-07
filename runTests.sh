@@ -1,2 +1,11 @@
 #!/bin/bash
-for f in nyanTest/*.rb; do ruby "$f"; done
+
+stats = $()
+
+for f in nyanTest/*.rb;
+do 
+    echo $f
+    ruby "$f" | egrep 'Failure|Error|nyanTest|tests'
+    echo ""
+done
+

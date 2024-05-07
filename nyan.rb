@@ -63,6 +63,7 @@ def getOpts()
     end
 
     begin 
+        # can only read .nyan files
         if File.exist?(fileName) && File.extname(fileName) == ".nyan"
             readFile(fileName, setDebug)
         else
@@ -76,12 +77,10 @@ def getOpts()
    
 end
 
+# read file from args 
 def readFile(fileName, debug)
     @nyan.log debug
     begin
-        # File.readlines(fileName).each do |line|
-        #     puts @nyan.nyanParser.parse(line)
-        # end
         file = File.open(fileName)
         lines = file.readlines.join
         @nyan.nyanParser.parse(lines)

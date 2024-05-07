@@ -11,6 +11,7 @@ class Nyan
         @nyanParser = Parser.new("nyan") do
             
             token(/\s+/)
+            token(/\:3/) {|_| ';'}
             token(/[\d]+\.[\d]+/) {|m| m}
             token(/\d+/) {|m| m }
             token(/".*"/) {|m| m}
@@ -24,18 +25,17 @@ class Nyan
             token(/\)/) {|m| m}
             token(/mao/) {:def}
             token(/meow/) {:meow }
-            token(/push/) {:arrayPush}  
-            token(/pop/) {:arrayPop}  
-            token(/size/) {:arraySize}  
+            token(/push/) {:push}  
+            token(/pop/) {:pop}  
+            token(/size/) {:size}  
             token(/\?nya\?/) {:if}
             token(/\?nye\?/) {:else}
             token(/\?nyanye\?/) {:elseif}
             token(/[[a-zA-Z]\d_]+/) {|m| m}
             token(/,/) {|m| m}
             token(/\[/) {|m| m}
-            token(/\:3/) {|_| ';'}
-            token(/\[|\]|\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\]|\~|\:/) {|m| m}
-            # token(/\]/) {|m| m}
+            token(/\./) {|m| m}
+            token(/\+|\-|\*|\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\]|\~|\:/) {|m| m}
             token(/./) {|m| m }
 
             @scope = GlobalScope.new
@@ -66,20 +66,24 @@ class Nyan
             end
 
             ## Assignment ##
+
             rule :assignment do
                 match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
                 match(:datatype, :variable, "=", :array, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
-                match(:variable, ".", :arrayOp)               { |a, _, b| ArrayOpNode.new(a, b)}
+                match(:arrayOp)               { |a, _, b| ArrayOpNode.new(a, b)}
             end
 
              ## Reassign variables ##
+
              rule :reassignment do
                 match(:variable, "+=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "+", b)}
                 match(:variable, "-=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "-", b)}
                 match(:variable, "=", :value, "~")  { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
+                match(:arrayOp)                     { |a, _, b| ArrayOpNode.new(a, b)}
             end
 
             ## Array ##
+
             rule :array do
                 match("[", :elements, "]") {|_, a, _| a}
             end
@@ -92,12 +96,13 @@ class Nyan
                 match(:value) {|a| ArrayNode.new(a.eval)}
             end
             
+            # Array operators
+
             rule :arrayOp do
                 match(:arrayIndex)   { |a| a }
                 match(:arrayPush)    { |a| a }
                 match(:arrayPop)     { |a| a }
                 match(:arraySize)    { |a| a }
-                #should match variable[0]
             end
 
             rule :arrayIndex do
@@ -117,10 +122,13 @@ class Nyan
             end
 
             ## Print ##
+
             rule :print do
                 match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
-                match(:meow, "^", :array_operation, "^") { |_, _, op, _| PrintNode.new(op) }
+                match(:meow, "^", :arrayOp, "^") { |_, _, op, _| PrintNode.new(op) }
             end
+
+            ## Function ##
 
             rule :function do
                 match(:def, :variable, "^", :params, "^", ":", :blocks, ";" ) {|_, a, _, b, _, _, c, _| FunctionNode.new(a, c, b)}
@@ -133,7 +141,8 @@ class Nyan
             end
 
             rule :params do
-                match(:variable)               {|a| a}
+                match(:expr)                   {|a| ParamsNode.new(a)}
+                match(:variable)               {|a| ParamsNode.new(a)}
                 match(:params, ",", :variable) {|a, _, b| ParamsNode.new(a, b)}
             end
 
@@ -189,6 +198,7 @@ class Nyan
             end
 
             ## Arithmatic ##
+
             rule :expr do
                 match(:expr, "+", :term) {|a,_,c| ArithmaticNode.new(a,"+",c)}
                 match(:expr, "-", :term) {|a,_,c| ArithmaticNode.new(a,"-",c)}
@@ -208,10 +218,10 @@ class Nyan
                 match(:int)
                 match(:variable)
                 match("(", :expr, ")") {|_, a, _| a}
-                # match(:expr)
             end
             
             ## Print either a value or a variable ##
+
             rule :output do 
                 match(:value)
                 match(:variable)
@@ -222,6 +232,7 @@ class Nyan
             # ^3^ Int
             # ^.^ Float
             # ^oo^ Boolean
+            
             rule :datatype do
                 match(/\^w\^/)  {|a| DatatypeNode.new(a)}
                 match(:integer)  {|a| DatatypeNode.new(a)}
@@ -232,6 +243,7 @@ class Nyan
             rule :variable do
                 #Key words that are not variables
                 match(:integer) {}
+                match(:def)     {}
                 match(:meow)    {}
                 match(:whiloop) {}
                 match(:elseif)  {}
@@ -250,7 +262,6 @@ class Nyan
             
             rule :str do
                 match(/".+"/) {|a| ValueNode.new(a)}
-                # match(/(?<=").*(?=")/) {|a| ValueNode.new(a)}
             end
 
             rule :int do

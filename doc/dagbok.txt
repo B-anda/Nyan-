@@ -160,7 +160,7 @@ rule :variable do
     #Otherwise
     match(/[[:alpha:]\d\_]+/) {|a| VariableNode.new(a)}
 end
-så matchade de inte längre på variable
+så matchade hittade den rätt till slut
 
 ## 2024-04-23 ##
 Förmiddag:
@@ -187,3 +187,32 @@ Blev helt klara och testerna gick igenom. Behöver bara testa rekrusion också.
 ## 2024-04-26 ##
 Förmiddag:
 Började skriva i språkdokumentationen samt skrev om bnf-grammatiken.
+
+## 2024-05-06 ##
+Förmiddag:
+Fixade mattelabb-kompletering
+
+Eftermiddag:
+Fixat filstrukturen och städat upp koden.
+
+Skrivit documentationen samt försökt få rekrusion att fungera. Fick lägga till 'expr'
+i params rule:en så att functioner kan ta arithmatik som en parameter.
+ex. foo ^x + 1^
+
+test:
+'mao recurs^x^:
+    ?nya? ^x < 3^:
+        meow ^x^
+        recurs^x + 1^
+    :3
+:3
+^3^ z = 0~
+recurs^z^'
+testet gick inte helt igenom. den lyckades skriva ut 0, 1 men sedan fastnade den och hittade en 0?
+Felsök i syntaxtree.rb
+
+## 2024-05-07 ##
+Förmiddag:
+Fortsatt skriva documentation samt lagt till kommentarer i koden.
+
+Eftermiddag:

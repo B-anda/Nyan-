@@ -8,7 +8,7 @@ module GetValue
         elsif side.is_a? VariableNode
             return scope.findVariable(side).value
         else 
-            raise NyameNyerror.new("#{side} is incorrect class type")
+            raise NyameNyerror.new("#{side} is incorrect class type, type is #{side.class}")
         end
     end 
 end
@@ -159,15 +159,23 @@ class PrintNode < SyntaxTreeNode
             temp = scope[0].findVariable(@value).eval
             if temp.is_a? String
                 return temp.delete "\""
+            elsif temp.is_a? Array
+                temp = temp.inspect
             end
             puts temp
             return temp
         else
             temp = @value.eval(scope[0])
+            
             if temp.is_a? String
-                temp =temp.delete "\""
+                temp = temp.delete "\""
+                puts temp
+            
+            elsif temp.is_a? SyntaxTreeNode
+                puts temp.eval(scope[0])
+                return temp
             end
-            puts temp
+            
             return temp
         end
     end
@@ -184,18 +192,65 @@ class ArithmaticNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        @lhs = nodeToValue(@lhs, scope[0])
-        @rhs = nodeToValue(@rhs, scope[0])
+        puts @lhs
+        tempLhs = nodeToValue(@lhs, scope[0])
+        tempRhs = nodeToValue(@rhs, scope[0])
 
         if @operator == "/"
-            return @lhs.to_f.send(@operator, @rhs.to_f)
+            return ValueNode.new(tempLhs.to_f.send(@operator, tempRhs.to_f))
         elsif @operator == "//"
-            return @lhs.send("/", @rhs).to_i
+            return ValueNode.new(tempLhs.send("/", tempRhs).to_i)
         else
-            return @lhs.send(@operator, @rhs)
+            return ValueNode.new(tempLhs.send(@operator, tempRhs))
         end
     end
 end
+
+
+class ArrayNode < SyntaxTreeNode
+    attr_accessor :array
+    def initialize(arr)
+        @array = [arr]
+    end
+
+    def eval
+        return @array.reverse()
+    end
+end
+
+class ArrayOpNode 
+    attr_accessor :operation, :args
+
+    def initialize(operation, *args)
+        @operation = operation
+        @args = args
+    end
+
+    def eval(*scope)
+        case @operation
+        when :index
+            var, index = @args
+            array = scope[0].findVariable(var).eval
+            idx = index.eval(scope[0])
+            return ValueNode.new(array[idx])
+        when :push
+            puts @args
+            variable, value = @args
+            arr = scope[0].findVariable(variable).eval
+            return arr.push(value.eval(scope[0]))
+        when :pop
+            puts @args[0]
+            variable = @args[0]
+            arr = scope[0].findVariable(variable).eval
+            return arr.pop
+        when :size
+            variable = @args[0]
+            arr = scope[0].findVariable(variable).eval
+            return ValueNode.new(arr.size)
+        end
+    end
+end
+
 
 class ParamsNode < SyntaxTreeNode
 
@@ -215,10 +270,11 @@ class ParamsNode < SyntaxTreeNode
     end
 
     def vars()
-        if @param.is_a? VariableNode
-            return [@param]
-        else
+        if @param.is_a? ParamsNode
             return @param.vars().push(@nextParam)
+        else
+            puts "221 - #{@param}"
+            return [@param]
         end
     end
 end
@@ -259,14 +315,22 @@ class FunctionCall
         if @params            
             setParams = @params.vars()
             for x in 0...setParams.length()
-                value = scope[0].findVariable(setParams[x])
+                if setParams[x].is_a? VariableNode
+                    value = scope[0].findVariable(setParams[x])
+                else
+                    puts "here"
+                    puts setParams[x]
+                    value = setParams[x].eval(scope[0])
+                end
                 curScope.addVariable(func.paramList[x], value)
             end
         end
+        
         
         toReturn = func.block.eval(curScope)
         curScope.currToPrevScope()
         return toReturn
     end
 end
+
 

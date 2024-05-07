@@ -32,78 +32,75 @@ Vi väljer att använda ett statiskt scope. Med detta vill vi säga att variable
 definitioner är baserade på vilket scope som funktionen ankallades i. 
 
 BNF grammatik:
+<program> ::= <component>
 
-<program>::= <component> 
+<component> ::= <blocks>
 
-<component>::= <component> <component> | <function> | <block>
+<blocks> ::= <block> | <blocks> <block>
 
-<function>::= "mao" <variable> "^" <params> "^" <stmts>
+<block> ::= <while> | <condition> | <functionCall> | <reassignment> | <function> | <assignment> | <print> | <expr>
 
-<function_call>::= <variable> <params>
+<assignment> ::= <datatype> <variable> ''='' <value> ''~''
 
-<stmts>::= ":" <block> ":3"
+<reassignment> ::= <variable> ''+='' <value> ''~'' 
+                   | <variable> ''-='' <value> ''~'' 
+                   | <variable> ''='' <value> ''~''
 
-<block>::= <assignment> | <blocks> | <condition> | <while> | <return> | <arithmatic> | <print>
+<print> ::= :meow ''^'' <output> ''^'' '':'' <blocks> '';''
 
-<return>::= "return" 
+<function> ::= ''def'' <variable> ''^'' <params> ''^'' '':'' <blocks> '';''
 
-<assignment>::= <datatype> <variable> "=" <value>
+<functionCall> ::= <variable> ''^'' <params> ''^''
+                   | <variable> ''^'' ''^''
 
-<print>::= "meow" "^" <value> "^"
+<params> ::= <variable> | <params> '','' <variable>
 
-<blocks>::= <blocks> <block> | <block>
+<condition> ::= ''if'' ''^'' <logicStmt> ''^'' '':'' <blocks> '';'' <conditionFollowup> | ''if'' ''^'' <logicStmt> ''^'' '':'' <blocks> '';''
 
-<params>::= <params> "," <datatype> <variable> |
-			<datatype> <variable>
+<conditionFollowup> ::= ''else'' '':'' <blocks> 
+                        | ''elseif'' ''^'' <logicStmt> ''^'' '':'' <blocks> <conditionFollowup>
+                        | ''elseif'' ''^'' <logicStmt>''^'' '':'' <blocks>
 
-<variable>::= /[[:alpha:]\d_]+/
+<while> ::= :whileloop ''^'' <logicStmt> ''^'' '':'' <blocks> '';''
 
-<value> ::= <int> | <str> | <float> | <bool> | <arithmatic>
+<logicStmt> ::= "not" <logicStmt> 
+                | <logicStmt> ''and'' <logicStmt> 
+                | <logicStmt> ''\&\&'' <logicStmt> 
+                | <logicStmt> ''or'' <logicStmt> 
+                | <logicStmt> ''||'' <logicStmt> 
+                | <valueComp>
 
-<int>::= /\d+/
+<valueComp> ::= <logicExpr> ''<'' <logicExpr> 
+                | <logicExpr> ''>'' <logicExpr>     
+                | <logicExpr> ''<='' <logicExpr> 
+                | <logicExpr> ''>='' <logicExpr> 
+                | <logicExpr> ''=='' <logicExpr> 
+                | <logicExpr> ''!='' <logicExpr> 
+                | <logicExpr>
 
-<str>::= '"' /[^"]/ '"'
+<logicExpr> ::= <value> | <variable> | ''('' <logicStmt> '')''
 
-<float>::= /[\d]+\.[\d]+/
+<expr> ::= <expr> ''+'' <term> | <expr> ''-'' <term> | <term>
 
-<bool>::= "True" | "False"
+<term> ::= <term> ''\%'' <factor> | <term> ''//'' <factor> | <term> ''*'' <factor> | <term> ''/'' <factor> 
 
-<condition>::= "?nye?" "^" <logic_stmt> "^"  <condition_followup> 
-			   
-<condition_followup>::= <stmts> |
-						<block> "?nyanye?" <condition_followup> |
-						<block> "?nye?" <stmt> 
+<factor> ::= <float> | <int> | <variable> | ''('' <expr> '')''
 
-<logic_stmt>::= not <logic_stmt> |
-				<logic_stmt> and <logic_stmt> |
-				<logic_stmt> or <logic_stmt>  |
-				<comparison_stmt> | <logic_expr>
+<output> ::= <value> | <variable> 
 
-<comparison_stmt> ::= <equal_op> | <value_comp>
+<datatype> ::= ''^w^''  
+               | ''integer''
+               | ''^.^''
+               | ''^oo^''
 
-<equal_op> ::= <logic_stmt> '==' <logic_stmt> |
-			   <logic_stmt> '!=' <logic_stmt>
+<variable> 
 
-<value_comp> ::= <logic_stmt> < <logic_stmt>  |
-				 <logic_stmt> > <logic_stmt>  |
-				 <logic_stmt> <= <logic_stmt> |
-				 <logic_stmt> >= <logic_stmt> |
+<value> ::= <float> | <int> | <bool> | <string>
 
-<logic_expr> ::= <variable> | <value>
-				    
-<term>::= <expr> | <expr> <operator_lo> <expr>
+<string> ::= ".+"
 
-<expr>::= <factor> | <factor> <operator_hi> <factor>
+<bool> ::= ''true'' | ''false''
 
-<factor>::= "(" <term> ")" | <int> | <variable>
+<int> ::= \d+
 
-<operator_lo>::= '+' | '-'
-
-<operator_hi>::= '*' | '/' 
-
-<while>::= "prrr" "^" <logic_stmt> "^" <stmts>
-
-<datatype>::= "^w^"  |
-		   	  "^3^"  |
-		      "^.^"  |
-		      "^oo^" |
+<float> ::=

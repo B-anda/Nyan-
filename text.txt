@@ -1,0 +1,290 @@
+Loaded suite nyanTest/testParser
+Started
+D, [2024-05-07T10:33:59.879376 #25657] DEBUG -- : Token mao consumed
+D, [2024-05-07T10:33:59.879430 #25657] DEBUG -- : Token   consumed
+D, [2024-05-07T10:33:59.879455 #25657] DEBUG -- : Token recurs consumed
+D, [2024-05-07T10:33:59.879472 #25657] DEBUG -- : Token ^ consumed
+D, [2024-05-07T10:33:59.879490 #25657] DEBUG -- : Token x consumed
+D, [2024-05-07T10:33:59.879501 #25657] DEBUG -- : Token ^ consumed
+D, [2024-05-07T10:33:59.879515 #25657] DEBUG -- : Token : consumed
+D, [2024-05-07T10:33:59.879523 #25657] DEBUG -- : Token 
+                 consumed
+D, [2024-05-07T10:33:59.879536 #25657] DEBUG -- : Token ?nya? consumed
+D, [2024-05-07T10:33:59.879544 #25657] DEBUG -- : Token   consumed
+D, [2024-05-07T10:33:59.879572 #25657] DEBUG -- : Token ^ consumed
+D, [2024-05-07T10:33:59.879586 #25657] DEBUG -- : Token x consumed
+D, [2024-05-07T10:33:59.879593 #25657] DEBUG -- : Token   consumed
+D, [2024-05-07T10:33:59.879607 #25657] DEBUG -- : Token < consumed
+D, [2024-05-07T10:33:59.879614 #25657] DEBUG -- : Token   consumed
+D, [2024-05-07T10:33:59.879621 #25657] DEBUG -- : Token 3 consumed
+D, [2024-05-07T10:33:59.879631 #25657] DEBUG -- : Token ^ consumed
+D, [2024-05-07T10:33:59.879645 #25657] DEBUG -- : Token : consumed
+D, [2024-05-07T10:33:59.879652 #25657] DEBUG -- : Token 
+                     consumed
+D, [2024-05-07T10:33:59.879663 #25657] DEBUG -- : Token meow consumed
+D, [2024-05-07T10:33:59.879670 #25657] DEBUG -- : Token   consumed
+D, [2024-05-07T10:33:59.879680 #25657] DEBUG -- : Token ^ consumed
+D, [2024-05-07T10:33:59.879692 #25657] DEBUG -- : Token x consumed
+D, [2024-05-07T10:33:59.879702 #25657] DEBUG -- : Token ^ consumed
+D, [2024-05-07T10:33:59.879709 #25657] DEBUG -- : Token 
+                     consumed
+D, [2024-05-07T10:33:59.879721 #25657] DEBUG -- : Token recurs consumed
+D, [2024-05-07T10:33:59.879731 #25657] DEBUG -- : Token ^ consumed
+D, [2024-05-07T10:33:59.879743 #25657] DEBUG -- : Token x consumed
+D, [2024-05-07T10:33:59.879750 #25657] DEBUG -- : Token   consumed
+D, [2024-05-07T10:33:59.879763 #25657] DEBUG -- : Token + consumed
+D, [2024-05-07T10:33:59.879770 #25657] DEBUG -- : Token   consumed
+D, [2024-05-07T10:33:59.879778 #25657] DEBUG -- : Token 1 consumed
+D, [2024-05-07T10:33:59.879791 #25657] DEBUG -- : Token ^ consumed
+D, [2024-05-07T10:33:59.879803 #25657] DEBUG -- : Token 
+                 consumed
+D, [2024-05-07T10:33:59.879886 #25657] DEBUG -- : Token :3 consumed
+D, [2024-05-07T10:33:59.879903 #25657] DEBUG -- : Token 
+             consumed
+D, [2024-05-07T10:33:59.879916 #25657] DEBUG -- : Token :3 consumed
+D, [2024-05-07T10:33:59.879929 #25657] DEBUG -- : Token 
+             consumed
+D, [2024-05-07T10:33:59.879944 #25657] DEBUG -- : Token ^3^ consumed
+D, [2024-05-07T10:33:59.879957 #25657] DEBUG -- : Token   consumed
+D, [2024-05-07T10:33:59.879976 #25657] DEBUG -- : Token z consumed
+D, [2024-05-07T10:33:59.880021 #25657] DEBUG -- : Token   consumed
+D, [2024-05-07T10:33:59.880041 #25657] DEBUG -- : Token = consumed
+D, [2024-05-07T10:33:59.880055 #25657] DEBUG -- : Token   consumed
+D, [2024-05-07T10:33:59.880069 #25657] DEBUG -- : Token 0 consumed
+D, [2024-05-07T10:33:59.880092 #25657] DEBUG -- : Token ~ consumed
+D, [2024-05-07T10:33:59.880105 #25657] DEBUG -- : Token 
+             consumed
+D, [2024-05-07T10:33:59.880124 #25657] DEBUG -- : Token recurs consumed
+D, [2024-05-07T10:33:59.880142 #25657] DEBUG -- : Token ^ consumed
+D, [2024-05-07T10:33:59.880164 #25657] DEBUG -- : Token z consumed
+D, [2024-05-07T10:33:59.880182 #25657] DEBUG -- : Token ^ consumed
+D, [2024-05-07T10:33:59.880325 #25657] DEBUG -- : Matched token 'def' as part of rule 'variable <= [:def]'
+D, [2024-05-07T10:33:59.880370 #25657] DEBUG -- : Matched token 'def' as part of rule 'variable <= [:def]'
+D, [2024-05-07T10:33:59.880404 #25657] DEBUG -- : Matched token 'def' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-07T10:33:59.880459 #25657] DEBUG -- : Matched token 'recurs' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.880504 #25657] DEBUG -- : 'a' matched 'variable' and generated '#<VariableNode:0x00005604589786c0 @var="recurs">'
+D, [2024-05-07T10:33:59.880543 #25657] DEBUG -- : Matched token '^' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-07T10:33:59.880683 #25657] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.880734 #25657] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000560458963450 @var="x">'
+D, [2024-05-07T10:33:59.880763 #25657] DEBUG -- : ' ' matched 'factor' and generated '#<VariableNode:0x0000560458963450 @var="x">'
+D, [2024-05-07T10:33:59.880784 #25657] DEBUG -- : ' ' matched 'term' and generated '#<VariableNode:0x0000560458963450 @var="x">'
+D, [2024-05-07T10:33:59.880837 #25657] DEBUG -- : ' ' matched 'expr' and generated '#<VariableNode:0x0000560458963450 @var="x">'
+D, [2024-05-07T10:33:59.880878 #25657] DEBUG -- : ' ' matched 'params' and generated '#<ParamsNode:0x00005604589621e0 @param=#<VariableNode:0x0000560458963450 @var="x">, @nextParam=nil>'
+D, [2024-05-07T10:33:59.880901 #25657] DEBUG -- : Matched token '^' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-07T10:33:59.880915 #25657] DEBUG -- : Matched token ':' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-07T10:33:59.880938 #25657] DEBUG -- : Matched token 'if' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup, ";"]'
+D, [2024-05-07T10:33:59.880952 #25657] DEBUG -- : Matched token '^' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup, ";"]'
+D, [2024-05-07T10:33:59.881037 #25657] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.881055 #25657] DEBUG -- : 'r' matched 'variable' and generated '#<VariableNode:0x000056045892f088 @var="x">'
+D, [2024-05-07T10:33:59.881078 #25657] DEBUG -- : 'r' matched 'logicExpr' and generated '#<LogicExpr:0x000056045892ede0 @value=#<VariableNode:0x000056045892f088 @var="x">>'
+D, [2024-05-07T10:33:59.881094 #25657] DEBUG -- : Matched token '<' as part of rule 'valueComp <= [:logicExpr, "<", :logicExpr]'
+D, [2024-05-07T10:33:59.881117 #25657] DEBUG -- : Matched token '3' as part of rule 'int <= [/\b\d+\b/]'
+D, [2024-05-07T10:33:59.881155 #25657] DEBUG -- : '^' matched 'int' and generated '#<ValueNode:0x000056045892e278 @value=3>'
+D, [2024-05-07T10:33:59.881178 #25657] DEBUG -- : '^' matched 'value' and generated '#<ValueNode:0x000056045892e278 @value=3>'
+D, [2024-05-07T10:33:59.881204 #25657] DEBUG -- : '^' matched 'logicExpr' and generated '#<LogicExpr:0x000056045892dcd8 @value=#<ValueNode:0x000056045892e278 @value=3>>'
+D, [2024-05-07T10:33:59.881248 #25657] DEBUG -- : 'rs^' matched 'valueComp' and generated '#<ValueComp:0x000056045892d990 @lhs=#<LogicExpr:0x000056045892ede0 @value=#<VariableNode:0x000056045892f088 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x000056045892dcd8 @value=#<ValueNode:0x000056045892e278 @value=3>>>'
+D, [2024-05-07T10:33:59.881330 #25657] DEBUG -- : 'rs^' matched 'logicStmt' and generated '#<ValueComp:0x000056045892d990 @lhs=#<LogicExpr:0x000056045892ede0 @value=#<VariableNode:0x000056045892f088 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x000056045892dcd8 @value=#<ValueNode:0x000056045892e278 @value=3>>>'
+D, [2024-05-07T10:33:59.881370 #25657] DEBUG -- : Matched token '^' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup, ";"]'
+D, [2024-05-07T10:33:59.881386 #25657] DEBUG -- : Matched token ':' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup, ";"]'
+D, [2024-05-07T10:33:59.881415 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881463 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881496 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881520 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881681 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881720 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881755 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881779 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881806 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881907 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881939 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881954 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.881978 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.882026 #25657] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-07T10:33:59.882051 #25657] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-07T10:33:59.882134 #25657] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.882172 #25657] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x00005604588506a8 @var="x">'
+D, [2024-05-07T10:33:59.882208 #25657] DEBUG -- : ' ' matched 'output' and generated '#<VariableNode:0x00005604588506a8 @var="x">'
+D, [2024-05-07T10:33:59.882234 #25657] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-07T10:33:59.882283 #25657] DEBUG -- : ':
+  ' matched 'print' and generated '#<PrintNode:0x00005604588126a0 @value=#<VariableNode:0x00005604588506a8 @var="x">>'
+D, [2024-05-07T10:33:59.882317 #25657] DEBUG -- : ':
+  ' matched 'block' and generated '#<PrintNode:0x00005604588126a0 @value=#<VariableNode:0x00005604588506a8 @var="x">>'
+D, [2024-05-07T10:33:59.882376 #25657] DEBUG -- : ':
+  ' matched 'blocks' and generated '#<PrintNode:0x00005604588126a0 @value=#<VariableNode:0x00005604588506a8 @var="x">>'
+D, [2024-05-07T10:33:59.882463 #25657] DEBUG -- : Matched token 'recurs' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.882491 #25657] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x000056045880b058 @var="recurs">'
+D, [2024-05-07T10:33:59.882539 #25657] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-07T10:33:59.882607 #25657] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.882636 #25657] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000560458803c90 @var="x">'
+D, [2024-05-07T10:33:59.882650 #25657] DEBUG -- : ' ' matched 'factor' and generated '#<VariableNode:0x0000560458803c90 @var="x">'
+D, [2024-05-07T10:33:59.882662 #25657] DEBUG -- : ' ' matched 'term' and generated '#<VariableNode:0x0000560458803c90 @var="x">'
+D, [2024-05-07T10:33:59.882681 #25657] DEBUG -- : ' ' matched 'expr' and generated '#<VariableNode:0x0000560458803c90 @var="x">'
+D, [2024-05-07T10:33:59.882695 #25657] DEBUG -- : Matched token '+' as part of rule 'expr <= ["+", :term]'
+D, [2024-05-07T10:33:59.882715 #25657] DEBUG -- : Matched token '1' as part of rule 'int <= [/\b\d+\b/]'
+D, [2024-05-07T10:33:59.882754 #25657] DEBUG -- : ' ' matched 'int' and generated '#<ValueNode:0x00005604587dbb50 @value=1>'
+D, [2024-05-07T10:33:59.882766 #25657] DEBUG -- : ' ' matched 'factor' and generated '#<ValueNode:0x00005604587dbb50 @value=1>'
+D, [2024-05-07T10:33:59.882777 #25657] DEBUG -- : ' ' matched 'term' and generated '#<ValueNode:0x00005604587dbb50 @value=1>'
+/////////////////////////////////////////////////////////77 [#<VariableNode:0x0000560458803c90 @var="x">, #<ValueNode:0x00005604587dbb50 @value=1>]
+D, [2024-05-07T10:33:59.882865 #25657] DEBUG -- : '  ' matched 'expr' and generated '#<ArithmaticNode:0x00005604587dabb0 @lhs=#<VariableNode:0x0000560458803c90 @var="x">, @operator="+", @rhs=#<ValueNode:0x00005604587dbb50 @value=1>, @sides=[#<VariableNode:0x0000560458803c90 @var="x">, #<ValueNode:0x00005604587dbb50 @value=1>]>'
+D, [2024-05-07T10:33:59.882908 #25657] DEBUG -- : '   ' matched 'params' and generated '#<ParamsNode:0x00005604587d9fa8 @param=#<ArithmaticNode:0x00005604587dabb0 @lhs=#<VariableNode:0x0000560458803c90 @var="x">, @operator="+", @rhs=#<ValueNode:0x00005604587dbb50 @value=1>, @sides=[#<VariableNode:0x0000560458803c90 @var="x">, #<ValueNode:0x00005604587dbb50 @value=1>]>, @nextParam=nil>'
+D, [2024-05-07T10:33:59.882931 #25657] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-07T10:33:59.882967 #25657] DEBUG -- : '      ' matched 'functionCall' and generated '#<FunctionCall:0x00005604587d90a8 @name=#<VariableNode:0x000056045880b058 @var="recurs">, @params=#<ParamsNode:0x00005604587d9fa8 @param=#<ArithmaticNode:0x00005604587dabb0 @lhs=#<VariableNode:0x0000560458803c90 @var="x">, @operator="+", @rhs=#<ValueNode:0x00005604587dbb50 @value=1>, @sides=[#<VariableNode:0x0000560458803c90 @var="x">, #<ValueNode:0x00005604587dbb50 @value=1>]>, @nextParam=nil>>'
+D, [2024-05-07T10:33:59.883014 #25657] DEBUG -- : '      ' matched 'block' and generated '#<FunctionCall:0x00005604587d90a8 @name=#<VariableNode:0x000056045880b058 @var="recurs">, @params=#<ParamsNode:0x00005604587d9fa8 @param=#<ArithmaticNode:0x00005604587dabb0 @lhs=#<VariableNode:0x0000560458803c90 @var="x">, @operator="+", @rhs=#<ValueNode:0x00005604587dbb50 @value=1>, @sides=[#<VariableNode:0x0000560458803c90 @var="x">, #<ValueNode:0x00005604587dbb50 @value=1>]>, @nextParam=nil>>'
+D, [2024-05-07T10:33:59.883084 #25657] DEBUG -- : '      ' matched 'blocks' and generated '#<BlocksNode:0x00005604587ce360 @toEval=#<PrintNode:0x00005604588126a0 @value=#<VariableNode:0x00005604588506a8 @var="x">>, @nextBlock=#<FunctionCall:0x00005604587d90a8 @name=#<VariableNode:0x000056045880b058 @var="recurs">, @params=#<ParamsNode:0x00005604587d9fa8 @param=#<ArithmaticNode:0x00005604587dabb0 @lhs=#<VariableNode:0x0000560458803c90 @var="x">, @operator="+", @rhs=#<ValueNode:0x00005604587dbb50 @value=1>, @sides=[#<VariableNode:0x0000560458803c90 @var="x">, #<ValueNode:0x00005604587dbb50 @value=1>]>, @nextParam=nil>>>'
+D, [2024-05-07T10:33:59.883647 #25657] DEBUG -- : Matched token 'if' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, ";"]'
+D, [2024-05-07T10:33:59.883714 #25657] DEBUG -- : Matched token '^' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, ";"]'
+D, [2024-05-07T10:33:59.883862 #25657] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.883895 #25657] DEBUG -- : 'r' matched 'variable' and generated '#<VariableNode:0x00005604587160f8 @var="x">'
+D, [2024-05-07T10:33:59.883928 #25657] DEBUG -- : 'r' matched 'logicExpr' and generated '#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>'
+D, [2024-05-07T10:33:59.883956 #25657] DEBUG -- : Matched token '<' as part of rule 'valueComp <= [:logicExpr, "<", :logicExpr]'
+D, [2024-05-07T10:33:59.884008 #25657] DEBUG -- : Matched token '3' as part of rule 'int <= [/\b\d+\b/]'
+D, [2024-05-07T10:33:59.884026 #25657] DEBUG -- : '^' matched 'int' and generated '#<ValueNode:0x00005604585bf088 @value=3>'
+D, [2024-05-07T10:33:59.884039 #25657] DEBUG -- : '^' matched 'value' and generated '#<ValueNode:0x00005604585bf088 @value=3>'
+D, [2024-05-07T10:33:59.884056 #25657] DEBUG -- : '^' matched 'logicExpr' and generated '#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>'
+D, [2024-05-07T10:33:59.884101 #25657] DEBUG -- : 'rs^' matched 'valueComp' and generated '#<ValueComp:0x00005604585bc450 @lhs=#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>>'
+D, [2024-05-07T10:33:59.884146 #25657] DEBUG -- : 'rs^' matched 'logicStmt' and generated '#<ValueComp:0x00005604585bc450 @lhs=#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>>'
+D, [2024-05-07T10:33:59.884259 #25657] DEBUG -- : Matched token '^' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, ";"]'
+D, [2024-05-07T10:33:59.884305 #25657] DEBUG -- : Matched token ':' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, ";"]'
+D, [2024-05-07T10:33:59.884350 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.884380 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.884409 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.884429 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.884455 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.884485 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.884513 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.886139 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.886196 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.886237 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.886251 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.886266 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.886288 #25657] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-07T10:33:59.886305 #25657] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-07T10:33:59.886335 #25657] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-07T10:33:59.886396 #25657] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.886429 #25657] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000560458ad2688 @var="x">'
+D, [2024-05-07T10:33:59.886456 #25657] DEBUG -- : ' ' matched 'output' and generated '#<VariableNode:0x0000560458ad2688 @var="x">'
+D, [2024-05-07T10:33:59.886480 #25657] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-07T10:33:59.886547 #25657] DEBUG -- : ':
+  ' matched 'print' and generated '#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>'
+D, [2024-05-07T10:33:59.886576 #25657] DEBUG -- : ':
+  ' matched 'block' and generated '#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>'
+D, [2024-05-07T10:33:59.886603 #25657] DEBUG -- : ':
+  ' matched 'blocks' and generated '#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>'
+D, [2024-05-07T10:33:59.886665 #25657] DEBUG -- : Matched token 'recurs' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.886712 #25657] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000560458ab74a0 @var="recurs">'
+D, [2024-05-07T10:33:59.886729 #25657] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-07T10:33:59.886773 #25657] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.886797 #25657] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000560458ab5da8 @var="x">'
+D, [2024-05-07T10:33:59.886832 #25657] DEBUG -- : ' ' matched 'factor' and generated '#<VariableNode:0x0000560458ab5da8 @var="x">'
+D, [2024-05-07T10:33:59.886854 #25657] DEBUG -- : ' ' matched 'term' and generated '#<VariableNode:0x0000560458ab5da8 @var="x">'
+D, [2024-05-07T10:33:59.886899 #25657] DEBUG -- : ' ' matched 'expr' and generated '#<VariableNode:0x0000560458ab5da8 @var="x">'
+D, [2024-05-07T10:33:59.886923 #25657] DEBUG -- : Matched token '+' as part of rule 'expr <= ["+", :term]'
+D, [2024-05-07T10:33:59.886950 #25657] DEBUG -- : Matched token '1' as part of rule 'int <= [/\b\d+\b/]'
+D, [2024-05-07T10:33:59.886967 #25657] DEBUG -- : ' ' matched 'int' and generated '#<ValueNode:0x0000560458aadf90 @value=1>'
+D, [2024-05-07T10:33:59.886979 #25657] DEBUG -- : ' ' matched 'factor' and generated '#<ValueNode:0x0000560458aadf90 @value=1>'
+D, [2024-05-07T10:33:59.886989 #25657] DEBUG -- : ' ' matched 'term' and generated '#<ValueNode:0x0000560458aadf90 @value=1>'
+/////////////////////////////////////////////////////////77 [#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]
+D, [2024-05-07T10:33:59.887027 #25657] DEBUG -- : '  ' matched 'expr' and generated '#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>'
+D, [2024-05-07T10:33:59.887058 #25657] DEBUG -- : '   ' matched 'params' and generated '#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>'
+D, [2024-05-07T10:33:59.887075 #25657] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-07T10:33:59.887128 #25657] DEBUG -- : '      ' matched 'functionCall' and generated '#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>'
+D, [2024-05-07T10:33:59.887156 #25657] DEBUG -- : '      ' matched 'block' and generated '#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>'
+D, [2024-05-07T10:33:59.887195 #25657] DEBUG -- : '      ' matched 'blocks' and generated '#<BlocksNode:0x0000560458a9ac88 @toEval=#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>, @nextBlock=#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>>'
+D, [2024-05-07T10:33:59.887500 #25657] DEBUG -- : Matched token ';' as part of rule 'condition <= [:if, "^", :logicStmt, "^", ":", :blocks, ";"]'
+D, [2024-05-07T10:33:59.887735 #25657] DEBUG -- : 'curs^x^:
+         ' matched 'condition' and generated '#<ConditionNode:0x0000560458a8ee38 @condition=#<ValueComp:0x00005604585bc450 @lhs=#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>>, @block=#<BlocksNode:0x0000560458a9ac88 @toEval=#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>, @nextBlock=#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>>, @lone="lone">'
+D, [2024-05-07T10:33:59.888010 #25657] DEBUG -- : 'curs^x^:
+         ' matched 'block' and generated '#<ConditionNode:0x0000560458a8ee38 @condition=#<ValueComp:0x00005604585bc450 @lhs=#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>>, @block=#<BlocksNode:0x0000560458a9ac88 @toEval=#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>, @nextBlock=#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>>, @lone="lone">'
+D, [2024-05-07T10:33:59.888071 #25657] DEBUG -- : 'curs^x^:
+         ' matched 'blocks' and generated '#<ConditionNode:0x0000560458a8ee38 @condition=#<ValueComp:0x00005604585bc450 @lhs=#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>>, @block=#<BlocksNode:0x0000560458a9ac88 @toEval=#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>, @nextBlock=#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>>, @lone="lone">'
+D, [2024-05-07T10:33:59.888431 #25657] DEBUG -- : Matched token ';' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-07T10:33:59.888561 #25657] DEBUG -- : 'mao recurs^x^:
+          ' matched 'function' and generated '#<FunctionNode:0x00005604589f5468 @name=#<VariableNode:0x00005604589786c0 @var="recurs">, @block=#<ConditionNode:0x0000560458a8ee38 @condition=#<ValueComp:0x00005604585bc450 @lhs=#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>>, @block=#<BlocksNode:0x0000560458a9ac88 @toEval=#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>, @nextBlock=#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>>, @lone="lone">, @params=#<ParamsNode:0x00005604589621e0 @param=#<VariableNode:0x0000560458963450 @var="x">, @nextParam=nil>, @paramList=[]>'
+D, [2024-05-07T10:33:59.888691 #25657] DEBUG -- : 'mao recurs^x^:
+          ' matched 'block' and generated '#<FunctionNode:0x00005604589f5468 @name=#<VariableNode:0x00005604589786c0 @var="recurs">, @block=#<ConditionNode:0x0000560458a8ee38 @condition=#<ValueComp:0x00005604585bc450 @lhs=#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>>, @block=#<BlocksNode:0x0000560458a9ac88 @toEval=#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>, @nextBlock=#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>>, @lone="lone">, @params=#<ParamsNode:0x00005604589621e0 @param=#<VariableNode:0x0000560458963450 @var="x">, @nextParam=nil>, @paramList=[]>'
+D, [2024-05-07T10:33:59.888834 #25657] DEBUG -- : 'mao recurs^x^:
+          ' matched 'blocks' and generated '#<FunctionNode:0x00005604589f5468 @name=#<VariableNode:0x00005604589786c0 @var="recurs">, @block=#<ConditionNode:0x0000560458a8ee38 @condition=#<ValueComp:0x00005604585bc450 @lhs=#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>>, @block=#<BlocksNode:0x0000560458a9ac88 @toEval=#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>, @nextBlock=#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>>, @lone="lone">, @params=#<ParamsNode:0x00005604589621e0 @param=#<VariableNode:0x0000560458963450 @var="x">, @nextParam=nil>, @paramList=[]>'
+D, [2024-05-07T10:33:59.888880 #25657] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-07T10:33:59.888897 #25657] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-07T10:33:59.888915 #25657] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-07T10:33:59.888926 #25657] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-07T10:33:59.888936 #25657] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-07T10:33:59.888949 #25657] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-07T10:33:59.888963 #25657] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-07T10:33:59.888981 #25657] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-07T10:33:59.889002 #25657] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-07T10:33:59.889062 #25657] DEBUG -- : Matched token 'integer' as part of rule 'datatype <= [:integer]'
+D, [2024-05-07T10:33:59.889093 #25657] DEBUG -- : ' ' matched 'datatype' and generated '#<DatatypeNode:0x00005604589b79b0 @datatype=:integer>'
+D, [2024-05-07T10:33:59.889135 #25657] DEBUG -- : Matched token 'z' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.889160 #25657] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x00005604589b6d08 @var="z">'
+D, [2024-05-07T10:33:59.889185 #25657] DEBUG -- : Matched token '=' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-07T10:33:59.889243 #25657] DEBUG -- : Matched token '0' as part of rule 'int <= [/\b\d+\b/]'
+D, [2024-05-07T10:33:59.889268 #25657] DEBUG -- : ' ' matched 'int' and generated '#<ValueNode:0x00005604589b60d8 @value=0>'
+D, [2024-05-07T10:33:59.889299 #25657] DEBUG -- : ' ' matched 'value' and generated '#<ValueNode:0x00005604589b60d8 @value=0>'
+D, [2024-05-07T10:33:59.889323 #25657] DEBUG -- : Matched token '~' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-07T10:33:59.889361 #25657] DEBUG -- : '     ' matched 'assignment' and generated '#<AssignmentNode:0x00005604589b5840 @datatype=#<DatatypeNode:0x00005604589b79b0 @datatype=:integer>, @var=#<VariableNode:0x00005604589b6d08 @var="z">, @value=#<ValueNode:0x00005604589b60d8 @value=0>>'
+D, [2024-05-07T10:33:59.889396 #25657] DEBUG -- : '     ' matched 'block' and generated '#<AssignmentNode:0x00005604589b5840 @datatype=#<DatatypeNode:0x00005604589b79b0 @datatype=:integer>, @var=#<VariableNode:0x00005604589b6d08 @var="z">, @value=#<ValueNode:0x00005604589b60d8 @value=0>>'
+D, [2024-05-07T10:33:59.889718 #25657] DEBUG -- : '     ' matched 'blocks' and generated '#<BlocksNode:0x00005604589b4bc0 @toEval=#<FunctionNode:0x00005604589f5468 @name=#<VariableNode:0x00005604589786c0 @var="recurs">, @block=#<ConditionNode:0x0000560458a8ee38 @condition=#<ValueComp:0x00005604585bc450 @lhs=#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>>, @block=#<BlocksNode:0x0000560458a9ac88 @toEval=#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>, @nextBlock=#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>>, @lone="lone">, @params=#<ParamsNode:0x00005604589621e0 @param=#<VariableNode:0x0000560458963450 @var="x">, @nextParam=nil>, @paramList=[]>, @nextBlock=#<AssignmentNode:0x00005604589b5840 @datatype=#<DatatypeNode:0x00005604589b79b0 @datatype=:integer>, @var=#<VariableNode:0x00005604589b6d08 @var="z">, @value=#<ValueNode:0x00005604589b60d8 @value=0>>>'
+D, [2024-05-07T10:33:59.889783 #25657] DEBUG -- : Matched token 'recurs' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.889804 #25657] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x00005604589a5aa8 @var="recurs">'
+D, [2024-05-07T10:33:59.889840 #25657] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-07T10:33:59.889908 #25657] DEBUG -- : Matched token 'z' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-07T10:33:59.889928 #25657] DEBUG -- : 'n' matched 'variable' and generated '#<VariableNode:0x00005604589a3e10 @var="z">'
+D, [2024-05-07T10:33:59.889947 #25657] DEBUG -- : 'n' matched 'factor' and generated '#<VariableNode:0x00005604589a3e10 @var="z">'
+D, [2024-05-07T10:33:59.890006 #25657] DEBUG -- : 'n' matched 'term' and generated '#<VariableNode:0x00005604589a3e10 @var="z">'
+D, [2024-05-07T10:33:59.890039 #25657] DEBUG -- : 'n' matched 'expr' and generated '#<VariableNode:0x00005604589a3e10 @var="z">'
+D, [2024-05-07T10:33:59.890069 #25657] DEBUG -- : 'n' matched 'params' and generated '#<ParamsNode:0x00005604589a1318 @param=#<VariableNode:0x00005604589a3e10 @var="z">, @nextParam=nil>'
+D, [2024-05-07T10:33:59.890091 #25657] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-07T10:33:59.890120 #25657] DEBUG -- : ' ?ny' matched 'functionCall' and generated '#<FunctionCall:0x00005604589a0b70 @name=#<VariableNode:0x00005604589a5aa8 @var="recurs">, @params=#<ParamsNode:0x00005604589a1318 @param=#<VariableNode:0x00005604589a3e10 @var="z">, @nextParam=nil>>'
+D, [2024-05-07T10:33:59.890147 #25657] DEBUG -- : ' ?ny' matched 'block' and generated '#<FunctionCall:0x00005604589a0b70 @name=#<VariableNode:0x00005604589a5aa8 @var="recurs">, @params=#<ParamsNode:0x00005604589a1318 @param=#<VariableNode:0x00005604589a3e10 @var="z">, @nextParam=nil>>'
+D, [2024-05-07T10:33:59.890277 #25657] DEBUG -- : ' ?ny' matched 'blocks' and generated '#<BlocksNode:0x00005604589a0148 @toEval=#<BlocksNode:0x00005604589b4bc0 @toEval=#<FunctionNode:0x00005604589f5468 @name=#<VariableNode:0x00005604589786c0 @var="recurs">, @block=#<ConditionNode:0x0000560458a8ee38 @condition=#<ValueComp:0x00005604585bc450 @lhs=#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>>, @block=#<BlocksNode:0x0000560458a9ac88 @toEval=#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>, @nextBlock=#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>>, @lone="lone">, @params=#<ParamsNode:0x00005604589621e0 @param=#<VariableNode:0x0000560458963450 @var="x">, @nextParam=nil>, @paramList=[]>, @nextBlock=#<AssignmentNode:0x00005604589b5840 @datatype=#<DatatypeNode:0x00005604589b79b0 @datatype=:integer>, @var=#<VariableNode:0x00005604589b6d08 @var="z">, @value=#<ValueNode:0x00005604589b60d8 @value=0>>>, @nextBlock=#<FunctionCall:0x00005604589a0b70 @name=#<VariableNode:0x00005604589a5aa8 @var="recurs">, @params=#<ParamsNode:0x00005604589a1318 @param=#<VariableNode:0x00005604589a3e10 @var="z">, @nextParam=nil>>>'
+D, [2024-05-07T10:33:59.890922 #25657] DEBUG -- : 'mao recurs^x^:
+                ?ny' matched 'component' and generated '#<ProgramNode:0x0000560458a07b90 @nextNode=#<BlocksNode:0x00005604589a0148 @toEval=#<BlocksNode:0x00005604589b4bc0 @toEval=#<FunctionNode:0x00005604589f5468 @name=#<VariableNode:0x00005604589786c0 @var="recurs">, @block=#<ConditionNode:0x0000560458a8ee38 @condition=#<ValueComp:0x00005604585bc450 @lhs=#<LogicExpr:0x0000560458715630 @value=#<VariableNode:0x00005604587160f8 @var="x">>, @logicOp="<", @rhs=#<LogicExpr:0x00005604585bcdb0 @value=#<ValueNode:0x00005604585bf088 @value=3>>>, @block=#<BlocksNode:0x0000560458a9ac88 @toEval=#<PrintNode:0x0000560458ad1f08 @value=#<VariableNode:0x0000560458ad2688 @var="x">>, @nextBlock=#<FunctionCall:0x0000560458a9bea8 @name=#<VariableNode:0x0000560458ab74a0 @var="recurs">, @params=#<ParamsNode:0x0000560458aac8c0 @param=#<ArithmaticNode:0x0000560458aad248 @lhs=#<VariableNode:0x0000560458ab5da8 @var="x">, @operator="+", @rhs=#<ValueNode:0x0000560458aadf90 @value=1>, @sides=[#<VariableNode:0x0000560458ab5da8 @var="x">, #<ValueNode:0x0000560458aadf90 @value=1>]>, @nextParam=nil>>>, @lone="lone">, @params=#<ParamsNode:0x00005604589621e0 @param=#<VariableNode:0x0000560458963450 @var="x">, @nextParam=nil>, @paramList=[]>, @nextBlock=#<AssignmentNode:0x00005604589b5840 @datatype=#<DatatypeNode:0x00005604589b79b0 @datatype=:integer>, @var=#<VariableNode:0x00005604589b6d08 @var="z">, @value=#<ValueNode:0x00005604589b60d8 @value=0>>>, @nextBlock=#<FunctionCall:0x00005604589a0b70 @name=#<VariableNode:0x00005604589a5aa8 @var="recurs">, @params=#<ParamsNode:0x00005604589a1318 @param=#<VariableNode:0x00005604589a3e10 @var="z">, @nextParam=nil>>>>'
+221 - #<VariableNode:0x00005604589a3e10>
+0
+221 - #<ArithmaticNode:0x0000560458aad248>
+here
+#<ArithmaticNode:0x0000560458aad248>
+#<VariableNode:0x0000560458ab5da8>
+1
+221 - #<ArithmaticNode:0x0000560458aad248>
+here
+#<ArithmaticNode:0x0000560458aad248>
+0
+E
+===============================================================================
+Error: test_recursion(Test_Function): NyameNyerror: 0 is incorrect class type, type is Integer
+/home/juliamak2004/tdp019/syntaxtree.rb:11:in `nodeToValue'
+/home/juliamak2004/tdp019/syntaxtree.rb:191:in `eval'
+/home/juliamak2004/tdp019/syntaxtree.rb:318:in `block in eval'
+/home/juliamak2004/tdp019/syntaxtree.rb:312:in `each'
+/home/juliamak2004/tdp019/syntaxtree.rb:312:in `eval'
+/home/juliamak2004/tdp019/syntaxtree.rb:64:in `eval'
+/home/juliamak2004/tdp019/condition.rb:21:in `eval'
+/home/juliamak2004/tdp019/syntaxtree.rb:325:in `eval'
+/home/juliamak2004/tdp019/syntaxtree.rb:64:in `eval'
+/home/juliamak2004/tdp019/condition.rb:21:in `eval'
+/home/juliamak2004/tdp019/syntaxtree.rb:325:in `eval'
+/home/juliamak2004/tdp019/syntaxtree.rb:64:in `eval'
+/home/juliamak2004/tdp019/syntaxtree.rb:43:in `evaluate'
+/home/juliamak2004/tdp019/parser.rb:44:in `block (3 levels) in initialize'
+/home/juliamak2004/tdp019/rdparse.rb:105:in `block in try_matches'
+/home/juliamak2004/tdp019/rdparse.rb:69:in `each'
+/home/juliamak2004/tdp019/rdparse.rb:69:in `try_matches'
+/home/juliamak2004/tdp019/rdparse.rb:53:in `parse'
+/home/juliamak2004/tdp019/rdparse.rb:176:in `parse'
+nyanTest/testParser.rb:177:in `test_recursion'
+     174:   
+     175:     def test_recursion
+     176:         nyan = Nyan.new
+  => 177:         program = nyan.nyanParser.parse(
+     178:             'mao recurs^x^:
+     179:                 ?nya? ^x < 3^:
+     180:                     meow ^x^
+===============================================================================
+Finished in 0.015251653 seconds.
+-------------------------------------------------------------------------------
+1 tests, 0 assertions, 0 failures, 1 errors, 0 pendings, 0 omissions, 0 notifications
+0% passed
+-------------------------------------------------------------------------------
+65.57 tests/s, 0.00 assertions/s
