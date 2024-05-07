@@ -79,7 +79,7 @@ class AssignmentNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        return scope[0].addVariable(@var, @value)
+        return scope[0].addVariable(@var, @value) # add variable to scope
     end
 end
 
@@ -92,12 +92,12 @@ class ReassignmentNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        found = scope[0].findVariable(@name)
+        found = scope[0].findVariable(@name) # check if variable exist
         
         if found
             newValue = nil
             if @operator != "="
-                newValue = found.eval().send(@operator, @value.eval())
+                newValue = found.eval().send(@operator, @value.eval()) # operator is either '+=' or '-='
             else
                 newValue = @value.eval()
             end
@@ -155,29 +155,30 @@ class PrintNode < SyntaxTreeNode
     end
 
     def eval(*scope)
+        temp = nil
+
         if @value.is_a?(VariableNode)            
-            temp = scope[0].findVariable(@value).eval
-            if temp.is_a? String
-                return temp.delete "\""
-            elsif temp.is_a? Array
+            temp = scope[0].findVariable(@value).eval # find variable thats being printed
+  
+            if temp.is_a? Array
                 temp = temp.inspect
             end
-            puts temp
-            return temp
+           
         else
-            temp = @value.eval(scope[0])
-            
-            if temp.is_a? String
-                temp = temp.delete "\""
-                puts temp
-            
-            elsif temp.is_a? SyntaxTreeNode
-                puts temp.eval(scope[0])
-                return temp
+            temp = @value.eval(scope[0]) # evaluate ValueNode (@value is a valueNode)
+
+            if temp.is_a? SyntaxTreeNode
+                temp = temp.eval(scope[0])    
             end
-            
-            return temp
+
         end
+
+        if temp.is_a? String
+            temp = temp.delete "\"" # remove " " from string
+        end
+
+        puts temp
+        return temp
     end
 end
 
@@ -192,7 +193,6 @@ class ArithmaticNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        puts @lhs
         tempLhs = nodeToValue(@lhs, scope[0])
         tempRhs = nodeToValue(@rhs, scope[0])
 
@@ -205,7 +205,6 @@ class ArithmaticNode < SyntaxTreeNode
         end
     end
 end
-
 
 class ArrayNode < SyntaxTreeNode
     attr_accessor :array
@@ -232,21 +231,19 @@ class ArrayOpNode
             var, index = @args
             array = scope[0].findVariable(var).eval
             idx = index.eval(scope[0])
-            return ValueNode.new(array[idx])
+            return ValueNode.new(array[idx]) # return given index of array
         when :push
-            puts @args
             variable, value = @args
             arr = scope[0].findVariable(variable).eval
-            return arr.push(value.eval(scope[0]))
+            return arr.push(value.eval(scope[0])) 
         when :pop
-            puts @args[0]
             variable = @args[0]
             arr = scope[0].findVariable(variable).eval
             return arr.pop
         when :size
             variable = @args[0]
             arr = scope[0].findVariable(variable).eval
-            return ValueNode.new(arr.size)
+            return ValueNode.new(arr.size) # return size of array
         end
     end
 end
@@ -273,21 +270,19 @@ class ParamsNode < SyntaxTreeNode
         if @param.is_a? ParamsNode
             return @param.vars().push(@nextParam)
         else
-            puts "221 - #{@param}"
             return [@param]
         end
     end
 end
 
 class FunctionNode
-
     attr_accessor :paramList, :paramSize, :block
 
     def initialize(name, block, params)
-        @name = name
-        @block = block
-        @params = params
-        @paramList = []
+        @name = name        # name of function
+        @block = block      # block inside the function
+        @params = params    # function parameters
+        @paramList = []     
     end
     
     def eval(*scope)
@@ -318,14 +313,11 @@ class FunctionCall
                 if setParams[x].is_a? VariableNode
                     value = scope[0].findVariable(setParams[x])
                 else
-                    puts "here"
-                    puts setParams[x]
                     value = setParams[x].eval(scope[0])
                 end
                 curScope.addVariable(func.paramList[x], value)
             end
         end
-        
         
         toReturn = func.block.eval(curScope)
         curScope.currToPrevScope()
