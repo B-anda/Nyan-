@@ -3,13 +3,19 @@ require './scope'
 # module used to handle different types of nodes
 module GetValue
     def nodeToValue(side, scope)
+        to_return = nil
         if (side.is_a? ValueNode) || (side.is_a? ArithmaticNode) 
-            return side.eval(scope)
+            to_return = side.eval(scope)
         elsif side.is_a? VariableNode
-            return scope.findVariable(side).value
+            to_return = scope.findVariable(side).value
         else 
             raise NyameNyerror.new("#{side} is incorrect class type, type is #{side.class}")
         end
+
+        if to_return.is_a? ValueNode
+            to_return = to_return.eval(scope)
+        end
+        return to_return
     end 
 end
 
@@ -79,7 +85,14 @@ class AssignmentNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        return scope[0].addVariable(@var, @value) # add variable to scope
+        # dataType = @datatype.eval
+        # value = @value.eval
+        # puts value
+        # if value.is_a? ValueNode
+        #     value = value.eval
+        # if dataType.to_s.casecmp?(value.class.to_s)
+            return scope[0].addVariable(@var, @value) # add variable to scope
+        # end
     end
 end
 
@@ -101,9 +114,8 @@ class ReassignmentNode < SyntaxTreeNode
             else
                 newValue = @value.eval()
             end
-            scope[0].addVariable(@name, ValueNode.new(newValue))
-        end
-            
+            scope[0].addVariable(@name, ValueNode.new(newValue)) # reassign the variable with new value
+        end   
     end
 end
 
@@ -112,6 +124,10 @@ class DatatypeNode < SyntaxTreeNode
     
     def initialize(datatype)
       @datatype = datatype
+    end
+
+    def eval
+        return @datatype
     end
 end
 
@@ -156,25 +172,26 @@ class PrintNode < SyntaxTreeNode
 
     def eval(*scope)
         temp = nil
-
-        if @value.is_a?(VariableNode)            
-            temp = scope[0].findVariable(@value).eval # find variable thats being printed
-  
+        if @value.is_a? VariableNode
+            # find variable thats being printed            
+            temp = scope[0].findVariable(@value).eval 
+            
             if temp.is_a? Array
                 temp = temp.inspect
+            elsif temp.is_a? SyntaxTreeNode 
+                temp = temp.eval(scope[0])
             end
-           
         else
-            temp = @value.eval(scope[0]) # evaluate ValueNode (@value is a valueNode)
-
+            # evaluate ValueNode (@value is a valueNode)
+            temp = @value.eval(scope[0]) 
             if temp.is_a? SyntaxTreeNode
                 temp = temp.eval(scope[0])    
             end
-
         end
 
         if temp.is_a? String
-            temp = temp.delete "\"" # remove " " from string
+            # remove " " from string
+            temp = temp.delete "\"" 
         end
 
         puts temp
@@ -195,7 +212,7 @@ class ArithmaticNode < SyntaxTreeNode
     def eval(*scope)
         tempLhs = nodeToValue(@lhs, scope[0])
         tempRhs = nodeToValue(@rhs, scope[0])
-
+      
         if @operator == "/"
             return ValueNode.new(tempLhs.to_f.send(@operator, tempRhs.to_f))
         elsif @operator == "//"
@@ -212,7 +229,7 @@ class ArrayNode < SyntaxTreeNode
         @array = [arr]
     end
 
-    def eval
+    def eval(*scope)
         return @array.reverse()
     end
 end
@@ -229,21 +246,35 @@ class ArrayOpNode
         case @operation
         when :index
             var, index = @args
+            # puts scope[0].findVariable(var).eval
+
             array = scope[0].findVariable(var).eval
             idx = index.eval(scope[0])
-            return ValueNode.new(array[idx]) # return given index of array
+
+            # return given index of array
+            return ValueNode.new(array[idx]) 
         when :push
             variable, value = @args
             arr = scope[0].findVariable(variable).eval
-            return arr.push(value.eval(scope[0])) 
+            arr.push(value.eval(scope[0]))
+
+            # reassign array with new values
+            scope[0].addVariable(variable, ArrayNode.new(arr))
+            return arr  
         when :pop
             variable = @args[0]
             arr = scope[0].findVariable(variable).eval
-            return arr.pop
+
+            # pop the last element
+            tmp = arr.pop
+            scope[0].addVariable(variable, ArrayNode.new(arr))
+            return tmp  
         when :size
             variable = @args[0]
             arr = scope[0].findVariable(variable).eval
-            return ValueNode.new(arr.size) # return size of array
+
+             # return size of array
+            return ValueNode.new(arr.size)
         end
     end
 end
@@ -257,7 +288,6 @@ class ParamsNode < SyntaxTreeNode
     end
 
     def eval(funcNode, *scope)
-
         if @nextParam == nil
             funcNode.paramList.push(@param)
         else
@@ -291,7 +321,7 @@ class FunctionNode
         else
             @paramList.push(@params)
         end
-        scope[0].addVariable(@name, self, true)
+        scope[0].addVariable(@name, self, true) # add function name to scope
     end
 end
 
@@ -302,20 +332,20 @@ class FunctionCall
     end
 
     def eval(*scope)
-
-        func = scope[0].findVariable(@name, true)
+ 
+        func = scope[0].findVariable(@name, true)   # find function name
         scope[0].addScope(scope[0])
         curScope = scope[0].findCurScope()
         
         if @params            
             setParams = @params.vars()
-            for x in 0...setParams.length()
+            for x in 0...setParams.length()         # go through the params and get the value
                 if setParams[x].is_a? VariableNode
                     value = scope[0].findVariable(setParams[x])
                 else
                     value = setParams[x].eval(scope[0])
                 end
-                curScope.addVariable(func.paramList[x], value)
+                curScope.addVariable(func.paramList[x], value) 
             end
         end
         

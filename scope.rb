@@ -12,13 +12,12 @@ class Scope
 
     # Find variable or function name in scope
     def findVariable(name, funcs=false)
-
         container = @vars
         if funcs 
             container = @funcs
         end
-
-        if container.key?(name.var)                     # checks if variable is founds in current scope
+    
+        if container.key?(name.var)                     # checks if variable is found in current scope
             return container[name.var]
         elsif @prevScope                                # look in the parent scope if not found in current
             return @prevScope.findVariable(name, funcs) 

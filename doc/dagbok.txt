@@ -216,3 +216,12 @@ Förmiddag:
 Fortsatt skriva documentation samt lagt till kommentarer i koden.
 
 Eftermiddag:
+
+## 2024-05-08 ## 
+problem med att parsa:
+ '
+    ^3^ arr = [1, 2, 3]~
+    ^3^ index = arr[0]~
+    meow ^index^
+'
+går inte att evaluera scope[0].findVariable(@value).eval för VariableNode - index

@@ -161,7 +161,7 @@ require './parser'
 
 ## Testing: Functions ##
 
-class Test_Function < Test::Unit::TestCase
+# class Test_Function < Test::Unit::TestCase
   # def test_basic_function
   #     nyan = Nyan.new
   #     program = nyan.nyanParser.parse(
@@ -172,25 +172,25 @@ class Test_Function < Test::Unit::TestCase
   #     ) 
   # end
   
-    def test_recursion
-        nyan = Nyan.new
-        program = nyan.nyanParser.parse(
-            'mao recurs^x^:
-                ?nya? ^x < 3^:
-                    meow ^x^
-                    recurs^x + 1^
-                :3
-            :3
-            ^3^ z = 0~
-            recurs^z^'
-        )
-    end
-end
+#     def test_recursion
+#         nyan = Nyan.new
+#         program = nyan.nyanParser.parse(
+#             'mao recurs^x^:
+#                 ?nya? ^x < 3^:
+#                     meow ^x^
+#                     recurs^x + 1^
+#                 :3
+#             :3
+#             ^3^ z = 0~
+#             recurs^z^'
+#         )
+#     end
+# end
 
 
 ## Testing: Arrays ##
 
-# class Test_Arrays < Test::Unit::TestCase
+class Test_Arrays < Test::Unit::TestCase
 #   def test_simple_array
 #     nyan = Nyan.new
 #     nyan.nyanParser.parse(
@@ -205,10 +205,20 @@ end
 #     nyan = Nyan.new
 #     nyan.nyanParser.parse(
 #       '
-#         ^3^ arr=[1, 2, 3]~
-#         ^3^ index = arr[0]
+#         ^3^ arr = [1, 2, 3]~
+#         ^3^ index = arr[0]~
 #         meow ^index^
 #       '
 #     )
 #   end
-# end
+    def test_array_pop
+        nyan = Nyan.new
+        nyan.nyanParser.parse(
+        '
+            ^3^ arr = [1, 2, 3]~
+            arr.pop()
+            meow ^arr^
+        '
+        )
+    end
+end

@@ -15,9 +15,9 @@ class Nyan
             token(/[\d]+\.[\d]+/) {|m| m}
             token(/\d+/) {|m| m }
             token(/".*"/) {|m| m}
-            token(/\^w\^/) { |m| m}
-            token(/\^3\^/) {:integer}
-            token(/\^\.\^/) { |m| m}
+            token(/\^w\^/) { :string }
+            token(/\^3\^/) { :integer }
+            token(/\^\.\^/) { :float}
             token(/\^oo\^/) { |m| m}
             token(/\bprrr\b/) {:whileloop}
             token(/\^/) {|m| m}
@@ -34,7 +34,6 @@ class Nyan
             token(/[[a-zA-Z]\d_]+/) {|m| m}
             token(/,/) {|m| m}
             token(/\[/) {|m| m}
-            token(/\./) {|m| m}
             token(/\+|\-|\*|\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\]|\~|\:/) {|m| m}
             token(/./) {|m| m }
 
@@ -54,23 +53,25 @@ class Nyan
             end
 
             rule :block do
-                match(:while)       { |a| a }
-                match(:condition)   { |a| a }
-                match(:functionCall){ |a| a }
-                match(:function)    { |a| a }
-                match(:reassignment){ |a| a }
-                match(:assignment)  { |a| a }
-                match(:print)       { |a| a }
-                match(:expr)        { |a| a }
-                match(:arrayOp)     { |a| a }
+                match(:while)           { |a| a }
+                match(:condition)       { |a| a }
+                match(:functionCall)    { |a| a }
+                match(:function)        { |a| a }
+                match(:arrayOp)         { |a| a }
+                match(:reassignment)    { |a| a }
+                match(:assignment)      { |a| a }
+                match(:print)           { |a| a }
+                match(:expr)            { |a| a }
             end
 
             ## Assignment ##
 
             rule :assignment do
-                match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
-                match(:datatype, :variable, "=", :array, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
-                match(:arrayOp)               { |a, _, b| ArrayOpNode.new(a, b)}
+                # match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
+                # match(:datatype, :variable, "=", :array, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
+                # match(:datatype, :variable, "=", :arrayOp, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
+                # match(:arrayOp)               { |a, _, b| ArrayOpNode.new(a, b)}
+                match(:datatype, :variable, "=", :output, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
             end
 
              ## Reassign variables ##
@@ -78,8 +79,25 @@ class Nyan
              rule :reassignment do
                 match(:variable, "+=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "+", b)}
                 match(:variable, "-=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "-", b)}
-                match(:variable, "=", :value, "~")  { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
-                match(:arrayOp)                     { |a, _, b| ArrayOpNode.new(a, b)}
+                match(:variable, "=", :output, "~") { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
+            end
+
+            ## Print ##
+
+            rule :print do
+                match(:meow, "^", :value, "^") {|_,_,v,_| PrintNode.new(v)}
+                match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
+                # match(:meow, "^", :arrayOp, "^") { |_, _, op, _| PrintNode.new(op) }
+            end
+
+            ## Print or assign either a: value, variable, array, array operator or arithmetic expr. ##
+
+            rule :output do 
+                match(:arrayOp)
+                match(:expr)
+                match(:array)
+                match(:variable)
+                match(:functionCall)
             end
 
             ## Array ##
@@ -106,26 +124,19 @@ class Nyan
             end
 
             rule :arrayIndex do
-                match(:variable, "[", :int, "]") { |variable, _, index, _| ArrayOpNode.new(:index, variable, index) }
+                match(:variable, "[", :int, "]") { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
             end
 
             rule :arrayPush do
-                match(:variable, ".", :push, "(", :value, ")") { |variable, _, _, _, value, _| ArrayOpNode.new(:push, variable, value) }
+                match(:variable, ".", :push, "^", :value, "^") { |a, _, _, _, b, _| ArrayOpNode.new(:push, a, b) }
             end
             
             rule :arrayPop do
-                match(:variable, ".", :pop, "(", ")") { |variable, _, _, _, _| ArrayOpNode.new(:pop, variable) }
+                match(:variable, ".", :pop) { |a, _, _, _, _| ArrayOpNode.new(:pop, a) }
             end
             
             rule :arraySize do
-                match(:variable, ".", :size, "(", ")") { |variable, _, _, _, _| ArrayOpNode.new(:size, variable) }
-            end
-
-            ## Print ##
-
-            rule :print do
-                match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
-                match(:meow, "^", :arrayOp, "^") { |_, _, op, _| PrintNode.new(op) }
+                match(:variable, ".", :size) { |variable, _, _, _, _| ArrayOpNode.new(:size, variable) }
             end
 
             ## Function ##
@@ -162,8 +173,8 @@ class Nyan
             
             rule :conditionFollowup do
                 match( :else, ":", :blocks)                                              { |_,_, a| ConditionNode.new(ValueNode.new(true), a)}
-                match( :elseif, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup) { |_, _, a, _, _, b, c| BlocksNode.new(ConditionNode.new(a, b), c) }
-                match( :elseif, "^", :logicStmt, "^", ":", :blocks) { |_, _, a, _, _, b| ConditionNode.new(a, b) }
+                match( :elseif, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup)  { |_, _, a, _, _, b, c| BlocksNode.new(ConditionNode.new(a, b), c) }
+                match( :elseif, "^", :logicStmt, "^", ":", :blocks)                      { |_, _, a, _, _, b| ConditionNode.new(a, b) }
             end
 
             ## While-loop ##
@@ -219,13 +230,6 @@ class Nyan
                 match(:variable)
                 match("(", :expr, ")") {|_, a, _| a}
             end
-            
-            ## Print either a value or a variable ##
-
-            rule :output do 
-                match(:value)
-                match(:variable)
-            end
 
             ## The different datatypes ##
             # ^w^ String
@@ -234,10 +238,10 @@ class Nyan
             # ^oo^ Boolean
             
             rule :datatype do
-                match(/\^w\^/)  {|a| DatatypeNode.new(a)}
-                match(:integer)  {|a| DatatypeNode.new(a)}
-                match(/\^\.\^/) {|a| DatatypeNode.new(a)}
-                match(/\^oo\^/) {|a| DatatypeNode.new(a)}
+                match(:string)  {|a| DatatypeNode.new(a)}
+                match(:integer) {|a| DatatypeNode.new(a)}
+                match(:float)   {|a| DatatypeNode.new(a)}
+                match(:bool)    {|a| DatatypeNode.new(a)}
             end
 
             rule :variable do
@@ -273,7 +277,7 @@ class Nyan
             end
 
             rule :bool do
-                match('true') {|a| ValueNode.new(a)}
+                match('true')  {|a| ValueNode.new(a)}
                 match('false') {|a| ValueNode.new(a)}
             end
         end
