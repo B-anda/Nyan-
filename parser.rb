@@ -117,27 +117,32 @@ class Nyan
             # Array operators
 
             rule :arrayOp do
-                match(:arrayIndex)   { |a| a }
-                match(:arrayPush)    { |a| a }
-                match(:arrayPop)     { |a| a }
-                match(:arraySize)    { |a| a }
-            end
-
-            rule :arrayIndex do
-                match(:variable, "[", :int, "]") { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
-            end
-
-            rule :arrayPush do
+                match(:variable, "[", :integer, "]") { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
                 match(:variable, ".", :push, "^", :value, "^") { |a, _, _, _, b, _| ArrayOpNode.new(:push, a, b) }
-            end
-            
-            rule :arrayPop do
                 match(:variable, ".", :pop) { |a, _, _, _, _| ArrayOpNode.new(:pop, a) }
-            end
-            
-            rule :arraySize do
                 match(:variable, ".", :size) { |variable, _, _, _, _| ArrayOpNode.new(:size, variable) }
+
+                # match(:arrayIndex)   { |a| a }
+                # match(:arrayPush)    { |a| a }
+                # match(:arrayPop)     { |a| a }
+                # match(:arraySize)    { |a| a }
             end
+
+            # rule :arrayIndex do
+            #     match(:variable, "[", :int, "]") { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
+            # end
+
+            # rule :arrayPush do
+            #     match(:variable, ".", :push, "^", :value, "^") { |a, _, _, _, b, _| ArrayOpNode.new(:push, a, b) }
+            # end
+            
+            # rule :arrayPop do
+            #     match(:variable, ".", :pop) { |a, _, _, _, _| ArrayOpNode.new(:pop, a) }
+            # end
+            
+            # rule :arraySize do
+            #     match(:variable, ".", :size) { |variable, _, _, _, _| ArrayOpNode.new(:size, variable) }
+            # end
 
             ## Function ##
 

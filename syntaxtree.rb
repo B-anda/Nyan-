@@ -91,7 +91,8 @@ class AssignmentNode < SyntaxTreeNode
         # if value.is_a? ValueNode
         #     value = value.eval
         # if dataType.to_s.casecmp?(value.class.to_s)
-            return scope[0].addVariable(@var, @value) # add variable to scope
+        puts @value    
+        return scope[0].addVariable(@var, @value) # add variable to scope
         # end
     end
 end
@@ -173,7 +174,9 @@ class PrintNode < SyntaxTreeNode
     def eval(*scope)
         temp = nil
         if @value.is_a? VariableNode
-            # find variable thats being printed            
+            # find variable thats being printed  
+            # puts scope[0].vars       
+            # puts @value                      # degbug 
             temp = scope[0].findVariable(@value).eval 
             
             if temp.is_a? Array
@@ -246,9 +249,10 @@ class ArrayOpNode
         case @operation
         when :index
             var, index = @args
-            # puts scope[0].findVariable(var).eval
+            puts scope[0].findVariable(var).eval
 
             array = scope[0].findVariable(var).eval
+            # puts "array: #{array}"
             idx = index.eval(scope[0])
 
             # return given index of array
@@ -259,7 +263,7 @@ class ArrayOpNode
             arr.push(value.eval(scope[0]))
 
             # reassign array with new values
-            scope[0].addVariable(variable, ArrayNode.new(arr))
+            scope[0].addVariable(variable, ValueNode.new(arr))
             return arr  
         when :pop
             variable = @args[0]

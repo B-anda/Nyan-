@@ -38,24 +38,38 @@ BNF grammatik:
 
 <blocks> ::= <block> | <blocks> <block>
 
-<block> ::= <while> | <condition> | <functionCall> | <reassignment> | <function> | <assignment> | <print> | <expr>
+<block> ::= <while> | <condition> | <functionCall> | <function> | <arrayOp> | <reassignment> | <assignment> | <print> | <expr> 
 
-<assignment> ::= <datatype> <variable> ''='' <value> ''~''
+<assignment> ::= <datatype> <variable> ''='' <output> ''~''
 
 <reassignment> ::= <variable> ''+='' <value> ''~'' 
                    | <variable> ''-='' <value> ''~'' 
-                   | <variable> ''='' <value> ''~''
+                   | <variable> ''='' <output> ''~''
 
-<print> ::= :meow ''^'' <output> ''^'' '':'' <blocks> '';''
+<print> ::= :meow ''^'' <value> ''^''
+            | :meow ''^'' <output> ''^''
 
-<function> ::= ''def'' <variable> ''^'' <params> ''^'' '':'' <blocks> '';''
+<output> ::= <arrayOp> | <expr> | <array> | <variable> | <functionCall>
+
+<array> ::= ''['' <elements> '']''
+
+<elements> ::= <value> '','' <elements>
+
+<arrayOp> ::= <variable> ''['' <integer> '']''
+              | <variable> ''.'' :push ''^'' <value> ''^''
+              | <variable> ''.'' :pop
+              | <variable> ''.'' :size
+
+<function> ::= :def <variable> ''^'' <params> ''^'' '':'' <blocks> '';''
+               | :def <variable> ''^'' ''^'' '':'' <blocks '';''
 
 <functionCall> ::= <variable> ''^'' <params> ''^''
                    | <variable> ''^'' ''^''
 
-<params> ::= <variable> | <params> '','' <variable>
+<params> ::= <expr> | <variable> | <params> '','' <variable>
 
-<condition> ::= ''if'' ''^'' <logicStmt> ''^'' '':'' <blocks> '';'' <conditionFollowup> | ''if'' ''^'' <logicStmt> ''^'' '':'' <blocks> '';''
+<condition> ::= ''if'' ''^'' <logicStmt> ''^'' '':'' <blocks> '';'' <conditionFollowup> 
+                | ''if'' ''^'' <logicStmt> ''^'' '':'' <blocks> '';''
 
 <conditionFollowup> ::= ''else'' '':'' <blocks> 
                         | ''elseif'' ''^'' <logicStmt> ''^'' '':'' <blocks> <conditionFollowup>
@@ -103,4 +117,4 @@ BNF grammatik:
 
 <int> ::= \d+
 
-<float> ::=
+<float> ::= [\d]+\.[\d]+

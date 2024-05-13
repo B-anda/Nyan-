@@ -201,24 +201,35 @@ class Test_Arrays < Test::Unit::TestCase
 #     )
 #   end
 
-#   def test_array_index
-#     nyan = Nyan.new
-#     nyan.nyanParser.parse(
-#       '
-#         ^3^ arr = [1, 2, 3]~
-#         ^3^ index = arr[0]~
-#         meow ^index^
-#       '
-#     )
-#   end
-    def test_array_pop
-        nyan = Nyan.new
-        nyan.nyanParser.parse(
-        '
-            ^3^ arr = [1, 2, 3]~
-            arr.pop()
-            meow ^arr^
-        '
-        )
-    end
+  def test_array_index
+    nyan = Nyan.new
+    nyan.nyanParser.parse(
+      '
+        ^3^ arr = [1, 2, 3]~
+        ^3^ index = arr[0]~
+        meow ^index^
+      '
+    )
+  end
+    # def test_array_pop
+    #     nyan = Nyan.new
+    #     nyan.nyanParser.parse(
+    #     '
+    #         ^3^ arr = [1, 2, 3]~
+    #         arr.pop
+    #         meow ^arr^
+    #     '
+    #     )
+    # end
+    
+    # def test_array_push
+    #     nyan = Nyan.new
+    #     nyan.nyanParser.parse(
+    #     '
+    #         ^3^ arr =[1, 2, 3]~
+    #         arr.push^4^
+    #         meow ^arr^
+    #     '
+    #     )
+    # end
 end
