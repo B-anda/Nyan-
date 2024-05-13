@@ -55,7 +55,7 @@ BNF grammatik:
 
 <elements> ::= <value> '','' <elements>
 
-<arrayOp> ::= <variable> ''['' <integer> '']''
+<arrayOp> ::= <variable> ''['' <value> '']''
               | <variable> ''.'' :push ''^'' <value> ''^''
               | <variable> ''.'' :pop
               | <variable> ''.'' :size

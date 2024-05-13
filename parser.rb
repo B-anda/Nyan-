@@ -18,8 +18,8 @@ class Nyan
             token(/\^w\^/) { :string }
             token(/\^3\^/) { :integer }
             token(/\^\.\^/) { :float}
-            token(/\^oo\^/) { |m| m}
-            token(/\bprrr\b/) {:whileloop}
+            token(/\^oo\^/) { :boolean}
+            token(/prrr/) {:whileloop}
             token(/\^/) {|m| m}
             token(/\(/) {|m| m}
             token(/\)/) {|m| m}
@@ -33,6 +33,7 @@ class Nyan
             token(/\?nyanye\?/) {:elseif}
             token(/[[a-zA-Z]\d_]+/) {|m| m}
             token(/,/) {|m| m}
+            token(/\./) {|m| m}
             token(/\[/) {|m| m}
             token(/\+|\-|\*|\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\]|\~|\:/) {|m| m}
             token(/./) {|m| m }
@@ -67,10 +68,6 @@ class Nyan
             ## Assignment ##
 
             rule :assignment do
-                # match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
-                # match(:datatype, :variable, "=", :array, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
-                # match(:datatype, :variable, "=", :arrayOp, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
-                # match(:arrayOp)               { |a, _, b| ArrayOpNode.new(a, b)}
                 match(:datatype, :variable, "=", :output, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
             end
 
@@ -87,7 +84,6 @@ class Nyan
             rule :print do
                 match(:meow, "^", :value, "^") {|_,_,v,_| PrintNode.new(v)}
                 match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
-                # match(:meow, "^", :arrayOp, "^") { |_, _, op, _| PrintNode.new(op) }
             end
 
             ## Print or assign either a: value, variable, array, array operator or arithmetic expr. ##
@@ -117,32 +113,11 @@ class Nyan
             # Array operators
 
             rule :arrayOp do
-                match(:variable, "[", :integer, "]") { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
+                match(:variable, "[", :value, "]") { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
                 match(:variable, ".", :push, "^", :value, "^") { |a, _, _, _, b, _| ArrayOpNode.new(:push, a, b) }
-                match(:variable, ".", :pop) { |a, _, _, _, _| ArrayOpNode.new(:pop, a) }
-                match(:variable, ".", :size) { |variable, _, _, _, _| ArrayOpNode.new(:size, variable) }
-
-                # match(:arrayIndex)   { |a| a }
-                # match(:arrayPush)    { |a| a }
-                # match(:arrayPop)     { |a| a }
-                # match(:arraySize)    { |a| a }
+                match(:variable, ".", :pop) { |a, _, _| ArrayOpNode.new(:pop, a) }
+                match(:variable, ".", :size) { |a, _, _,| ArrayOpNode.new(:size, a) }
             end
-
-            # rule :arrayIndex do
-            #     match(:variable, "[", :int, "]") { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
-            # end
-
-            # rule :arrayPush do
-            #     match(:variable, ".", :push, "^", :value, "^") { |a, _, _, _, b, _| ArrayOpNode.new(:push, a, b) }
-            # end
-            
-            # rule :arrayPop do
-            #     match(:variable, ".", :pop) { |a, _, _, _, _| ArrayOpNode.new(:pop, a) }
-            # end
-            
-            # rule :arraySize do
-            #     match(:variable, ".", :size) { |variable, _, _, _, _| ArrayOpNode.new(:size, variable) }
-            # end
 
             ## Function ##
 
@@ -246,7 +221,7 @@ class Nyan
                 match(:string)  {|a| DatatypeNode.new(a)}
                 match(:integer) {|a| DatatypeNode.new(a)}
                 match(:float)   {|a| DatatypeNode.new(a)}
-                match(:bool)    {|a| DatatypeNode.new(a)}
+                match(:boolean) {|a| DatatypeNode.new(a)}
             end
 
             rule :variable do
@@ -254,7 +229,7 @@ class Nyan
                 match(:integer) {}
                 match(:def)     {}
                 match(:meow)    {}
-                match(:whiloop) {}
+                match(:while)   {}
                 match(:elseif)  {}
                 match(:else)    {}
                 #Otherwise

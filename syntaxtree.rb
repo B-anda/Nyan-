@@ -91,9 +91,8 @@ class AssignmentNode < SyntaxTreeNode
         # if value.is_a? ValueNode
         #     value = value.eval
         # if dataType.to_s.casecmp?(value.class.to_s)
-        puts @value    
+
         return scope[0].addVariable(@var, @value) # add variable to scope
-        # end
     end
 end
 
@@ -113,7 +112,7 @@ class ReassignmentNode < SyntaxTreeNode
             if @operator != "="
                 newValue = found.eval().send(@operator, @value.eval()) # operator is either '+=' or '-='
             else
-                newValue = @value.eval()
+                newValue = @value.eval(scope[0])
             end
             scope[0].addVariable(@name, ValueNode.new(newValue)) # reassign the variable with new value
         end   
@@ -175,10 +174,7 @@ class PrintNode < SyntaxTreeNode
         temp = nil
         if @value.is_a? VariableNode
             # find variable thats being printed  
-            # puts scope[0].vars       
-            # puts @value                      # degbug 
-            temp = scope[0].findVariable(@value).eval 
-            
+            temp = scope[0].findVariable(@value).eval(scope[0])
             if temp.is_a? Array
                 temp = temp.inspect
             elsif temp.is_a? SyntaxTreeNode 
@@ -196,7 +192,6 @@ class PrintNode < SyntaxTreeNode
             # remove " " from string
             temp = temp.delete "\"" 
         end
-
         puts temp
         return temp
     end
@@ -213,15 +208,19 @@ class ArithmaticNode < SyntaxTreeNode
     end
 
     def eval(*scope)
+        begin 
         tempLhs = nodeToValue(@lhs, scope[0])
         tempRhs = nodeToValue(@rhs, scope[0])
-      
-        if @operator == "/"
-            return ValueNode.new(tempLhs.to_f.send(@operator, tempRhs.to_f))
-        elsif @operator == "//"
-            return ValueNode.new(tempLhs.send("/", tempRhs).to_i)
-        else
-            return ValueNode.new(tempLhs.send(@operator, tempRhs))
+            raise NyanZeroNyerror if tempRhs == 0 && (@operator == '/' || @operator == '//')
+            if @operator == "/"
+                return ValueNode.new(tempLhs.to_f.send(@operator, tempRhs.to_f))
+            elsif @operator == "//"
+                return ValueNode.new(tempLhs.send("/", tempRhs).to_i)
+            else
+                return ValueNode.new(tempLhs.send(@operator, tempRhs))
+            end
+        rescue StandardError => e
+            puts e
         end
     end
 end
@@ -249,10 +248,7 @@ class ArrayOpNode
         case @operation
         when :index
             var, index = @args
-            puts scope[0].findVariable(var).eval
-
             array = scope[0].findVariable(var).eval
-            # puts "array: #{array}"
             idx = index.eval(scope[0])
 
             # return given index of array
@@ -268,16 +264,15 @@ class ArrayOpNode
         when :pop
             variable = @args[0]
             arr = scope[0].findVariable(variable).eval
+            arr.pop
 
-            # pop the last element
-            tmp = arr.pop
-            scope[0].addVariable(variable, ArrayNode.new(arr))
-            return tmp  
+            # reassign array with new values
+            scope[0].addVariable(variable, ValueNode.new(arr))
+            return arr  
         when :size
             variable = @args[0]
             arr = scope[0].findVariable(variable).eval
-
-             # return size of array
+            # return size of array
             return ValueNode.new(arr.size)
         end
     end
