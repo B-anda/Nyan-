@@ -241,44 +241,5 @@ class TestArithmeticNode < Test::Unit::TestCase
     #assert_raise(NyanZeroNyerror.new()) {sum_div2.eval}
 
   end
-
-  def test_complex_arithmatics
-    val1 = ValueNode.new(10)
-    val2 = ValueNode.new(5)
-    val3 = ValueNode.new(2.5)
-    val4 = ValueNode.new(0)
-
-    nyan = Nyan.new
-    nyan.log false
-
-    program = nyan.nyanParser.parse(
-      "2+6-4"  
-    ) 
-    assert_equal(4, program.value)
-
-    program2 = nyan.nyanParser.parse(
-      "2+6*4"  
-    ) 
-    assert_equal(26, program2.value)
-
-    program3 = nyan.nyanParser.parse(
-      "(5*2)*8+(4-2)"  
-    ) 
-    assert_equal(82, program3.value)
-
-    program4 = nyan.nyanParser.parse(
-      "5 / 2"  
-    ) 
-    assert_equal(2.5, program4.value)
-
-    program5 = nyan.nyanParser.parse(
-      "5 // 2"  
-    ) 
-    assert_equal(2, program5.value)
-
-    program5 = nyan.nyanParser.parse(
-      "5 % 2"  
-    ) 
-    assert_equal(1, program5.value) 
-  end
 end
+

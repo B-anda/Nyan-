@@ -1,6 +1,6 @@
 class NyantimeNyerror < StandardError
 
-    def initialize(msg = "nyan nyan nye nyan.")
+    def initialize(msg = "Nya suck.")
         super
     end
 end

@@ -45,12 +45,14 @@ class Test_Function < Test::Unit::TestCase
         variableNode2 = VariableNode.new("y")
         scope.addVariable(variableNode2, ValueNode.new(20))
 
-        # printName = ValueNode.new("Helloo")
-
         printObj = PrintNode.new(variableNode2)
 
         func = FunctionNode.new(funcName, printObj, ParamsNode.new(ParamsNode.new(param), param2)).eval(scope)
 
         assert_equal(20, FunctionCall.new(funcName, ParamsNode.new(ParamsNode.new(variableNode), variableNode2)).eval(scope))
     end
+end
+
+class TestReturnNode < Test::Unit::TestCase
+
 end

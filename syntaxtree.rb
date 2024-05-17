@@ -71,12 +71,15 @@ class BlocksNode < SyntaxTreeNode
 
     def eval(*scope)
         SharedVariables.ifBool = true
-        @toEval.eval(scope[0])
-        @nextBlock.eval(scope[0])
-        
+        to_return = @toEval.eval(scope[0])
+        unless @toEval.is_a? ReturnNode
+            @nextBlock.eval(scope[0])
+        end
+
         if @toEval.is_a? ConditionNode
             SharedVariables.ifBoolPop
         end
+        return 
     end
 end
 
@@ -406,4 +409,17 @@ class FunctionCall
     end
 end
 
+class ReturnNode
+    def initialize(block)
+        @block = block
+    end
+
+    def eval(*scope)
+        if block.is_a? ValueNode || block.is_a? VariableNode:
+            return block
+        else
+    
+    
+    end
+end
 

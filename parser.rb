@@ -31,6 +31,7 @@ class Nyan
             token(/\?nya\?/) {:if}
             token(/\?nye\?/) {:else}
             token(/\?nyanye\?/) {:elseif}
+            token(/hsss/) {:return}
             token(/[[a-zA-Z]\d_]+/) {|m| m}
             token(/,/) {|m| m}
             token(/\./) {|m| m}
@@ -52,10 +53,11 @@ class Nyan
                 match(:block)          {|a| a}
                 match(:blocks, :block) {|a, b| BlocksNode.new(a, b)}
             end
-
+            
             rule :block do
                 match(:while)           { |a| a }
                 match(:condition)       { |a| a }
+                match(:return, :output) {|a| ReturnNode.new(a)}
                 match(:functionCall)    { |a| a }
                 match(:function)        { |a| a }
                 match(:arrayOp)         { |a| a }
@@ -92,10 +94,10 @@ class Nyan
 
             rule :output do 
                 match(:arrayOp)
-                match(:expr)
                 match(:array)
-                match(:variable)
                 match(:functionCall)
+                match(:variable)
+                match(:expr)
             end
 
             ## Array ##
