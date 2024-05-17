@@ -1,5 +1,5 @@
 require './parser'
-require 'getoptlong'
+require 'getoptlong' # require the GetoptLong library for command-line option parsing
 
 @nyan = Nyan.new
 
@@ -13,20 +13,20 @@ def run(setDebug = false)
     input = 0
     
     loop do
-        print "~^nyan^~ "
-        input = gets
+        print "~^nyan^~ "   # promt for input
+        input = gets        # get input from the user
 
-        if done(input) then
+        if done(input) then # check if the input is an exit command
             puts "Bye Bye~"
             break
         else
-            @nyan.log setDebug
-            @nyan.nyanParser.parse(input)
+            @nyan.log setDebug            
+            @nyan.nyanParser.parse(input) # parse the input
         end
     end
 end
 
-# Commandline argumnts/flags
+# function to handle command-line arguments and flags
 def getOpts()
     opts = GetoptLong.new(
     [ '--help', '-h', GetoptLong::NO_ARGUMENT ],
@@ -34,12 +34,14 @@ def getOpts()
     [ '--version', '-v', GetoptLong::OPTIONAL_ARGUMENT],
     )
 
-    fileName = ARGV[0]
-    setDebug = false
+    fileName = ARGV[0]  # get the first argument (file name)
+    setDebug = false    # default debug mode is false
 
+    # iterate over the provided options
     opts.each do |opt, arg|
         case opt
         when '--help'
+            # display help message
             puts <<-EOF
             Nyan [OPTION] ... [flag | file] [arg]
             Options:
@@ -50,6 +52,7 @@ def getOpts()
             EOF
             return
         when '--debug'
+            # set debug mode based on the argument
             case arg
             when "false"
                 setDebug = false
@@ -57,17 +60,18 @@ def getOpts()
                 setDebug = true
             end
         when '--version'
+            # display version information
             puts "Nyan ≈^0.0^≈"
             return
         end 
     end
 
     begin 
-        # can only read .nyan files
+        # check if the file exists and has a -nyan extension
         if File.exist?(fileName) && File.extname(fileName) == ".nyan"
             readFile(fileName, setDebug)
         else
-            run(setDebug)
+            run(setDebug) # start the sun loop if no file is provided
         end
         
     rescue Errno::ENOENT => e
@@ -77,24 +81,24 @@ def getOpts()
    
 end
 
-# read file from args 
+# function to read and parse a file 
 def readFile(fileName, debug)
     @nyan.log debug
     begin
-        file = File.open(fileName)
-        lines = file.readlines.join
-        @nyan.nyanParser.parse(lines)
+        file = File.open(fileName)      # opern the file
+        lines = file.readlines.join     # read all lines and join them into a single string
+        @nyan.nyanParser.parse(lines)   # parse the file content
 
     rescue Parser::ParseError => e
-        puts "#{e.message}"
+        puts "#{e.message}"             # handle parsing errors
     end
 end
 
 ## Start program ##
 if ARGV.length == 0 
-    run()
+    run()       # start interactive mode if no arguments are provided
 else
-    getOpts()
+    getOpts()   # process command-line arguments
 end
 
 

@@ -1,11 +1,28 @@
 
-mao fizzbuzz^^:
-    ?nya? ^true^: 
-        meow ^"hello"^
+mao fizzbuzz^x^:
+    ^3^ count = 0~
+    ^3^ fizz = 0~
+    ^3^ buzz = 0~
+        
+    prrr^count < x^:
+
+        fizz = count // 3~
+        buzz = count // 5~
+        
+        ?nya? ^fizz == 0 && buzz == 0^:
+            meow^"fizzbuzz"^
+        ?nyanye? ^fizz == 0^:
+            meow^"fizz"^
+        ?nyanye? ^buzz == 0^:
+            meow^"buzz"^
+        ?nye?:
+            meow^count^
+        :3
+        count += 1~
     :3
 :3
 
-fizzbuzz^^
+fizzbuzz^16^
 
 ^3^ x = 10~
 

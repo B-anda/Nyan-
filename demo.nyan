@@ -1,0 +1,28 @@
+meow ^"Simple if: "^
+
+?nya? ^true^: 
+    meow ^"hello"^
+:3
+
+meow ^"arithmetik:"^
+meow ^(5*2)*8+(4-2)^
+
+meow ^"enkel funtkion med param:"^
+^3^ x = 10~
+
+mao test^x^:
+    meow ^x^
+:3
+
+test^^
+
+meow ^"rekrusion: "^
+
+mao recurs^x^:
+    ?nya? ^x < 3^:
+        meow ^x^
+        recurs^x + 1^
+    :3
+:3
+^3^ z = 0~
+recurs^z^

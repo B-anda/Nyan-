@@ -19,7 +19,7 @@ class Nyan
             token(/\^3\^/) { :integer }
             token(/\^\.\^/) { :float}
             token(/\^oo\^/) { :boolean}
-            token(/prrr/) {:whileloop}
+            token(/\bprrr\b/) {:whileloop}
             token(/\^/) {|m| m}
             token(/\(/) {|m| m}
             token(/\)/) {|m| m}
@@ -35,7 +35,7 @@ class Nyan
             token(/,/) {|m| m}
             token(/\./) {|m| m}
             token(/\[/) {|m| m}
-            token(/\+|\-|\*|\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\+\=|\-\=|\]|\~|\:/) {|m| m}
+            token(/\-\=|\+\=|\+|\-|\*|\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\]|\~|\:/) {|m| m}
             token(/./) {|m| m }
 
             @scope = GlobalScope.new
@@ -68,6 +68,7 @@ class Nyan
             ## Assignment ##
 
             rule :assignment do
+                match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
                 match(:datatype, :variable, "=", :output, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
             end
 
@@ -76,13 +77,14 @@ class Nyan
              rule :reassignment do
                 match(:variable, "+=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "+", b)}
                 match(:variable, "-=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "-", b)}
+                match(:variable, "=", :value, "~")  { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
                 match(:variable, "=", :output, "~") { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
             end
 
             ## Print ##
 
             rule :print do
-                match(:meow, "^", :value, "^") {|_,_,v,_| PrintNode.new(v)}
+                match(:meow, "^", :value, "^")  {|_,_,v,_| PrintNode.new(v)}
                 match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
             end
 
@@ -113,10 +115,10 @@ class Nyan
             # Array operators
 
             rule :arrayOp do
-                match(:variable, "[", :value, "]") { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
+                match(:variable, "[", :value, "]")             { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
                 match(:variable, ".", :push, "^", :value, "^") { |a, _, _, _, b, _| ArrayOpNode.new(:push, a, b) }
-                match(:variable, ".", :pop) { |a, _, _| ArrayOpNode.new(:pop, a) }
-                match(:variable, ".", :size) { |a, _, _,| ArrayOpNode.new(:size, a) }
+                match(:variable, ".", :pop)                    { |a, _, _| ArrayOpNode.new(:pop, a) }
+                match(:variable, ".", :size)                   { |a, _, _,| ArrayOpNode.new(:size, a) }
             end
 
             ## Function ##
@@ -128,7 +130,7 @@ class Nyan
 
             rule :functionCall do
                 match(:variable, "^", :params, "^") {|a, _, b,_| FunctionCall.new(a, b)} 
-                match(:variable, "^", "^") {|a, _, _| FunctionCall.new(a, nil)}
+                match(:variable, "^", "^")          {|a, _, _| FunctionCall.new(a, nil)}
             end
 
             rule :params do
@@ -183,8 +185,8 @@ class Nyan
             end
 
             rule :logicExpr do
-                match(:value)    {|a| LogicExpr.new(a)}
-                match(:variable) {|a| LogicExpr.new(a)}
+                match(:value)               {|a| LogicExpr.new(a)}
+                match(:variable)            {|a| LogicExpr.new(a)}
                 match("(", :logicStmt, ")") {|_,a,_| a}
             end
 
@@ -227,9 +229,10 @@ class Nyan
             rule :variable do
                 #Key words that are not variables
                 match(:integer) {}
+                match(:while)   {}
+                match(:whileloop) {}
                 match(:def)     {}
                 match(:meow)    {}
-                match(:while)   {}
                 match(:elseif)  {}
                 match(:else)    {}
                 #Otherwise

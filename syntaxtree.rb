@@ -20,6 +20,7 @@ module GetValue
 end
 
 # module used to determine if the next block should be executed
+# manage shared variables acrosse conditions
 module SharedVariables
     @ifBool = [true]
   
@@ -43,22 +44,26 @@ end
 
 ## Synatax tree nodes ##
 
+# base class for all syntax tree nodes
 class SyntaxTreeNode
-    
+    # evaluate the next node in the syntax tree within the given scope
     def evaluate(*scope)
         @nextNode.eval(scope[0])
     end
 end
 
+# represents the root the program's syntax tree
 class ProgramNode < SyntaxTreeNode
     def initialize(node)
         @nextNode = node
     end
 end
 
+# represents a sequence of code blocks
 class BlocksNode < SyntaxTreeNode
     include SharedVariables
     
+    # include the current block and the next block
     def initialize(block, nextBlock)
         @toEval = block
         @nextBlock = nextBlock
@@ -75,9 +80,11 @@ class BlocksNode < SyntaxTreeNode
     end
 end
 
+# represents an assignment of a value to a variable
 class AssignmentNode < SyntaxTreeNode
     attr_accessor :datatype, :var, :value
     
+    # initializes with the datatype, variable name, and value to assaign
     def initialize(datatype, var, value)
       @datatype = datatype
       @var = var
@@ -92,12 +99,15 @@ class AssignmentNode < SyntaxTreeNode
         #     value = value.eval
         # if dataType.to_s.casecmp?(value.class.to_s)
 
-        return scope[0].addVariable(@var, @value) # add variable to scope
+        # assagins the value to the variable in the scope
+        return scope[0].addVariable(@var, @value) 
     end
 end
 
+# represents a reassignment of a variable with an optional operator
 class ReassignmentNode < SyntaxTreeNode
 
+    # initializes with the variable name, operator, and new value
     def initialize(name, operator, value)
         @name = name
         @operator = operator
@@ -119,6 +129,8 @@ class ReassignmentNode < SyntaxTreeNode
     end
 end
 
+# represents a datatype node in the syntax tree
+# not implemented !
 class DatatypeNode < SyntaxTreeNode
     attr_accessor :datatype
     
@@ -131,13 +143,16 @@ class DatatypeNode < SyntaxTreeNode
     end
 end
 
+# represents a variable node in the syntax tree
 class VariableNode < SyntaxTreeNode
     attr_accessor :var
 
+    # initializes with the varaible name
     def initialize(var)
         @var = var
     end
 
+    # evaluates and returns the variable value within the given scope
     def eval(*scope)
         if scope[0].findVariable(self)
             return @var
@@ -147,33 +162,40 @@ class VariableNode < SyntaxTreeNode
     end
 end
 
+#represents a value node in the syntax tree
 class ValueNode < SyntaxTreeNode
     attr_accessor :value
    
+    # initializes with the value
     def initialize(value)
         @value = value
     end
 
+    # converts a string to a boolean
     def convertToBool(string)
         string.casecmp("true").zero?
     end
     
+    # evaluates and returns the value
     def eval(*scope)
         @value == "true" || @value == "false" ? (convertToBool(@value)) : (@value)
     end
 end
 
+# represents a print statment node in the syntax tree
 class PrintNode < SyntaxTreeNode
     attr_accessor :value
 
+    # initialize with the value to print
     def initialize(val)
         @value = val
     end
 
+    # evaluate and prints the value within the given scope
     def eval(*scope)
         temp = nil
         if @value.is_a? VariableNode
-            # find variable thats being printed  
+            # find variable thats being printed 
             temp = scope[0].findVariable(@value).eval(scope[0])
             if temp.is_a? Array
                 temp = temp.inspect
@@ -197,9 +219,11 @@ class PrintNode < SyntaxTreeNode
     end
 end
 
+# represents an arithmetic operation node in the syntax tree
 class ArithmaticNode < SyntaxTreeNode
     include GetValue
     
+    # initializes with the left-hand side, operator, and right-hand side
     def initialize(lhs, operator, rhs)
         @lhs = lhs
         @operator = operator
@@ -207,6 +231,7 @@ class ArithmaticNode < SyntaxTreeNode
         @sides = [@lhs, @rhs]
     end
 
+    # evaluates and returns the result of the arithmetic operation
     def eval(*scope)
         begin 
         tempLhs = nodeToValue(@lhs, scope[0])
@@ -225,25 +250,32 @@ class ArithmaticNode < SyntaxTreeNode
     end
 end
 
+# represents an array node in the syntax tree
 class ArrayNode < SyntaxTreeNode
     attr_accessor :array
+
+    # initializes with an array
     def initialize(arr)
         @array = [arr]
     end
 
+    # evaluates and returns the array (reversed)
     def eval(*scope)
         return @array.reverse()
     end
 end
 
+# represents operations in arrays (e.g., index, push, pop, size)
 class ArrayOpNode 
     attr_accessor :operation, :args
 
+    # initializes with operation and arguments
     def initialize(operation, *args)
         @operation = operation
         @args = args
     end
 
+    # evaluates and returns the result of the array operation within the given scope
     def eval(*scope)
         case @operation
         when :index
@@ -278,14 +310,16 @@ class ArrayOpNode
     end
 end
 
-
+# represents a parameter list node in the syntax tree
 class ParamsNode < SyntaxTreeNode
 
+    # initalizes with the current parameter and the next parameter
     def initialize(param, nextParam=nil)
         @param = param
         @nextParam = nextParam
     end
 
+    # evaluates and adds parameters to the function node within the given scope
     def eval(funcNode, *scope)
         if @nextParam == nil
             funcNode.paramList.push(@param)
@@ -295,6 +329,7 @@ class ParamsNode < SyntaxTreeNode
         end
     end
 
+    # returns a list of variables in the parameter list
     def vars()
         if @param.is_a? ParamsNode
             return @param.vars().push(@nextParam)
@@ -304,16 +339,20 @@ class ParamsNode < SyntaxTreeNode
     end
 end
 
+# represents a function definition node in the syntax tree
 class FunctionNode
     attr_accessor :paramList, :paramSize, :block
 
+    # initializes with the function name, block, and parameters
     def initialize(name, block, params)
-        @name = name        # name of function
-        @block = block      # block inside the function
-        @params = params    # function parameters
+        @name = name       
+        @block = block     
+        @params = params    
+        
         @paramList = []     
     end
     
+    # evaluates the function definition within the given scope
     def eval(*scope)
         if @params.is_a? ParamsNode
             @params.eval(self, scope[0])
@@ -324,33 +363,38 @@ class FunctionNode
     end
 end
 
+# represents a function call node in the syntax tree
 class FunctionCall
+    # initializes with the function name and parameters
     def initialize(name, params)
         @name = name
         @params = params
     end
 
+    # evaluates the function call within the given scope
     def eval(*scope)
  
         func = scope[0].findVariable(@name, true)   # find function name
-        scope[0].addScope(scope[0])
-        curScope = scope[0].findCurScope()
+        scope[0].addScope(scope[0])                 # add a new scope
+        curScope = scope[0].findCurScope()          # get the current scope
         
         if @params            
-            setParams = @params.vars()
-            for x in 0...setParams.length()         # go through the params and get the value
+            setParams = @params.vars()              # get the list of parameters
+            for x in 0...setParams.length()         # iterate over the params 
                 if setParams[x].is_a? VariableNode
-                    value = scope[0].findVariable(setParams[x])
+                    value = scope[0].findVariable(setParams[x]) # find the variable's value
+                elsif setParams[x].is_a? ValueNode
+                    value = setParams[x]                        # use the value node directly
                 else
-                    value = setParams[x].eval(scope[0])
+                    value = setParams[x].eval(scope[0])         # evaluate the parameter
                 end
-                curScope.addVariable(func.paramList[x], value) 
+                curScope.addVariable(func.paramList[x], value)  # add the variable to the current scope
             end
         end
         
-        toReturn = func.block.eval(curScope)
-        curScope.currToPrevScope()
-        return toReturn
+        toReturn = func.block.eval(curScope) # evaluate the function block with the current scope   
+        curScope.currToPrevScope()           # restore the previous scope
+        return toReturn                      # return the result of the function call
     end
 end
 
