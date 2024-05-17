@@ -92,15 +92,23 @@ class AssignmentNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        # dataType = @datatype.eval
-        # value = @value.eval
-        # puts value
-        # if value.is_a? ValueNode
-        #     value = value.eval
-        # if dataType.to_s.casecmp?(value.class.to_s)
+        dataType = @datatype.eval
+        value = @value.eval
+        to_return = nil
 
-        # assagins the value to the variable in the scope
-        return scope[0].addVariable(@var, @value) 
+        if value.is_a? ValueNode
+            value = value.eval
+        end
+ 
+        if dataType.to_s.casecmp?(value.class.to_s)
+            # assagins the value to the variable in the scope
+            return scope[0].addVariable(@var, @value) 
+        elsif dataType.to_s == "boolean" && (value.class.to_s == "TrueClass" || value.class.to_s == "FalseClass")
+            return scope[0].addVariable(@var, @value) 
+        else
+            raise NyanTypeError.new
+        end
+
     end
 end
 

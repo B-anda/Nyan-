@@ -17,7 +17,7 @@ class Nyan
             token(/".*"/) {|m| m}
             token(/\^w\^/) { :string }
             token(/\^3\^/) { :integer }
-            token(/\^\.\^/) { :float}
+            token(/\^\.\^/) { :float }
             token(/\^oo\^/) { :boolean}
             token(/\bprrr\b/) {:whileloop}
             token(/\^/) {|m| m}
@@ -240,26 +240,26 @@ class Nyan
             end
 
             rule :value do
-                match(:float)
-                match(:int) 
-                match(:bool)
-                match(:str) 
+                match(:floatValue)
+                match(:intValue) 
+                match(:boolValue)
+                match(:strValue) 
                 match(:array)
             end 
             
-            rule :str do
+            rule :strValue do
                 match(/".+"/) {|a| ValueNode.new(a)}
             end
 
-            rule :int do
+            rule :intValue do
                 match(/\b\d+\b/) {|a| ValueNode.new(a.to_i)}
             end
 
-            rule :float do
+            rule :floatValue do
                 match(/[\d]+\.[\d]+/) {|a| ValueNode.new(a.to_f)}
             end
 
-            rule :bool do
+            rule :boolValue do
                 match('true')  {|a| ValueNode.new(a)}
                 match('false') {|a| ValueNode.new(a)}
             end

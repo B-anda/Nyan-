@@ -5,6 +5,13 @@ class NyantimeNyerror < StandardError
     end
 end
 
+class NyanTypeError < StandardError
+
+    def initialize(msg = "Nya have nyassined nyong nyalu to nyong datatype")
+        super
+    end
+end
+
 class NyanZeroNyerror < ZeroDivisionError
 
     def initialize(msg = "nyan nyan 0.")

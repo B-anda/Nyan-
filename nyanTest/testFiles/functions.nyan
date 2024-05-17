@@ -8,7 +8,7 @@ mao fizzbuzz^x^:
 
         fizz = count // 3~
         buzz = count // 5~
-        
+      
         ?nya? ^fizz == 0 && buzz == 0^:
             meow^"fizzbuzz"^
         ?nyanye? ^fizz == 0^:
@@ -24,6 +24,7 @@ mao fizzbuzz^x^:
 
 fizzbuzz^16^
 
+meow ^"simple function with parameter"^
 ^3^ x = 10~
 
 mao test^x^:

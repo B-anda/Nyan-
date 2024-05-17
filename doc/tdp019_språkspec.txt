@@ -79,7 +79,7 @@ BNF grammatik:
 
 <logicStmt> ::= "not" <logicStmt> 
                 | <logicStmt> ''and'' <logicStmt> 
-                | <logicStmt> ''\&\&'' <logicStmt> 
+                | <logicStmt> ''&&'' <logicStmt> 
                 | <logicStmt> ''or'' <logicStmt> 
                 | <logicStmt> ''||'' <logicStmt> 
                 | <valueComp>
@@ -96,16 +96,16 @@ BNF grammatik:
 
 <expr> ::= <expr> ''+'' <term> | <expr> ''-'' <term> | <term>
 
-<term> ::= <term> ''\%'' <factor> | <term> ''//'' <factor> | <term> ''*'' <factor> | <term> ''/'' <factor> 
+<term> ::= <term> ''%'' <factor> | <term> ''//'' <factor> | <term> ''*'' <factor> | <term> ''/'' <factor> 
 
 <factor> ::= <float> | <int> | <variable> | ''('' <expr> '')''
 
 <output> ::= <value> | <variable> 
 
-<datatype> ::= ''^w^''  
+<datatype> ::= ''string''  
                | ''integer''
-               | ''^.^''
-               | ''^oo^''
+               | ''float''
+               | ''boolean''
 
 <variable> 
 

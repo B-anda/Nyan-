@@ -55,8 +55,13 @@ class LogicStmt
         if @lhs
             @lhs = @lhs.eval(scope[0]) # evaluate the left-hand side if it exists
         end
-        @rhs = @rhs.eval(scope[0]) # evaluate the right-hand side
-        
+
+        if !@rhs.is_a? ValueComp
+            @rhs = ValueNode.new(@rhs)
+        else
+            @rhs = @rhs.eval(scope[0]) # evaluate the right-hand side
+        end
+
         case @operator
         when "not"
             if @rhs
