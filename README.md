@@ -3,14 +3,17 @@
 ### Create alias
 [editior] ~/.bashrc
 
-alias nyan="ruby $1 $2 $3"
+alias nyan="ruby nyan.rb"
 
 # Nyan.rb
 
 Nyan.rb is a Ruby script that provides a command-line interface for interacting with the Nyan parser. It allows users to parse Nyan syntax and provides options for debugging and version information.
 
 ### Usage
-ruby nyan.rb
+ruby nyan.rb \
+
+or with alias \
+nyan demo.nyan 
 
 ### To run the script without any command-line arguments:
 ruby nyan.rb [file] | [flags]
@@ -33,9 +36,9 @@ getoptlong: Ruby library for parsing command-line options.
 
 ### Example usage
 
-// Run the script with debug mode off (debug is set to false by default) \
+##### Run the script with debug mode off (debug is set to false by default) \
 ruby nyan.rb \
 
-//Parse a file with debug mode on \
+##### Parse a file with debug mode on \
 ruby nyan.rb my_file.nyan -d true
 

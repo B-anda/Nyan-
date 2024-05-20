@@ -418,8 +418,7 @@ class ReturnNode
         if block.is_a? ValueNode || block.is_a? VariableNode:
             return block
         else
-    
-    
+        
     end
 end
 
