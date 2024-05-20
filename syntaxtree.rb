@@ -17,10 +17,29 @@ module GetValue
         end
         return to_return
     end 
+
+    def varValToValue(object, *scope)
+        if object.is_a? VariableNode
+            puts object
+            return scope[0].findVariable(object)
+        else
+            return object
+        end
+    end
+
+    # check if object is a ValueNode or VariableNode, return true, else false
+    # replaces is_a?
+    def varOrVal(object)
+        if (object.is_a? VariableNode) || (object.is_a? ValueNode)
+            return true
+        else
+            return false
+        end
+    end
 end
 
 # module used to determine if the next block should be executed
-# manage shared variables acrosse conditions
+# manage shared variables across conditions
 module SharedVariables
     @ifBool = [true]
   
@@ -71,15 +90,25 @@ class BlocksNode < SyntaxTreeNode
 
     def eval(*scope)
         SharedVariables.ifBool = true
-        to_return = @toEval.eval(scope[0])
-        unless @toEval.is_a? ReturnNode
+
+        toReturn = nil
+        if scope[1] 
+            if @toEval.is_a? BlocksNode
+                return @toEval.eval(scope[0], true).insert(-1, @nextBlock)
+            else
+                return [@toEval, @nextBlock]
+            end
+        else
+            toReturn = @toEval.eval(scope[0])
             @nextBlock.eval(scope[0])
+            # puts "yippee"
         end
 
         if @toEval.is_a? ConditionNode
-            SharedVariables.ifBoolPop
+            SharedVariables.ifBoolPop            
         end
-        return 
+        # puts "return: #{toReturn}"
+        return toReturn 
     end
 end
 
@@ -101,8 +130,10 @@ class AssignmentNode < SyntaxTreeNode
 
         if value.is_a? ValueNode
             value = value.eval
+        elsif value.is_a? Array
+            return scope[0].addVariable(@var, @value)
         end
- 
+
         if dataType.to_s.casecmp?(value.class.to_s)
             # assagins the value to the variable in the scope
             return scope[0].addVariable(@var, @value) 
@@ -111,7 +142,7 @@ class AssignmentNode < SyntaxTreeNode
         else
             raise NyanTypeError.new
         end
-
+        puts "#{@var} has been assigned #{@value}"
     end
 end
 
@@ -131,11 +162,11 @@ class ReassignmentNode < SyntaxTreeNode
         if found
             newValue = nil
             if @operator != "="
-                newValue = found.eval().send(@operator, @value.eval()) # operator is either '+=' or '-='
+                newValue = ValueNode.new(found.eval().send(@operator, @value.eval())) # operator is either '+=' or '-='
             else
                 newValue = @value.eval(scope[0])
             end
-            scope[0].addVariable(@name, ValueNode.new(newValue)) # reassign the variable with new value
+            scope[0].addVariable(@name, newValue) # reassign the variable with new value
         end   
     end
 end
@@ -205,6 +236,7 @@ class PrintNode < SyntaxTreeNode
     # evaluate and prints the value within the given scope
     def eval(*scope)
         temp = nil
+
         if @value.is_a? VariableNode
             # find variable thats being printed 
             temp = scope[0].findVariable(@value).eval(scope[0])
@@ -214,7 +246,6 @@ class PrintNode < SyntaxTreeNode
                 temp = temp.eval(scope[0])
             end
         else
-            # evaluate ValueNode (@value is a valueNode)
             temp = @value.eval(scope[0]) 
             if temp.is_a? SyntaxTreeNode
                 temp = temp.eval(scope[0])    
@@ -225,6 +256,7 @@ class PrintNode < SyntaxTreeNode
             # remove " " from string
             temp = temp.delete "\"" 
         end
+
         puts temp
         return temp
     end
@@ -403,22 +435,34 @@ class FunctionCall
             end
         end
         
-        toReturn = func.block.eval(curScope) # evaluate the function block with the current scope   
+        toEval = func.block.eval(curScope, true) # evaluate the function block with the current scope   
+        
+        for i in toEval
+            if i.is_a? ReturnNode
+                toReturn = i.eval(curScope)
+                break
+            else
+                i.eval(curScope)
+            end
+        end
         curScope.currToPrevScope()           # restore the previous scope
         return toReturn                      # return the result of the function call
     end
 end
 
 class ReturnNode
+    include GetValue
+
     def initialize(block)
         @block = block
     end
 
     def eval(*scope)
-        if block.is_a? ValueNode || block.is_a? VariableNode:
-            return block
+        if (@block.is_a? ValueNode) ||( @block.is_a? VariableNode)
+            return varValToValue(@block, scope[0])
         else
-        
+            return @block.eval(scope[0])
+        end
     end
 end
 

@@ -1,0 +1,781 @@
+D, [2024-05-20T16:55:24.033239 #3079] DEBUG -- : Token 
+ consumed
+D, [2024-05-20T16:55:24.033292 #3079] DEBUG -- : Token mao consumed
+D, [2024-05-20T16:55:24.033305 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033320 #3079] DEBUG -- : Token fizzbuzz consumed
+D, [2024-05-20T16:55:24.033331 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.033344 #3079] DEBUG -- : Token x consumed
+D, [2024-05-20T16:55:24.033354 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.033368 #3079] DEBUG -- : Token : consumed
+D, [2024-05-20T16:55:24.033376 #3079] DEBUG -- : Token 
+     consumed
+D, [2024-05-20T16:55:24.033384 #3079] DEBUG -- : Token ^3^ consumed
+D, [2024-05-20T16:55:24.033391 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033404 #3079] DEBUG -- : Token count consumed
+D, [2024-05-20T16:55:24.033411 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033424 #3079] DEBUG -- : Token = consumed
+D, [2024-05-20T16:55:24.033430 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033438 #3079] DEBUG -- : Token 0 consumed
+D, [2024-05-20T16:55:24.033451 #3079] DEBUG -- : Token ~ consumed
+D, [2024-05-20T16:55:24.033458 #3079] DEBUG -- : Token 
+     consumed
+D, [2024-05-20T16:55:24.033480 #3079] DEBUG -- : Token ^3^ consumed
+D, [2024-05-20T16:55:24.033487 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033498 #3079] DEBUG -- : Token fizz consumed
+D, [2024-05-20T16:55:24.033505 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033517 #3079] DEBUG -- : Token = consumed
+D, [2024-05-20T16:55:24.033525 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033532 #3079] DEBUG -- : Token 0 consumed
+D, [2024-05-20T16:55:24.033545 #3079] DEBUG -- : Token ~ consumed
+D, [2024-05-20T16:55:24.033552 #3079] DEBUG -- : Token 
+     consumed
+D, [2024-05-20T16:55:24.033560 #3079] DEBUG -- : Token ^3^ consumed
+D, [2024-05-20T16:55:24.033566 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033578 #3079] DEBUG -- : Token buzz consumed
+D, [2024-05-20T16:55:24.033584 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033597 #3079] DEBUG -- : Token = consumed
+D, [2024-05-20T16:55:24.033604 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033611 #3079] DEBUG -- : Token 0 consumed
+D, [2024-05-20T16:55:24.033637 #3079] DEBUG -- : Token ~ consumed
+D, [2024-05-20T16:55:24.033646 #3079] DEBUG -- : Token 
+        
+     consumed
+D, [2024-05-20T16:55:24.033656 #3079] DEBUG -- : Token prrr consumed
+D, [2024-05-20T16:55:24.033665 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.033677 #3079] DEBUG -- : Token count consumed
+D, [2024-05-20T16:55:24.033683 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033696 #3079] DEBUG -- : Token < consumed
+D, [2024-05-20T16:55:24.033703 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033714 #3079] DEBUG -- : Token x consumed
+D, [2024-05-20T16:55:24.033723 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.033736 #3079] DEBUG -- : Token : consumed
+D, [2024-05-20T16:55:24.033764 #3079] DEBUG -- : Token 
+
+         consumed
+D, [2024-05-20T16:55:24.033776 #3079] DEBUG -- : Token fizz consumed
+D, [2024-05-20T16:55:24.033783 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033795 #3079] DEBUG -- : Token = consumed
+D, [2024-05-20T16:55:24.033802 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033814 #3079] DEBUG -- : Token count consumed
+D, [2024-05-20T16:55:24.033820 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033833 #3079] DEBUG -- : Token // consumed
+D, [2024-05-20T16:55:24.033843 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033851 #3079] DEBUG -- : Token 3 consumed
+D, [2024-05-20T16:55:24.033864 #3079] DEBUG -- : Token ~ consumed
+D, [2024-05-20T16:55:24.033874 #3079] DEBUG -- : Token 
+         consumed
+D, [2024-05-20T16:55:24.033891 #3079] DEBUG -- : Token buzz consumed
+D, [2024-05-20T16:55:24.033903 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033920 #3079] DEBUG -- : Token = consumed
+D, [2024-05-20T16:55:24.033927 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033939 #3079] DEBUG -- : Token count consumed
+D, [2024-05-20T16:55:24.033946 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033958 #3079] DEBUG -- : Token // consumed
+D, [2024-05-20T16:55:24.033965 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.033972 #3079] DEBUG -- : Token 5 consumed
+D, [2024-05-20T16:55:24.033985 #3079] DEBUG -- : Token ~ consumed
+D, [2024-05-20T16:55:24.033995 #3079] DEBUG -- : Token 
+      
+        
+         consumed
+D, [2024-05-20T16:55:24.034015 #3079] DEBUG -- : Token count consumed
+D, [2024-05-20T16:55:24.034027 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034040 #3079] DEBUG -- : Token += consumed
+D, [2024-05-20T16:55:24.034047 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034054 #3079] DEBUG -- : Token 1 consumed
+D, [2024-05-20T16:55:24.034067 #3079] DEBUG -- : Token ~ consumed
+D, [2024-05-20T16:55:24.034073 #3079] DEBUG -- : Token 
+     consumed
+D, [2024-05-20T16:55:24.034081 #3079] DEBUG -- : Token :3 consumed
+D, [2024-05-20T16:55:24.034088 #3079] DEBUG -- : Token 
+ consumed
+D, [2024-05-20T16:55:24.034094 #3079] DEBUG -- : Token :3 consumed
+D, [2024-05-20T16:55:24.034101 #3079] DEBUG -- : Token 
+
+ consumed
+D, [2024-05-20T16:55:24.034112 #3079] DEBUG -- : Token fizzbuzz consumed
+D, [2024-05-20T16:55:24.034122 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034129 #3079] DEBUG -- : Token 16 consumed
+D, [2024-05-20T16:55:24.034139 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034145 #3079] DEBUG -- : Token 
+
+ consumed
+D, [2024-05-20T16:55:24.034155 #3079] DEBUG -- : Token mao consumed
+D, [2024-05-20T16:55:24.034162 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034173 #3079] DEBUG -- : Token test consumed
+D, [2024-05-20T16:55:24.034183 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034237 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034264 #3079] DEBUG -- : Token : consumed
+D, [2024-05-20T16:55:24.034273 #3079] DEBUG -- : Token 
+     consumed
+D, [2024-05-20T16:55:24.034283 #3079] DEBUG -- : Token meow consumed
+D, [2024-05-20T16:55:24.034292 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034300 #3079] DEBUG -- : Token "hello" consumed
+D, [2024-05-20T16:55:24.034310 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034316 #3079] DEBUG -- : Token 
+
+     consumed
+D, [2024-05-20T16:55:24.034324 #3079] DEBUG -- : Token ^3^ consumed
+D, [2024-05-20T16:55:24.034330 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034341 #3079] DEBUG -- : Token y consumed
+D, [2024-05-20T16:55:24.034348 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034361 #3079] DEBUG -- : Token = consumed
+D, [2024-05-20T16:55:24.034367 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034374 #3079] DEBUG -- : Token 42 consumed
+D, [2024-05-20T16:55:24.034387 #3079] DEBUG -- : Token ~ consumed
+D, [2024-05-20T16:55:24.034393 #3079] DEBUG -- : Token 
+     consumed
+D, [2024-05-20T16:55:24.034403 #3079] DEBUG -- : Token meow consumed
+D, [2024-05-20T16:55:24.034412 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034423 #3079] DEBUG -- : Token y consumed
+D, [2024-05-20T16:55:24.034432 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034439 #3079] DEBUG -- : Token 
+     consumed
+D, [2024-05-20T16:55:24.034450 #3079] DEBUG -- : Token hsss consumed
+D, [2024-05-20T16:55:24.034456 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034468 #3079] DEBUG -- : Token y consumed
+D, [2024-05-20T16:55:24.034487 #3079] DEBUG -- : Token 
+     consumed
+D, [2024-05-20T16:55:24.034497 #3079] DEBUG -- : Token meow consumed
+D, [2024-05-20T16:55:24.034506 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034514 #3079] DEBUG -- : Token "dont print this" consumed
+D, [2024-05-20T16:55:24.034523 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034529 #3079] DEBUG -- : Token 
+    
+     consumed
+D, [2024-05-20T16:55:24.034536 #3079] DEBUG -- : Token :3 consumed
+D, [2024-05-20T16:55:24.034542 #3079] DEBUG -- : Token 
+ consumed
+D, [2024-05-20T16:55:24.034591 #3079] DEBUG -- : Token meow consumed
+D, [2024-05-20T16:55:24.034607 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034628 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034651 #3079] DEBUG -- : Token test consumed
+D, [2024-05-20T16:55:24.034665 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034679 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034690 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034706 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034719 #3079] DEBUG -- : Token 
+
+ consumed
+D, [2024-05-20T16:55:24.034732 #3079] DEBUG -- : Token meow consumed
+D, [2024-05-20T16:55:24.034739 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034747 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034756 #3079] DEBUG -- : Token "simple function with parameter" consumed
+D, [2024-05-20T16:55:24.034765 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034771 #3079] DEBUG -- : Token 
+ consumed
+D, [2024-05-20T16:55:24.034779 #3079] DEBUG -- : Token ^3^ consumed
+D, [2024-05-20T16:55:24.034786 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034817 #3079] DEBUG -- : Token x consumed
+D, [2024-05-20T16:55:24.034825 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034838 #3079] DEBUG -- : Token = consumed
+D, [2024-05-20T16:55:24.034845 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034852 #3079] DEBUG -- : Token 10 consumed
+D, [2024-05-20T16:55:24.034865 #3079] DEBUG -- : Token ~ consumed
+D, [2024-05-20T16:55:24.034871 #3079] DEBUG -- : Token 
+
+ consumed
+D, [2024-05-20T16:55:24.034881 #3079] DEBUG -- : Token mao consumed
+D, [2024-05-20T16:55:24.034888 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034900 #3079] DEBUG -- : Token test consumed
+D, [2024-05-20T16:55:24.034909 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034920 #3079] DEBUG -- : Token x consumed
+D, [2024-05-20T16:55:24.034929 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034941 #3079] DEBUG -- : Token : consumed
+D, [2024-05-20T16:55:24.034948 #3079] DEBUG -- : Token 
+     consumed
+D, [2024-05-20T16:55:24.034958 #3079] DEBUG -- : Token meow consumed
+D, [2024-05-20T16:55:24.034964 #3079] DEBUG -- : Token   consumed
+D, [2024-05-20T16:55:24.034973 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.034985 #3079] DEBUG -- : Token x consumed
+D, [2024-05-20T16:55:24.034993 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.035000 #3079] DEBUG -- : Token 
+ consumed
+D, [2024-05-20T16:55:24.035006 #3079] DEBUG -- : Token :3 consumed
+D, [2024-05-20T16:55:24.035012 #3079] DEBUG -- : Token 
+
+ consumed
+D, [2024-05-20T16:55:24.035024 #3079] DEBUG -- : Token test consumed
+D, [2024-05-20T16:55:24.035032 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.035041 #3079] DEBUG -- : Token ^ consumed
+D, [2024-05-20T16:55:24.035091 #3079] DEBUG -- : Matched token 'def' as part of rule 'variable <= [:def]'
+D, [2024-05-20T16:55:24.035108 #3079] DEBUG -- : Matched token 'def' as part of rule 'variable <= [:def]'
+D, [2024-05-20T16:55:24.035123 #3079] DEBUG -- : Matched token 'def' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.035161 #3079] DEBUG -- : Matched token 'fizzbuzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.035185 #3079] DEBUG -- : 'm' matched 'variable' and generated '#<VariableNode:0x00005624668ac588 @var="fizzbuzz">'
+D, [2024-05-20T16:55:24.035223 #3079] DEBUG -- : Matched token '^' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.035279 #3079] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.035293 #3079] DEBUG -- : 'o' matched 'variable' and generated '#<VariableNode:0x0000562466a3a738 @var="x">'
+D, [2024-05-20T16:55:24.035304 #3079] DEBUG -- : 'o' matched 'factor' and generated '#<VariableNode:0x0000562466a3a738 @var="x">'
+D, [2024-05-20T16:55:24.035314 #3079] DEBUG -- : 'o' matched 'term' and generated '#<VariableNode:0x0000562466a3a738 @var="x">'
+D, [2024-05-20T16:55:24.035330 #3079] DEBUG -- : 'o' matched 'expr' and generated '#<VariableNode:0x0000562466a3a738 @var="x">'
+D, [2024-05-20T16:55:24.035351 #3079] DEBUG -- : 'o' matched 'params' and generated '#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>'
+D, [2024-05-20T16:55:24.035366 #3079] DEBUG -- : Matched token '^' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.035377 #3079] DEBUG -- : Matched token ':' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.035392 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035402 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035415 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035435 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035445 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035454 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035464 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035473 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035482 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035504 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035514 #3079] DEBUG -- : Matched token 'integer' as part of rule 'datatype <= [:integer]'
+D, [2024-05-20T16:55:24.035528 #3079] DEBUG -- : 'i' matched 'datatype' and generated '#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>'
+D, [2024-05-20T16:55:24.035548 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.035559 #3079] DEBUG -- : 'z' matched 'variable' and generated '#<VariableNode:0x0000562466a3e018 @var="count">'
+D, [2024-05-20T16:55:24.035570 #3079] DEBUG -- : Matched token '=' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.035584 #3079] DEBUG -- : Matched token '0' as part of rule 'intValue <= [/\b\d+\b/]'
+D, [2024-05-20T16:55:24.035599 #3079] DEBUG -- : 'b' matched 'intValue' and generated '#<ValueNode:0x0000562466a3d640 @value=0>'
+D, [2024-05-20T16:55:24.035609 #3079] DEBUG -- : 'b' matched 'value' and generated '#<ValueNode:0x0000562466a3d640 @value=0>'
+D, [2024-05-20T16:55:24.035627 #3079] DEBUG -- : Matched token '~' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.035649 #3079] DEBUG -- : 'izzbu' matched 'assignment' and generated '#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>'
+D, [2024-05-20T16:55:24.035669 #3079] DEBUG -- : 'izzbu' matched 'block' and generated '#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>'
+D, [2024-05-20T16:55:24.035685 #3079] DEBUG -- : 'izzbu' matched 'blocks' and generated '#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>'
+D, [2024-05-20T16:55:24.035722 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035732 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035776 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035795 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035811 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035826 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035844 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035861 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035872 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035880 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.035891 #3079] DEBUG -- : Matched token 'integer' as part of rule 'datatype <= [:integer]'
+D, [2024-05-20T16:55:24.035907 #3079] DEBUG -- : 'z' matched 'datatype' and generated '#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>'
+D, [2024-05-20T16:55:24.035929 #3079] DEBUG -- : Matched token 'fizz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.035941 #3079] DEBUG -- : 'z' matched 'variable' and generated '#<VariableNode:0x0000562466a460d8 @var="fizz">'
+D, [2024-05-20T16:55:24.035952 #3079] DEBUG -- : Matched token '=' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.035966 #3079] DEBUG -- : Matched token '0' as part of rule 'intValue <= [/\b\d+\b/]'
+D, [2024-05-20T16:55:24.035978 #3079] DEBUG -- : 'x' matched 'intValue' and generated '#<ValueNode:0x0000562466a45700 @value=0>'
+D, [2024-05-20T16:55:24.035988 #3079] DEBUG -- : 'x' matched 'value' and generated '#<ValueNode:0x0000562466a45700 @value=0>'
+D, [2024-05-20T16:55:24.035998 #3079] DEBUG -- : Matched token '~' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.036016 #3079] DEBUG -- : 'zz^x^' matched 'assignment' and generated '#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>'
+D, [2024-05-20T16:55:24.036033 #3079] DEBUG -- : 'zz^x^' matched 'block' and generated '#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>'
+D, [2024-05-20T16:55:24.036072 #3079] DEBUG -- : 'zz^x^' matched 'blocks' and generated '#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>'
+D, [2024-05-20T16:55:24.036126 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.036142 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.036155 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.036164 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.036173 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.036181 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.036191 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.036212 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.036221 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.036230 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.036244 #3079] DEBUG -- : Matched token 'integer' as part of rule 'datatype <= [:integer]'
+D, [2024-05-20T16:55:24.036256 #3079] DEBUG -- : ':' matched 'datatype' and generated '#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>'
+D, [2024-05-20T16:55:24.036276 #3079] DEBUG -- : Matched token 'buzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.036287 #3079] DEBUG -- : '
+' matched 'variable' and generated '#<VariableNode:0x0000562466a4e058 @var="buzz">'
+D, [2024-05-20T16:55:24.036299 #3079] DEBUG -- : Matched token '=' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.036313 #3079] DEBUG -- : Matched token '0' as part of rule 'intValue <= [/\b\d+\b/]'
+D, [2024-05-20T16:55:24.036324 #3079] DEBUG -- : ' ' matched 'intValue' and generated '#<ValueNode:0x0000562466a4d680 @value=0>'
+D, [2024-05-20T16:55:24.036334 #3079] DEBUG -- : ' ' matched 'value' and generated '#<ValueNode:0x0000562466a4d680 @value=0>'
+D, [2024-05-20T16:55:24.036345 #3079] DEBUG -- : Matched token '~' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.036362 #3079] DEBUG -- : ':
+   ' matched 'assignment' and generated '#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>'
+D, [2024-05-20T16:55:24.036378 #3079] DEBUG -- : ':
+   ' matched 'block' and generated '#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>'
+D, [2024-05-20T16:55:24.036414 #3079] DEBUG -- : ':
+   ' matched 'blocks' and generated '#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>'
+D, [2024-05-20T16:55:24.036462 #3079] DEBUG -- : Matched token 'whileloop' as part of rule 'while <= [:whileloop, "^", :logicStmt, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.036474 #3079] DEBUG -- : Matched token '^' as part of rule 'while <= [:whileloop, "^", :logicStmt, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.036531 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.036544 #3079] DEBUG -- : '3' matched 'variable' and generated '#<VariableNode:0x0000562466a57d38 @var="count">'
+D, [2024-05-20T16:55:24.036559 #3079] DEBUG -- : '3' matched 'logicExpr' and generated '#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>'
+D, [2024-05-20T16:55:24.036572 #3079] DEBUG -- : Matched token '<' as part of rule 'valueComp <= [:logicExpr, "<", :logicExpr]'
+D, [2024-05-20T16:55:24.036605 #3079] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.036623 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a56488 @var="x">'
+D, [2024-05-20T16:55:24.036643 #3079] DEBUG -- : ' ' matched 'logicExpr' and generated '#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>'
+D, [2024-05-20T16:55:24.036672 #3079] DEBUG -- : '3^ ' matched 'valueComp' and generated '#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>'
+D, [2024-05-20T16:55:24.036725 #3079] DEBUG -- : '3^ ' matched 'logicStmt' and generated '#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>'
+D, [2024-05-20T16:55:24.036758 #3079] DEBUG -- : Matched token '^' as part of rule 'while <= [:whileloop, "^", :logicStmt, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.036782 #3079] DEBUG -- : Matched token ':' as part of rule 'while <= [:whileloop, "^", :logicStmt, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.036817 #3079] DEBUG -- : Matched token 'fizz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.036831 #3079] DEBUG -- : 'u' matched 'variable' and generated '#<VariableNode:0x0000562466a54160 @var="fizz">'
+D, [2024-05-20T16:55:24.036854 #3079] DEBUG -- : Matched token 'fizz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.036865 #3079] DEBUG -- : 'u' matched 'variable' and generated '#<VariableNode:0x00005624668004b8 @var="fizz">'
+D, [2024-05-20T16:55:24.036898 #3079] DEBUG -- : Matched token 'fizz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.036909 #3079] DEBUG -- : 'u' matched 'variable' and generated '#<VariableNode:0x000056246688a118 @var="fizz">'
+D, [2024-05-20T16:55:24.036925 #3079] DEBUG -- : Matched token 'fizz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.036936 #3079] DEBUG -- : 'u' matched 'variable' and generated '#<VariableNode:0x0000562466888b10 @var="fizz">'
+D, [2024-05-20T16:55:24.036958 #3079] DEBUG -- : Matched token 'fizz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.036969 #3079] DEBUG -- : 'u' matched 'variable' and generated '#<VariableNode:0x0000562466792738 @var="fizz">'
+D, [2024-05-20T16:55:24.036990 #3079] DEBUG -- : Matched token 'fizz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.037001 #3079] DEBUG -- : 'u' matched 'variable' and generated '#<VariableNode:0x000056246678e728 @var="fizz">'
+D, [2024-05-20T16:55:24.037030 #3079] DEBUG -- : Matched token 'fizz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.037040 #3079] DEBUG -- : 'u' matched 'variable' and generated '#<VariableNode:0x0000562466763230 @var="fizz">'
+D, [2024-05-20T16:55:24.037057 #3079] DEBUG -- : Matched token 'fizz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.037067 #3079] DEBUG -- : 'u' matched 'variable' and generated '#<VariableNode:0x00005624667616d8 @var="fizz">'
+D, [2024-05-20T16:55:24.037091 #3079] DEBUG -- : Matched token 'fizz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.037108 #3079] DEBUG -- : 'u' matched 'variable' and generated '#<VariableNode:0x00005624666451c8 @var="fizz">'
+D, [2024-05-20T16:55:24.037119 #3079] DEBUG -- : Matched token '=' as part of rule 'reassignment <= [:variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.037162 #3079] DEBUG -- : Matched token 'fizz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.037176 #3079] DEBUG -- : 'u' matched 'variable' and generated '#<VariableNode:0x000056246661bcd8 @var="fizz">'
+D, [2024-05-20T16:55:24.037220 #3079] DEBUG -- : Matched token '=' as part of rule 'reassignment <= [:variable, "=", :output, "~"]'
+D, [2024-05-20T16:55:24.037267 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.037286 #3079] DEBUG -- : 't' matched 'variable' and generated '#<VariableNode:0x0000562466612c50 @var="count">'
+D, [2024-05-20T16:55:24.037320 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.037338 #3079] DEBUG -- : 't' matched 'variable' and generated '#<VariableNode:0x0000562466609fd8 @var="count">'
+D, [2024-05-20T16:55:24.037376 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.037399 #3079] DEBUG -- : 't' matched 'variable' and generated '#<VariableNode:0x0000562466600118 @var="count">'
+D, [2024-05-20T16:55:24.037439 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.037458 #3079] DEBUG -- : 't' matched 'variable' and generated '#<VariableNode:0x00005624665fb780 @var="count">'
+D, [2024-05-20T16:55:24.037489 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038011 #3079] DEBUG -- : 't' matched 'variable' and generated '#<VariableNode:0x00005624665f8328 @var="count">'
+D, [2024-05-20T16:55:24.038046 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038060 #3079] DEBUG -- : 't' matched 'variable' and generated '#<VariableNode:0x0000562466a57388 @var="count">'
+D, [2024-05-20T16:55:24.038103 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038116 #3079] DEBUG -- : 't' matched 'variable' and generated '#<VariableNode:0x0000562466a559e8 @var="count">'
+D, [2024-05-20T16:55:24.038127 #3079] DEBUG -- : 't' matched 'factor' and generated '#<VariableNode:0x0000562466a559e8 @var="count">'
+D, [2024-05-20T16:55:24.038136 #3079] DEBUG -- : 't' matched 'term' and generated '#<VariableNode:0x0000562466a559e8 @var="count">'
+D, [2024-05-20T16:55:24.038149 #3079] DEBUG -- : Matched token '//' as part of rule 'term <= ["//", :factor]'
+D, [2024-05-20T16:55:24.038166 #3079] DEBUG -- : Matched token '3' as part of rule 'intValue <= [/\b\d+\b/]'
+D, [2024-05-20T16:55:24.038180 #3079] DEBUG -- : '=' matched 'intValue' and generated '#<ValueNode:0x0000562466a548b8 @value=3>'
+D, [2024-05-20T16:55:24.038189 #3079] DEBUG -- : '=' matched 'factor' and generated '#<ValueNode:0x0000562466a548b8 @value=3>'
+D, [2024-05-20T16:55:24.038226 #3079] DEBUG -- : ' =' matched 'term' and generated '#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>'
+D, [2024-05-20T16:55:24.038264 #3079] DEBUG -- : 't =' matched 'expr' and generated '#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>'
+D, [2024-05-20T16:55:24.038285 #3079] DEBUG -- : 't =' matched 'output' and generated '#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>'
+D, [2024-05-20T16:55:24.038297 #3079] DEBUG -- : Matched token '~' as part of rule 'reassignment <= [:variable, "=", :output, "~"]'
+D, [2024-05-20T16:55:24.038326 #3079] DEBUG -- : 'unt = ' matched 'reassignment' and generated '#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>'
+D, [2024-05-20T16:55:24.038352 #3079] DEBUG -- : 'unt = ' matched 'block' and generated '#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>'
+D, [2024-05-20T16:55:24.038374 #3079] DEBUG -- : 'unt = ' matched 'blocks' and generated '#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>'
+D, [2024-05-20T16:55:24.038438 #3079] DEBUG -- : Matched token 'buzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038452 #3079] DEBUG -- : '0' matched 'variable' and generated '#<VariableNode:0x0000562466a4d0b8 @var="buzz">'
+D, [2024-05-20T16:55:24.038471 #3079] DEBUG -- : Matched token 'buzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038482 #3079] DEBUG -- : '0' matched 'variable' and generated '#<VariableNode:0x0000562466a4c3e8 @var="buzz">'
+D, [2024-05-20T16:55:24.038512 #3079] DEBUG -- : Matched token 'buzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038524 #3079] DEBUG -- : '0' matched 'variable' and generated '#<VariableNode:0x0000562466a476e0 @var="buzz">'
+D, [2024-05-20T16:55:24.038540 #3079] DEBUG -- : Matched token 'buzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038551 #3079] DEBUG -- : '0' matched 'variable' and generated '#<VariableNode:0x0000562466a46a88 @var="buzz">'
+D, [2024-05-20T16:55:24.038568 #3079] DEBUG -- : Matched token 'buzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038578 #3079] DEBUG -- : '0' matched 'variable' and generated '#<VariableNode:0x0000562466a45e58 @var="buzz">'
+D, [2024-05-20T16:55:24.038594 #3079] DEBUG -- : Matched token 'buzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038604 #3079] DEBUG -- : '0' matched 'variable' and generated '#<VariableNode:0x0000562466a45200 @var="buzz">'
+D, [2024-05-20T16:55:24.038631 #3079] DEBUG -- : Matched token 'buzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038644 #3079] DEBUG -- : '0' matched 'variable' and generated '#<VariableNode:0x0000562466a44508 @var="buzz">'
+D, [2024-05-20T16:55:24.038671 #3079] DEBUG -- : Matched token 'buzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038682 #3079] DEBUG -- : '0' matched 'variable' and generated '#<VariableNode:0x0000562466a3fb98 @var="buzz">'
+D, [2024-05-20T16:55:24.038699 #3079] DEBUG -- : Matched token 'buzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038709 #3079] DEBUG -- : '0' matched 'variable' and generated '#<VariableNode:0x0000562466a3ef68 @var="buzz">'
+D, [2024-05-20T16:55:24.038719 #3079] DEBUG -- : Matched token '=' as part of rule 'reassignment <= [:variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.038746 #3079] DEBUG -- : Matched token 'buzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038757 #3079] DEBUG -- : '0' matched 'variable' and generated '#<VariableNode:0x0000562466a3d910 @var="buzz">'
+D, [2024-05-20T16:55:24.038767 #3079] DEBUG -- : Matched token '=' as part of rule 'reassignment <= [:variable, "=", :output, "~"]'
+D, [2024-05-20T16:55:24.038788 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038798 #3079] DEBUG -- : '
+' matched 'variable' and generated '#<VariableNode:0x0000562466a3c9e8 @var="count">'
+D, [2024-05-20T16:55:24.038815 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038836 #3079] DEBUG -- : '
+' matched 'variable' and generated '#<VariableNode:0x0000562466a3fcd8 @var="count">'
+D, [2024-05-20T16:55:24.038853 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038863 #3079] DEBUG -- : '
+' matched 'variable' and generated '#<VariableNode:0x0000562466a3b408 @var="count">'
+D, [2024-05-20T16:55:24.038878 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038888 #3079] DEBUG -- : '
+' matched 'variable' and generated '#<VariableNode:0x0000562466a3a878 @var="count">'
+D, [2024-05-20T16:55:24.038906 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038916 #3079] DEBUG -- : '
+' matched 'variable' and generated '#<VariableNode:0x0000562466a39a18 @var="count">'
+D, [2024-05-20T16:55:24.038932 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038942 #3079] DEBUG -- : '
+' matched 'variable' and generated '#<VariableNode:0x0000562466a38de8 @var="count">'
+D, [2024-05-20T16:55:24.038987 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.038998 #3079] DEBUG -- : '
+' matched 'variable' and generated '#<VariableNode:0x0000562466a37600 @var="count">'
+D, [2024-05-20T16:55:24.039008 #3079] DEBUG -- : '
+' matched 'factor' and generated '#<VariableNode:0x0000562466a37600 @var="count">'
+D, [2024-05-20T16:55:24.039017 #3079] DEBUG -- : '
+' matched 'term' and generated '#<VariableNode:0x0000562466a37600 @var="count">'
+D, [2024-05-20T16:55:24.039028 #3079] DEBUG -- : Matched token '//' as part of rule 'term <= ["//", :factor]'
+D, [2024-05-20T16:55:24.039040 #3079] DEBUG -- : Matched token '5' as part of rule 'intValue <= [/\b\d+\b/]'
+D, [2024-05-20T16:55:24.039051 #3079] DEBUG -- : ' ' matched 'intValue' and generated '#<ValueNode:0x0000562466a36480 @value=5>'
+D, [2024-05-20T16:55:24.039060 #3079] DEBUG -- : ' ' matched 'factor' and generated '#<ValueNode:0x0000562466a36480 @value=5>'
+D, [2024-05-20T16:55:24.039079 #3079] DEBUG -- : '  ' matched 'term' and generated '#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>'
+D, [2024-05-20T16:55:24.039102 #3079] DEBUG -- : '
+  ' matched 'expr' and generated '#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>'
+D, [2024-05-20T16:55:24.039122 #3079] DEBUG -- : '
+  ' matched 'output' and generated '#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>'
+D, [2024-05-20T16:55:24.039132 #3079] DEBUG -- : Matched token '~' as part of rule 'reassignment <= [:variable, "=", :output, "~"]'
+D, [2024-05-20T16:55:24.039157 #3079] DEBUG -- : '0~
+   ' matched 'reassignment' and generated '#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>'
+D, [2024-05-20T16:55:24.039191 #3079] DEBUG -- : '0~
+   ' matched 'block' and generated '#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>'
+D, [2024-05-20T16:55:24.039278 #3079] DEBUG -- : '0~
+   ' matched 'blocks' and generated '#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>'
+D, [2024-05-20T16:55:24.039327 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.039341 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a32470 @var="count">'
+D, [2024-05-20T16:55:24.039359 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.039370 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a31700 @var="count">'
+D, [2024-05-20T16:55:24.039389 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.039399 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a30710 @var="count">'
+D, [2024-05-20T16:55:24.039416 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.039440 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a2ff90 @var="count">'
+D, [2024-05-20T16:55:24.039457 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.039468 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a2f270 @var="count">'
+D, [2024-05-20T16:55:24.039484 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.039494 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a2e550 @var="count">'
+D, [2024-05-20T16:55:24.039511 #3079] DEBUG -- : Matched token 'count' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.039521 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a2d768 @var="count">'
+D, [2024-05-20T16:55:24.039531 #3079] DEBUG -- : Matched token '+=' as part of rule 'reassignment <= [:variable, "+=", :value, "~"]'
+D, [2024-05-20T16:55:24.039544 #3079] DEBUG -- : Matched token '1' as part of rule 'intValue <= [/\b\d+\b/]'
+D, [2024-05-20T16:55:24.039555 #3079] DEBUG -- : '3' matched 'intValue' and generated '#<ValueNode:0x0000562466a2cc50 @value=1>'
+D, [2024-05-20T16:55:24.039564 #3079] DEBUG -- : '3' matched 'value' and generated '#<ValueNode:0x0000562466a2cc50 @value=1>'
+D, [2024-05-20T16:55:24.039574 #3079] DEBUG -- : Matched token '~' as part of rule 'reassignment <= [:variable, "+=", :value, "~"]'
+D, [2024-05-20T16:55:24.039589 #3079] DEBUG -- : ' ^3^' matched 'reassignment' and generated '#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>'
+D, [2024-05-20T16:55:24.039603 #3079] DEBUG -- : ' ^3^' matched 'block' and generated '#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>'
+D, [2024-05-20T16:55:24.039672 #3079] DEBUG -- : ' ^3^' matched 'blocks' and generated '#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>'
+D, [2024-05-20T16:55:24.039804 #3079] DEBUG -- : Matched token ';' as part of rule 'while <= [:whileloop, "^", :logicStmt, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.039885 #3079] DEBUG -- : ' ^3^ count = 0~
+    ^3^ ' matched 'while' and generated '#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>'
+D, [2024-05-20T16:55:24.039948 #3079] DEBUG -- : ' ^3^ count = 0~
+    ^3^ ' matched 'block' and generated '#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>'
+D, [2024-05-20T16:55:24.040042 #3079] DEBUG -- : ' ^3^ count = 0~
+    ^3^ ' matched 'blocks' and generated '#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>'
+D, [2024-05-20T16:55:24.040217 #3079] DEBUG -- : Matched token ';' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.040351 #3079] DEBUG -- : '
+mao fizzbuzz^x^:
+    ^3^ count = 0~
+    ^3^ f' matched 'function' and generated '#<FunctionNode:0x00005624669cc120 @name=#<VariableNode:0x00005624668ac588 @var="fizzbuzz">, @block=#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>, @params=#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>, @paramList=[]>'
+D, [2024-05-20T16:55:24.040452 #3079] DEBUG -- : '
+mao fizzbuzz^x^:
+    ^3^ count = 0~
+    ^3^ f' matched 'block' and generated '#<FunctionNode:0x00005624669cc120 @name=#<VariableNode:0x00005624668ac588 @var="fizzbuzz">, @block=#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>, @params=#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>, @paramList=[]>'
+D, [2024-05-20T16:55:24.040566 #3079] DEBUG -- : '
+mao fizzbuzz^x^:
+    ^3^ count = 0~
+    ^3^ f' matched 'blocks' and generated '#<FunctionNode:0x00005624669cc120 @name=#<VariableNode:0x00005624668ac588 @var="fizzbuzz">, @block=#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>, @params=#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>, @paramList=[]>'
+D, [2024-05-20T16:55:24.040595 #3079] DEBUG -- : Matched token 'fizzbuzz' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.040608 #3079] DEBUG -- : 'i' matched 'variable' and generated '#<VariableNode:0x00005624669c1360 @var="fizzbuzz">'
+D, [2024-05-20T16:55:24.040627 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-20T16:55:24.040642 #3079] DEBUG -- : Matched token '16' as part of rule 'intValue <= [/\b\d+\b/]'
+D, [2024-05-20T16:55:24.040653 #3079] DEBUG -- : 'z' matched 'intValue' and generated '#<ValueNode:0x00005624669c0848 @value=16>'
+D, [2024-05-20T16:55:24.040663 #3079] DEBUG -- : 'z' matched 'value' and generated '#<ValueNode:0x00005624669c0848 @value=16>'
+D, [2024-05-20T16:55:24.040677 #3079] DEBUG -- : 'z' matched 'params' and generated '#<ParamsNode:0x00005624669c0280 @param=#<ValueNode:0x00005624669c0848 @value=16>, @nextParam=nil>'
+D, [2024-05-20T16:55:24.040716 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-20T16:55:24.040736 #3079] DEBUG -- : 'izz ' matched 'functionCall' and generated '#<FunctionCall:0x00005624669676f8 @name=#<VariableNode:0x00005624669c1360 @var="fizzbuzz">, @params=#<ParamsNode:0x00005624669c0280 @param=#<ValueNode:0x00005624669c0848 @value=16>, @nextParam=nil>>'
+D, [2024-05-20T16:55:24.040752 #3079] DEBUG -- : 'izz ' matched 'block' and generated '#<FunctionCall:0x00005624669676f8 @name=#<VariableNode:0x00005624669c1360 @var="fizzbuzz">, @params=#<ParamsNode:0x00005624669c0280 @param=#<ValueNode:0x00005624669c0848 @value=16>, @nextParam=nil>>'
+D, [2024-05-20T16:55:24.040886 #3079] DEBUG -- : 'izz ' matched 'blocks' and generated '#<BlocksNode:0x00005624669668e8 @toEval=#<FunctionNode:0x00005624669cc120 @name=#<VariableNode:0x00005624668ac588 @var="fizzbuzz">, @block=#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>, @params=#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>, @paramList=[]>, @nextBlock=#<FunctionCall:0x00005624669676f8 @name=#<VariableNode:0x00005624669c1360 @var="fizzbuzz">, @params=#<ParamsNode:0x00005624669c0280 @param=#<ValueNode:0x00005624669c0848 @value=16>, @nextParam=nil>>>'
+D, [2024-05-20T16:55:24.040908 #3079] DEBUG -- : Matched token 'def' as part of rule 'variable <= [:def]'
+D, [2024-05-20T16:55:24.040922 #3079] DEBUG -- : Matched token 'def' as part of rule 'variable <= [:def]'
+D, [2024-05-20T16:55:24.040943 #3079] DEBUG -- : Matched token 'def' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.040961 #3079] DEBUG -- : Matched token 'test' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.040973 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466955840 @var="test">'
+D, [2024-05-20T16:55:24.040986 #3079] DEBUG -- : Matched token '^' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.041058 #3079] DEBUG -- : Matched token 'def' as part of rule 'function <= [:def, :variable, "^", "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.041087 #3079] DEBUG -- : Matched token 'test' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.041105 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x000056246693f108 @var="test">'
+D, [2024-05-20T16:55:24.041121 #3079] DEBUG -- : Matched token '^' as part of rule 'function <= [:def, :variable, "^", "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.041140 #3079] DEBUG -- : Matched token '^' as part of rule 'function <= [:def, :variable, "^", "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.041155 #3079] DEBUG -- : Matched token ':' as part of rule 'function <= [:def, :variable, "^", "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.041206 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.041230 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.041254 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.041289 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.041309 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.041327 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.041346 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.041379 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.041396 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.041413 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.041441 #3079] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.041456 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.041500 #3079] DEBUG -- : Matched token '"hello"' as part of rule 'strValue <= [/".+"/]'
+D, [2024-05-20T16:55:24.041526 #3079] DEBUG -- : ' ' matched 'strValue' and generated '#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">'
+D, [2024-05-20T16:55:24.041544 #3079] DEBUG -- : ' ' matched 'value' and generated '#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">'
+D, [2024-05-20T16:55:24.041561 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.041590 #3079] DEBUG -- : '    ' matched 'print' and generated '#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>'
+D, [2024-05-20T16:55:24.041610 #3079] DEBUG -- : '    ' matched 'block' and generated '#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>'
+D, [2024-05-20T16:55:24.041638 #3079] DEBUG -- : '    ' matched 'blocks' and generated '#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>'
+D, [2024-05-20T16:55:24.041673 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.041703 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.041722 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.041735 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.041750 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.041764 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.041782 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.041805 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.041846 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.041857 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.041868 #3079] DEBUG -- : Matched token 'integer' as part of rule 'datatype <= [:integer]'
+D, [2024-05-20T16:55:24.041883 #3079] DEBUG -- : '^' matched 'datatype' and generated '#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>'
+D, [2024-05-20T16:55:24.041920 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.041940 #3079] DEBUG -- : '3' matched 'variable' and generated '#<VariableNode:0x0000562466807088 @var="y">'
+D, [2024-05-20T16:55:24.041958 #3079] DEBUG -- : Matched token '=' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.041981 #3079] DEBUG -- : Matched token '42' as part of rule 'intValue <= [/\b\d+\b/]'
+D, [2024-05-20T16:55:24.042001 #3079] DEBUG -- : ' ' matched 'intValue' and generated '#<ValueNode:0x0000562466804ea0 @value=42>'
+D, [2024-05-20T16:55:24.042018 #3079] DEBUG -- : ' ' matched 'value' and generated '#<ValueNode:0x0000562466804ea0 @value=42>'
+D, [2024-05-20T16:55:24.042035 #3079] DEBUG -- : Matched token '~' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.042071 #3079] DEBUG -- : '^3^ b' matched 'assignment' and generated '#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>'
+D, [2024-05-20T16:55:24.042099 #3079] DEBUG -- : '^3^ b' matched 'block' and generated '#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>'
+D, [2024-05-20T16:55:24.042138 #3079] DEBUG -- : '^3^ b' matched 'blocks' and generated '#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>'
+D, [2024-05-20T16:55:24.042181 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.042216 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.042243 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.042265 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.042290 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.042315 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.042337 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.042357 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.042388 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.042409 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.042442 #3079] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.042463 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.042518 #3079] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-20T16:55:24.042541 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-20T16:55:24.042588 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.042627 #3079] DEBUG -- : 'z' matched 'variable' and generated '#<VariableNode:0x00005624666201e8 @var="y">'
+D, [2024-05-20T16:55:24.042667 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.042697 #3079] DEBUG -- : 'z' matched 'variable' and generated '#<VariableNode:0x0000562466614758 @var="y">'
+D, [2024-05-20T16:55:24.042726 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.042748 #3079] DEBUG -- : 'z' matched 'variable' and generated '#<VariableNode:0x000056246660c0a8 @var="y">'
+D, [2024-05-20T16:55:24.042782 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.042799 #3079] DEBUG -- : 'z' matched 'variable' and generated '#<VariableNode:0x0000562466601568 @var="y">'
+D, [2024-05-20T16:55:24.042838 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.042857 #3079] DEBUG -- : 'z' matched 'variable' and generated '#<VariableNode:0x00005624665fd328 @var="y">'
+D, [2024-05-20T16:55:24.042874 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-20T16:55:24.043340 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.043389 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.043422 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.043445 #3079] DEBUG -- : 'z' matched 'variable' and generated '#<VariableNode:0x0000562466a567a8 @var="y">'
+D, [2024-05-20T16:55:24.043465 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", "^"]'
+D, [2024-05-20T16:55:24.043520 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.043539 #3079] DEBUG -- : 'z' matched 'variable' and generated '#<VariableNode:0x0000562466a54c00 @var="y">'
+D, [2024-05-20T16:55:24.043554 #3079] DEBUG -- : 'z' matched 'factor' and generated '#<VariableNode:0x0000562466a54c00 @var="y">'
+D, [2024-05-20T16:55:24.043568 #3079] DEBUG -- : 'z' matched 'term' and generated '#<VariableNode:0x0000562466a54c00 @var="y">'
+D, [2024-05-20T16:55:24.043590 #3079] DEBUG -- : 'z' matched 'expr' and generated '#<VariableNode:0x0000562466a54c00 @var="y">'
+D, [2024-05-20T16:55:24.043640 #3079] DEBUG -- : 'z' matched 'output' and generated '#<VariableNode:0x0000562466a54c00 @var="y">'
+D, [2024-05-20T16:55:24.043658 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-20T16:55:24.043682 #3079] DEBUG -- : 'uzz ' matched 'print' and generated '#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>'
+D, [2024-05-20T16:55:24.043702 #3079] DEBUG -- : 'uzz ' matched 'block' and generated '#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>'
+D, [2024-05-20T16:55:24.043751 #3079] DEBUG -- : 'uzz ' matched 'blocks' and generated '#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>'
+D, [2024-05-20T16:55:24.043795 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.043823 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.043856 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.043885 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.043985 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.044018 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.044050 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.044078 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.044108 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.044137 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.044244 #3079] DEBUG -- : Matched token 'return' as part of rule 'variable <= [:return]'
+D, [2024-05-20T16:55:24.044270 #3079] DEBUG -- : Matched token 'return' as part of rule 'block <= [:return, :output]'
+D, [2024-05-20T16:55:24.044303 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.044325 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a3f080 @var="y">'
+D, [2024-05-20T16:55:24.044355 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.044372 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a3e428 @var="y">'
+D, [2024-05-20T16:55:24.044400 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.044416 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a3d820 @var="y">'
+D, [2024-05-20T16:55:24.044443 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.044459 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a3cbf0 @var="y">'
+D, [2024-05-20T16:55:24.044491 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.044523 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a3bf98 @var="y">'
+D, [2024-05-20T16:55:24.044551 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.044568 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a3b3b8 @var="y">'
+D, [2024-05-20T16:55:24.044630 #3079] DEBUG -- : Matched token 'y' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.044649 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a39b30 @var="y">'
+D, [2024-05-20T16:55:24.044666 #3079] DEBUG -- : ' ' matched 'factor' and generated '#<VariableNode:0x0000562466a39b30 @var="y">'
+D, [2024-05-20T16:55:24.044682 #3079] DEBUG -- : ' ' matched 'term' and generated '#<VariableNode:0x0000562466a39b30 @var="y">'
+D, [2024-05-20T16:55:24.044706 #3079] DEBUG -- : ' ' matched 'expr' and generated '#<VariableNode:0x0000562466a39b30 @var="y">'
+D, [2024-05-20T16:55:24.044726 #3079] DEBUG -- : ' ' matched 'output' and generated '#<VariableNode:0x0000562466a39b30 @var="y">'
+D, [2024-05-20T16:55:24.044752 #3079] DEBUG -- : '= ' matched 'block' and generated '#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>'
+D, [2024-05-20T16:55:24.044863 #3079] DEBUG -- : '= ' matched 'blocks' and generated '#<BlocksNode:0x0000562466a38708 @toEval=#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>, @nextBlock=#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>>'
+D, [2024-05-20T16:55:24.044927 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.044955 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.044988 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.045013 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.045038 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.045063 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.045089 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.045114 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.045156 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.045182 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.045233 #3079] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.045251 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.045282 #3079] DEBUG -- : Matched token '"dont print this"' as part of rule 'strValue <= [/".+"/]'
+D, [2024-05-20T16:55:24.045302 #3079] DEBUG -- : '
+' matched 'strValue' and generated '#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">'
+D, [2024-05-20T16:55:24.045319 #3079] DEBUG -- : '
+' matched 'value' and generated '#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">'
+D, [2024-05-20T16:55:24.045335 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.045356 #3079] DEBUG -- : '0~
+ ' matched 'print' and generated '#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>'
+D, [2024-05-20T16:55:24.045375 #3079] DEBUG -- : '0~
+ ' matched 'block' and generated '#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>'
+D, [2024-05-20T16:55:24.045439 #3079] DEBUG -- : '0~
+ ' matched 'blocks' and generated '#<BlocksNode:0x0000562466a31138 @toEval=#<BlocksNode:0x0000562466a38708 @toEval=#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>, @nextBlock=#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>>, @nextBlock=#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>>'
+D, [2024-05-20T16:55:24.045682 #3079] DEBUG -- : Matched token ';' as part of rule 'function <= [:def, :variable, "^", "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.045771 #3079] DEBUG -- : '= 0~
+    ^3^ buzz = 0~
+  ' matched 'function' and generated '#<FunctionNode:0x0000562466a29d98 @name=#<VariableNode:0x000056246693f108 @var="test">, @block=#<BlocksNode:0x0000562466a31138 @toEval=#<BlocksNode:0x0000562466a38708 @toEval=#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>, @nextBlock=#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>>, @nextBlock=#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>>, @params=nil, @paramList=[]>'
+D, [2024-05-20T16:55:24.045887 #3079] DEBUG -- : '= 0~
+    ^3^ buzz = 0~
+  ' matched 'block' and generated '#<FunctionNode:0x0000562466a29d98 @name=#<VariableNode:0x000056246693f108 @var="test">, @block=#<BlocksNode:0x0000562466a31138 @toEval=#<BlocksNode:0x0000562466a38708 @toEval=#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>, @nextBlock=#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>>, @nextBlock=#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>>, @params=nil, @paramList=[]>'
+D, [2024-05-20T16:55:24.046132 #3079] DEBUG -- : '= 0~
+    ^3^ buzz = 0~
+  ' matched 'blocks' and generated '#<BlocksNode:0x0000562466a289e8 @toEval=#<BlocksNode:0x00005624669668e8 @toEval=#<FunctionNode:0x00005624669cc120 @name=#<VariableNode:0x00005624668ac588 @var="fizzbuzz">, @block=#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>, @params=#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>, @paramList=[]>, @nextBlock=#<FunctionCall:0x00005624669676f8 @name=#<VariableNode:0x00005624669c1360 @var="fizzbuzz">, @params=#<ParamsNode:0x00005624669c0280 @param=#<ValueNode:0x00005624669c0848 @value=16>, @nextParam=nil>>>, @nextBlock=#<FunctionNode:0x0000562466a29d98 @name=#<VariableNode:0x000056246693f108 @var="test">, @block=#<BlocksNode:0x0000562466a31138 @toEval=#<BlocksNode:0x0000562466a38708 @toEval=#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>, @nextBlock=#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>>, @nextBlock=#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>>, @params=nil, @paramList=[]>>'
+D, [2024-05-20T16:55:24.046186 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.046225 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.046251 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.046271 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.046321 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.046342 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.046364 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.046381 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.046394 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.046405 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.046425 #3079] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.046437 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.046472 #3079] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-20T16:55:24.046482 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-20T16:55:24.046505 #3079] DEBUG -- : Matched token 'test' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.046522 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x00005624669dec30 @var="test">'
+D, [2024-05-20T16:55:24.046544 #3079] DEBUG -- : Matched token 'test' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.046561 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x00005624669ddfd8 @var="test">'
+D, [2024-05-20T16:55:24.046589 #3079] DEBUG -- : Matched token 'test' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.046607 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x00005624669dd268 @var="test">'
+D, [2024-05-20T16:55:24.046645 #3079] DEBUG -- : Matched token 'test' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.046666 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x00005624669dc5e8 @var="test">'
+D, [2024-05-20T16:55:24.046696 #3079] DEBUG -- : Matched token 'test' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.046711 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x00005624669cdc28 @var="test">'
+D, [2024-05-20T16:55:24.046729 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-20T16:55:24.046854 #3079] DEBUG -- : Matched token 'test' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.046879 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x00005624669cafc8 @var="test">'
+D, [2024-05-20T16:55:24.046897 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", "^"]'
+D, [2024-05-20T16:55:24.046912 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", "^"]'
+D, [2024-05-20T16:55:24.046939 #3079] DEBUG -- : '   ' matched 'functionCall' and generated '#<FunctionCall:0x00005624669ca780 @name=#<VariableNode:0x00005624669cafc8 @var="test">, @params=nil>'
+D, [2024-05-20T16:55:24.047018 #3079] DEBUG -- : '   ' matched 'output' and generated '#<FunctionCall:0x00005624669ca780 @name=#<VariableNode:0x00005624669cafc8 @var="test">, @params=nil>'
+D, [2024-05-20T16:55:24.047042 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-20T16:55:24.047069 #3079] DEBUG -- : '      ' matched 'print' and generated '#<PrintNode:0x00005624669c9e98 @value=#<FunctionCall:0x00005624669ca780 @name=#<VariableNode:0x00005624669cafc8 @var="test">, @params=nil>>'
+D, [2024-05-20T16:55:24.047093 #3079] DEBUG -- : '      ' matched 'block' and generated '#<PrintNode:0x00005624669c9e98 @value=#<FunctionCall:0x00005624669ca780 @name=#<VariableNode:0x00005624669cafc8 @var="test">, @params=nil>>'
+D, [2024-05-20T16:55:24.047418 #3079] DEBUG -- : '      ' matched 'blocks' and generated '#<BlocksNode:0x00005624669c9268 @toEval=#<BlocksNode:0x0000562466a289e8 @toEval=#<BlocksNode:0x00005624669668e8 @toEval=#<FunctionNode:0x00005624669cc120 @name=#<VariableNode:0x00005624668ac588 @var="fizzbuzz">, @block=#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>, @params=#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>, @paramList=[]>, @nextBlock=#<FunctionCall:0x00005624669676f8 @name=#<VariableNode:0x00005624669c1360 @var="fizzbuzz">, @params=#<ParamsNode:0x00005624669c0280 @param=#<ValueNode:0x00005624669c0848 @value=16>, @nextParam=nil>>>, @nextBlock=#<FunctionNode:0x0000562466a29d98 @name=#<VariableNode:0x000056246693f108 @var="test">, @block=#<BlocksNode:0x0000562466a31138 @toEval=#<BlocksNode:0x0000562466a38708 @toEval=#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>, @nextBlock=#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>>, @nextBlock=#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>>, @params=nil, @paramList=[]>>, @nextBlock=#<PrintNode:0x00005624669c9e98 @value=#<FunctionCall:0x00005624669ca780 @name=#<VariableNode:0x00005624669cafc8 @var="test">, @params=nil>>>'
+D, [2024-05-20T16:55:24.047476 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.047503 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.047529 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.047558 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.047570 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.047582 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.047596 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.047625 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.047641 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.047653 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.047682 #3079] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.047695 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.047725 #3079] DEBUG -- : Matched token '"simple function with parameter"' as part of rule 'strValue <= [/".+"/]'
+D, [2024-05-20T16:55:24.047744 #3079] DEBUG -- : ' ' matched 'strValue' and generated '#<ValueNode:0x0000562466955020 @value="\"simple function with parameter\"">'
+D, [2024-05-20T16:55:24.047758 #3079] DEBUG -- : ' ' matched 'value' and generated '#<ValueNode:0x0000562466955020 @value="\"simple function with parameter\"">'
+D, [2024-05-20T16:55:24.047774 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.047802 #3079] DEBUG -- : '
+   ' matched 'print' and generated '#<PrintNode:0x0000562466955188 @value=#<ValueNode:0x0000562466955020 @value="\"simple function with parameter\"">>'
+D, [2024-05-20T16:55:24.047824 #3079] DEBUG -- : '
+   ' matched 'block' and generated '#<PrintNode:0x0000562466955188 @value=#<ValueNode:0x0000562466955020 @value="\"simple function with parameter\"">>'
+D, [2024-05-20T16:55:24.048046 #3079] DEBUG -- : '
+   ' matched 'blocks' and generated '#<BlocksNode:0x00005624669478a8 @toEval=#<BlocksNode:0x00005624669c9268 @toEval=#<BlocksNode:0x0000562466a289e8 @toEval=#<BlocksNode:0x00005624669668e8 @toEval=#<FunctionNode:0x00005624669cc120 @name=#<VariableNode:0x00005624668ac588 @var="fizzbuzz">, @block=#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>, @params=#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>, @paramList=[]>, @nextBlock=#<FunctionCall:0x00005624669676f8 @name=#<VariableNode:0x00005624669c1360 @var="fizzbuzz">, @params=#<ParamsNode:0x00005624669c0280 @param=#<ValueNode:0x00005624669c0848 @value=16>, @nextParam=nil>>>, @nextBlock=#<FunctionNode:0x0000562466a29d98 @name=#<VariableNode:0x000056246693f108 @var="test">, @block=#<BlocksNode:0x0000562466a31138 @toEval=#<BlocksNode:0x0000562466a38708 @toEval=#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>, @nextBlock=#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>>, @nextBlock=#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>>, @params=nil, @paramList=[]>>, @nextBlock=#<PrintNode:0x00005624669c9e98 @value=#<FunctionCall:0x00005624669ca780 @name=#<VariableNode:0x00005624669cafc8 @var="test">, @params=nil>>>, @nextBlock=#<PrintNode:0x0000562466955188 @value=#<ValueNode:0x0000562466955020 @value="\"simple function with parameter\"">>>'
+D, [2024-05-20T16:55:24.048163 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.048181 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.048207 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.048219 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.048229 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.048238 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.048249 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.048269 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.048283 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.048297 #3079] DEBUG -- : Matched token 'integer' as part of rule 'variable <= [:integer]'
+D, [2024-05-20T16:55:24.048316 #3079] DEBUG -- : Matched token 'integer' as part of rule 'datatype <= [:integer]'
+D, [2024-05-20T16:55:24.048337 #3079] DEBUG -- : ' ' matched 'datatype' and generated '#<DatatypeNode:0x00005624669220f8 @datatype=:integer>'
+D, [2024-05-20T16:55:24.048375 #3079] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.048396 #3079] DEBUG -- : 'p' matched 'variable' and generated '#<VariableNode:0x0000562466920280 @var="x">'
+D, [2024-05-20T16:55:24.048427 #3079] DEBUG -- : Matched token '=' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.048453 #3079] DEBUG -- : Matched token '10' as part of rule 'intValue <= [/\b\d+\b/]'
+D, [2024-05-20T16:55:24.048475 #3079] DEBUG -- : 'r' matched 'intValue' and generated '#<ValueNode:0x0000562466912ef0 @value=10>'
+D, [2024-05-20T16:55:24.048492 #3079] DEBUG -- : 'r' matched 'value' and generated '#<ValueNode:0x0000562466912ef0 @value=10>'
+D, [2024-05-20T16:55:24.048511 #3079] DEBUG -- : Matched token '~' as part of rule 'assignment <= [:datatype, :variable, "=", :value, "~"]'
+D, [2024-05-20T16:55:24.048543 #3079] DEBUG -- : ' prrr' matched 'assignment' and generated '#<AssignmentNode:0x0000562466912360 @datatype=#<DatatypeNode:0x00005624669220f8 @datatype=:integer>, @var=#<VariableNode:0x0000562466920280 @var="x">, @value=#<ValueNode:0x0000562466912ef0 @value=10>>'
+D, [2024-05-20T16:55:24.048577 #3079] DEBUG -- : ' prrr' matched 'block' and generated '#<AssignmentNode:0x0000562466912360 @datatype=#<DatatypeNode:0x00005624669220f8 @datatype=:integer>, @var=#<VariableNode:0x0000562466920280 @var="x">, @value=#<ValueNode:0x0000562466912ef0 @value=10>>'
+D, [2024-05-20T16:55:24.048965 #3079] DEBUG -- : ' prrr' matched 'blocks' and generated '#<BlocksNode:0x0000562466911780 @toEval=#<BlocksNode:0x00005624669478a8 @toEval=#<BlocksNode:0x00005624669c9268 @toEval=#<BlocksNode:0x0000562466a289e8 @toEval=#<BlocksNode:0x00005624669668e8 @toEval=#<FunctionNode:0x00005624669cc120 @name=#<VariableNode:0x00005624668ac588 @var="fizzbuzz">, @block=#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>, @params=#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>, @paramList=[]>, @nextBlock=#<FunctionCall:0x00005624669676f8 @name=#<VariableNode:0x00005624669c1360 @var="fizzbuzz">, @params=#<ParamsNode:0x00005624669c0280 @param=#<ValueNode:0x00005624669c0848 @value=16>, @nextParam=nil>>>, @nextBlock=#<FunctionNode:0x0000562466a29d98 @name=#<VariableNode:0x000056246693f108 @var="test">, @block=#<BlocksNode:0x0000562466a31138 @toEval=#<BlocksNode:0x0000562466a38708 @toEval=#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>, @nextBlock=#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>>, @nextBlock=#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>>, @params=nil, @paramList=[]>>, @nextBlock=#<PrintNode:0x00005624669c9e98 @value=#<FunctionCall:0x00005624669ca780 @name=#<VariableNode:0x00005624669cafc8 @var="test">, @params=nil>>>, @nextBlock=#<PrintNode:0x0000562466955188 @value=#<ValueNode:0x0000562466955020 @value="\"simple function with parameter\"">>>, @nextBlock=#<AssignmentNode:0x0000562466912360 @datatype=#<DatatypeNode:0x00005624669220f8 @datatype=:integer>, @var=#<VariableNode:0x0000562466920280 @var="x">, @value=#<ValueNode:0x0000562466912ef0 @value=10>>>'
+D, [2024-05-20T16:55:24.049047 #3079] DEBUG -- : Matched token 'def' as part of rule 'variable <= [:def]'
+D, [2024-05-20T16:55:24.049076 #3079] DEBUG -- : Matched token 'def' as part of rule 'variable <= [:def]'
+D, [2024-05-20T16:55:24.049102 #3079] DEBUG -- : Matched token 'def' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.049153 #3079] DEBUG -- : Matched token 'test' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.049179 #3079] DEBUG -- : 'c' matched 'variable' and generated '#<VariableNode:0x000056246681e440 @var="test">'
+D, [2024-05-20T16:55:24.049216 #3079] DEBUG -- : Matched token '^' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.049309 #3079] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.049333 #3079] DEBUG -- : 'u' matched 'variable' and generated '#<VariableNode:0x00005624668053c8 @var="x">'
+D, [2024-05-20T16:55:24.049349 #3079] DEBUG -- : 'u' matched 'factor' and generated '#<VariableNode:0x00005624668053c8 @var="x">'
+D, [2024-05-20T16:55:24.049431 #3079] DEBUG -- : 'u' matched 'term' and generated '#<VariableNode:0x00005624668053c8 @var="x">'
+D, [2024-05-20T16:55:24.049472 #3079] DEBUG -- : 'u' matched 'expr' and generated '#<VariableNode:0x00005624668053c8 @var="x">'
+D, [2024-05-20T16:55:24.049507 #3079] DEBUG -- : 'u' matched 'params' and generated '#<ParamsNode:0x0000562466801e58 @param=#<VariableNode:0x00005624668053c8 @var="x">, @nextParam=nil>'
+D, [2024-05-20T16:55:24.049532 #3079] DEBUG -- : Matched token '^' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.049550 #3079] DEBUG -- : Matched token ':' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.049590 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.049610 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.049644 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.049674 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.049697 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.049727 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.049752 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.049785 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.049810 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.049832 #3079] DEBUG -- : Matched token 'meow' as part of rule 'variable <= [:meow]'
+D, [2024-05-20T16:55:24.049869 #3079] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.049891 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :value, "^"]'
+D, [2024-05-20T16:55:24.049950 #3079] DEBUG -- : Matched token 'meow' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-20T16:55:24.049972 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-20T16:55:24.050027 #3079] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.050060 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466618f88 @var="x">'
+D, [2024-05-20T16:55:24.050098 #3079] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.050118 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466612e58 @var="x">'
+D, [2024-05-20T16:55:24.050156 #3079] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.050172 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x000056246660a730 @var="x">'
+D, [2024-05-20T16:55:24.050227 #3079] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.050247 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466600a78 @var="x">'
+D, [2024-05-20T16:55:24.050289 #3079] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.050312 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x00005624665fc270 @var="x">'
+D, [2024-05-20T16:55:24.050332 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-20T16:55:24.050722 #3079] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.050759 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a56398 @var="x">'
+D, [2024-05-20T16:55:24.050774 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", "^"]'
+D, [2024-05-20T16:55:24.051091 #3079] DEBUG -- : Matched token 'x' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.051121 #3079] DEBUG -- : ' ' matched 'variable' and generated '#<VariableNode:0x0000562466a54818 @var="x">'
+D, [2024-05-20T16:55:24.051135 #3079] DEBUG -- : ' ' matched 'factor' and generated '#<VariableNode:0x0000562466a54818 @var="x">'
+D, [2024-05-20T16:55:24.051145 #3079] DEBUG -- : ' ' matched 'term' and generated '#<VariableNode:0x0000562466a54818 @var="x">'
+D, [2024-05-20T16:55:24.051173 #3079] DEBUG -- : ' ' matched 'expr' and generated '#<VariableNode:0x0000562466a54818 @var="x">'
+D, [2024-05-20T16:55:24.051186 #3079] DEBUG -- : ' ' matched 'output' and generated '#<VariableNode:0x0000562466a54818 @var="x">'
+D, [2024-05-20T16:55:24.051213 #3079] DEBUG -- : Matched token '^' as part of rule 'print <= [:meow, "^", :output, "^"]'
+D, [2024-05-20T16:55:24.051230 #3079] DEBUG -- : ' < x' matched 'print' and generated '#<PrintNode:0x0000562466a4f548 @value=#<VariableNode:0x0000562466a54818 @var="x">>'
+D, [2024-05-20T16:55:24.051244 #3079] DEBUG -- : ' < x' matched 'block' and generated '#<PrintNode:0x0000562466a4f548 @value=#<VariableNode:0x0000562466a54818 @var="x">>'
+D, [2024-05-20T16:55:24.051257 #3079] DEBUG -- : ' < x' matched 'blocks' and generated '#<PrintNode:0x0000562466a4f548 @value=#<VariableNode:0x0000562466a54818 @var="x">>'
+D, [2024-05-20T16:55:24.051447 #3079] DEBUG -- : Matched token ';' as part of rule 'function <= [:def, :variable, "^", :params, "^", ":", :blocks, ";"]'
+D, [2024-05-20T16:55:24.051475 #3079] DEBUG -- : '^count < x^' matched 'function' and generated '#<FunctionNode:0x0000562466a44378 @name=#<VariableNode:0x000056246681e440 @var="test">, @block=#<PrintNode:0x0000562466a4f548 @value=#<VariableNode:0x0000562466a54818 @var="x">>, @params=#<ParamsNode:0x0000562466801e58 @param=#<VariableNode:0x00005624668053c8 @var="x">, @nextParam=nil>, @paramList=[]>'
+D, [2024-05-20T16:55:24.051508 #3079] DEBUG -- : '^count < x^' matched 'block' and generated '#<FunctionNode:0x0000562466a44378 @name=#<VariableNode:0x000056246681e440 @var="test">, @block=#<PrintNode:0x0000562466a4f548 @value=#<VariableNode:0x0000562466a54818 @var="x">>, @params=#<ParamsNode:0x0000562466801e58 @param=#<VariableNode:0x00005624668053c8 @var="x">, @nextParam=nil>, @paramList=[]>'
+D, [2024-05-20T16:55:24.051769 #3079] DEBUG -- : '^count < x^' matched 'blocks' and generated '#<BlocksNode:0x0000562466a3fa08 @toEval=#<BlocksNode:0x0000562466911780 @toEval=#<BlocksNode:0x00005624669478a8 @toEval=#<BlocksNode:0x00005624669c9268 @toEval=#<BlocksNode:0x0000562466a289e8 @toEval=#<BlocksNode:0x00005624669668e8 @toEval=#<FunctionNode:0x00005624669cc120 @name=#<VariableNode:0x00005624668ac588 @var="fizzbuzz">, @block=#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>, @params=#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>, @paramList=[]>, @nextBlock=#<FunctionCall:0x00005624669676f8 @name=#<VariableNode:0x00005624669c1360 @var="fizzbuzz">, @params=#<ParamsNode:0x00005624669c0280 @param=#<ValueNode:0x00005624669c0848 @value=16>, @nextParam=nil>>>, @nextBlock=#<FunctionNode:0x0000562466a29d98 @name=#<VariableNode:0x000056246693f108 @var="test">, @block=#<BlocksNode:0x0000562466a31138 @toEval=#<BlocksNode:0x0000562466a38708 @toEval=#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>, @nextBlock=#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>>, @nextBlock=#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>>, @params=nil, @paramList=[]>>, @nextBlock=#<PrintNode:0x00005624669c9e98 @value=#<FunctionCall:0x00005624669ca780 @name=#<VariableNode:0x00005624669cafc8 @var="test">, @params=nil>>>, @nextBlock=#<PrintNode:0x0000562466955188 @value=#<ValueNode:0x0000562466955020 @value="\"simple function with parameter\"">>>, @nextBlock=#<AssignmentNode:0x0000562466912360 @datatype=#<DatatypeNode:0x00005624669220f8 @datatype=:integer>, @var=#<VariableNode:0x0000562466920280 @var="x">, @value=#<ValueNode:0x0000562466912ef0 @value=10>>>, @nextBlock=#<FunctionNode:0x0000562466a44378 @name=#<VariableNode:0x000056246681e440 @var="test">, @block=#<PrintNode:0x0000562466a4f548 @value=#<VariableNode:0x0000562466a54818 @var="x">>, @params=#<ParamsNode:0x0000562466801e58 @param=#<VariableNode:0x00005624668053c8 @var="x">, @nextParam=nil>, @paramList=[]>>'
+D, [2024-05-20T16:55:24.051867 #3079] DEBUG -- : Matched token 'test' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.051895 #3079] DEBUG -- : ':' matched 'variable' and generated '#<VariableNode:0x0000562466a3c470 @var="test">'
+D, [2024-05-20T16:55:24.051916 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", :params, "^"]'
+D, [2024-05-20T16:55:24.052027 #3079] DEBUG -- : Matched token 'test' as part of rule 'variable <= [/[[:alpha:]\d\_]+/]'
+D, [2024-05-20T16:55:24.052045 #3079] DEBUG -- : ':' matched 'variable' and generated '#<VariableNode:0x0000562466a39bd0 @var="test">'
+D, [2024-05-20T16:55:24.052057 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", "^"]'
+D, [2024-05-20T16:55:24.052066 #3079] DEBUG -- : Matched token '^' as part of rule 'functionCall <= [:variable, "^", "^"]'
+D, [2024-05-20T16:55:24.052083 #3079] DEBUG -- : ':
+
+' matched 'functionCall' and generated '#<FunctionCall:0x0000562466a39450 @name=#<VariableNode:0x0000562466a39bd0 @var="test">, @params=nil>'
+D, [2024-05-20T16:55:24.052096 #3079] DEBUG -- : ':
+
+' matched 'block' and generated '#<FunctionCall:0x0000562466a39450 @name=#<VariableNode:0x0000562466a39bd0 @var="test">, @params=nil>'
+D, [2024-05-20T16:55:24.052381 #3079] DEBUG -- : ':
+
+' matched 'blocks' and generated '#<BlocksNode:0x0000562466a38de8 @toEval=#<BlocksNode:0x0000562466a3fa08 @toEval=#<BlocksNode:0x0000562466911780 @toEval=#<BlocksNode:0x00005624669478a8 @toEval=#<BlocksNode:0x00005624669c9268 @toEval=#<BlocksNode:0x0000562466a289e8 @toEval=#<BlocksNode:0x00005624669668e8 @toEval=#<FunctionNode:0x00005624669cc120 @name=#<VariableNode:0x00005624668ac588 @var="fizzbuzz">, @block=#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>, @params=#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>, @paramList=[]>, @nextBlock=#<FunctionCall:0x00005624669676f8 @name=#<VariableNode:0x00005624669c1360 @var="fizzbuzz">, @params=#<ParamsNode:0x00005624669c0280 @param=#<ValueNode:0x00005624669c0848 @value=16>, @nextParam=nil>>>, @nextBlock=#<FunctionNode:0x0000562466a29d98 @name=#<VariableNode:0x000056246693f108 @var="test">, @block=#<BlocksNode:0x0000562466a31138 @toEval=#<BlocksNode:0x0000562466a38708 @toEval=#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>, @nextBlock=#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>>, @nextBlock=#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>>, @params=nil, @paramList=[]>>, @nextBlock=#<PrintNode:0x00005624669c9e98 @value=#<FunctionCall:0x00005624669ca780 @name=#<VariableNode:0x00005624669cafc8 @var="test">, @params=nil>>>, @nextBlock=#<PrintNode:0x0000562466955188 @value=#<ValueNode:0x0000562466955020 @value="\"simple function with parameter\"">>>, @nextBlock=#<AssignmentNode:0x0000562466912360 @datatype=#<DatatypeNode:0x00005624669220f8 @datatype=:integer>, @var=#<VariableNode:0x0000562466920280 @var="x">, @value=#<ValueNode:0x0000562466912ef0 @value=10>>>, @nextBlock=#<FunctionNode:0x0000562466a44378 @name=#<VariableNode:0x000056246681e440 @var="test">, @block=#<PrintNode:0x0000562466a4f548 @value=#<VariableNode:0x0000562466a54818 @var="x">>, @params=#<ParamsNode:0x0000562466801e58 @param=#<VariableNode:0x00005624668053c8 @var="x">, @nextParam=nil>, @paramList=[]>>, @nextBlock=#<FunctionCall:0x0000562466a39450 @name=#<VariableNode:0x0000562466a39bd0 @var="test">, @params=nil>>'
+D, [2024-05-20T16:55:24.052858 #3079] DEBUG -- : '
+mao fizzbuzz^x^:
+    ^3^ count = 0~
+    ^3^ fizz = 0~
+    ^3^ buzz = 0~
+        
+    prrr^count < x^:
+
+' matched 'component' and generated '#<ProgramNode:0x0000562466a2fa40 @nextNode=#<BlocksNode:0x0000562466a38de8 @toEval=#<BlocksNode:0x0000562466a3fa08 @toEval=#<BlocksNode:0x0000562466911780 @toEval=#<BlocksNode:0x00005624669478a8 @toEval=#<BlocksNode:0x00005624669c9268 @toEval=#<BlocksNode:0x0000562466a289e8 @toEval=#<BlocksNode:0x00005624669668e8 @toEval=#<FunctionNode:0x00005624669cc120 @name=#<VariableNode:0x00005624668ac588 @var="fizzbuzz">, @block=#<BlocksNode:0x00005624669fa458 @toEval=#<BlocksNode:0x0000562466a4c730 @toEval=#<BlocksNode:0x0000562466a447b0 @toEval=#<AssignmentNode:0x0000562466a3ce98 @datatype=#<DatatypeNode:0x0000562466a3eb30 @datatype=:integer>, @var=#<VariableNode:0x0000562466a3e018 @var="count">, @value=#<ValueNode:0x0000562466a3d640 @value=0>>, @nextBlock=#<AssignmentNode:0x0000562466a44f58 @datatype=#<DatatypeNode:0x0000562466a46bf0 @datatype=:integer>, @var=#<VariableNode:0x0000562466a460d8 @var="fizz">, @value=#<ValueNode:0x0000562466a45700 @value=0>>>, @nextBlock=#<AssignmentNode:0x0000562466a4ced8 @datatype=#<DatatypeNode:0x0000562466a4eb70 @datatype=:integer>, @var=#<VariableNode:0x0000562466a4e058 @var="buzz">, @value=#<ValueNode:0x0000562466a4d680 @value=0>>>, @nextBlock=#<WhileNode:0x0000562466a10280 @condition=#<ValueComp:0x0000562466a55ec0 @lhs=#<LogicExpr:0x0000562466a57a90 @value=#<VariableNode:0x0000562466a57d38 @var="count">>, @logicOp="<", @rhs=#<LogicExpr:0x0000562466a561e0 @value=#<VariableNode:0x0000562466a56488 @var="x">>>, @block=#<BlocksNode:0x0000562466a2f0b8 @toEval=#<BlocksNode:0x0000562466a33dc0 @toEval=#<ReassignmentNode:0x0000562466a4efd0 @name=#<VariableNode:0x000056246661bcd8 @var="fizz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a54368 @lhs=#<VariableNode:0x0000562466a559e8 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a548b8 @value=3>, @sides=[#<VariableNode:0x0000562466a559e8 @var="count">, #<ValueNode:0x0000562466a548b8 @value=3>]>>, @nextBlock=#<ReassignmentNode:0x0000562466a34720 @name=#<VariableNode:0x0000562466a3d910 @var="buzz">, @operator="=", @value=#<ArithmaticNode:0x0000562466a35e68 @lhs=#<VariableNode:0x0000562466a37600 @var="count">, @operator="//", @rhs=#<ValueNode:0x0000562466a36480 @value=5>, @sides=[#<VariableNode:0x0000562466a37600 @var="count">, #<ValueNode:0x0000562466a36480 @value=5>]>>>, @nextBlock=#<ReassignmentNode:0x0000562466a2c3e0 @name=#<VariableNode:0x0000562466a2d768 @var="count">, @operator="+", @value=#<ValueNode:0x0000562466a2cc50 @value=1>>>, @toReturn=nil>>, @params=#<ParamsNode:0x0000562466a39928 @param=#<VariableNode:0x0000562466a3a738 @var="x">, @nextParam=nil>, @paramList=[]>, @nextBlock=#<FunctionCall:0x00005624669676f8 @name=#<VariableNode:0x00005624669c1360 @var="fizzbuzz">, @params=#<ParamsNode:0x00005624669c0280 @param=#<ValueNode:0x00005624669c0848 @value=16>, @nextParam=nil>>>, @nextBlock=#<FunctionNode:0x0000562466a29d98 @name=#<VariableNode:0x000056246693f108 @var="test">, @block=#<BlocksNode:0x0000562466a31138 @toEval=#<BlocksNode:0x0000562466a38708 @toEval=#<BlocksNode:0x0000562466a4f3e0 @toEval=#<BlocksNode:0x0000562466801160 @toEval=#<PrintNode:0x00005624668b20f0 @value=#<ValueNode:0x00005624668b2dc0 @value="\"hello\"">>, @nextBlock=#<AssignmentNode:0x00005624668041a8 @datatype=#<DatatypeNode:0x000056246681d0b8 @datatype=:integer>, @var=#<VariableNode:0x0000562466807088 @var="y">, @value=#<ValueNode:0x0000562466804ea0 @value=42>>>, @nextBlock=#<PrintNode:0x0000562466a4f9d0 @value=#<VariableNode:0x0000562466a54c00 @var="y">>>, @nextBlock=#<ReturnNode:0x0000562466a38a00 @block=#<VariableNode:0x0000562466a39b30 @var="y">>>, @nextBlock=#<PrintNode:0x0000562466a317c8 @value=#<ValueNode:0x0000562466a31f98 @value="\"dont print this\"">>>, @params=nil, @paramList=[]>>, @nextBlock=#<PrintNode:0x00005624669c9e98 @value=#<FunctionCall:0x00005624669ca780 @name=#<VariableNode:0x00005624669cafc8 @var="test">, @params=nil>>>, @nextBlock=#<PrintNode:0x0000562466955188 @value=#<ValueNode:0x0000562466955020 @value="\"simple function with parameter\"">>>, @nextBlock=#<AssignmentNode:0x0000562466912360 @datatype=#<DatatypeNode:0x00005624669220f8 @datatype=:integer>, @var=#<VariableNode:0x0000562466920280 @var="x">, @value=#<ValueNode:0x0000562466912ef0 @value=10>>>, @nextBlock=#<FunctionNode:0x0000562466a44378 @name=#<VariableNode:0x000056246681e440 @var="test">, @block=#<PrintNode:0x0000562466a4f548 @value=#<VariableNode:0x0000562466a54818 @var="x">>, @params=#<ParamsNode:0x0000562466801e58 @param=#<VariableNode:0x00005624668053c8 @var="x">, @nextParam=nil>, @paramList=[]>>, @nextBlock=#<FunctionCall:0x0000562466a39450 @name=#<VariableNode:0x0000562466a39bd0 @var="test">, @params=nil>>>'

@@ -162,19 +162,51 @@ require './parser'
 ## Testing: Functions ##
 
 class Test_Function < Test::Unit::TestCase
-  def test_basic_function
-      nyan = Nyan.new
-      program = nyan.nyanParser.parse(
-      'mao test^^:
-          meow^"hello"^
+    def test_basic_function
+        nyan = Nyan.new
+        program = nyan.nyanParser.parse(
+        'mao test^^:
+            meow^"hello"^
+  
+            ^3^ y = 42~
+            meow^y^
+            hsss y
+            meow^"dont print this"^
+            
+         :3
+        meow ^test^^ ^
+        ' 
+        ) 
+    end
+  
+  # class Test_Function < Test::Unit::TestCase
+  # def test_basic_function
+  #     nyan = Nyan.new
+  #     program = nyan.nyanParser.parse(
+  #     'mao test^^:
+  #         meow ^1^
+  #         meow ^2^
+  #         meow ^3 ^
+  #      :3
+  #     meow ^test^^ ^
+  #     ' 
+  #     ) 
+  # end
 
-          ^3^ y = 42~
-          hsss 42
-       :3
-      meow ^test^^ ^
-      ' 
-      ) 
-  end
+
+  # def test_basic_function_return
+  #   nyan = Nyan.new
+  #   program = nyan.nyanParser.parse(
+  #     'mao test^^:
+  #         meow^"hello"^
+
+  #         ^3^ y = 42~
+  #         hsss 42 + 1
+  #     :3
+  #     meow ^test^^ ^
+  #     ' 
+  #     ) 
+  # end
   
   # def test_recursion
   #     nyan = Nyan.new
@@ -237,4 +269,47 @@ end
 #       '
 #       )
 #   end
+# end
+
+# class Test_Arithmatic < Test::Unit::TestCase
+#   def test_complex_arithmatics
+#     val1 = ValueNode.new(10)
+#     val2 = ValueNode.new(5)
+#     val3 = ValueNode.new(2.5)
+#     val4 = ValueNode.new(0)
+
+#     nyan = Nyan.new
+#     nyan.log false
+
+#     program = nyan.nyanParser.parse(
+#       "2+6-4"  
+#     ) 
+#     assert_equal(4, program.value)
+
+#     program2 = nyan.nyanParser.parse(
+#       "2+6*4"  
+#     ) 
+#     assert_equal(26, program2.value)
+
+#     program3 = nyan.nyanParser.parse(
+#       "(5*2)*8+(4-2)"  
+#     ) 
+#     assert_equal(82, program3.value)
+
+#     program4 = nyan.nyanParser.parse(
+#       "5 / 2"  
+#     ) 
+#     assert_equal(2.5, program4.value)
+
+#     program5 = nyan.nyanParser.parse(
+#       "5 // 2"  
+#     ) 
+#     assert_equal(2, program5.value)
+
+#     program5 = nyan.nyanParser.parse(
+#       "5 % 2"  
+#     ) 
+#     assert_equal(1, program5.value) 
+#   end
+
 # end

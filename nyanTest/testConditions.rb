@@ -27,17 +27,17 @@ class TestLogicStmt < Test::Unit::TestCase
 
   def test_not_operator
     logicStmt = LogicStmt.new(nil, "not", ValueNode.new(false))
-    assert_equal( true, logicStmt.eval)
+    assert_equal(true, logicStmt.eval.value)
   end
 
   def test_logical_and_operator
     logicStmt = LogicStmt.new(ValueNode.new(true), "&&", ValueNode.new(false))
-    assert_equal(false, logicStmt.eval)
+    assert_equal(false, logicStmt.eval.value)
   end
 
   def test_logical_or_operator
     logicStmt = LogicStmt.new(ValueNode.new(true), "||", ValueNode.new(false))
-    assert_equal(true, logicStmt.eval)
+    assert_equal(true, logicStmt.eval.value)
   end
 
   def test_logical_and_or
@@ -45,13 +45,13 @@ class TestLogicStmt < Test::Unit::TestCase
     valueComp = ValueComp.new(ValueNode.new(10), ">", ValueNode.new(5))
 
     logicStmt = LogicStmt.new(logicStmtTrue, "||", valueComp)
-    assert_equal(true, logicStmt.eval)
+    assert_equal(true, logicStmt.eval.value)
 
     logicStmtTrue = LogicStmt.new(ValueNode.new(true), "&&", ValueNode.new(false))
     logicExpr = LogicExpr.new(ValueNode.new(true))
     logicStmt2 = LogicStmt.new(logicStmtTrue, "||", logicExpr)
 
-    assert_equal(true, logicStmt2.eval)
+    assert_equal(true, logicStmt2.eval.value)
 
   end
 
@@ -93,7 +93,7 @@ class TestLogicExpr < Test::Unit::TestCase
     scope.addVariable("x", valueNode)
 
     logicExpr = LogicExpr.new(ValueNode.new(10))
-    assert_equal( 10, logicExpr.eval(scope))
+    assert_equal( 10, logicExpr.eval(scope).value)
   end
 
   def test_with_variable_node

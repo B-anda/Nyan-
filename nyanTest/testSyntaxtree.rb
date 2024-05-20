@@ -31,9 +31,10 @@ end
 class TestBlocksNode < Test::Unit::TestCase
   def test_blocks
     scope = GlobalScope.new
+    int = DatatypeNode.new(:integer)
     valueNode = ValueNode.new(5)
     varNode = VariableNode.new("monogatari")
-    assignmentNode = AssignmentNode.new("^3^", varNode, valueNode)
+    assignmentNode = AssignmentNode.new(int, varNode, valueNode)
     
     block = BlocksNode.new(assignmentNode, ReassignmentNode.new(varNode, "=", ValueNode.new(2) ))
     block.eval(scope)
@@ -43,9 +44,10 @@ class TestBlocksNode < Test::Unit::TestCase
   def test_nested_blockNodes
     scope = GlobalScope.new
 
+    int = DatatypeNode.new(:integer)
     valueNode = ValueNode.new(5)
     varNode = VariableNode.new("monogatari")
-    assignmentNode = AssignmentNode.new("^3^", varNode, valueNode)
+    assignmentNode = AssignmentNode.new(int, varNode, valueNode)
     
     block = BlocksNode.new(assignmentNode, ReassignmentNode.new(varNode, "=", ValueNode.new(2)))
     block2 = BlocksNode.new(block, ReassignmentNode.new(varNode, "+", ValueNode.new(2)))
@@ -55,14 +57,16 @@ class TestBlocksNode < Test::Unit::TestCase
 
   def test_nested_blocks
     scope = GlobalScope.new
+    int = DatatypeNode.new(:integer)
+    int2 = DatatypeNode.new(:integer)
 
     valueNode = ValueNode.new(5)
     newValue = ValueNode.new(2)
 
     varNode = VariableNode.new("monogatari")
 
-    assignmentNode = AssignmentNode.new("^3^", varNode, valueNode)
-    assignmentNode2 = AssignmentNode.new("^3^", varNode, newValue)
+    assignmentNode = AssignmentNode.new(int, varNode, valueNode)
+    assignmentNode2 = AssignmentNode.new(int2, varNode, newValue)
     conditionNode = ConditionNode.new(ValueNode.new(true), assignmentNode2)
     
     block = BlocksNode.new(assignmentNode, conditionNode)
@@ -80,9 +84,10 @@ class TestAssignment < Test::Unit::TestCase
 
   def test_eval
     scope = GlobalScope.new
+    int = DatatypeNode.new(:integer)
     valueNode = ValueNode.new(5)
     varNode = VariableNode.new("monogatari")
-    assignmentNode = AssignmentNode.new("^3^", varNode, valueNode)
+    assignmentNode = AssignmentNode.new(int, varNode, valueNode)
     assert_raise(NyameNyerror.new()) {scope.findVariable(varNode)}
     assignmentNode.eval(scope)
     assert_equal( valueNode, scope.findVariable(varNode))

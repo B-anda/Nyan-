@@ -57,7 +57,6 @@ class Nyan
             rule :block do
                 match(:while)           { |a| a }
                 match(:condition)       { |a| a }
-                match(:return, :output) {|a| ReturnNode.new(a)}
                 match(:functionCall)    { |a| a }
                 match(:function)        { |a| a }
                 match(:arrayOp)         { |a| a }
@@ -65,6 +64,7 @@ class Nyan
                 match(:assignment)      { |a| a }
                 match(:print)           { |a| a }
                 match(:expr)            { |a| a }
+                match(:return, :output) { |_, a| ReturnNode.new(a)}
             end
 
             ## Assignment ##
@@ -96,8 +96,9 @@ class Nyan
                 match(:arrayOp)
                 match(:array)
                 match(:functionCall)
-                match(:variable)
+                match(:value)
                 match(:expr)
+                match(:variable)
             end
 
             ## Array ##
@@ -136,6 +137,7 @@ class Nyan
             end
 
             rule :params do
+                match(:value)                  {|a| ParamsNode.new(a)}
                 match(:expr)                   {|a| ParamsNode.new(a)}
                 match(:variable)               {|a| ParamsNode.new(a)}
                 match(:params, ",", :variable) {|a, _, b| ParamsNode.new(a, b)}
@@ -146,19 +148,19 @@ class Nyan
             rule :condition do
                 match(:if, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup, ";") do |_, _, a, _, _, b, c, _|
                     SharedVariables.ifBoolPush
-                    BlocksNode.new(ConditionNode.new(a, b), c)
+                    BlocksNode.new(ConditionNode.new(a, b, 0), c)
                     
                 end
                 match(:if, "^", :logicStmt, "^", ":", :blocks, ";") do |_, _, a, _, _, b, _|
                     SharedVariables.ifBoolPush
-                    ConditionNode.new(a, b, "lone")
+                    ConditionNode.new(a, b, 0)
                 end
             end
             
             rule :conditionFollowup do
-                match( :else, ":", :blocks)                                              { |_,_, a| ConditionNode.new(ValueNode.new(true), a)}
-                match( :elseif, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup)  { |_, _, a, _, _, b, c| BlocksNode.new(ConditionNode.new(a, b), c) }
-                match( :elseif, "^", :logicStmt, "^", ":", :blocks)                      { |_, _, a, _, _, b| ConditionNode.new(a, b) }
+                match( :else, ":", :blocks)                                              { |_,_, a| ConditionNode.new(ValueNode.new(true), a, 2)}
+                match( :elseif, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup)  { |_, _, a, _, _, b, c| BlocksNode.new(ConditionNode.new(a, b, 1), c) }
+                match( :elseif, "^", :logicStmt, "^", ":", :blocks)                      { |_, _, a, _, _, b| ConditionNode.new(a, b, 1) }
             end
 
             ## While-loop ##
@@ -209,8 +211,8 @@ class Nyan
             end
 
             rule :factor do
-                match(:float)
-                match(:int)
+                match(:floatValue)
+                match(:intValue)
                 match(:variable)
                 match("(", :expr, ")") {|_, a, _| a}
             end
@@ -237,6 +239,7 @@ class Nyan
                 match(:meow)    {}
                 match(:elseif)  {}
                 match(:else)    {}
+                match(:return)  {}
                 #Otherwise
                 match(/[[:alpha:]\d\_]+/) {|a| VariableNode.new(a)}
             end
