@@ -8,8 +8,8 @@ class Test_Function < Test::Unit::TestCase
         name = VariableNode.new("test")
         printName = ValueNode.new("Helloo")
 
-        printObj = PrintNode.new(printName)
-        func = FunctionNode.new(name, printObj, nil).eval(scope)
+        printObj = ReturnNode.new(PrintNode.new(printName))
+        func = FunctionNode.new(name, BlocksNode.new(nil, printObj), nil).eval(scope)
 
         assert_equal("Helloo", FunctionCall.new(name, nil).eval(scope))
     
@@ -26,8 +26,8 @@ class Test_Function < Test::Unit::TestCase
 
         printName = ValueNode.new("Helloo")
 
-        printObj = PrintNode.new(printName)
-        func = FunctionNode.new(funcName, printObj, param).eval(scope)
+        printObj = ReturnNode.new(PrintNode.new(printName))
+        func = FunctionNode.new(funcName, BlocksNode.new(nil, printObj), param).eval(scope)
 
         assert_equal("Helloo", FunctionCall.new(funcName, ParamsNode.new(variableNode)).eval(scope))
     end
@@ -45,9 +45,9 @@ class Test_Function < Test::Unit::TestCase
         variableNode2 = VariableNode.new("y")
         scope.addVariable(variableNode2, ValueNode.new(20))
 
-        printObj = PrintNode.new(variableNode2)
+        printObj = ReturnNode.new(PrintNode.new(variableNode2))
 
-        func = FunctionNode.new(funcName, printObj, ParamsNode.new(ParamsNode.new(param), param2)).eval(scope)
+        func = FunctionNode.new(funcName, BlocksNode.new(nil, printObj), ParamsNode.new(ParamsNode.new(param), param2)).eval(scope)
 
         assert_equal(20, FunctionCall.new(funcName, ParamsNode.new(ParamsNode.new(variableNode), variableNode2)).eval(scope))
     end

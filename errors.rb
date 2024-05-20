@@ -5,9 +5,16 @@ class NyantimeNyerror < StandardError
     end
 end
 
+class NyariableNyerror < StandardError
+
+    def initialize(msg = "Nyariable Nyo Nyexists")
+        super
+    end
+end
+
 class NyanTypeError < StandardError
 
-    def initialize(msg = "Nya have nyassined nyong nyalu to nyong datatype")
+    def initialize(msg = "Nya have nyassined nyong nyalue to nyong datatype")
         super
     end
 end

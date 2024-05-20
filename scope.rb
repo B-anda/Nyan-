@@ -40,6 +40,15 @@ class Scope
             container[name] = value
         end
     end
+
+    def reassignVariable(name, value)
+
+        if @vars.key?(name.var)
+            @vars[name.var] = value
+        else
+            @prevScope.reassignVariable(name, value)
+        end
+    end
     
     def findCurScope()                                  # Sends function call to global scope
         return @prevScope.findCurScope()                

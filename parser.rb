@@ -36,7 +36,7 @@ class Nyan
             token(/,/) {|m| m}
             token(/\./) {|m| m}
             token(/\[/) {|m| m}
-            token(/\-\=|\+\=|\+|\-|\*|\&\&|\|\||\=\=|\/\/|\%|\<|\>|\=|\]|\~|\:/) {|m| m}
+            token(/\-\=|\+\=|\+|\-|\*|\&\&|\|\||\=\=|\!\=|\/\/|\%|\<|\>|\=|\]|\~|\:/) {|m| m}
             token(/./) {|m| m }
 
             @scope = GlobalScope.new
@@ -50,7 +50,7 @@ class Nyan
             end
 
             rule :blocks do
-                match(:block)          {|a| a}
+                match(:block)          {|a| BlocksNode.new(nil, a)}
                 match(:blocks, :block) {|a, b| BlocksNode.new(a, b)}
             end
             
@@ -147,12 +147,10 @@ class Nyan
 
             rule :condition do
                 match(:if, "^", :logicStmt, "^", ":", :blocks, :conditionFollowup, ";") do |_, _, a, _, _, b, c, _|
-                    SharedVariables.ifBoolPush
                     BlocksNode.new(ConditionNode.new(a, b, 0), c)
                     
                 end
                 match(:if, "^", :logicStmt, "^", ":", :blocks, ";") do |_, _, a, _, _, b, _|
-                    SharedVariables.ifBoolPush
                     ConditionNode.new(a, b, 0)
                 end
             end

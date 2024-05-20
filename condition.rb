@@ -10,6 +10,7 @@ class ConditionNode
         @condition = condition
         @block = block
         @status = status # status: 0, 1, 2 represnts if, elseif and else
+        @first_time = true
     end
 
     def eval(*scope)
@@ -18,18 +19,20 @@ class ConditionNode
 
         toReturn = nil
         curScope = scope[0].findCurScope() # find the current scope
-        con = @condition.eval(curScope)
-        
+        con = nil
+        varOrVal(@condition) ? con = @condition : con = @condition.eval(curScope)
         case @status
-        # @status 0 => if-statment
-        when 0
+            # @status 0 => if-statment
+        when 0 then
+            if @first_time then SharedVariables.ifBoolPush end
             if con.value 
                 toReturn = @block.eval(curScope)
                 # set ifBool to false to prevent other conditions in the same chain from evaluating
                 SharedVariables.ifBool = false 
             end
         # @status 1 => elseif
-        when 1
+        when 1 then
+            
             if SharedVariables.ifBool
                 if con.value 
                     toReturn = @block.eval(curScope)
@@ -37,16 +40,17 @@ class ConditionNode
                 end
             end
         # @status 2 => else
-        when 2
+        when 2 then
             if SharedVariables.ifBool
+                
                 toReturn = @block.eval(curScope)
-                SharedVariables.ifBoolPop
             end
         end
 
         curScope.currToPrevScope # move back to the previous scope
         curScope = nil
-                
+        
+        first_time = false
         return toReturn
     end
 

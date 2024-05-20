@@ -42,7 +42,7 @@ class TestLogicStmt < Test::Unit::TestCase
 
   def test_logical_and_or
     logicStmtTrue = LogicStmt.new(ValueNode.new(true), "&&", ValueNode.new(true))
-    valueComp = ValueComp.new(ValueNode.new(10), ">", ValueNode.new(5))
+    valueComp = ValueComp.new(LogicExpr.new(ValueNode.new(10)), ">", LogicExpr.new(ValueNode.new(5)))
 
     logicStmt = LogicStmt.new(logicStmtTrue, "||", valueComp)
     assert_equal(true, logicStmt.eval.value)
@@ -62,8 +62,8 @@ end
 class TestValueComp < Test::Unit::TestCase
 
   def test_less_than_operator
-    valueComp = ValueComp.new(ValueNode.new(5), "<", ValueNode.new(10))
-    assert_equal( true, valueComp.eval)
+    valueComp = ValueComp.new(LogicExpr.new(ValueNode.new(5)), "<", LogicExpr.new(ValueNode.new(10)))
+    assert_equal( true, valueComp.eval.value)
 
     scope = GlobalScope.new
     variableNode = VariableNode.new("x")
@@ -72,13 +72,13 @@ class TestValueComp < Test::Unit::TestCase
     scope.addVariable(variableNode, valueNode)
     logicExpr = LogicExpr.new(variableNode)
     
-    valueComp = ValueComp.new(ValueNode.new(5), "<", logicExpr)
-    assert_equal( true, valueComp.eval(scope))
+    valueComp = ValueComp.new(LogicExpr.new(ValueNode.new(5)), "<", logicExpr)
+    assert_equal( true, valueComp.eval(scope).value)
   end
 
   def test_greater_than_operator
-    valueComp = ValueComp.new(ValueNode.new(10), ">", ValueNode.new(5))
-    assert_equal( true, valueComp.eval)
+    valueComp = ValueComp.new(LogicExpr.new(ValueNode.new(10)), ">", LogicExpr.new(ValueNode.new(5)))
+    assert_equal( true, valueComp.eval.value)
   end
 
 end
@@ -101,7 +101,7 @@ class TestLogicExpr < Test::Unit::TestCase
     scope.addVariable("x", ValueNode.new(10))
 
     logicExpr = LogicExpr.new(VariableNode.new("x"))
-    assert_equal(10, logicExpr.eval(scope))
+    assert_equal(10, logicExpr.eval(scope).eval)
   end
 
   def test_nil

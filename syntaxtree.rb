@@ -20,7 +20,6 @@ module GetValue
 
     def varValToValue(object, *scope)
         if object.is_a? VariableNode
-            puts object
             return scope[0].findVariable(object)
         else
             return object
@@ -41,9 +40,10 @@ end
 # module used to determine if the next block should be executed
 # manage shared variables across conditions
 module SharedVariables
-    @ifBool = [true]
+    @ifBool = []
   
     def self.ifBool
+        # print "ifbool: #{@ifBool}\n"
       return @ifBool.last
     end
   
@@ -89,25 +89,26 @@ class BlocksNode < SyntaxTreeNode
     end
 
     def eval(*scope)
-        SharedVariables.ifBool = true
 
         toReturn = nil
         if scope[1] 
             if @toEval.is_a? BlocksNode
                 return @toEval.eval(scope[0], true).insert(-1, @nextBlock)
-            else
+            elsif @toEval
                 return [@toEval, @nextBlock]
+            else
+                return [@nextBlock]
             end
-        else
+        elsif @toEval
             toReturn = @toEval.eval(scope[0])
             @nextBlock.eval(scope[0])
-            # puts "yippee"
+        else
+            return @nextBlock.eval(scope[0])
         end
 
         if @toEval.is_a? ConditionNode
             SharedVariables.ifBoolPop            
         end
-        # puts "return: #{toReturn}"
         return toReturn 
     end
 end
@@ -142,12 +143,12 @@ class AssignmentNode < SyntaxTreeNode
         else
             raise NyanTypeError.new
         end
-        puts "#{@var} has been assigned #{@value}"
     end
 end
 
 # represents a reassignment of a variable with an optional operator
 class ReassignmentNode < SyntaxTreeNode
+    include GetValue
 
     # initializes with the variable name, operator, and new value
     def initialize(name, operator, value)
@@ -164,10 +165,17 @@ class ReassignmentNode < SyntaxTreeNode
             if @operator != "="
                 newValue = ValueNode.new(found.eval().send(@operator, @value.eval())) # operator is either '+=' or '-='
             else
-                newValue = @value.eval(scope[0])
+                if varOrVal(@value)
+                    newValue = varValToValue(@value)
+                else
+                    newValue = @value.eval(scope[0])
+                end
             end
-            scope[0].addVariable(@name, newValue) # reassign the variable with new value
+            scope[0].reassignVariable(@name, newValue) # reassign the variable with new value
+        else
+            raise NyariableNyerror.new("Nyariable #{@name} nyo nyexists, nya dumby!") # kill me
         end   
+
     end
 end
 
