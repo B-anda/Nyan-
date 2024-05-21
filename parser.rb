@@ -72,6 +72,7 @@ class Nyan
             rule :assignment do
                 match(:datatype, :variable, "=", :value, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
                 match(:datatype, :variable, "=", :output, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
+                match(:datatype, :variable, "=", :variable, "~") { |a,b,_,c,_| AssignmentNode.new(a, b, c)}
             end
 
              ## Reassign variables ##
@@ -79,26 +80,36 @@ class Nyan
              rule :reassignment do
                 match(:variable, "+=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "+", b)}
                 match(:variable, "-=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "-", b)}
-                match(:variable, "=", :value, "~")  { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
+                match(:variable, "=", :value, "~") { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
                 match(:variable, "=", :output, "~") { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
+                match(:variable, "=", :variable, "~") { |a,_,b,_| ReassignmentNode.new(a, "=", b)}
             end
 
             ## Print ##
 
             rule :print do
-                match(:meow, "^", :value, "^")  {|_,_,v,_| PrintNode.new(v)}
+                match(:meow, "^", :value, "^") {|_,_,v,_| PrintNode.new(v)}
                 match(:meow, "^", :output, "^") {|_,_,v,_| PrintNode.new(v)}
+                match(:meow, "^", :variable, "^") {|_,_,v,_| PrintNode.new(v)}
             end
 
-            ## Print or assign either a: value, variable, array, array operator or arithmetic expr. ##
+            ## Print or assign either a: array operator, array, functioncall, value, arithmatic expr. or variavle ##
+            
+            # rule :printOutput do 
+            #     match(:arrayOp)
+            #     match(:array)
+            #     match(:expr)
+            #     match(:functionCall)
+            #     match(:variable)
+            # end
 
             rule :output do 
                 match(:arrayOp)
                 match(:array)
                 match(:functionCall)
-                match(:value)
                 match(:expr)
-                match(:variable)
+                # match(:value)
+                # match(:variable)
             end
 
             ## Array ##

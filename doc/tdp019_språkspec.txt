@@ -32,89 +32,91 @@ Vi väljer att använda ett statiskt scope. Med detta vill vi säga att variable
 definitioner är baserade på vilket scope som funktionen ankallades i. 
 
 BNF grammatik:
+
 <program> ::= <component>
 
 <component> ::= <blocks>
 
 <blocks> ::= <block> | <blocks> <block>
 
-<block> ::= <while> | <condition> | <functionCall> | <function> | <arrayOp> | <reassignment> | <assignment> | <print> | <expr> 
+<block> ::= <while> | <while> | <condition> | <arrayOp> | <return> | <functionCall> | <function> 
+                    | <arrayOp> | <reassignment> | <assignment> | <print> | <expr> 
 
-<assignment> ::= <datatype> <variable> ''='' <output> ''~''
+<assignment> ::= <datatype> <variable> "=" <output> "~"
 
-<reassignment> ::= <variable> ''+='' <value> ''~'' 
-                   | <variable> ''-='' <value> ''~'' 
-                   | <variable> ''='' <output> ''~''
+<reassignment> ::= <variable> "+=" <value> "~" 
+                   | <variable> "-=" <value> "~" 
+                   | <variable> "=" <output> "~"
 
-<print> ::= :meow ''^'' <value> ''^''
-            | :meow ''^'' <output> ''^''
+<print> ::= :meow "^" <value> "^"
+            | :meow "^" <output> "^"
 
-<output> ::= <arrayOp> | <expr> | <array> | <variable> | <functionCall>
+<output> ::= <arrayOp> | <array> | <functionCall> | <variable> | <expr>
 
-<array> ::= ''['' <elements> '']''
+<array> ::= "[" <elements> "]"
 
-<elements> ::= <value> '','' <elements>
+<elements> ::= <value> "," <elements> | <value>
 
-<arrayOp> ::= <variable> ''['' <value> '']''
-              | <variable> ''.'' :push ''^'' <value> ''^''
-              | <variable> ''.'' :pop
-              | <variable> ''.'' :size
+<arrayOp> ::= <variable> "[" <value> "]"
+              | <variable> "." :push "^" <value> "^"
+              | <variable> "." :pop
+              | <variable> "." :size
 
-<function> ::= :def <variable> ''^'' <params> ''^'' '':'' <blocks> '';''
-               | :def <variable> ''^'' ''^'' '':'' <blocks '';''
+<function> ::= :def <variable> "^" <params> "^" ":" <blocks> ";"
+               | :def <variable> "^" "^" ":" <blocks ";"
 
-<functionCall> ::= <variable> ''^'' <params> ''^''
-                   | <variable> ''^'' ''^''
+<functionCall> ::= <variable> "^" <params> "^"
+                   | <variable> "^" "^"
 
-<params> ::= <expr> | <variable> | <params> '','' <variable>
+<params> ::= <expr> | <variable> | <params> "," <variable>
 
-<condition> ::= ''if'' ''^'' <logicStmt> ''^'' '':'' <blocks> '';'' <conditionFollowup> 
-                | ''if'' ''^'' <logicStmt> ''^'' '':'' <blocks> '';''
+<condition> ::= "if" "^" <logicStmt> "^" ":" <blocks> ";" <conditionFollowup> 
+                | "if" "^" <logicStmt> "^" ":" <blocks> ";"
 
-<conditionFollowup> ::= ''else'' '':'' <blocks> 
-                        | ''elseif'' ''^'' <logicStmt> ''^'' '':'' <blocks> <conditionFollowup>
-                        | ''elseif'' ''^'' <logicStmt>''^'' '':'' <blocks>
+<conditionFollowup> ::= "else" ":" <blocks> 
+                        | "elseif" "^" <logicStmt> "^" ":" <blocks> <conditionFollowup>
+                        | "elseif" "^" <logicStmt>"^" ":" <blocks>
 
-<while> ::= :whileloop ''^'' <logicStmt> ''^'' '':'' <blocks> '';''
+<while> ::= :whileloop "^" <logicStmt> "^" ":" <blocks> ";"
 
 <logicStmt> ::= "not" <logicStmt> 
-                | <logicStmt> ''and'' <logicStmt> 
-                | <logicStmt> ''&&'' <logicStmt> 
-                | <logicStmt> ''or'' <logicStmt> 
-                | <logicStmt> ''||'' <logicStmt> 
+                | <logicStmt> "and" <logicStmt> 
+                | <logicStmt> "&&" <logicStmt> 
+                | <logicStmt> "or" <logicStmt> 
+                | <logicStmt> "||" <logicStmt> 
                 | <valueComp>
 
-<valueComp> ::= <logicExpr> ''<'' <logicExpr> 
-                | <logicExpr> ''>'' <logicExpr>     
-                | <logicExpr> ''<='' <logicExpr> 
-                | <logicExpr> ''>='' <logicExpr> 
-                | <logicExpr> ''=='' <logicExpr> 
-                | <logicExpr> ''!='' <logicExpr> 
+<valueComp> ::= <logicExpr> "<" <logicExpr> 
+                | <logicExpr> ">" <logicExpr>     
+                | <logicExpr> "<=" <logicExpr> 
+                | <logicExpr> ">=" <logicExpr> 
+                | <logicExpr> "==" <logicExpr> 
+                | <logicExpr> "!=" <logicExpr> 
                 | <logicExpr>
 
-<logicExpr> ::= <value> | <variable> | ''('' <logicStmt> '')''
+<logicExpr> ::= <value> | <variable> | "(" <logicStmt> ")"
 
-<expr> ::= <expr> ''+'' <term> | <expr> ''-'' <term> | <term>
+<expr> ::= <expr> "+" <term> | <expr> "-" <term> | <term>
 
-<term> ::= <term> ''%'' <factor> | <term> ''//'' <factor> | <term> ''*'' <factor> | <term> ''/'' <factor> 
+<term> ::= <term> "%" <factor> | <term> "//" <factor> | <term> "*" <factor> | <term> "/" <factor> 
 
-<factor> ::= <float> | <int> | <variable> | ''('' <expr> '')''
+<factor> ::= <float> | <int> | <variable> | "(" <expr> ")"
 
 <output> ::= <value> | <variable> 
 
-<datatype> ::= ''string''  
-               | ''integer''
-               | ''float''
-               | ''boolean''
+<datatype>  ::= "string"  
+               | "integer"
+               | "float"
+               | "boolean"
 
-<variable> 
+<variable> [[:alpha:]\d\_]+
 
-<value> ::= <float> | <int> | <bool> | <string>
+<value>  ::= < float>  | < int>  | < bool>  | < string>
 
-<string> ::= ".+"
+<strValue>  ::= ".+"
 
-<bool> ::= ''true'' | ''false''
+<intValue>  ::= \d+
 
-<int> ::= \d+
+<floatValue>  ::= [\d]+\.[\d]+
 
-<float> ::= [\d]+\.[\d]+
+<boolValue>  ::= "true" | "false"

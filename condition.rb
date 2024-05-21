@@ -1,4 +1,5 @@
 require "./syntaxtree"
+require "./modules.rb"
 require "./scope"
 
 # Class representing a conditional statment (e.g., if or else-if)
@@ -7,29 +8,35 @@ class ConditionNode
     
     # initialize with condition, block, and status
     def initialize(condition, block, status=0)
+
         @condition = condition
         @block = block
         @status = status # status: 0, 1, 2 represnts if, elseif and else
         @first_time = true
+
     end
 
     def eval(*scope)
-        # add a new scope for the condition
-        scope[0].addScope(scope[0])
+
+        scope[0].addScope(scope[0]) # add a new scope for the condition
 
         toReturn = nil
         curScope = scope[0].findCurScope() # find the current scope
         con = nil
         varOrVal(@condition) ? con = @condition : con = @condition.eval(curScope)
+
         case @status
-            # @status 0 => if-statment
+        # @status 0 => if-statment
         when 0 then
+
             if @first_time then SharedVariables.ifBoolPush end
             if con.value 
                 toReturn = @block.eval(curScope)
+
                 # set ifBool to false to prevent other conditions in the same chain from evaluating
                 SharedVariables.ifBool = false 
             end
+
         # @status 1 => elseif
         when 1 then
             
@@ -39,12 +46,14 @@ class ConditionNode
                     SharedVariables.ifBool = false 
                 end
             end
+
         # @status 2 => else
         when 2 then
+
             if SharedVariables.ifBool
-                
                 toReturn = @block.eval(curScope)
             end
+            
         end
 
         curScope.currToPrevScope # move back to the previous scope
@@ -130,15 +139,19 @@ class LogicExpr
 
     # evaluates the logical expression
     def eval(*scope)
+
         if @value.is_a? ValueNode
             return @value    # evaluate the value if it is a ValueNode
         elsif @value.is_a? VariableNode
+
             begin
                 return scope[0].findVariable(@value) # evaluate the variable
             rescue NyameNyerror => e
                 raise NyameNyerror.new("Logic Canyot nyevaluate Nyariable #{@value.var}")
             end
+
         end
+
     end
 end
 
@@ -154,7 +167,7 @@ class WhileNode
     
     # evaluates with the while loop
     def eval(*scope)
-        if @condition.eval(scope[0]).value  # if the condition is true
+        if @condition.eval(scope[0]).eval  # if the condition is true
             scope[0].addScope(scope[0])     # create a new scope
             @block.eval(scope[0])           # run the block
             scope[0].currToPrevScope()      # leave the block
