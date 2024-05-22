@@ -278,6 +278,7 @@ class ArrayOpNode
 
             # return given index of array
             return ValueNode.new(array[idx]) 
+            
         when :push
             variable, value = @args
             arr = scope[0].findVariable(variable).eval

@@ -61,6 +61,8 @@ BNF grammatik:
               | <variable> "." :push "^" <value> "^"
               | <variable> "." :pop
               | <variable> "." :size
+              
+<values> ::= <value> | <variable>
 
 <function> ::= :def <variable> "^" <params> "^" ":" <blocks> ";"
                | :def <variable> "^" "^" ":" <blocks ";"

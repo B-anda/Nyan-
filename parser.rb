@@ -120,10 +120,10 @@ class Nyan
             # Array operators
             
             rule :arrayOp do
-                match(:variable, "[", :value, "]")             { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
+                match(:variable, "[", :value, "]")              { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
                 match(:variable, ".", :push, "(", :values, ")") { |a, _, _, _, b, _| ArrayOpNode.new(:push, a, b) }
-                match(:variable, ".", :pop)                    { |a, _, _| ArrayOpNode.new(:pop, a) }
-                match(:variable, ".", :size)                   { |a, _, _,| ArrayOpNode.new(:size, a) }
+                match(:variable, ".", :pop)                     { |a, _, _| ArrayOpNode.new(:pop, a) }
+                match(:variable, ".", :size)                    { |a, _, _,| ArrayOpNode.new(:size, a) }
             end
 
             rule :values do

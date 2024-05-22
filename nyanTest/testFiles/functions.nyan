@@ -29,17 +29,6 @@ mao fizzbuzz^x^:
 
 fizzbuzz^16^
 
-mao test^^:
-    meow^"hello"^
-
-    ^3^ y = 42~
-    meow^y^
-    hsss y
-    meow^"dont print this"^
-    
-    :3
-meow ^test^^ ^
-
 meow ^"simple function with parameter"^
 ^3^ x = 10~
 
