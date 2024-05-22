@@ -94,49 +94,45 @@ class Nyan
             end
 
             ## Print or assign either a: array operator, array, functioncall, value, arithmatic expr. or variavle ##
-            
-            # rule :printOutput do 
-            #     match(:arrayOp)
-            #     match(:array)
-            #     match(:expr)
-            #     match(:functionCall)
-            #     match(:variable)
-            # end
 
             rule :output do 
                 match(:arrayOp)
                 match(:array)
                 match(:functionCall)
                 match(:expr)
-                # match(:value)
-                # match(:variable)
             end
 
             ## Array ##
 
             rule :array do
                 match("[", :elements, "]") {|_, a, _| a}
+                match("[", "]") {|_, _| ValueNode.new([])}
             end
 
             rule :elements do
-                match(:value, ",", :elements) do |a, _, b| 
+                match(:values, ",", :elements) do |a, _, b| 
                     b.array << a.eval
                     b
                 end
-                match(:value) {|a| ArrayNode.new(a.eval)}
+                match(:values) {|a| ArrayNode.new(a.eval)}
             end
             
             # Array operators
-
+            
             rule :arrayOp do
                 match(:variable, "[", :value, "]")             { |a, _, index, _| ArrayOpNode.new(:index, a, index) }
-                match(:variable, ".", :push, "^", :value, "^") { |a, _, _, _, b, _| ArrayOpNode.new(:push, a, b) }
+                match(:variable, ".", :push, "(", :values, ")") { |a, _, _, _, b, _| ArrayOpNode.new(:push, a, b) }
                 match(:variable, ".", :pop)                    { |a, _, _| ArrayOpNode.new(:pop, a) }
                 match(:variable, ".", :size)                   { |a, _, _,| ArrayOpNode.new(:size, a) }
             end
 
+            rule :values do
+                match(:value)
+                match(:variable)
+            end
+            
             ## Function ##
-
+            
             rule :function do
                 match(:def, :variable, "^", :params, "^", ":", :blocks, ";" ) {|_, a, _, b, _, _, c, _| FunctionNode.new(a, c, b)}
                 match(:def, :variable, "^", "^", ":", :blocks, ";" )          {|_, a, _, _, _, c, _| FunctionNode.new(a, c, nil)}

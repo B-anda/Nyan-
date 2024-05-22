@@ -68,6 +68,7 @@ class AssignmentNode < SyntaxTreeNode
         dataType = @datatype.eval
         value = @value.eval(scope[0])
         to_return = nil
+
         if value.is_a? ValueNode
             value = value.eval
         elsif value.is_a? Array
@@ -80,7 +81,7 @@ class AssignmentNode < SyntaxTreeNode
         elsif dataType.to_s == "boolean" && (value.class.to_s == "TrueClass" || value.class.to_s == "FalseClass")
             return scope[0].addVariable(@var, @value) 
         else
-            raise NyanTypeError.new
+            return scope[0].addVariable(@var, @value) 
         end
     end
 end
@@ -251,6 +252,7 @@ class ArrayNode < SyntaxTreeNode
 
     # evaluates and returns the array (reversed)
     def eval(*scope)
+      
         return @array.reverse()
     end
 end
@@ -279,7 +281,12 @@ class ArrayOpNode
         when :push
             variable, value = @args
             arr = scope[0].findVariable(variable).eval
-            arr.push(value.eval(scope[0]))
+
+            if value.is_a? VariableNode
+                arr.push(scope[0].findVariable(value).eval())
+            else
+                arr.push(value.eval(scope[0]))
+            end
 
             # reassign array with new values
             scope[0].addVariable(variable, ValueNode.new(arr))

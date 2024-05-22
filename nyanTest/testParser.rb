@@ -197,7 +197,9 @@ class Test_Function < Test::Unit::TestCase
     nyan = Nyan.new
     program = nyan.nyanParser.parse(
       'mao test^^:
-          meow^"hello"^
+          ?nya? ^2 < 3^:
+            meow^"hello"^
+          :3
 
           ^3^ y = 42~
           hsss 42 + 1
