@@ -266,7 +266,7 @@ class Test_Arrays < Test::Unit::TestCase
       nyan.nyanParser.parse(
       '
           ^3^ arr =[1, 2, 3]~
-          arr.push^4^
+          arr.push(4)
           meow ^arr^
       '
       )

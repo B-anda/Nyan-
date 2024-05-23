@@ -186,13 +186,20 @@ class PrintNode < SyntaxTreeNode
         temp = nil
 
         if @value.is_a? VariableNode
-            # find variable thats being printed 
-            temp = scope[0].findVariable(@value).eval(scope[0])
+            # find variable thats being printed
+            findVar = scope[0].findVariable(@value)
+            if findVar.is_a? VariableNode
+                temp = scope[0].findVariable(findVar).eval(scope[0])
+            else
+                temp = scope[0].findVariable(@value).eval(scope[0])
+            end
+            
             if temp.is_a? Array
                 temp = temp.inspect
             elsif temp.is_a? SyntaxTreeNode 
                 temp = temp.eval(scope[0])
             end
+
         else
             temp = @value.eval(scope[0]) 
             if temp.is_a? SyntaxTreeNode
@@ -272,12 +279,15 @@ class ArrayOpNode
         case @operation
         when :index
             var, index = @args
-            puts scope[0]
             array = scope[0].findVariable(var).eval
             idx = index.eval(scope[0])
 
             # return given index of array
-            return ValueNode.new(array[idx]) 
+            if array[idx].is_a? Array
+                return ValueNode.new(array[idx].inspect)
+            else
+                return ValueNode.new(array[idx]) 
+            end
             
         when :push
             variable, value = @args
@@ -303,6 +313,7 @@ class ArrayOpNode
         when :size
             variable = @args[0]
             arr = scope[0].findVariable(variable).eval
+
             # return size of array
             return ValueNode.new(arr.size)
         end

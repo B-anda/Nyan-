@@ -19,7 +19,7 @@ or with alias
 
 nyan demo.nyan 
 
-### To run the script without any command-line arguments:
+### To run the script with command-line arguments:
 ruby nyan.rb [file] | [flags]
 
 #### Flags

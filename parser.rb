@@ -128,6 +128,7 @@ class Nyan
 
             rule :values do
                 match(:value)
+                match(:array)
                 match(:variable)
             end
             

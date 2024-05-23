@@ -1,0 +1,21 @@
+^3^ x = [1,2,3]~
+meow ^x^
+meow ^"pop last element:"^
+x.pop
+meow ^x^
+
+meow ^"push int:"^
+x.push(4)
+meow ^x^
+
+meow ^"size:"^
+meow ^x.size^
+
+meow ^"-----"^
+
+meow ^"push array to array:"^
+x.push([1,2])
+meow ^x^
+
+meow ^"index:"^
+meow ^x[2]^
