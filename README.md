@@ -15,9 +15,17 @@ Nyan.rb is a Ruby script that provides a command-line interface for interacting 
 ### Usage
 ruby nyan.rb 
 
-or with alias 
+or with alias: 
 
 nyan demo.nyan 
+
+run test files:
+
+ruby nyanTest/test*
+
+run example test file in nyanTest/testFiles:
+
+ruby nyan.rb nyanTest/testFiles/<filename>.nyan
 
 ### To run the script with command-line arguments:
 ruby nyan.rb [file] | [flags]
