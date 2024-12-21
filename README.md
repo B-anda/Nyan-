@@ -1,3 +1,9 @@
+# __Developers__
+
+[Hemming Niku](https://www.linkedin.com/in/hemming-niku-652433272/)
+
+[Julia Mak](https://www.linkedin.com/in/julia-mak-0012a8206/)
+
 # HowTo
 
 ### Install Ruby
